@@ -1,0 +1,4 @@
+# signals/sources.yml
+# Registry of ingest sources. See docs/superpowers/specs/2026-05-04-moat-research-design.md §9.1.
+# Each entry must declare: id, url, cadence, rate_budget_per_min, storage_path, parser, enabled.
+sources: []
