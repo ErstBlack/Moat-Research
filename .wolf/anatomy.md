@@ -1,14 +1,14 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-04T23:23:06.137Z
-> Files: 39 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-04T23:28:16.448Z
+> Files: 40 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
 - `.pre-commit-config.yaml` (~138 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `FOCUS.md` — FOCUS (~3241 tok)
-- `WISHLIST.md` — WISHLIST (~2952 tok)
+- `WISHLIST.md` — WISHLIST (~2963 tok)
 
 ## .claude/
 
@@ -20,6 +20,7 @@
 
 ## briefs/candidates/
 
+- `07.360-20260504-njdot-511-cameras.md` — Declares on (~4571 tok)
 - `07.600-20260504-ndbc-realtime-buoys.md` — Discovery story (~3937 tok)
 
 ## briefs/graduated/

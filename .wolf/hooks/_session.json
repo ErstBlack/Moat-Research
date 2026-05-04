@@ -1,46 +1,42 @@
 {
-  "session_id": "session-2026-05-04-1918",
-  "started": "2026-05-04T23:18:11.872Z",
+  "session_id": "session-2026-05-04-1923",
+  "started": "2026-05-04T23:23:35.469Z",
   "files_read": {
-    "/home/runner/moat-research/workers/common/brief.py": {
-      "count": 1,
-      "tokens": 1462,
-      "first_read": "2026-05-04T23:18:22.099Z"
-    },
     "/home/runner/moat-research/briefs/graduated/07.221-20260504-somd-cameras.md": {
       "count": 1,
       "tokens": 3777,
-      "first_read": "2026-05-04T23:18:22.958Z"
+      "first_read": "2026-05-04T23:23:47.170Z"
     },
-    "/home/runner/moat-research/workers/promoter/promoter.py": {
+    "/home/runner/moat-research/briefs/candidates/07.600-20260504-ndbc-realtime-buoys.md": {
       "count": 1,
-      "tokens": 625,
-      "first_read": "2026-05-04T23:22:39.321Z"
+      "tokens": 3937,
+      "first_read": "2026-05-04T23:23:47.451Z"
     },
-    "/home/runner/moat-research/tests/fixtures/brief_valid_scored.md": {
+    "/home/runner/moat-research/WISHLIST.md": {
       "count": 1,
-      "tokens": 360,
-      "first_read": "2026-05-04T23:22:39.733Z"
+      "tokens": 2952,
+      "first_read": "2026-05-04T23:28:11.434Z"
     }
   },
   "files_written": [
     {
-      "file": "/home/runner/moat-research/briefs/candidates/07.600-20260504-ndbc-realtime-buoys.md",
+      "file": "/home/runner/moat-research/briefs/candidates/07.360-20260504-njdot-511-cameras.md",
       "action": "create",
-      "tokens": 4500,
-      "at": "2026-05-04T23:21:40.803Z"
+      "tokens": 5224,
+      "at": "2026-05-04T23:28:01.951Z"
     },
     {
-      "file": "/home/runner/moat-research/briefs/candidates/07.600-20260504-ndbc-realtime-buoys.md",
+      "file": "/home/runner/moat-research/WISHLIST.md",
       "action": "edit",
-      "tokens": 4,
-      "at": "2026-05-04T23:23:06.159Z"
+      "tokens": 41,
+      "at": "2026-05-04T23:28:16.470Z"
     }
   ],
   "edit_counts": {
-    "briefs/candidates/07.600-20260504-ndbc-realtime-buoys.md": 2
+    "briefs/candidates/07.360-20260504-njdot-511-cameras.md": 1,
+    "WISHLIST.md": 1
   },
-  "anatomy_hits": 4,
+  "anatomy_hits": 3,
   "anatomy_misses": 0,
   "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
