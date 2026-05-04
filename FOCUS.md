@@ -115,7 +115,9 @@ Note: system-prompt.md committed to `/home/runner/claude-runner/config/projects/
 
 ---
 
-### 3. [ ] Seed `WISHLIST.md` with 3–5 known-promising sources
+### 3. [x] Seed `WISHLIST.md` with 3–5 known-promising sources — DONE 2026-05-04
+
+Note: 4 entries added to WISHLIST.md — ndbc_realtime_buoys (Lane 1), njdot_511_cameras (Lane 1), usgs_nws_flood_fusion (Lane 3), coops_ais_coastal_fusion (Lane 3). All constraints verified via curl on 2026-05-04. Three candidates dismissed: PurpleAir and 511VA (robots.txt Disallow: *), Capitol Bikeshare GBFS (endpoint 403). Notes for the operator section added to WISHLIST.md.
 
 **Spec reference:** `docs/superpowers/specs/2026-05-04-moat-research-design.md` §7.3 (wishlist schema and lifecycle).
 
