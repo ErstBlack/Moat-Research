@@ -1,0 +1,75 @@
+# FOCUS
+
+This file is the operator's priority-override channel for `maximizer`. **Maximizer reads this file first** when it rotates to the `moat-research` project, before any other work (discovery, scoring, re-scoring, init-prompt generation, signal triage).
+
+## Rules
+
+- Items are processed **top-to-bottom, in order**. Do not skip ahead unless an item is explicitly marked `[parallel-ok]`.
+- Each item has a status checkbox: `[ ]` pending, `[~]` in-progress, `[x]` done.
+- When an item is completed, mark it `[x]` and append a one-line note (what was produced + path to artifact). Do not delete completed items in the same iteration — the next iteration may garbage-collect them.
+- An item without an explicit acceptance criterion is **not actionable**; treat it as `[ ]` blocked and surface a question rather than guessing.
+- If every actionable item is `[x]` or `[~]` and blocked, fall through to the standard synthesis menu defined in the design spec (§9.5).
+- The operator may rewrite, reorder, or remove items at any time. Maximizer must re-read `FOCUS.md` at the start of every iteration; never cache it across iterations.
+- Hard constraints from `CONSTRAINTS.md` and disqualifiers from `RUBRIC.md` apply to focus items too. A focus item that would violate them must be flagged back to the operator, not silently downgraded.
+
+## Active queue
+
+### 1. [ ] Rescore `somd-cameras` against the current rubric, before any other research
+
+**Why first:** `somd-cameras` is the archetype this project was built to find more of. Until it has been formally scored under `RUBRIC.md`, the rubric itself is unvalidated — we don't know whether the formula and weights actually rank a known-good moat highly. Rescoring it is both a correctness check on the scoring system and the production of the canonical seed/reference brief that future synthesis runs pattern-match against.
+
+**Acceptance criteria:**
+
+1. A new brief file exists at `briefs/graduated/<composite>-<yyyymmdd>-somd-cameras.md`, conforming to the frontmatter schema in the design spec §7.1.
+2. `lane: 1` (ephemeral public data), with `secondary_lanes` set if cross-source fusion or derived-artifact aspects apply.
+3. `source_signals` cites the existing `somd-cameras` repo (`/home/runner/somd-cameras/`) and at least one external reference (e.g., CHART's own published feed page, or evidence that CHART does not retain footage).
+4. All three feasibility axes are scored with **per-sub-criterion justifications grounded in observable facts** about the existing project — storage growth rate from actual disk usage, compute profile from actual stack files, buyer/pricing assumptions from explicit reasoning (not vibes). Where a sub-criterion can't be grounded, mark it `null` and note why; do not guess.
+5. `composite_score` is computed using the formula in spec §5.4 and matches the score in the filename prefix to three decimals.
+6. `disqualifiers_checked` is fully populated with `false` values *and* a one-line note for each, citing the evidence (e.g., `tos_robots_violations: false  # CHART feed page lists no robots restrictions; verified <date>`).
+7. `graduated_to: somd-cameras` is set, with a relative path or absolute reference to the project location.
+8. The markdown body below the frontmatter contains a **discovery story** (how this moat was originally noticed) and a **rubric calibration note** — does the resulting composite score feel right relative to operator intuition? If it feels too low or too high, propose specific weight or sub-criterion changes in `RUBRIC.md` rather than fudging the score.
+9. If the calibration note recommends a rubric change, do **not** apply it unilaterally — leave a follow-up focus item below this one for the operator to approve.
+
+**Out of scope for this item:** discovering new moats, scoring anything else, generating init-prompts, modifying the cameras project itself.
+
+---
+
+### 2. [ ] Bootstrap the maximizer-facing context surfaces
+
+**Why:** Until the orchestrator has a per-project preamble and `CLAUDE.md` for `moat-research`, every iteration starts cold and has to re-derive the project thesis. This is one-time setup work that unblocks everything after Item 1.
+
+**Acceptance criteria:**
+
+1. `/home/runner/claude-runner/config/projects/moat-research/system-prompt.md` exists, ≤1 KB, modeled on `cameras/system-prompt.md`. States: project thesis (one paragraph); the four hardest rules (no model calls in this repo; never auto-promote `scored→approved`; FOCUS.md is the priority override; respect rate limits / ToS / robots.txt); pointers to `RUBRIC.md`, `LANES.md`, `CONSTRAINTS.md`, `WISHLIST.md`.
+2. `/home/runner/moat-research/CLAUDE.md` exists with `@`-imports for `FOCUS.md`, `WISHLIST.md`, `RUBRIC.md`, `LANES.md`, `CONSTRAINTS.md`. The OpenWolf and RTK preludes already present in the repo are preserved.
+3. `RUBRIC.md`, `LANES.md`, `CONSTRAINTS.md` files exist at the repo root, each derived verbatim from §3–§5 of `docs/superpowers/specs/2026-05-04-moat-research-design.md`. They reference the spec section they came from at the top.
+4. Item 2 runs **after** Item 1 — the rescore in Item 1 may surface rubric calibration changes; if so, the rubric edits should be merged before §3–§5 is mirrored into `RUBRIC.md`.
+
+**Out of scope:** the workers (`promoter`, `indexer`, `init-prompt-gen`, ingestors), `stacks/moat-research.yml`, and any signal source registration. Those belong in the implementation plan, not in the bootstrap.
+
+---
+
+### 3. [ ] Seed `WISHLIST.md` with 3–5 known-promising sources
+
+**Why:** `maximizer:discover` needs real material to work against on its first organic synthesis run; an empty wishlist degenerates into pure cold-start ideation. Three to five operator-curated entries make the first pass productive.
+
+**Acceptance criteria:**
+
+1. `WISHLIST.md` contains ≥3 and ≤5 entries under `sources:`, each conforming to the schema in the file's "How to append" section.
+2. Entries span at least 2 different lanes (so the rubric isn't validated against only one shape of opportunity).
+3. Each entry has a non-trivial `why_interesting` (not "looks cool") and a `known_constraints` that has actually been checked, not guessed (operator may use WebFetch / WebSearch to verify before appending).
+4. No entry violates a hard constraint from `CONSTRAINTS.md`. If any candidate did, that candidate is dismissed in a one-line entry under `## Notes for the operator` of `WISHLIST.md` rather than silently dropped.
+5. Item 3 runs **after** Item 2 — `WISHLIST.md` should exist as a real interface before being seeded.
+
+**Out of scope:** scoring these sources, turning them into briefs, registering them in `signals/sources.yml`. Those happen later, organically.
+
+---
+
+## Recently completed
+
+*(empty — populated as items are finished and before garbage collection in subsequent iterations)*
+
+## Notes for the operator
+
+- `FOCUS.md` is meant to be terse. If a focus item needs more than a few paragraphs of context, link to a doc under `docs/` rather than inlining it here.
+- Treat this file like a sticky-note pad on top of the project. Long-running themes belong in the design spec; short-lived priorities belong here.

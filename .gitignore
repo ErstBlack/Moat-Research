@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# uv
+.python-version
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+
+# Local data — must NEVER be committed
+signals/raw/*
+!signals/raw/.gitkeep
+signals/digests/*
+!signals/digests/.gitkeep
+
+# Generated
+briefs/index.json
