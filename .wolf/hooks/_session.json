@@ -1,42 +1,25 @@
 {
-  "session_id": "session-2026-05-04-1923",
-  "started": "2026-05-04T23:23:35.469Z",
+  "session_id": "session-2026-05-04-1928",
+  "started": "2026-05-04T23:28:38.873Z",
   "files_read": {
-    "/home/runner/moat-research/briefs/graduated/07.221-20260504-somd-cameras.md": {
-      "count": 1,
-      "tokens": 3777,
-      "first_read": "2026-05-04T23:23:47.170Z"
-    },
     "/home/runner/moat-research/briefs/candidates/07.600-20260504-ndbc-realtime-buoys.md": {
       "count": 1,
       "tokens": 3937,
-      "first_read": "2026-05-04T23:23:47.451Z"
-    },
-    "/home/runner/moat-research/WISHLIST.md": {
-      "count": 1,
-      "tokens": 2952,
-      "first_read": "2026-05-04T23:28:11.434Z"
+      "first_read": "2026-05-04T23:28:52.117Z"
     }
   },
   "files_written": [
     {
-      "file": "/home/runner/moat-research/briefs/candidates/07.360-20260504-njdot-511-cameras.md",
+      "file": "/home/runner/moat-research/briefs/candidates/07.771-20260504-usgs-nws-flood-fusion.md",
       "action": "create",
-      "tokens": 5224,
-      "at": "2026-05-04T23:28:01.951Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 41,
-      "at": "2026-05-04T23:28:16.470Z"
+      "tokens": 7241,
+      "at": "2026-05-04T23:33:34.390Z"
     }
   ],
   "edit_counts": {
-    "briefs/candidates/07.360-20260504-njdot-511-cameras.md": 1,
-    "WISHLIST.md": 1
+    "briefs/candidates/07.771-20260504-usgs-nws-flood-fusion.md": 1
   },
-  "anatomy_hits": 3,
+  "anatomy_hits": 1,
   "anatomy_misses": 0,
   "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,

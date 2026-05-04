@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-04T03:13:41.850Z",
   "lifetime": {
-    "total_tokens_estimated": 87485,
-    "total_reads": 30,
-    "total_writes": 84,
-    "total_sessions": 31,
-    "anatomy_hits": 16,
+    "total_tokens_estimated": 98663,
+    "total_reads": 31,
+    "total_writes": 85,
+    "total_sessions": 32,
+    "anatomy_hits": 17,
     "anatomy_misses": 14,
     "repeated_reads_blocked": 25,
-    "estimated_savings_vs_bare_cli": 18274
+    "estimated_savings_vs_bare_cli": 18474
   },
   "sessions": [
     {
@@ -762,6 +762,34 @@
         "writes_count": 2,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 3
+      }
+    },
+    {
+      "id": "session-2026-05-04-1928",
+      "started": "2026-05-04T23:28:38.873Z",
+      "ended": "2026-05-04T23:34:17.169Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/07.600-20260504-ndbc-realtime-buoys.md",
+          "tokens_estimated": 3937,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/07.771-20260504-usgs-nws-flood-fusion.md",
+          "tokens_estimated": 7241,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 3937,
+        "output_tokens_estimated": 7241,
+        "reads_count": 1,
+        "writes_count": 1,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
       }
     }
   ],
