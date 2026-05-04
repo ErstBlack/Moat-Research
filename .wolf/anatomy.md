@@ -1,13 +1,13 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-04T23:01:38.436Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-04T23:02:57.413Z
 > Files: 38 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
 - `.pre-commit-config.yaml` (~138 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
-- `FOCUS.md` — FOCUS (~3357 tok)
+- `FOCUS.md` — FOCUS (~3241 tok)
 - `WISHLIST.md` — WISHLIST (~2952 tok)
 
 ## .claude/

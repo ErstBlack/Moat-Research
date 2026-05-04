@@ -1,4 +1,21 @@
 {
   "version": 1,
-  "bugs": []
+  "bugs": [
+    {
+      "id": "bug-001",
+      "timestamp": "2026-05-04T23:02:53.490Z",
+      "error_message": "Incorrect value in code",
+      "file": "FOCUS.md",
+      "root_cause": "Had `/home/runner/claude-runner/config/projects/moat/`",
+      "fix": "Changed to `/home/runner/claude-runner/config/projects/moat/s",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-04T23:02:53.490Z"
+    }
+  ]
 }
