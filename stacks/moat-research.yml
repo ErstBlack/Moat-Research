@@ -1,0 +1,88 @@
+# Single-node Docker swarm stack for moat-research workers.
+# Deploy with: docker stack deploy -c stacks/moat-research.yml moat-research
+
+version: "3.8"
+
+x-common-labels: &common_labels
+  project: moat-research
+  managed-by: docker-swarm
+
+services:
+  coordinator:
+    image: moat/coordinator:dev
+    networks: [moat]
+    volumes:
+      - type: bind
+        source: ../signals/sources.yml
+        target: /app/signals/sources.yml
+        read_only: true
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 128M
+      labels:
+        <<: *common_labels
+        service: coordinator
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/token?source_id=__healthcheck__', timeout=2)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  promoter:
+    image: moat/promoter:dev
+    networks: [moat]
+    volumes:
+      - type: bind
+        source: ../briefs
+        target: /app/briefs
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 128M
+      labels:
+        <<: *common_labels
+        service: promoter
+
+  indexer:
+    image: moat/indexer:dev
+    networks: [moat]
+    volumes:
+      - type: bind
+        source: ../briefs
+        target: /app/briefs
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 128M
+      labels:
+        <<: *common_labels
+        service: indexer
+
+  init-prompt-gen:
+    image: moat/init-prompt-gen:dev
+    networks: [moat]
+    volumes:
+      - type: bind
+        source: ../briefs
+        target: /app/briefs
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 128M
+      labels:
+        <<: *common_labels
+        service: init-prompt-gen
+
+networks:
+  moat:
+    driver: overlay
+    attachable: true
