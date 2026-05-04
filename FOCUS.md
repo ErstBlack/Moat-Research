@@ -96,7 +96,9 @@ Note: Brief written to `briefs/graduated/07.221-20260504-somd-cameras.md`. Compo
 
 ---
 
-### 2. [ ] Bootstrap the maximizer-facing context surfaces
+### 2. [x] Bootstrap the maximizer-facing context surfaces — DONE 2026-05-04
+
+Note: system-prompt.md committed to `/home/runner/claude-runner/config/projects/moat/` (directory named `moat` not `moat-research` per actual config structure); 684B, under 1 KB limit. CLAUDE.md already has @-imports; RUBRIC.md, LANES.md, CONSTRAINTS.md present at repo root.
 
 **Spec reference:** `docs/superpowers/specs/2026-05-04-moat-research-design.md` §9.6 (how the overall concept reaches maximizer), §12 (seeding).
 
@@ -104,10 +106,10 @@ Note: Brief written to `briefs/graduated/07.221-20260504-somd-cameras.md`. Compo
 
 **Acceptance criteria:**
 
-1. `/home/runner/claude-runner/config/projects/moat-research/system-prompt.md` exists, ≤1 KB, modeled on `cameras/system-prompt.md`. States: project thesis (one paragraph); the four hardest rules (no model calls in this repo; never auto-promote `scored→approved`; FOCUS.md is the priority override; respect rate limits / ToS / robots.txt); pointers to `RUBRIC.md`, `LANES.md`, `CONSTRAINTS.md`, `WISHLIST.md`.
-2. `/home/runner/moat-research/CLAUDE.md` exists with `@`-imports for `FOCUS.md`, `WISHLIST.md`, `RUBRIC.md`, `LANES.md`, `CONSTRAINTS.md`. The OpenWolf and RTK preludes already present in the repo are preserved.
-3. `RUBRIC.md`, `LANES.md`, `CONSTRAINTS.md` files exist at the repo root, each derived verbatim from §3–§5 of `docs/superpowers/specs/2026-05-04-moat-research-design.md`. They reference the spec section they came from at the top.
-4. Item 2 runs **after** Item 1 — the rescore in Item 1 may surface rubric calibration changes; if so, the rubric edits should be merged before §3–§5 is mirrored into `RUBRIC.md`.
+1. ✓ `/home/runner/claude-runner/config/projects/moat/system-prompt.md` exists (684B, <1 KB), modeled on `cameras/system-prompt.md`. States: project thesis (one paragraph); the four hardest rules (no model calls in this repo; never auto-promote `scored→approved`; FOCUS.md is the priority override; respect rate limits / ToS / robots.txt); pointers to `RUBRIC.md`, `LANES.md`, `CONSTRAINTS.md`, `WISHLIST.md`.
+2. ✓ `/home/runner/moat-research/CLAUDE.md` exists with `@`-imports for `FOCUS.md`, `WISHLIST.md`, `RUBRIC.md`, `LANES.md`, `CONSTRAINTS.md`. The OpenWolf and RTK preludes already present in the repo are preserved.
+3. ✓ `RUBRIC.md`, `LANES.md`, `CONSTRAINTS.md` files exist at the repo root, each derived verbatim from §3–§5 of `docs/superpowers/specs/2026-05-04-moat-research-design.md`. They reference the spec section they came from at the top.
+4. ✓ Item 2 runs **after** Item 1 — the rescore in Item 1 may surface rubric calibration changes; if so, the rubric edits should be merged before §3–§5 is mirrored into `RUBRIC.md`.
 
 **Out of scope:** the workers (`promoter`, `indexer`, `init-prompt-gen`, ingestors), `stacks/moat-research.yml`, and any signal source registration. Those belong in the implementation plan, not in the bootstrap.
 
