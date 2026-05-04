@@ -3,11 +3,11 @@
   "created_at": "2026-05-04T03:13:41.850Z",
   "lifetime": {
     "total_tokens_estimated": 60826,
-    "total_reads": 19,
+    "total_reads": 23,
     "total_writes": 80,
-    "total_sessions": 24,
+    "total_sessions": 26,
     "anatomy_hits": 9,
-    "anatomy_misses": 10,
+    "anatomy_misses": 14,
     "repeated_reads_blocked": 25,
     "estimated_savings_vs_bare_cli": 16874
   },
@@ -626,6 +626,46 @@
         "writes_count": 2,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-04-1906",
+      "started": "2026-05-04T23:06:45.997Z",
+      "ended": "2026-05-04T23:07:45.297Z",
+      "reads": [
+        {
+          "file": "/home/runner/.maximizer/projects/moat/runs/20260504T224739Z-ce9f15/review.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/.maximizer/projects/moat/runs/20260504T224739Z-ce9f15/iteration.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/.wolf",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/.gitignore",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 4,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
       }
     }
   ],
