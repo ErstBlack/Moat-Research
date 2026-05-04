@@ -3,6 +3,13 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+## 2026-05-04 (T3 — usgs_nws_flood_fusion scoring)
+
+- Created `briefs/candidates/07.771-20260504-usgs-nws-flood-fusion.md` — Lane 3 cross-source fusion.
+- Composite 7.771 (financial 6.833, implementation 7.75, hardware 9.25).
+- Pivoted from api.weather.gov to NCEI bulk CSV path to resolve robots.txt Disallow: / ambiguity.
+- One open disqualifier: ncei.noaa.gov/robots.txt not independently fetched; must verify before promoting to approved.
+
 ## Session: 2026-05-04 06:05
 
 | Time | Action | File(s) | Outcome | ~Tokens |
@@ -213,3 +220,9 @@
 | 19:28 | Created briefs/candidates/07.360-20260504-njdot-511-cameras.md | — | ~4876 |
 | 19:28 | Edited WISHLIST.md | 5→5 lines | ~39 |
 | 19:28 | Session end: 2 writes across 2 files (07.360-20260504-njdot-511-cameras.md, WISHLIST.md) | 3 reads | ~15931 tok |
+
+## Session: 2026-05-04 19:28
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 19:33 | Created briefs/candidates/07.771-20260504-usgs-nws-flood-fusion.md | — | ~6759 |

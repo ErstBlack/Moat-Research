@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-04T23:28:16.448Z
-> Files: 40 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-04T23:33:34.370Z
+> Files: 41 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -22,6 +22,7 @@
 
 - `07.360-20260504-njdot-511-cameras.md` — Declares on (~4571 tok)
 - `07.600-20260504-ndbc-realtime-buoys.md` — Discovery story (~3937 tok)
+- `07.771-20260504-usgs-nws-flood-fusion.md` — Lane 3 cross-source fusion: USGS gauge × NWS storm events. Composite 7.771. NCEI CSV path selected over api.weather.gov. (~6336 tok)
 
 ## briefs/graduated/
 
