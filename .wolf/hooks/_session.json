@@ -1,32 +1,11 @@
 {
-  "session_id": "session-2026-05-04-1906",
-  "started": "2026-05-04T23:06:45.997Z",
-  "files_read": {
-    "/home/runner/.maximizer/projects/moat/runs/20260504T224739Z-ce9f15/review.json": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-05-04T23:06:54.936Z"
-    },
-    "/home/runner/.maximizer/projects/moat/runs/20260504T224739Z-ce9f15/iteration.json": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-05-04T23:06:55.012Z"
-    },
-    "/home/runner/moat-research/.wolf": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-05-04T23:06:57.913Z"
-    },
-    "/home/runner/moat-research/.gitignore": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-05-04T23:07:22.150Z"
-    }
-  },
+  "session_id": "session-2026-05-04-1907",
+  "started": "2026-05-04T23:07:47.196Z",
+  "files_read": {},
   "files_written": [],
   "edit_counts": {},
   "anatomy_hits": 0,
-  "anatomy_misses": 4,
+  "anatomy_misses": 0,
   "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
   "stop_count": 1
