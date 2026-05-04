@@ -98,7 +98,7 @@ Note: Brief written to `briefs/graduated/07.221-20260504-somd-cameras.md`. Compo
 
 ### 2. [x] Bootstrap the maximizer-facing context surfaces — DONE 2026-05-04
 
-Note: system-prompt.md committed to `/home/runner/claude-runner/config/projects/moat/` (directory named `moat` not `moat-research` per actual config structure); 684B, under 1 KB limit. CLAUDE.md already has @-imports; RUBRIC.md, LANES.md, CONSTRAINTS.md present at repo root.
+Note: system-prompt.md at `/home/runner/claude-runner/config/projects/moat/system-prompt.md` (commit d28a8a2).
 
 **Spec reference:** `docs/superpowers/specs/2026-05-04-moat-research-design.md` §9.6 (how the overall concept reaches maximizer), §12 (seeding).
 
@@ -117,7 +117,7 @@ Note: system-prompt.md committed to `/home/runner/claude-runner/config/projects/
 
 ### 3. [x] Seed `WISHLIST.md` with 3–5 known-promising sources — DONE 2026-05-04
 
-Note: 4 entries added to WISHLIST.md — ndbc_realtime_buoys (Lane 1), njdot_511_cameras (Lane 1), usgs_nws_flood_fusion (Lane 3), coops_ais_coastal_fusion (Lane 3). All constraints verified via curl on 2026-05-04. Three candidates dismissed: PurpleAir and 511VA (robots.txt Disallow: *), Capitol Bikeshare GBFS (endpoint 403). Notes for the operator section added to WISHLIST.md.
+Note: 4 entries in WISHLIST.md spanning lanes 1 (2 entries) and 3 (2 entries).
 
 **Spec reference:** `docs/superpowers/specs/2026-05-04-moat-research-design.md` §7.3 (wishlist schema and lifecycle).
 
