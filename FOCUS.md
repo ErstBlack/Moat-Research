@@ -14,6 +14,50 @@ This file is the operator's priority-override channel for `maximizer`. **Maximiz
 
 ## Active queue
 
+### 0. [~] Finish the moat-research implementation (Tasks 5–17) — DO THIS BEFORE EVERYTHING ELSE
+
+**Why first:** The project is partially scaffolded but the workers do not yet exist. Items 1–3 below assume a working corpus + worker stack — rescoring somd-cameras requires the brief schema, score formula, and filename convention from `workers/common/brief.py`. Until Tasks 5–17 of the implementation plan are complete, no synthesis work can produce a properly-formatted graduated brief.
+
+**Where things were left off (state at 2026-05-04):**
+
+- **Implementation plan**: `docs/superpowers/plans/2026-05-04-moat-research-implementation.md` (17 tasks).
+- **Tasks 1–4 complete**:
+  - T1 — git repo init + `pyproject.toml`/`uv` setup (commit `2c3221f`).
+  - T2 — canonical docs `RUBRIC.md`, `LANES.md`, `CONSTRAINTS.md`, `SEED_NOTES.md`, `README.md`, `CLAUDE.md` (commit `9f75f74`). Pre-existing OpenWolf/RTK `CLAUDE.md` was overwritten on purpose.
+  - T3 — directory skeleton: `briefs/{candidates,scored,rejected,approved,graduated}/.gitkeep`, `signals/{raw,digests}/.gitkeep`, `signals/sources.yml` (empty list), all worker package `__init__.py` files (commit `7e94bea`).
+  - T4 — per-project orchestrator preamble at `/home/runner/claude-runner/config/projects/moat-research/system-prompt.md` (committed in the **claude-runner** repo, not here; tightened to ~1156 B in a follow-up commit).
+- **Tasks 5–17 outstanding**, in order:
+  - T5 `workers/common/brief.py` — `composite_score()` (TDD). **This is where execution stopped.**
+  - T6 — filename `format_score_prefix` / `filename_for` / `parse_score_prefix` (TDD).
+  - T7 — Brief dataclass + `parse_brief` / `write_brief` / `failed_axis` + fixtures (TDD).
+  - T8 — promoter worker (`scored → rejected` on any-axis-zero, quarantine on parse fail).
+  - T9 — indexer worker (`briefs/index.json` regenerator).
+  - T10 — init-prompt-gen worker + `template.md`.
+  - T11 — coordinator (token-bucket throttle HTTP service).
+  - T12 — `BaseIngestor` + `ThrottleClient` contract test.
+  - T13 — `scripts/politeness_lint.py`.
+  - T14 — end-to-end lifecycle integration test (and an indexer patch to skip `.init-prompt.md` artifacts).
+  - T15 — Dockerfiles for the 4 workers + ingest base.
+  - T16 — `stacks/moat-research.yml` (single-node swarm stack).
+  - T17 — `.pre-commit-config.yaml` wiring lint + pytest, full smoke test.
+- **Git state of moat-research**: branch `main`, 3 commits as above. No worktrees, no branches off main, no uncommitted work. Existing untracked dirs (`.claude/`, `.rtk/`, `.wolf/`) are scaffolding from other tools and remain intentionally untracked.
+- **Git state of claude-runner**: `config/projects/moat-research/system-prompt.md` registered (2 commits — initial + tightening). No further changes pending.
+- **Execution mode used so far**: subagent-driven development (`superpowers:subagent-driven-development`) with implementer → spec reviewer → (code quality reviewer when surface > pure prose) → next task. Resume with the same flow.
+
+**Acceptance criteria:**
+
+1. All 17 tasks of the implementation plan are checked off and committed to `main` of `/home/runner/moat-research`.
+2. `cd /home/runner/moat-research && uv run pytest -v` passes (unit + integration).
+3. `uv run python scripts/politeness_lint.py signals/sources.yml` exits `0` with the empty registry.
+4. `docker stack config -c stacks/moat-research.yml` validates without error.
+5. The five Dockerfiles (`promoter`, `indexer`, `init_prompt_gen`, `coordinator`, `ingest/Dockerfile.base`) all build cleanly.
+6. `.pre-commit-config.yaml` is in place and `uv run pre-commit run --all-files` passes.
+7. `git status` is clean (modulo the always-untracked scaffolding dirs).
+
+**Out of scope for this item:** producing the somd-cameras brief, seeding the wishlist, registering any concrete ingest sources. Those are Items 1, 2 (now 3 below), and 3 (now 4) — they execute *after* this is done.
+
+---
+
 ### 1. [ ] Rescore `somd-cameras` against the current rubric, before any other research
 
 **Why first:** `somd-cameras` is the archetype this project was built to find more of. Until it has been formally scored under `RUBRIC.md`, the rubric itself is unvalidated — we don't know whether the formula and weights actually rank a known-good moat highly. Rescoring it is both a correctness check on the scoring system and the production of the canonical seed/reference brief that future synthesis runs pattern-match against.
