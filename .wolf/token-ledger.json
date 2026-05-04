@@ -2,16 +2,510 @@
   "version": 1,
   "created_at": "2026-05-04T03:13:41.850Z",
   "lifetime": {
-    "total_tokens_estimated": 0,
-    "total_reads": 0,
-    "total_writes": 0,
-    "total_sessions": 11,
-    "anatomy_hits": 0,
-    "anatomy_misses": 0,
-    "repeated_reads_blocked": 0,
-    "estimated_savings_vs_bare_cli": 0
+    "total_tokens_estimated": 44311,
+    "total_reads": 12,
+    "total_writes": 74,
+    "total_sessions": 21,
+    "anatomy_hits": 4,
+    "anatomy_misses": 8,
+    "repeated_reads_blocked": 21,
+    "estimated_savings_vs_bare_cli": 3862
   },
-  "sessions": [],
+  "sessions": [
+    {
+      "id": "session-2026-05-04-1813",
+      "started": "2026-05-04T22:13:35.675Z",
+      "ended": "2026-05-04T22:23:28.917Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/tests/unit/test_brief.py",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-04-moat-research-implementation.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/workers/common/brief.py",
+          "tokens_estimated": 732,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/unit/test_brief.py",
+          "tokens_estimated": 658,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/fixtures/brief_valid_scored.md",
+          "tokens_estimated": 412,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/fixtures/brief_zero_financial.md",
+          "tokens_estimated": 411,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/fixtures/brief_zero_implementation.md",
+          "tokens_estimated": 411,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/fixtures/brief_zero_hardware.md",
+          "tokens_estimated": 411,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/fixtures/brief_candidate_unscored.md",
+          "tokens_estimated": 168,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/fixtures/brief_approved.md",
+          "tokens_estimated": 412,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/common/brief.py",
+          "tokens_estimated": 672,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/unit/test_brief.py",
+          "tokens_estimated": 814,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/unit/test_promoter.py",
+          "tokens_estimated": 828,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/promoter/promoter.py",
+          "tokens_estimated": 625,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/unit/test_indexer.py",
+          "tokens_estimated": 810,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/indexer/indexer.py",
+          "tokens_estimated": 530,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/template.md",
+          "tokens_estimated": 806,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/unit/test_init_prompt_gen.py",
+          "tokens_estimated": 528,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/init_prompt_gen.py",
+          "tokens_estimated": 932,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/unit/test_coordinator.py",
+          "tokens_estimated": 518,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/coordinator/coordinator.py",
+          "tokens_estimated": 956,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/common/throttle.py",
+          "tokens_estimated": 349,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/ingest/base.py",
+          "tokens_estimated": 893,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/unit/test_ingest_base.py",
+          "tokens_estimated": 895,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/fixtures/sources_clean.yml",
+          "tokens_estimated": 54,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/fixtures/sources_missing_rate_budget.yml",
+          "tokens_estimated": 46,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/scripts/politeness_lint.py",
+          "tokens_estimated": 555,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/unit/test_politeness_lint.py",
+          "tokens_estimated": 680,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/integration/test_lifecycle.py",
+          "tokens_estimated": 845,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/common/brief.py",
+          "tokens_estimated": 188,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/promoter/Dockerfile",
+          "tokens_estimated": 74,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/indexer/Dockerfile",
+          "tokens_estimated": 73,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/Dockerfile",
+          "tokens_estimated": 82,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/coordinator/Dockerfile",
+          "tokens_estimated": 74,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/ingest/Dockerfile.base",
+          "tokens_estimated": 80,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/stacks/moat-research.yml",
+          "tokens_estimated": 546,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/.pre-commit-config.yaml",
+          "tokens_estimated": 138,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 87,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 17293,
+        "reads_count": 2,
+        "writes_count": 36,
+        "repeated_reads_blocked": 10,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-05-04-1813",
+      "started": "2026-05-04T22:13:35.675Z",
+      "ended": "2026-05-04T22:32:31.491Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/tests/unit/test_brief.py",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-04-moat-research-implementation.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/workers/common/brief.py",
+          "tokens_estimated": 732,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/unit/test_brief.py",
+          "tokens_estimated": 658,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/fixtures/brief_valid_scored.md",
+          "tokens_estimated": 412,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/fixtures/brief_zero_financial.md",
+          "tokens_estimated": 411,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/fixtures/brief_zero_implementation.md",
+          "tokens_estimated": 411,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/fixtures/brief_zero_hardware.md",
+          "tokens_estimated": 411,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/fixtures/brief_candidate_unscored.md",
+          "tokens_estimated": 168,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/fixtures/brief_approved.md",
+          "tokens_estimated": 412,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/common/brief.py",
+          "tokens_estimated": 672,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/unit/test_brief.py",
+          "tokens_estimated": 814,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/unit/test_promoter.py",
+          "tokens_estimated": 828,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/promoter/promoter.py",
+          "tokens_estimated": 625,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/unit/test_indexer.py",
+          "tokens_estimated": 810,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/indexer/indexer.py",
+          "tokens_estimated": 530,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/template.md",
+          "tokens_estimated": 806,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/unit/test_init_prompt_gen.py",
+          "tokens_estimated": 528,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/init_prompt_gen.py",
+          "tokens_estimated": 932,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/unit/test_coordinator.py",
+          "tokens_estimated": 518,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/coordinator/coordinator.py",
+          "tokens_estimated": 956,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/common/throttle.py",
+          "tokens_estimated": 349,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/ingest/base.py",
+          "tokens_estimated": 893,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/unit/test_ingest_base.py",
+          "tokens_estimated": 895,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/fixtures/sources_clean.yml",
+          "tokens_estimated": 54,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/fixtures/sources_missing_rate_budget.yml",
+          "tokens_estimated": 46,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/scripts/politeness_lint.py",
+          "tokens_estimated": 555,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/unit/test_politeness_lint.py",
+          "tokens_estimated": 680,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/tests/integration/test_lifecycle.py",
+          "tokens_estimated": 845,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/common/brief.py",
+          "tokens_estimated": 188,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/promoter/Dockerfile",
+          "tokens_estimated": 74,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/indexer/Dockerfile",
+          "tokens_estimated": 73,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/Dockerfile",
+          "tokens_estimated": 82,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/coordinator/Dockerfile",
+          "tokens_estimated": 74,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/ingest/Dockerfile.base",
+          "tokens_estimated": 80,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/stacks/moat-research.yml",
+          "tokens_estimated": 546,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/.pre-commit-config.yaml",
+          "tokens_estimated": 138,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 87,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 17293,
+        "reads_count": 2,
+        "writes_count": 36,
+        "repeated_reads_blocked": 10,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-05-04-1832",
+      "started": "2026-05-04T22:32:45.871Z",
+      "ended": "2026-05-04T22:40:33.531Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/workers/common/brief.py",
+          "tokens_estimated": 1462,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/tests/fixtures/brief_valid_scored.md",
+          "tokens_estimated": 360,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/tests/fixtures/brief_approved.md",
+          "tokens_estimated": 361,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/somd-cameras/SUMMARY.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/somd-cameras/cameras.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/somd-cameras/chart-storage.yml",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 3062,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/briefs/graduated/07.221-20260504-somd-cameras.md",
+          "tokens_estimated": 4317,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 163,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 5245,
+        "output_tokens_estimated": 4480,
+        "reads_count": 8,
+        "writes_count": 2,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 4
+      }
+    }
+  ],
   "daemon_usage": [],
   "waste_flags": [],
   "optimization_report": {

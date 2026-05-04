@@ -57,3 +57,94 @@
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+
+## Session: 2026-05-04 06:11
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-04 06:12
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-04 18:56
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-04 18:11
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-04 18:11
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-04 18:13
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 18:15 | Created workers/common/brief.py | — | ~732 |
+| 18:16 | Edited tests/unit/test_brief.py | modified test_rejects_above_ten() | ~658 |
+| 18:16 | Created tests/fixtures/brief_valid_scored.md | — | ~384 |
+| 18:16 | Created tests/fixtures/brief_zero_financial.md | — | ~384 |
+| 18:16 | Created tests/fixtures/brief_zero_implementation.md | — | ~384 |
+| 18:16 | Created tests/fixtures/brief_zero_hardware.md | — | ~383 |
+| 18:16 | Created tests/fixtures/brief_candidate_unscored.md | — | ~156 |
+| 18:17 | Created tests/fixtures/brief_approved.md | — | ~385 |
+| 18:17 | Edited workers/common/brief.py | modified parse_brief() | ~672 |
+| 18:17 | Edited tests/unit/test_brief.py | modified test_natural_sort_order() | ~814 |
+| 18:18 | Created tests/unit/test_promoter.py | — | ~828 |
+| 18:18 | Created workers/promoter/promoter.py | — | ~625 |
+| 18:18 | Created tests/unit/test_indexer.py | — | ~810 |
+| 18:18 | Created workers/indexer/indexer.py | — | ~530 |
+| 18:19 | Created workers/init_prompt_gen/template.md | — | ~752 |
+| 18:19 | Created tests/unit/test_init_prompt_gen.py | — | ~528 |
+| 18:19 | Created workers/init_prompt_gen/init_prompt_gen.py | — | ~932 |
+| 18:19 | Created tests/unit/test_coordinator.py | — | ~518 |
+| 18:19 | Created workers/coordinator/coordinator.py | — | ~956 |
+| 18:20 | Created workers/common/throttle.py | — | ~349 |
+| 18:20 | Created workers/ingest/base.py | — | ~893 |
+| 18:20 | Created tests/unit/test_ingest_base.py | — | ~895 |
+| 18:20 | Created tests/fixtures/sources_clean.yml | — | ~54 |
+| 18:20 | Created tests/fixtures/sources_missing_rate_budget.yml | — | ~46 |
+| 18:20 | Created scripts/politeness_lint.py | — | ~555 |
+| 18:21 | Created tests/unit/test_politeness_lint.py | — | ~680 |
+| 18:21 | Created tests/integration/test_lifecycle.py | — | ~845 |
+| 18:21 | Edited workers/common/brief.py | modified parse_brief() | ~188 |
+| 18:22 | Created workers/promoter/Dockerfile | — | ~70 |
+| 18:22 | Created workers/indexer/Dockerfile | — | ~68 |
+| 18:22 | Created workers/init_prompt_gen/Dockerfile | — | ~77 |
+| 18:22 | Created workers/coordinator/Dockerfile | — | ~70 |
+| 18:22 | Created workers/ingest/Dockerfile.base | — | ~75 |
+| 18:22 | Created stacks/moat-research.yml | — | ~546 |
+| 18:22 | Created .pre-commit-config.yaml | — | ~138 |
+| 18:23 | Edited FOCUS.md | 1→5 lines | ~82 |
+| 18:23 | Session end: 36 writes across 30 files (brief.py, test_brief.py, brief_valid_scored.md, brief_zero_financial.md, brief_zero_implementation.md) | 2 reads | ~17293 tok |
+| 18:32 | Session end: 36 writes across 30 files (brief.py, test_brief.py, brief_valid_scored.md, brief_zero_financial.md, brief_zero_implementation.md) | 2 reads | ~17293 tok |
+
+## Session: 2026-05-04 18:32
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 18:38 | Created briefs/graduated/07.221-20260504-somd-cameras.md | — | ~4029 |
+| 18:39 | Edited FOCUS.md | 1→3 lines | ~152 |
+| 18:40 | Session end: 2 writes across 2 files (07.221-20260504-somd-cameras.md, FOCUS.md) | 8 reads | ~9725 tok |
+
+## Session: 2026-05-04 18:47
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-04 18:47
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-04 18:48
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
