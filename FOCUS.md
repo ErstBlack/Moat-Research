@@ -21,7 +21,11 @@ Read these before acting on any focus item:
 
 ## Active queue
 
-### 0. [~] Finish the moat-research implementation (Tasks 5–17) — DO THIS BEFORE EVERYTHING ELSE
+### 0. [x] Finish the moat-research implementation (Tasks 5–17) — DONE 2026-05-04
+
+Note: Tasks 5–17 implemented and committed on branch `maximizer/moat/20260504T061153Z-8c8eb4`. All 65 tests pass; pre-commit hooks green; politeness lint exits 0; docker stack config validates. Ready to merge to master.
+
+
 
 **Plan:** `docs/superpowers/plans/2026-05-04-moat-research-implementation.md`
 **Spec:** `docs/superpowers/specs/2026-05-04-moat-research-design.md`
