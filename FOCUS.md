@@ -12,9 +12,19 @@ This file is the operator's priority-override channel for `maximizer`. **Maximiz
 - The operator may rewrite, reorder, or remove items at any time. Maximizer must re-read `FOCUS.md` at the start of every iteration; never cache it across iterations.
 - Hard constraints from `CONSTRAINTS.md` and disqualifiers from `RUBRIC.md` apply to focus items too. A focus item that would violate them must be flagged back to the operator, not silently downgraded.
 
+## Key documents
+
+Read these before acting on any focus item:
+
+- **Design spec** — `docs/superpowers/specs/2026-05-04-moat-research-design.md` — full architecture, lifecycle, rubric, file format, component design.
+- **Implementation plan** — `docs/superpowers/plans/2026-05-04-moat-research-implementation.md` — 17 task plan with TDD steps, file structure, and self-review checklist. Source of truth for Item 0 below.
+
 ## Active queue
 
 ### 0. [~] Finish the moat-research implementation (Tasks 5–17) — DO THIS BEFORE EVERYTHING ELSE
+
+**Plan:** `docs/superpowers/plans/2026-05-04-moat-research-implementation.md`
+**Spec:** `docs/superpowers/specs/2026-05-04-moat-research-design.md`
 
 **Why first:** The project is partially scaffolded but the workers do not yet exist. Items 1–3 below assume a working corpus + worker stack — rescoring somd-cameras requires the brief schema, score formula, and filename convention from `workers/common/brief.py`. Until Tasks 5–17 of the implementation plan are complete, no synthesis work can produce a properly-formatted graduated brief.
 
@@ -60,6 +70,8 @@ This file is the operator's priority-override channel for `maximizer`. **Maximiz
 
 ### 1. [ ] Rescore `somd-cameras` against the current rubric, before any other research
 
+**Spec reference:** `docs/superpowers/specs/2026-05-04-moat-research-design.md` §5 (rubric), §7.1 (brief schema), §12 (seeding).
+
 **Why first:** `somd-cameras` is the archetype this project was built to find more of. Until it has been formally scored under `RUBRIC.md`, the rubric itself is unvalidated — we don't know whether the formula and weights actually rank a known-good moat highly. Rescoring it is both a correctness check on the scoring system and the production of the canonical seed/reference brief that future synthesis runs pattern-match against.
 
 **Acceptance criteria:**
@@ -80,6 +92,8 @@ This file is the operator's priority-override channel for `maximizer`. **Maximiz
 
 ### 2. [ ] Bootstrap the maximizer-facing context surfaces
 
+**Spec reference:** `docs/superpowers/specs/2026-05-04-moat-research-design.md` §9.6 (how the overall concept reaches maximizer), §12 (seeding).
+
 **Why:** Until the orchestrator has a per-project preamble and `CLAUDE.md` for `moat-research`, every iteration starts cold and has to re-derive the project thesis. This is one-time setup work that unblocks everything after Item 1.
 
 **Acceptance criteria:**
@@ -94,6 +108,8 @@ This file is the operator's priority-override channel for `maximizer`. **Maximiz
 ---
 
 ### 3. [ ] Seed `WISHLIST.md` with 3–5 known-promising sources
+
+**Spec reference:** `docs/superpowers/specs/2026-05-04-moat-research-design.md` §7.3 (wishlist schema and lifecycle).
 
 **Why:** `maximizer:discover` needs real material to work against on its first organic synthesis run; an empty wishlist degenerates into pure cold-start ideation. Three to five operator-curated entries make the first pass productive.
 
