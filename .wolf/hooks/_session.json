@@ -1,44 +1,18 @@
 {
-  "session_id": "session-2026-05-04-1934",
-  "started": "2026-05-04T23:34:19.466Z",
+  "session_id": "session-2026-05-04-1935",
+  "started": "2026-05-04T23:35:48.381Z",
   "files_read": {
-    "/home/runner/moat-research/WISHLIST.md": {
+    "/home/runner/moat-research/.pre-commit-config.yaml": {
       "count": 1,
-      "tokens": 2963,
-      "first_read": "2026-05-04T23:34:37.422Z"
-    },
-    "/home/runner/moat-research/workers/promoter/promoter.py": {
-      "count": 2,
-      "tokens": 625,
-      "first_read": "2026-05-04T23:35:18.641Z"
+      "tokens": 138,
+      "first_read": "2026-05-04T23:36:11.426Z"
     }
   },
-  "files_written": [
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 630,
-      "at": "2026-05-04T23:34:51.686Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 548,
-      "at": "2026-05-04T23:35:01.806Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 710,
-      "at": "2026-05-04T23:35:14.269Z"
-    }
-  ],
-  "edit_counts": {
-    "WISHLIST.md": 3
-  },
-  "anatomy_hits": 2,
+  "files_written": [],
+  "edit_counts": {},
+  "anatomy_hits": 1,
   "anatomy_misses": 0,
-  "repeated_reads_warned": 1,
+  "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
   "stop_count": 1
 }

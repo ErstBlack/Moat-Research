@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-04T03:13:41.850Z",
   "lifetime": {
-    "total_tokens_estimated": 104139,
-    "total_reads": 33,
+    "total_tokens_estimated": 104277,
+    "total_reads": 34,
     "total_writes": 88,
-    "total_sessions": 33,
-    "anatomy_hits": 19,
+    "total_sessions": 34,
+    "anatomy_hits": 20,
     "anatomy_misses": 14,
     "repeated_reads_blocked": 26,
-    "estimated_savings_vs_bare_cli": 19499
+    "estimated_savings_vs_bare_cli": 19699
   },
   "sessions": [
     {
@@ -834,6 +834,28 @@
         "writes_count": 3,
         "repeated_reads_blocked": 1,
         "anatomy_lookups": 2
+      }
+    },
+    {
+      "id": "session-2026-05-04-1935",
+      "started": "2026-05-04T23:35:48.381Z",
+      "ended": "2026-05-04T23:36:36.543Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/.pre-commit-config.yaml",
+          "tokens_estimated": 138,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 138,
+        "output_tokens_estimated": 0,
+        "reads_count": 1,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
       }
     }
   ],
