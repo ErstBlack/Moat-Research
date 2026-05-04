@@ -10,7 +10,7 @@
 
 ## Key Learnings
 
-- **Project:** moat-research
+- **Composite score validation:** The somd-cameras rescore against RUBRIC.md produced 7.221, confirming the scoring formula and weights work as intended for a known-good moat. No rubric adjustments needed yet; revisit after ≥3 more lane-1 candidates are scored.
 
 ## Do-Not-Repeat
 
