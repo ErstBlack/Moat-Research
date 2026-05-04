@@ -1,10 +1,46 @@
 {
-  "session_id": "session-2026-05-04-1907",
-  "started": "2026-05-04T23:07:47.196Z",
-  "files_read": {},
-  "files_written": [],
-  "edit_counts": {},
-  "anatomy_hits": 0,
+  "session_id": "session-2026-05-04-1918",
+  "started": "2026-05-04T23:18:11.872Z",
+  "files_read": {
+    "/home/runner/moat-research/workers/common/brief.py": {
+      "count": 1,
+      "tokens": 1462,
+      "first_read": "2026-05-04T23:18:22.099Z"
+    },
+    "/home/runner/moat-research/briefs/graduated/07.221-20260504-somd-cameras.md": {
+      "count": 1,
+      "tokens": 3777,
+      "first_read": "2026-05-04T23:18:22.958Z"
+    },
+    "/home/runner/moat-research/workers/promoter/promoter.py": {
+      "count": 1,
+      "tokens": 625,
+      "first_read": "2026-05-04T23:22:39.321Z"
+    },
+    "/home/runner/moat-research/tests/fixtures/brief_valid_scored.md": {
+      "count": 1,
+      "tokens": 360,
+      "first_read": "2026-05-04T23:22:39.733Z"
+    }
+  },
+  "files_written": [
+    {
+      "file": "/home/runner/moat-research/briefs/candidates/07.600-20260504-ndbc-realtime-buoys.md",
+      "action": "create",
+      "tokens": 4500,
+      "at": "2026-05-04T23:21:40.803Z"
+    },
+    {
+      "file": "/home/runner/moat-research/briefs/candidates/07.600-20260504-ndbc-realtime-buoys.md",
+      "action": "edit",
+      "tokens": 4,
+      "at": "2026-05-04T23:23:06.159Z"
+    }
+  ],
+  "edit_counts": {
+    "briefs/candidates/07.600-20260504-ndbc-realtime-buoys.md": 2
+  },
+  "anatomy_hits": 4,
   "anatomy_misses": 0,
   "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,

@@ -16,6 +16,22 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-04T23:02:53.490Z"
+    },
+    {
+      "id": "bug-002",
+      "timestamp": "2026-05-04T23:23:06.162Z",
+      "error_message": "Wrong reference: candidate should be scored",
+      "file": "briefs/candidates/07.600-20260504-ndbc-realtime-buoys.md",
+      "root_cause": "Used \"candidate\" instead of \"scored\"",
+      "fix": "Changed candidate → scored",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-04T23:23:06.162Z"
     }
   ]
 }

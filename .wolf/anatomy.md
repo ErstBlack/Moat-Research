@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-04T23:02:57.413Z
-> Files: 38 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-04T23:23:06.137Z
+> Files: 39 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -17,6 +17,10 @@
 ## .claude/rules/
 
 - `openwolf.md` (~313 tok)
+
+## briefs/candidates/
+
+- `07.600-20260504-ndbc-realtime-buoys.md` — Discovery story (~3937 tok)
 
 ## briefs/graduated/
 
