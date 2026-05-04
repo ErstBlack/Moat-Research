@@ -1,23 +1,12 @@
 {
-  "session_id": "session-2026-05-04-1940",
-  "started": "2026-05-04T23:40:52.521Z",
-  "files_read": {
-    "/home/runner/.maximizer/projects/moat/runs/20260504T231644Z-719db8/review.json": {
-      "count": 2,
-      "tokens": 0,
-      "first_read": "2026-05-04T23:41:01.416Z"
-    },
-    "/home/runner/.maximizer/projects/moat/runs/20260504T231644Z-719db8/iteration.json": {
-      "count": 2,
-      "tokens": 0,
-      "first_read": "2026-05-04T23:41:01.424Z"
-    }
-  },
+  "session_id": "session-2026-05-04-1941",
+  "started": "2026-05-04T23:41:38.642Z",
+  "files_read": {},
   "files_written": [],
   "edit_counts": {},
   "anatomy_hits": 0,
-  "anatomy_misses": 2,
-  "repeated_reads_warned": 2,
+  "anatomy_misses": 0,
+  "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
   "stop_count": 1
 }
