@@ -77,8 +77,8 @@ sources:
       NJDOT does not appear to publish an archival prohibition in site terms.
     estimated_size: "~70 GB/month (est. 200 cameras × 40 KB/image × 288 polls/day)"
     rate_limit_notes: "No published rate limits for camera images; recommend ≥5s between requests, one camera at a time."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: brief_2026_05_04_njdot_511_cameras
     dismissed_reason: null
 
   - id: usgs_nws_flood_fusion
