@@ -81,3 +81,65 @@ class TestFilename:
         assert sorted_desc[0].startswith("09.412")
         assert sorted_desc[1].startswith("08.730")
         assert sorted_desc[2].startswith("07.115")
+
+
+from pathlib import Path
+
+FIXTURES = Path(__file__).parent.parent / "fixtures"
+
+
+class TestParse:
+    def test_parse_scored_brief(self):
+        b = brief.parse_brief(FIXTURES / "brief_valid_scored.md")
+        assert b.id == "brief_2026_05_04_fcc_eas_alerts"
+        assert b.lane == 1
+        assert b.secondary_lanes == [3]
+        assert b.status == "scored"
+        assert b.composite_score == pytest.approx(8.031, abs=0.005)
+        assert b.feasibility_scores["financial"]["composite"] == 6.5
+        assert b.body.strip() == "Body text goes here."
+
+    def test_parse_unscored_candidate(self):
+        b = brief.parse_brief(FIXTURES / "brief_candidate_unscored.md")
+        assert b.status == "candidate"
+        assert b.composite_score is None
+        assert b.feasibility_scores is None
+
+    def test_any_axis_zero_detected(self):
+        b = brief.parse_brief(FIXTURES / "brief_zero_financial.md")
+        assert brief.failed_axis(b) == "financial"
+        b2 = brief.parse_brief(FIXTURES / "brief_zero_implementation.md")
+        assert brief.failed_axis(b2) == "implementation"
+        b3 = brief.parse_brief(FIXTURES / "brief_zero_hardware.md")
+        assert brief.failed_axis(b3) == "hardware"
+
+    def test_no_failed_axis_for_valid_brief(self):
+        b = brief.parse_brief(FIXTURES / "brief_valid_scored.md")
+        assert brief.failed_axis(b) is None
+
+    def test_no_failed_axis_for_unscored(self):
+        b = brief.parse_brief(FIXTURES / "brief_candidate_unscored.md")
+        assert brief.failed_axis(b) is None
+
+
+class TestSerialize:
+    def test_round_trip(self, tmp_path):
+        b = brief.parse_brief(FIXTURES / "brief_valid_scored.md")
+        out = tmp_path / "out.md"
+        brief.write_brief(b, out)
+        b2 = brief.parse_brief(out)
+        assert b2.id == b.id
+        assert b2.composite_score == pytest.approx(b.composite_score)
+        assert b2.body.strip() == b.body.strip()
+
+    def test_lane_validation(self, tmp_path):
+        b = brief.parse_brief(FIXTURES / "brief_valid_scored.md")
+        b.lane = 99
+        with pytest.raises(ValueError, match="lane"):
+            brief.write_brief(b, tmp_path / "x.md")
+
+    def test_status_validation(self, tmp_path):
+        b = brief.parse_brief(FIXTURES / "brief_valid_scored.md")
+        b.status = "wat"
+        with pytest.raises(ValueError, match="status"):
+            brief.write_brief(b, tmp_path / "x.md")
