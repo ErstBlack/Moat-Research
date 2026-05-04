@@ -97,8 +97,12 @@ class Brief:
 _FRONTMATTER_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n?(.*)$", re.DOTALL)
 
 
+_BRIEF_FIELDS = {f.name for f in __import__("dataclasses").fields(Brief)} if False else None
+
+
 def parse_brief(path: "Path | str") -> Brief:
     """Parse a brief markdown file with YAML frontmatter into a Brief dataclass."""
+    from dataclasses import fields as _fields
     text = Path(path).read_text(encoding="utf-8")
     m = _FRONTMATTER_RE.match(text)
     if not m:
@@ -106,7 +110,9 @@ def parse_brief(path: "Path | str") -> Brief:
     fm = yaml.safe_load(m.group(1)) or {}
     body = m.group(2)
     fm["body"] = body
-    return Brief(**fm)
+    allowed = {f.name for f in _fields(Brief)}
+    filtered = {k: v for k, v in fm.items() if k in allowed}
+    return Brief(**filtered)
 
 
 def write_brief(b: Brief, path: "Path | str") -> None:
