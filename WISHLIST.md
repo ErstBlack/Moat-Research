@@ -47,8 +47,8 @@ sources:
       Lane 1 — if NCEI archives spectral files fully, the ephemeral argument weakens.
     estimated_size: "~1 GB/month (1,000 buoys × 8 file types × ~10 KB avg × 144 update cycles/day)"
     rate_limit_notes: "No published rate limits for file-based access; recommend polite crawl ≥60s between station files."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 07.600-20260504-ndbc-realtime-buoys
     dismissed_reason: null
 
   - id: njdot_511_cameras
@@ -78,7 +78,7 @@ sources:
     estimated_size: "~70 GB/month (est. 200 cameras × 40 KB/image × 288 polls/day)"
     rate_limit_notes: "No published rate limits for camera images; recommend ≥5s between requests, one camera at a time."
     status: promoted-to-candidate
-    promoted_to: brief_2026_05_04_njdot_511_cameras
+    promoted_to: 07.360-20260504-njdot-511-cameras
     dismissed_reason: null
 
   - id: usgs_nws_flood_fusion
@@ -113,8 +113,8 @@ sources:
       access paths.
     estimated_size: "~50 MB/month gauge data; derived fusion artifacts ~200 MB/month (computed, not ingested)"
     rate_limit_notes: "USGS: no formal rate limit published; recommends polite usage and bulk WaterServices endpoints. NWS: no per-minute rate limit for standard API use."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 07.771-20260504-usgs-nws-flood-fusion
     dismissed_reason: null
 
   - id: coops_ais_coastal_fusion
