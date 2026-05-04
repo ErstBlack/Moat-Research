@@ -72,7 +72,9 @@ Note: Tasks 5–17 implemented and committed on branch `maximizer/moat/20260504T
 
 ---
 
-### 1. [ ] Rescore `somd-cameras` against the current rubric, before any other research
+### 1. [x] Rescore `somd-cameras` against the current rubric, before any other research — DONE 2026-05-04
+
+Note: Brief written to `briefs/graduated/07.221-20260504-somd-cameras.md`. Composite 7.221 (financial 6.667 × implementation 7.25 × hardware 8.0). All five disqualifiers re-checked against `/home/runner/somd-cameras/` and `chart.maryland.gov` (robots.txt 404 on 2026-05-04, no ToS clause forbidding archival located). Calibration note recommends NO rubric edits at this time; revisit financial-axis weighting only after ≥3 more lane-1 candidates have been scored.
 
 **Spec reference:** `docs/superpowers/specs/2026-05-04-moat-research-design.md` §5 (rubric), §7.1 (brief schema), §12 (seeding).
 
