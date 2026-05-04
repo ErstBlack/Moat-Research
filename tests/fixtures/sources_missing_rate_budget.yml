@@ -1,0 +1,7 @@
+sources:
+  - id: example_feed
+    url: https://example.gov/feed
+    cadence: 60s
+    storage_path: /signals/raw/example_feed
+    parser: jsonl
+    enabled: true
