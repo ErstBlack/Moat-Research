@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-04T03:13:41.850Z",
   "lifetime": {
-    "total_tokens_estimated": 104277,
-    "total_reads": 34,
+    "total_tokens_estimated": 119121,
+    "total_reads": 39,
     "total_writes": 88,
-    "total_sessions": 34,
-    "anatomy_hits": 20,
-    "anatomy_misses": 14,
-    "repeated_reads_blocked": 26,
-    "estimated_savings_vs_bare_cli": 19699
+    "total_sessions": 36,
+    "anatomy_hits": 23,
+    "anatomy_misses": 16,
+    "repeated_reads_blocked": 28,
+    "estimated_savings_vs_bare_cli": 20299
   },
   "sessions": [
     {
@@ -856,6 +856,68 @@
         "writes_count": 0,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-04-1936",
+      "started": "2026-05-04T23:36:38.979Z",
+      "ended": "2026-05-04T23:40:49.317Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/07.600-20260504-ndbc-realtime-buoys.md",
+          "tokens_estimated": 3937,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/07.360-20260504-njdot-511-cameras.md",
+          "tokens_estimated": 4571,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/07.771-20260504-usgs-nws-flood-fusion.md",
+          "tokens_estimated": 6336,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 14844,
+        "output_tokens_estimated": 0,
+        "reads_count": 3,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 3
+      }
+    },
+    {
+      "id": "session-2026-05-04-1940",
+      "started": "2026-05-04T23:40:52.521Z",
+      "ended": "2026-05-04T23:41:36.537Z",
+      "reads": [
+        {
+          "file": "/home/runner/.maximizer/projects/moat/runs/20260504T231644Z-719db8/review.json",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/.maximizer/projects/moat/runs/20260504T231644Z-719db8/iteration.json",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 2,
+        "writes_count": 0,
+        "repeated_reads_blocked": 2,
+        "anatomy_lookups": 0
       }
     }
   ],
