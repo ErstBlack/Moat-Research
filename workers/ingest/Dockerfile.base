@@ -1,0 +1,9 @@
+# Base image for ingestor services. Concrete ingestors FROM this and add their
+# own module + CMD.
+FROM python:3.11-slim
+
+WORKDIR /app
+RUN pip install --no-cache-dir pyyaml==6.0.2
+COPY workers/common /app/workers/common
+COPY workers/ingest /app/workers/ingest
+ENV PYTHONPATH=/app
