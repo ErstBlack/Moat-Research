@@ -49,6 +49,8 @@
 
 - **Lane-5-primary continues to be hard to clear §5 alone (2026-05-05 T2):** FAA SDR considered and dismissed because Lane-5-primary framing without compute-as-barrier, temporal-loss, or political-vulnerability angle can't articulate why a public archive doesn't reconstruct the corpus. Two consecutive passes now confirm the pattern: Lane 5 is reliably useful only as defensibility reinforcement (secondary lane on top of L1/L2/L4 primary), not as a standalone primary thesis. Possible exception: a Lane-5-primary entry that targets a vertical so narrow that no commercial competitor exists AND the niche audience values continuous capture for non-data reasons (e.g., archival-trust as a service) — none identified yet across two passes; if one emerges, file fresh.
 
+- **Scratch-file cleanup discipline (2026-05-05 T4):** Interim computation scripts (.score_t3.py, .calibrate_tmp.py) created during scoring/calibration should be deleted before task completion rather than left for postflight consolidation. Each accumulated file adds minor hygiene debt; fold the logic back into the canonical workflow or delete immediately after use. T4 review noted the pattern across prior iterations and marked the accumulation as low-severity debt. Going forward: delete temp files before task completion, not after.
+
 ## Do-Not-Repeat
 
 <!-- Mistakes made and corrected. Each entry prevents the same mistake recurring. -->
