@@ -1,18 +1,18 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T09:30:00.000Z
-> Files: 54 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T09:06:07.299Z
+> Files: 56 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
 - `.calibrate_tmp.py` (~1130 tok)
 - `.pre-commit-config.yaml` (~138 tok)
-- `.score_tmp.py` — c (~43 tok)
+- `.score_tmp.py` (~261 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `CONSTRAINTS.md` — CONSTRAINTS (~398 tok)
-- `FOCUS.md` — FOCUS (~4007 tok)
+- `FOCUS.md` — FOCUS (~4388 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
-- `WISHLIST.md` — WISHLIST (~16977 tok)
+- `WISHLIST.md` — WISHLIST (~17008 tok)
 
 ## .claude/
 
@@ -28,7 +28,9 @@
 
 ## briefs/candidates/
 
+- `06.483-20260505-multi-state-insurance-dept-enforcement.md` — Declares for (~6303 tok)
 - `06.701-20260504-us-transit-gtfsrt-smaller-agencies.md` — Declares reference (~5831 tok)
+- `06.723-20260505-osha-enforcement-inspection-corpus.md` — Declares regulatory (~5795 tok)
 - `06.805-20260505-usda-aphis-animal-welfare-inspections.md` — Declares vetting (~6018 tok)
 - `06.892-20260504-multi-state-medical-board-enforcement.md` — Declares cross (~5467 tok)
 - `07.006-20260505-ferc-elibrary-regulatory-filings.md` (~7068 tok)

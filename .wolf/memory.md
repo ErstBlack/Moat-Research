@@ -431,3 +431,15 @@
 - Dismissed in Notes: CFPB complaint database (data.gov bulk archive collapses §5), Lane 3 investigation (4 candidate fusions examined, all had both inputs fully archived → redirect to Lane 4 or dismiss).
 - All 65 tests pass.
 | 04:57 | Session end: 2 writes across 1 files (WISHLIST.md) | 2 reads | ~20659 tok |
+
+## Session: 2026-05-05 04:57
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 04:59 | Created .score_tmp.py | — | ~261 |
+| 05:02 | Created briefs/candidates/06.723-20260505-osha-enforcement-inspection-corpus.md | — | ~6182 |
+| 05:05 | Created briefs/candidates/06.483-20260505-multi-state-insurance-dept-enforcement.md | — | ~6723 |
+| 05:05 | Edited WISHLIST.md | 7→7 lines | ~146 |
+| 05:05 | Edited WISHLIST.md | 5→5 lines | ~112 |
+| 05:06 | Edited FOCUS.md | 3→5 lines | ~430 |
+| 05:06 | Session end: 6 writes across 5 files (.score_tmp.py, 06.723-20260505-osha-enforcement-inspection-corpus.md, 06.483-20260505-multi-state-insurance-dept-enforcement.md, WISHLIST.md, FOCUS.md) | 5 reads | ~48755 tok |
