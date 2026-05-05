@@ -1,89 +1,18 @@
 {
-  "session_id": "session-2026-05-05-0340",
-  "started": "2026-05-05T07:40:15.027Z",
+  "session_id": "session-2026-05-05-0353",
+  "started": "2026-05-05T07:53:47.018Z",
   "files_read": {
-    "/home/runner/moat-research/briefs/candidates/07.360-20260504-njdot-511-cameras.md": {
-      "count": 1,
-      "tokens": 4571,
-      "first_read": "2026-05-05T07:40:40.727Z"
-    },
-    "/home/runner/moat-research/WISHLIST.md": {
-      "count": 3,
-      "tokens": 13762,
-      "first_read": "2026-05-05T07:51:38.117Z"
-    },
     "/home/runner/moat-research/FOCUS.md": {
       "count": 1,
-      "tokens": 3331,
-      "first_read": "2026-05-05T07:52:31.105Z"
-    },
-    "/home/runner/moat-research/scripts/politeness_lint.py": {
-      "count": 1,
-      "tokens": 555,
-      "first_read": "2026-05-05T07:52:58.940Z"
+      "tokens": 3659,
+      "first_read": "2026-05-05T07:54:06.248Z"
     }
   },
-  "files_written": [
-    {
-      "file": "/home/runner/moat-research/.score_tmp.py",
-      "action": "create",
-      "tokens": 43,
-      "at": "2026-05-05T07:42:37.217Z"
-    },
-    {
-      "file": "/home/runner/moat-research/briefs/candidates/07.898-20260505-faa-notams-aviation-alerts.md",
-      "action": "create",
-      "tokens": 6924,
-      "at": "2026-05-05T07:45:48.337Z"
-    },
-    {
-      "file": "/home/runner/moat-research/briefs/candidates/06.805-20260505-usda-aphis-animal-welfare-inspections.md",
-      "action": "create",
-      "tokens": 6878,
-      "at": "2026-05-05T07:48:21.480Z"
-    },
-    {
-      "file": "/home/runner/moat-research/briefs/candidates/07.006-20260505-ferc-elibrary-regulatory-filings.md",
-      "action": "create",
-      "tokens": 8078,
-      "at": "2026-05-05T07:51:25.707Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 151,
-      "at": "2026-05-05T07:51:49.306Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 172,
-      "at": "2026-05-05T07:51:56.861Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 145,
-      "at": "2026-05-05T07:52:07.081Z"
-    },
-    {
-      "file": "/home/runner/moat-research/FOCUS.md",
-      "action": "edit",
-      "tokens": 413,
-      "at": "2026-05-05T07:52:40.967Z"
-    }
-  ],
-  "edit_counts": {
-    ".score_tmp.py": 1,
-    "briefs/candidates/07.898-20260505-faa-notams-aviation-alerts.md": 1,
-    "briefs/candidates/06.805-20260505-usda-aphis-animal-welfare-inspections.md": 1,
-    "briefs/candidates/07.006-20260505-ferc-elibrary-regulatory-filings.md": 1,
-    "WISHLIST.md": 3,
-    "FOCUS.md": 1
-  },
-  "anatomy_hits": 4,
+  "files_written": [],
+  "edit_counts": {},
+  "anatomy_hits": 1,
   "anatomy_misses": 0,
-  "repeated_reads_warned": 2,
+  "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
   "stop_count": 1
 }
