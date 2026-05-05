@@ -1,49 +1,33 @@
 {
-  "session_id": "session-2026-05-05-0602",
-  "started": "2026-05-05T10:02:06.334Z",
+  "session_id": "session-2026-05-05-0604",
+  "started": "2026-05-05T10:04:09.914Z",
   "files_read": {
-    "/home/runner/moat-research/docs/calibration/2026-05-05-n8-pass.md": {
-      "count": 1,
-      "tokens": 2391,
-      "first_read": "2026-05-05T10:02:16.073Z"
-    },
-    "/home/runner/moat-research/briefs/candidates/06.483-20260505-multi-state-insurance-dept-enforcement.md": {
-      "count": 1,
-      "tokens": 6303,
-      "first_read": "2026-05-05T10:02:37.445Z"
-    },
-    "/home/runner/moat-research/briefs/candidates/06.723-20260505-osha-enforcement-inspection-corpus.md": {
-      "count": 1,
-      "tokens": 5795,
-      "first_read": "2026-05-05T10:02:37.773Z"
-    },
-    "/home/runner/moat-research/FOCUS.md": {
+    "/home/runner/moat-research/WISHLIST.md": {
       "count": 2,
-      "tokens": 4582,
-      "first_read": "2026-05-05T10:03:40.202Z"
+      "tokens": 17008,
+      "first_read": "2026-05-05T10:10:08.308Z"
     }
   },
   "files_written": [
     {
-      "file": "/home/runner/moat-research/docs/calibration/2026-05-05-n11-defer.md",
-      "action": "create",
-      "tokens": 778,
-      "at": "2026-05-05T10:03:36.973Z"
+      "file": "/home/runner/moat-research/WISHLIST.md",
+      "action": "edit",
+      "tokens": 4013,
+      "at": "2026-05-05T10:11:44.302Z"
     },
     {
-      "file": "/home/runner/moat-research/FOCUS.md",
+      "file": "/home/runner/moat-research/WISHLIST.md",
       "action": "edit",
-      "tokens": 116,
-      "at": "2026-05-05T10:03:50.513Z"
+      "tokens": 2400,
+      "at": "2026-05-05T10:12:52.815Z"
     }
   ],
   "edit_counts": {
-    "docs/calibration/2026-05-05-n11-defer.md": 1,
-    "FOCUS.md": 1
+    "WISHLIST.md": 2
   },
-  "anatomy_hits": 3,
+  "anatomy_hits": 1,
   "anatomy_misses": 0,
   "repeated_reads_warned": 1,
   "cerebrum_warnings": 0,
-  "stop_count": 1
+  "stop_count": 0
 }

@@ -727,6 +727,205 @@ sources:
     status: promoted-to-candidate
     promoted_to: 06.483-20260505-multi-state-insurance-dept-enforcement
     dismissed_reason: null
+
+  - id: epa_echo_enforcement_corpus
+    title: "EPA ECHO Federal Enforcement & Compliance Corpus — Off-Platform Continuous Archive"
+    url: https://echo.epa.gov/tools/data-downloads
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 2
+    why_interesting: |
+      EPA's Enforcement and Compliance History Online (ECHO) aggregates federal
+      and state inspection results, civil enforcement cases, settlements,
+      penalties, formal/informal actions, and Discharge Monitoring Report (DMR)
+      data across the Clean Water Act, Clean Air Act, RCRA, SDWA, and FIFRA
+      programs for ~3 million regulated facilities. The corpus is a Lane-2
+      candidate because EPA enforcement transparency has demonstrated political
+      vulnerability: in 2017–18 the Trump-era EPA scrubbed climate-change pages,
+      hid the cumulative civil penalty totals dashboard from the homepage, and
+      reorganized the OECA enforcement annual results page (Sierra Club v. EPA
+      and EDGI archival projects documented dozens of removed pages). The 2025
+      administration has cut OECA's budget and reportedly directed regional EPA
+      offices to deprioritize routine enforcement; civil penalty totals dropped
+      to multi-decade lows. The Lane-2 moat is an off-platform durable archive
+      of ECHO's case-detail records (with full narrative violation descriptions,
+      penalty amounts, settlement terms) captured continuously before any
+      future restriction event collapses public access. Lane 5 secondary fits
+      (environmental compliance / industrial risk niche). Buyers: environmental
+      law firms (plaintiff and defense), industrial insurance underwriters
+      (CGL / pollution legal liability scoring), ESG ratings vendors (MSCI,
+      Sustainalytics, RepRisk), investigative journalism (ProPublica's
+      Documenting Climate Change project, Inside Climate News), state-AG
+      environmental units, M&A diligence on industrial assets. Distinct from
+      the OSHA brief (workplace safety) and FERC brief (energy regulatory)
+      because ECHO covers environmental media (water/air/waste) compliance
+      with its own buyer base and distinct §5 archive geometry.
+    known_constraints: |
+      Verified live 2026-05-05. echo.epa.gov returned HTTP 200 under
+      "moat-research/0.1" UA. echo.epa.gov/robots.txt is comprehensive (1914
+      bytes): User-agent: * with Crawl-delay: 10 and explicit Disallows on UI
+      search-result paths (/facilities/facility-search/results/,
+      /facilities/enforcement-case-report-search/results/,
+      /detailed-facility-report/, /enforcement-case-report/, /effluent-charts/).
+      The /tools/data-downloads/ path is NOT in the Disallow list (verified
+      2026-05-05, HTTP 200), so the polite path is bulk-download only — DO NOT
+      scrape the search-result UIs or detailed-facility-report pages, those are
+      §2 violations. EPA bulk downloads include ICIS-AIR (CAA), ICIS-NPDES
+      (CWA), RCRAInfo (RCRA), SDWIS (SDWA) at full historical depth as ZIPs.
+      EPA data is US public-record under FOIA. CONSTRAINTS §5 reconstructibility:
+      the bulk dumps themselves ARE durably archived (data.gov mirrors and
+      Wayback captures of OECA annual results pages survive), so a brief that
+      claims "duplicate the bulk dump" fails §5. The Lane-2 moat must rest on
+      (i) continuous capture of incremental/delta updates between bulk-dump
+      release windows (ECHO refreshes weekly per OECA documentation), AND
+      (ii) capturing case-detail narrative fields and per-DMR data points that
+      may be summarized or excluded from bulk dumps and are vulnerable to
+      future restriction (the 2017 OECA homepage scrubs targeted aggregate
+      dashboards, not bulk dumps; the political-vulnerability geometry runs
+      through the discoverability layer, not the data files). Brief stage must
+      identify and verify (a) which ECHO data fields are bulk-included vs.
+      UI-only, (b) the weekly delta-update mechanism, (c) historical Wayback
+      evidence of EPA-side restrictions to OECA / ECHO infrastructure. No
+      published per-request rate limit beyond Crawl-delay: 10s on the UI.
+    estimated_size: "~50 GB raw bulk archive at full historical depth (ICIS-AIR + ICIS-NPDES + RCRAInfo + SDWIS); ~5 GB/year incremental delta captures; ~2 GB structured corpus."
+    rate_limit_notes: "robots.txt Crawl-delay: 10s on echo.epa.gov UI. Bulk-download paths under /tools/data-downloads/ have no published rate limit; recommend ≥5s between ZIP fetches, single-process. Honor 429s with exponential backoff."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
+
+  - id: msha_mine_safety_enforcement_corpus
+    title: "MSHA Mine Safety Enforcement, Citations & Fatality Reports — Off-Platform Continuous Archive"
+    url: https://www.msha.gov/data-and-reports/statistics
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 2
+    why_interesting: |
+      The Mine Safety and Health Administration publishes inspection records,
+      Section 104 citations, withdrawal orders, civil penalty assessments,
+      and fatal accident investigation reports (Form 7000-50) for ~12,000
+      active US mines (coal, metal/non-metal, sand & gravel). The corpus is a
+      Lane-2 candidate because MSHA's enforcement infrastructure has
+      demonstrated political vulnerability: under the 2017–19 Trump
+      administration, MSHA citation issuance dropped ~40%, the agency's
+      "Significant & Substantial" violation tagging became politicized, and
+      certain fatal accident investigation reports faced FOIA stonewalling
+      (per OIG audits of MSHA's data publication compliance). The 2025
+      administration's coal-industry political constituency has signaled
+      MSHA budget reductions and renewed pressure to fold MSHA into a
+      consolidated DOL safety agency. The Lane-2 moat captures inspection
+      narratives, citation severity assessments, and fatality investigation
+      reports continuously before any future restriction or reorganization
+      event collapses public access to the operator-level enforcement
+      detail. Lane 5 secondary fits (industrial safety / mining-vertical
+      niche). Buyers: workers' compensation insurance underwriters
+      (mining-sector loss costing), mining law firms (operator vetting,
+      MSHA contest defense), academic occupational-health researchers,
+      mining trade press (Coal Age, E&MJ), ESG analytics targeting fossil-
+      fuel asset due diligence, plaintiff's counsel in mine-fatality
+      wrongful-death cases.
+    known_constraints: |
+      Verified live 2026-05-05. www.msha.gov returned HTTP 200 under
+      "moat-research/0.1" UA. www.msha.gov/robots.txt is standard Drupal
+      (2026 bytes): User-agent: * with Disallow only on Drupal admin paths
+      (/admin/, /core/, /profiles/, /node/add/, /search/, /user/login/,
+      /comment/reply/, README.md files, /web.config); /data-and-reports/,
+      /enforcement/, /inspection-data/ paths are NOT blocked. The
+      /data-and-reports/statistics page returned HTTP 200 (verified
+      2026-05-05). MSHA also publishes structured open-government data
+      products at arlweb.msha.gov/OpenGovernmentData/OGIMSHA.asp (HTTP 200
+      verified 2026-05-05) — the legacy Apache-served bulk-download portal
+      with Mines, Inspections, Violations, Accidents, and Penalty
+      Assessments tables in CSV/text format, refreshed quarterly with full
+      historical depth. CONSTRAINTS §5 reconstructibility: the OpenGov
+      bulk dumps ARE durably archived through both arlweb.msha.gov and
+      data.gov mirrors, so a brief that claims "duplicate the OGI tables"
+      fails §5. The Lane-2 moat must rest on (i) continuous capture of
+      between-quarter incremental updates (citations are issued daily
+      per the MSHA Code of Federal Regulations), AND (ii) capturing the
+      inspector narrative fields in citation reports and the full text of
+      fatal accident investigation reports (Form 7000-50) which contain
+      operational detail that the OGI summary tables do NOT preserve at
+      scale. Brief stage must verify (a) which fields are
+      OGI-bulk-included vs. PDF-only narrative, (b) the citation issuance
+      cadence and any near-real-time feed, (c) historical FOIA-stonewalling
+      precedent (cite 2017–19 OIG findings, identify specific suppressed
+      reports). MSHA data is US public-record under FOIA. No published
+      per-request rate limit; recommend ≥5s between requests.
+    estimated_size: "~10 GB raw archive at full historical depth (OGI bulk CSVs + accident investigation PDFs + citation narratives); ~1 GB/year incremental capture; ~500 MB structured corpus."
+    rate_limit_notes: "No published rate limit on www.msha.gov or arlweb.msha.gov. Recommend ≥5s between requests, single-process. Honor any 429s with exponential backoff. Bulk OGI ZIPs preferred for historical bootstrap; UI scrape only for incremental narrative capture."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
+
+  - id: nlrb_unfair_labor_practice_cases
+    title: "NLRB Unfair Labor Practice Cases & Board Decisions — Off-Platform Continuous Archive"
+    url: https://www.nlrb.gov/cases-decisions/cases
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 2
+    why_interesting: |
+      The National Labor Relations Board adjudicates unfair labor practice
+      (ULP) charges, representation petitions, and Board decisions affecting
+      private-sector labor relations across ~6 million covered US employers.
+      Case files (charges, complaints, settlements, withdrawals, ALJ
+      decisions, Board orders) are published on nlrb.gov/cases-decisions
+      and indexed in the e-filing case-tracker. The corpus is a Lane-2
+      candidate because NLRB has demonstrated extraordinary political
+      vulnerability: under the 2017–21 Trump-era General Counsel (Peter
+      Robb), regional offices were directed to publish less detail in
+      case-disposition memos; under the 2021–25 Biden-era GC (Jennifer
+      Abruzzo), prosecutorial priorities reversed; the 2025 second Trump
+      administration removed Board members in actions of contested
+      legality, leaving NLRB without a quorum for several months in 2025
+      (Wilcox v. Trump et al.) and disrupting case adjudication and
+      publication workflows. The Lane-2 moat captures the case-disposition
+      record continuously before any future quorum-collapse, prosecutorial-
+      restriction, or DOGE-style data-purge event collapses public access.
+      Lane 5 secondary fits (labor relations / employment-law vertical).
+      Buyers: management-side labor & employment law firms (Littler,
+      Jackson Lewis, Ogletree), union-side firms and the AFL-CIO research
+      department, EPLI insurance underwriters (employment practices
+      liability), academic labor-economics researchers, investigative
+      journalism on union-busting campaigns, corporate compliance teams
+      vetting acquisition targets for active ULP exposure.
+    known_constraints: |
+      Verified live 2026-05-05. www.nlrb.gov returned HTTP 200 under
+      "moat-research/0.1" UA. www.nlrb.gov/robots.txt is standard Drupal:
+      User-agent: * with Disallow only on Drupal admin paths (/admin/,
+      /core/, /profiles/, /node/add/, /search/, /user/login/, /web.config,
+      README.md files); /cases-decisions/, /reports/, /open/data/ paths
+      NOT blocked. /cases-decisions/cases (case-tracker landing) and
+      /cases-decisions/decisions/board-decisions both returned HTTP 200
+      (verified 2026-05-05). The case-tracker is an Angular app over an
+      internal REST endpoint; brief stage must reverse the actual XHR
+      endpoint from the UI's network tab (do NOT invent paths).
+      CONSTRAINTS §5 reconstructibility: NLRB itself archives Board
+      decisions back to 1935 in its public eGov library, AND the Cornell
+      Legal Information Institute mirrors NLRB Board decisions, AND
+      Westlaw/Lexis/Bloomberg Law (paid commercial) carry the full
+      decisional corpus. Paid commercial archives don't trigger §5 per
+      project precedent (Interline / S&P Velocity Suite); the Cornell LII
+      mirror DOES potentially trigger §5 for the Board-decisions slice
+      and brief stage MUST verify Cornell LII's update cadence and
+      archival completeness. The Lane-2 moat must rest on (i) capturing
+      the case-tracker / regional-office charge data (ULP charges,
+      complaints, settlements) which Cornell LII does NOT mirror —
+      decisions are mirrored, but the upstream charge/complaint/settlement
+      record is the politically sensitive layer, AND (ii) preserving the
+      full per-region case detail (regional director memos, settlement
+      terms, withdrawal letters) that may be deprecated under future
+      GC-driven publication-restriction directives (precedent: 2017
+      Robb-era memos). Brief stage must verify (a) Cornell LII coverage
+      scope vs. NLRB primary case data, (b) the case-tracker's REST
+      endpoint, (c) historical evidence of NLRB publication-restriction
+      under specific GC tenures. NLRB data is US public-record under FOIA.
+      No published per-request rate limit on case-tracker; recommend
+      ≥5s between requests.
+    estimated_size: "~20 GB raw archive at full historical depth (Board decisions PDFs + ALJ decisions + case-tracker per-region detail); ~2 GB/year incremental capture; ~1 GB structured corpus."
+    rate_limit_notes: "No published rate limit on www.nlrb.gov. Recommend ≥5s between requests, single-process. Case-tracker XHR endpoints may have separate quotas — honor any 429s with exponential backoff. Cornell LII bulk download preferred for Board-decisions historical bootstrap if coverage is verified."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
 ```
 
 ## Notes for the operator
@@ -780,6 +979,17 @@ Discovery synthesis pass — 2026-05-05 T2 (second pass; adding Lane 2 and Lane 
   **Pattern confirmed:** Under the strict cerebrum Lane-3 definition, a genuine Lane-3 moat requires at least one ephemeral input (the join key is time-sensitive and at least one input is NOT preserved in a public timestamped archive). In practice all evaluated candidates had both inputs fully archived → Lane 3 resolves to Lane 4 or Lane 1. No Lane-3 wishlist entry added this pass; this is consistent with the prior iteration's observation that the corpus has 0 Lane-3 entries and no viable Lane-3 thesis has cleared §5.
 
 Net new wishlist surface this pass: 2 candidates added (1 Lane 2+5, 1 Lane 4+5). Lane 2 cluster grows to 2 entries (USDA APHIS + OSHA). Lane 5 secondary coverage broadens. No Lane-3 entry added with explicit rationale above.
+
+Discovery synthesis pass — 2026-05-05 T2 (Iteration 20260505T100037Z-f26efb T2; refilling wishlist with explicit lane-diversification target after the prior pass produced an L1:4, L2:2, L4:5 cluster). Three new candidates added above, all primary Lane 2 (`epa_echo_enforcement_corpus`, `msha_mine_safety_enforcement_corpus`, `nlrb_unfair_labor_practice_cases`) with Lane 5 secondary, growing the Lane-2 cluster from 2 → 5 entries and explicitly diversifying coverage away from the L1/L4 dominance. Each rests on the Lane-2 conditional-moat reasoning codified in `.wolf/cerebrum.md` 2026-05-05: (i) off-platform durable archive AND (ii) demonstrated historical precedent of source restriction/removal — citing 2017-era EPA climate-page scrubs + 2025 OECA budget cuts (ECHO), 2017–19 MSHA citation drops + reported FOIA stonewalling on fatality narratives + 2025 reorganization signals (MSHA), and 2017 Robb-era GC publication-restriction memos + 2025 NLRB quorum collapse under Wilcox v. Trump (NLRB). All three explicitly distinguish the Lane-2 moat from the bulk-data path that DOES exist publicly (EPA bulk dumps, MSHA OGI tables, NLRB primary archive + Cornell LII mirror) by carving out the politically-vulnerable detail layer (case narratives, citation reports, region-level case-tracker detail) that bulk archives summarize away or that has demonstrated restriction precedent. Candidates considered and dismissed in the same pass:
+
+- **Lane 3 attempts (cross-source fusion):** Three candidate fusions evaluated against the cerebrum Lane-3 stress test. None survived. (1) **EPA AirNow real-time PM2.5 × USFS/NIFC active-fire detection (GOES-R):** both archived — EPA AQS preserves AirNow hourly historical, NOAA CLASS preserves GOES-R FRP detections; historical join reconstructible from public archives. (2) **USDA NASS weekly Crop Progress × NWS U.S. Drought Monitor weekly:** both archived at native cadence (NASS QuickStats API, droughtmonitor.unl.edu archive); historical join reconstructible. (3) **NWS storm warnings × FAA NOTAMs:** NWS storm warnings durably archived (Iowa State Mesonet IEM warning archive); FAA NOTAMs are NOT durably archived publicly per the existing `faa_notams_aviation_alerts` brief — but a fusion atop our own NOTAMs Lane-1 capture collapses to a Lane-4 derived feature on top of an existing brief, not a standalone Lane-3 wishlist entry. **Pattern reconfirmed:** under the strict cerebrum Lane-3 definition, every "interesting fusion" we can identify reduces to either Lane-4 derived-features (when at least one input is publicly archived) or to Lane-1 piggyback (when one input is ephemeral but already covered by an existing entry). Adding zero Lane-3 entries this pass; consistent with the prior pass observation.
+- **DOL Wage and Hour Division enforcement** (dol.gov/agencies/whd): returned HTTP 403 to "moat-research/0.1" UA verified 2026-05-05 (likely Akamai-edge UA gating, similar to FAA Aircraft Registry precedent). The data appeals as a Lane-2 candidate (FLSA / overtime / wage-theft enforcement, politically vulnerable under both 2017–21 and 2025 administrations), but the apex returned 403 across the immediate verification window and a polite-alternate-path discovery would be required at brief stage. Dismissed at wishlist stage on reachability grounds; revisit if (a) a polite UA negotiation with DOL succeeds, or (b) DOL's Inspector Generals' enforcement reports surface as an alternate access path. The DOL data.gov bulk dumps for WHD enforcement may also exist and would need separate §5 evaluation before a fresh entry is added.
+- **Bureau of Land Management (BLM) oil/gas/grazing lease auction results:** considered as Lane 5 primary (narrow energy + grazing-rights vertical, possibly Lane 1 if auction live data is ephemeral). Dismissed at wishlist stage because BLM publishes lease-sale results at blm.gov/programs/energy-and-minerals/oil-and-gas/leasing/lease-sales with full historical depth, AND data.gov mirrors carry the bulk data; §5 reconstructibility fails for the basic "duplicate the auction archive" framing. A surviving Lane-4 angle (parcel-level lease-history graph + cross-state operator entity resolution + production-correlated economics on top of EIA data) might exist but the §5 collapse on the basic framing pushes it below the bar for this pass; file fresh if a clear Lane-4 thesis crystallizes.
+- **FAA Service Difficulty Reports (SDR)** (sdrs.faa.gov submission, drs.faa.gov public retrieval): considered as Lane 5 primary (aviation maintenance / fleet reliability niche). sdrs.faa.gov returned 503 against "moat-research/0.1" UA verified 2026-05-05; the actual public data retrieval is at drs.faa.gov/browse (HTTP 200), but FAA durably archives SDRs back to ~2008 in DRS — Lane-1 ephemeral framing fails §5. The Lane-5-primary framing would require articulating a defensible niche-vertical thesis without temporal-loss, compute-as-barrier, or political-vulnerability angle, which per cerebrum (2026-05-05 T2) "probably doesn't survive §5." A Lane-4+5 reframing (NLP cluster analysis on free-text SDR narratives, cross-aircraft-type failure-mode taxonomy, time-to-failure modeling) is plausible but overlaps with existing commercial offerings (Cirium, FlightGlobal, OEM internal databases) — the specific Lane-4 differentiation would need to be named at brief stage. Dismissed at wishlist stage; revisit if a concrete Lane-4 thesis is named.
+- **CDC FluView / respiratory virus surveillance** (cdc.gov/fluview/, gis.cdc.gov/grasp/fluview/): considered as Lane 2+5 (politically vulnerable public-health infrastructure under 2025 admin reorganization of CDC + DataStream rotations). Reachable (HTTP 200 via 301 redirect from /flu/weekly/ verified 2026-05-05). cdc.gov/robots.txt allows /fluview/ (only blocks niche /flu/espanol/ and infrastructure paths). Dismissed at wishlist stage because (a) gis.cdc.gov/grasp/fluview Interactive publishes historical CSV downloads with multi-decade depth at native weekly cadence, (b) WHO FluNet collaborating-center archive carries the same data globally and is durable, (c) the off-platform Lane-2 archive would primarily duplicate the CSV exports rather than capture distinct vulnerable detail. The political-vulnerability narrative around CDC reorgs is real but the published CSVs themselves have not been demonstrated to be at restriction risk (vs. the discoverability-layer dashboards). Revisit if (a) gis.cdc.gov ceases bulk CSV publication while keeping API live, or (b) a specific surveillance product with no parallel WHO/data.gov archive is identified — file fresh.
+- **DOL ETA / Coast Guard MISLE / U.S. Coast Guard incident records:** Coast Guard Homeport (homeport.uscg.mil) returned SSL certificate-expired error verified 2026-05-05 (curl error code 60); MISLE marine casualty database has well-known FOIA-only access patterns at full historical depth. Dismissed at wishlist stage on reachability + FOIA-gating grounds; revisit if Coast Guard publishes a programmatic MISLE access path or rotates the SSL cert.
+
+Net new wishlist surface this pass: 3 candidates added, all Lane 2+5 primary, growing Lane-2 cluster 2 → 5 and explicitly diversifying away from L1/L4 dominance. Patterns observed: (a) Lane-2 conditional-moat carve-out at the detail layer — every Lane-2 brief now must explicitly identify which fields/records are bulk-archived (and therefore §5-killed) vs. which are discoverability-layer / narrative / region-level detail subject to political-restriction risk, (b) the cerebrum Lane-3 stress test is increasingly load-bearing — three Lane-3 attempts evaluated and none survived, consistent with prior pass; the strict Lane-3 definition may be effectively a null lane in practice, (c) Akamai-edge UA gating reappears (DOL WHD this pass after FAA Aircraft Registry the prior pass) — polite-alternate-path discovery should be a default brief-stage capability before dismissal becomes final, (d) Lane-5-primary continues to be hard to clear §5 alone (FAA SDR dismissed) — Lane 5 is reliably useful only as defensibility reinforcement, confirmed across two passes now. Patterns folded into `.wolf/cerebrum.md` per openwolf rules.
 
 ## How to append (for operator quick reference)
 

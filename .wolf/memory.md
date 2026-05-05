@@ -473,3 +473,18 @@
 | 06:03 | Created docs/calibration/2026-05-05-n11-defer.md | — | ~726 |
 | 06:03 | Edited FOCUS.md | modified briefs() | ~108 |
 | 06:04 | Session end: 2 writes across 2 files (2026-05-05-n11-defer.md, FOCUS.md) | 4 reads | ~19965 tok |
+
+## Session: 2026-05-05 06:04
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 06:11 | Edited WISHLIST.md | modified comprehensive() | ~3746 |
+| 06:12 | Edited WISHLIST.md | added 2 condition(s) | ~2240 |
+
+## Session: 2026-05-05 T2 (20260505T100037Z-f26efb)
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 10:08 | Discovery synthesis pass — 3 new wishlist candidates added | WISHLIST.md | EPA ECHO + MSHA + NLRB Lane 2+5 (L2 cluster 2→5) | ~5600 |
+| 10:08 | Lane-3 stress-tests + 5 dismissals documented | WISHLIST.md Notes | DOL WHD, BLM lease sales, FAA SDR, CDC FluView, USCG MISLE | ~1200 |
+| 10:09 | Cerebrum updated with 5 new learnings from this pass | .wolf/cerebrum.md | Lane-2 detail-layer carve-out, Lane 3 null-lane hypothesis, Akamai gating, L5-primary §5 difficulty | ~900 |
