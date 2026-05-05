@@ -415,3 +415,4 @@
 | 04:43 | Created .calibrate_tmp.py | — | ~1130 |
 | 04:44 | Created docs/calibration/2026-05-05-n8-pass.md | — | ~2551 |
 | 04:45 | Edited FOCUS.md | 3→5 lines | ~404 |
+| 04:46 | Session end: 3 writes across 3 files (.calibrate_tmp.py, 2026-05-05-n8-pass.md, FOCUS.md) | 1 reads | ~7954 tok |
