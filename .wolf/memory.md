@@ -3,6 +3,20 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+## 2026-05-05 (20260505T125333Z-88ac55 T1 — formal calibration pass at n>15)
+
+- Wrote new calibration note `docs/calibration/2026-05-05-n15-pass.md` — first revisit at the explicit `n>15` threshold codified in `2026-05-05-n8-pass.md`.
+- Cluster: n=15 candidates + 1 graduated = 16 active scored briefs. Range 6.470–7.898 (Δ=1.428), σ≈0.40 pop., mean 6.988, median 6.902.
+- Per-axis ranges have stretched on every axis since n=9 (financial +56%, implementation +17%, hardware +20%); 5 of 6 financial sub-criteria stretched +1.
+- Per-lane spreads: L1 1.197 (n=5), L2 0.335 (n=5, tight conditional-moat ceiling), L4 1.212 (n=6).
+- Trigger evaluation: T1 NOT FIRED (no approvals); T2 NOT FIRED (sensible ordering); T3 PARTIALLY FIRED (n threshold met, substance check fails — flood-fusion 7.695 passes 3-pillar test cleanly, no L4 boundary erosion); T4 NOT FIRED (top-quartile defensibility floor=7).
+- Decision: **defer formula edits** — no `RUBRIC.md` / spec §5 / brief edits in this pass.
+- Closest pairs all candidate↔candidate, no operator decision split: FERC↔CSLB Δ=0.003, NLRB↔USDA Δ=0.003, MSHA↔insurance Δ=0.013.
+- §5 / hard-disqualifier regression check: all 16 active briefs verified — no changes.
+- Trigger 3 partially exhausted; future revisits evaluate strictly on substance (L4 boundary blurring), not n threshold. Recommended next calibration at n≥25 if no other trigger fires earlier.
+- All 65 tests still pass.
+- Files touched: `docs/calibration/2026-05-05-n15-pass.md` (new), `FOCUS.md`, `.wolf/memory.md`, `.wolf/anatomy.md`.
+
 ## 2026-05-05 (20260505T114726Z-af4378 T3 — scoring pass)
 
 - Scored two T2 backlog candidates and wrote candidate briefs:
@@ -625,3 +639,20 @@
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+
+## Session: 2026-05-05 08:53
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-05 08:54
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-05 08:54
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 08:58 | Created docs/calibration/2026-05-05-n15-pass.md | — | ~3957 |
+| 09:00 | Edited FOCUS.md | 3→5 lines | ~733 |

@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T14:10:00Z
-> Files: 65 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T13:00:03.539Z
+> Files: 64 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -11,7 +11,7 @@
 - `.score_tmp.py` (~261 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `CONSTRAINTS.md` — CONSTRAINTS (~398 tok)
-- `FOCUS.md` — FOCUS (~5501 tok)
+- `FOCUS.md` — FOCUS (~6151 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
 - `WISHLIST.md` — WISHLIST (~26345 tok)
 
@@ -44,7 +44,6 @@
 - `07.009-20260504-cslb-ca-contractor-disciplinary-corpus.md` (~5449 tok)
 - `07.216-20260505-txdot-drivetexas-cameras.md` (~5986 tok)
 - `07.360-20260504-njdot-511-cameras.md` (~4876 tok)
-- `07.695-20260504-usgs-nws-flood-fusion.md` (~6892 tok, renamed from 07.771 per CONSTRAINTS §5)
 - `07.898-20260505-faa-notams-aviation-alerts.md` (~6463 tok)
 
 ## briefs/graduated/
@@ -54,6 +53,7 @@
 ## docs/calibration/
 
 - `2026-05-05-n11-defer.md` — Calibration check — n=11 active scored cluster (n=10 candidates + 1 graduated) (~681 tok)
+- `2026-05-05-n15-pass.md` — Calibration pass — n=15 active scored cluster (n=16 incl. graduated) (~3709 tok)
 - `2026-05-05-n8-pass.md` — Calibration pass — n=8 active scored cluster (n=9 incl. graduated) (~2708 tok)
 
 ## docs/superpowers/specs/
