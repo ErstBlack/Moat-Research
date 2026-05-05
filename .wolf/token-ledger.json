@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-04T03:13:41.850Z",
   "lifetime": {
-    "total_tokens_estimated": 1004441,
-    "total_reads": 131,
-    "total_writes": 246,
-    "total_sessions": 108,
-    "anatomy_hits": 92,
-    "anatomy_misses": 38,
-    "repeated_reads_blocked": 72,
-    "estimated_savings_vs_bare_cli": 1054386
+    "total_tokens_estimated": 1211286,
+    "total_reads": 181,
+    "total_writes": 327,
+    "total_sessions": 115,
+    "anatomy_hits": 126,
+    "anatomy_misses": 54,
+    "repeated_reads_blocked": 90,
+    "estimated_savings_vs_bare_cli": 1178826
   },
   "sessions": [
     {
@@ -3027,6 +3027,1014 @@
         "writes_count": 0,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-05-1521",
+      "started": "2026-05-05T19:21:39.289Z",
+      "ended": "2026-05-05T19:27:53.761Z",
+      "reads": [],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 5660,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 5660,
+        "reads_count": 0,
+        "writes_count": 1,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-05-05-1521",
+      "started": "2026-05-05T19:21:39.289Z",
+      "ended": "2026-05-05T19:32:14.812Z",
+      "reads": [],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 5660,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/wishlist-dismissals.md",
+          "tokens_estimated": 1142,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 485,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 273,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 7560,
+        "reads_count": 0,
+        "writes_count": 4,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-05-05-1535",
+      "started": "2026-05-05T19:35:04.177Z",
+      "ended": "2026-05-05T19:36:34.206Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 7373,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/init_prompt_gen.py",
+          "tokens_estimated": 932,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 8305,
+        "output_tokens_estimated": 0,
+        "reads_count": 3,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 2
+      }
+    },
+    {
+      "id": "session-2026-05-05-1535",
+      "started": "2026-05-05T19:35:04.177Z",
+      "ended": "2026-05-05T19:40:10.857Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 7373,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/init_prompt_gen.py",
+          "tokens_estimated": 932,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 25,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 90,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 231,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 8305,
+        "output_tokens_estimated": 346,
+        "reads_count": 3,
+        "writes_count": 3,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 2
+      }
+    },
+    {
+      "id": "session-2026-05-05-1535",
+      "started": "2026-05-05T19:35:04.177Z",
+      "ended": "2026-05-05T19:56:02.855Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 7373,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/init_prompt_gen.py",
+          "tokens_estimated": 932,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/brief_2026_05_05_faa_notams_aviation_alerts.init-prompt.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 25,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 90,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 231,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 8305,
+        "output_tokens_estimated": 346,
+        "reads_count": 4,
+        "writes_count": 3,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 2
+      }
+    },
+    {
+      "id": "session-2026-05-05-1535",
+      "started": "2026-05-05T19:35:04.177Z",
+      "ended": "2026-05-05T19:58:45.885Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 7373,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/init_prompt_gen.py",
+          "tokens_estimated": 932,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 6060,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/brief_2026_05_05_faa_notams_aviation_alerts.init-prompt.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/template.md",
+          "tokens_estimated": 705,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 25,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 90,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 231,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 15070,
+        "output_tokens_estimated": 346,
+        "reads_count": 5,
+        "writes_count": 3,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 3
+      }
+    },
+    {
+      "id": "session-2026-05-05-1535",
+      "started": "2026-05-05T19:35:04.177Z",
+      "ended": "2026-05-05T19:59:46.348Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 7373,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/init_prompt_gen.py",
+          "tokens_estimated": 932,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 6060,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/brief_2026_05_05_faa_notams_aviation_alerts.init-prompt.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/template.md",
+          "tokens_estimated": 705,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 25,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 90,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 231,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 15070,
+        "output_tokens_estimated": 346,
+        "reads_count": 5,
+        "writes_count": 3,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 3
+      }
+    },
+    {
+      "id": "session-2026-05-05-1535",
+      "started": "2026-05-05T19:35:04.177Z",
+      "ended": "2026-05-05T20:01:10.530Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 7373,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/init_prompt_gen.py",
+          "tokens_estimated": 932,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 6060,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/brief_2026_05_05_faa_notams_aviation_alerts.init-prompt.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/template.md",
+          "tokens_estimated": 705,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 25,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 90,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 231,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 15070,
+        "output_tokens_estimated": 346,
+        "reads_count": 5,
+        "writes_count": 3,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 3
+      }
+    },
+    {
+      "id": "session-2026-05-05-1535",
+      "started": "2026-05-05T19:35:04.177Z",
+      "ended": "2026-05-05T20:06:41.664Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 7373,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/init_prompt_gen.py",
+          "tokens_estimated": 932,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 6060,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/brief_2026_05_05_faa_notams_aviation_alerts.init-prompt.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/template.md",
+          "tokens_estimated": 705,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/workers/common/brief.py",
+          "tokens_estimated": 1462,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 25,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 90,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 231,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/template.md",
+          "tokens_estimated": 156,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/init_prompt_gen.py",
+          "tokens_estimated": 234,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/init_prompt_gen.py",
+          "tokens_estimated": 92,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/template.md",
+          "tokens_estimated": 174,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/template.md",
+          "tokens_estimated": 158,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 214,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 16532,
+        "output_tokens_estimated": 1374,
+        "reads_count": 6,
+        "writes_count": 9,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-05-05-1609",
+      "started": "2026-05-05T20:09:34.684Z",
+      "ended": "2026-05-05T20:33:42.175Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 6113,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 397,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 51,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 6113,
+        "output_tokens_estimated": 448,
+        "reads_count": 1,
+        "writes_count": 2,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-05-1609",
+      "started": "2026-05-05T20:09:34.684Z",
+      "ended": "2026-05-05T20:40:27.384Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 6291,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 397,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 51,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 215,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 100,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 6291,
+        "output_tokens_estimated": 763,
+        "reads_count": 1,
+        "writes_count": 4,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-05-1609",
+      "started": "2026-05-05T20:09:34.684Z",
+      "ended": "2026-05-05T20:41:06.199Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 6291,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 397,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 51,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 215,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 100,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 324,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 6291,
+        "output_tokens_estimated": 1087,
+        "reads_count": 1,
+        "writes_count": 5,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-05-1609",
+      "started": "2026-05-05T20:09:34.684Z",
+      "ended": "2026-05-05T20:49:20.084Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 6557,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 397,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 51,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 215,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 100,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 324,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 480,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 6557,
+        "output_tokens_estimated": 1567,
+        "reads_count": 1,
+        "writes_count": 6,
+        "repeated_reads_blocked": 2,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-05-1609",
+      "started": "2026-05-05T20:09:34.684Z",
+      "ended": "2026-05-05T20:58:10.975Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 6557,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 397,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 51,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 215,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 100,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 324,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 480,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 6557,
+        "output_tokens_estimated": 1567,
+        "reads_count": 1,
+        "writes_count": 6,
+        "repeated_reads_blocked": 2,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-05-1609",
+      "started": "2026-05-05T20:09:34.684Z",
+      "ended": "2026-05-05T20:59:34.945Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 6557,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 397,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 51,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 215,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 100,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 324,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 480,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/template.md",
+          "tokens_estimated": 245,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 6557,
+        "output_tokens_estimated": 1812,
+        "reads_count": 1,
+        "writes_count": 7,
+        "repeated_reads_blocked": 2,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-05-1609",
+      "started": "2026-05-05T20:09:34.684Z",
+      "ended": "2026-05-05T21:02:19.677Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 6557,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 397,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 51,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 215,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 100,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 324,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 480,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/template.md",
+          "tokens_estimated": 245,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/workers/init_prompt_gen/template.md",
+          "tokens_estimated": 151,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 6557,
+        "output_tokens_estimated": 1963,
+        "reads_count": 1,
+        "writes_count": 8,
+        "repeated_reads_blocked": 2,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-05-1704",
+      "started": "2026-05-05T21:04:31.183Z",
+      "ended": "2026-05-05T21:11:04.570Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/briefs/graduated/07.221-20260504-somd-cameras.md",
+          "tokens_estimated": 3777,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 7373,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 6808,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/claude-runner/config/projects/moat/system-prompt.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/claude-runner/config/projects/cameras/system-prompt.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 4570,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 42,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 1,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 50,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/faa-alerts/README.md",
+          "tokens_estimated": 771,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/faa-alerts/CLAUDE.md",
+          "tokens_estimated": 808,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/faa-alerts/.gitignore",
+          "tokens_estimated": 104,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/claude-runner/config/projects/faa-alerts/system-prompt.md",
+          "tokens_estimated": 563,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 22528,
+        "output_tokens_estimated": 2339,
+        "reads_count": 6,
+        "writes_count": 7,
+        "repeated_reads_blocked": 2,
+        "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-05-05-1704",
+      "started": "2026-05-05T21:04:31.183Z",
+      "ended": "2026-05-05T21:11:46.779Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/briefs/graduated/07.221-20260504-somd-cameras.md",
+          "tokens_estimated": 3777,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 7373,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 6808,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/claude-runner/config/projects/moat/system-prompt.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/claude-runner/config/projects/cameras/system-prompt.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 4570,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 42,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+          "tokens_estimated": 1,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 50,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/faa-alerts/README.md",
+          "tokens_estimated": 771,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/faa-alerts/CLAUDE.md",
+          "tokens_estimated": 808,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/faa-alerts/.gitignore",
+          "tokens_estimated": 104,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/claude-runner/config/projects/faa-alerts/system-prompt.md",
+          "tokens_estimated": 563,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 22528,
+        "output_tokens_estimated": 2339,
+        "reads_count": 6,
+        "writes_count": 7,
+        "repeated_reads_blocked": 2,
+        "anatomy_lookups": 4
       }
     }
   ],

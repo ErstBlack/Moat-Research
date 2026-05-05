@@ -208,6 +208,70 @@
       "related_bugs": [],
       "occurrences": 2,
       "last_seen": "2026-05-05T16:51:10.140Z"
+    },
+    {
+      "id": "bug-014",
+      "timestamp": "2026-05-05T19:31:15.614Z",
+      "error_message": "Significant refactor of ",
+      "file": "WISHLIST.md",
+      "root_cause": "42 lines replaced/restructured",
+      "fix": "Rewrote 65→32 lines (42 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-05T19:31:15.614Z"
+    },
+    {
+      "id": "bug-015",
+      "timestamp": "2026-05-05T20:05:48.403Z",
+      "error_message": "Incorrect value in code",
+      "file": "briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+      "root_cause": "Had \"Three-tier capture: (1) full-feed poll of notamSe",
+      "fix": "Changed to \"Three-tier capture: (1) full-feed poll of notamSe",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-05T20:05:48.403Z"
+    },
+    {
+      "id": "bug-016",
+      "timestamp": "2026-05-05T20:33:08.549Z",
+      "error_message": "Incorrect value in code",
+      "file": "briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md",
+      "root_cause": "Had \"Three-tier capture: (1) full-feed poll of notamSe",
+      "fix": "Changed to \"Three-tier capture: (1) full-feed poll of notamSe",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-05T20:33:12.987Z"
+    },
+    {
+      "id": "bug-017",
+      "timestamp": "2026-05-05T20:59:07.621Z",
+      "error_message": "Significant refactor of ",
+      "file": "workers/init_prompt_gen/template.md",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 4→4 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-05T20:59:07.621Z"
     }
   ]
 }

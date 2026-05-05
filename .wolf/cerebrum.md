@@ -2,11 +2,18 @@
 
 > OpenWolf's learning memory. Updated automatically as the AI learns from interactions.
 > Do not edit manually unless correcting an error.
-> Last updated: 2026-05-05 (iteration 20260505T163223Z-a75c26 T1–T3 complete — discovery synthesis + scoring pass + calibration at n=25: 2 new briefs, cluster n=23→25 steady-state, lane balance L1:8/L2:9/L4:9, calibration defers formula edits, no new learnings beyond calibration documentation)
+> Last updated: 2026-05-05 (post-iteration consolidation — WISHLIST.md compressed from ~43k tokens → ~5k tokens by stubbing promoted entries; new convention codified below)
 
 ## User Preferences
 
 <!-- How the user likes things done. Code style, tools, patterns, communication. -->
+
+- **WISHLIST.md entries are stubs; full detail lives off-import (operator directive 2026-05-05):** WISHLIST.md is `@`-imported into context every maximizer iteration via CLAUDE.md, so every line costs tokens forever. Compression rules:
+  - **Promoted-to-candidate entries:** stub to metadata only — `id`, `title`, `url`, `discovered`, `lane_hint`, `status`, `promoted_to` (+ `promoted_to_history` if rescored). Canonical detail (`why_interesting`, `known_constraints`, `estimated_size`, `rate_limit_notes`, verification narrative) lives in `briefs/candidates/<promoted_to>.md`.
+  - **Dismissed entries:** stub to metadata + `dismissed_reason_ref: docs/wishlist-dismissals.md#<id>` + a one-line `dismissed_summary`. The full `dismissed_reason` and revisit triggers live in `docs/wishlist-dismissals.md` (loaded on demand, not auto-imported). When dismissing a new entry: append a section to `docs/wishlist-dismissals.md` (URL, discovered, lane, full reason, revisit triggers), then write only the stub in WISHLIST.md.
+  - **Re-promotion / overlap evaluation:** before re-promoting a dismissed source or scoring a new candidate that overlaps a dismissed precedent, read `docs/wishlist-dismissals.md` for the full reasoning — don't rely on the one-line summary.
+  - **Iteration narratives** (what was added/dismissed in pass T1/T2/T3, what calibrations fired) belong in `FOCUS.md` "Recently completed" and `.wolf/memory.md` — DO NOT append discovery-pass logs to WISHLIST.md. The WISHLIST notes section is for durable dismissal precedents (hard-constraint hits, §5 kills, Akamai gates) only, organized by category.
+  - **Hard rule:** if any WISHLIST entry yaml exceeds ~12 lines, compress it. If WISHLIST.md exceeds ~7k tokens, audit for re-bloat.
 
 - **No-moat = no-keep policy:** When verification reveals there is no defensible moat (i.e., any analyst could reconstruct the dataset/work later from currently-public sources), the operator dismisses the entry rather than reframing or parking it. Rationale (operator, 2026-05-04): "If there isn't a viable moat to exploit then the project can be reconstructed by anyone later without issue." Apply to wishlist entries AND to candidate-brief decisions: any thesis whose defensibility evaporates under scrutiny goes to `dismissed` (wishlist) or `rejected/` (briefs) with an explicit `dismissed_reason` and revisit triggers — not "backlog with new framing." Confirmed against `dc_capital_bikeshare_gbfs` and `coops_ais_coastal_fusion` on 2026-05-04.
 

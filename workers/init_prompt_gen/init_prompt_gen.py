@@ -27,6 +27,22 @@ def _format_signals(signals: list) -> str:
     return "\n".join(lines)
 
 
+def _format_monetization(hypotheses: list) -> str:
+    if not hypotheses:
+        return "(none recorded — see source brief)"
+    return "\n".join(f"- {h}" for h in hypotheses)
+
+
+def _format_financial_notes(feasibility_scores: dict | None) -> str:
+    if not feasibility_scores:
+        return "(no feasibility scores on brief — see source brief)"
+    fin = feasibility_scores.get("financial") or {}
+    notes = (fin.get("notes") or "").strip()
+    if not notes:
+        return "(no financial notes on brief — see source brief)"
+    return notes
+
+
 def render(b: brief_lib.Brief, filename: str) -> str:
     """Render the init-prompt for a single Brief."""
     tmpl = Template(TEMPLATE_PATH.read_text(encoding="utf-8"))
@@ -41,6 +57,8 @@ def render(b: brief_lib.Brief, filename: str) -> str:
         capture_retention=pc.get("retention", ""),
         capture_derived_artifacts=", ".join(pc.get("derived_artifacts") or []),
         source_signals_block=_format_signals(b.source_signals or []),
+        monetization_hypotheses_block=_format_monetization(b.monetization_hypotheses or []),
+        financial_notes_block=_format_financial_notes(b.feasibility_scores),
         resource_storage_gb_per_month=er.get("storage_gb_per_month", "?"),
         resource_cpu_cores=er.get("cpu_cores", "?"),
         resource_ram_gb=er.get("ram_gb", "?"),

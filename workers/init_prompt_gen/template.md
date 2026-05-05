@@ -18,6 +18,16 @@ $slug (rename freely)
 - **Source signals:**
 $source_signals_block
 
+## Monetization hypotheses
+
+These are the buyer hypotheses scored in the source brief's financial axis. They are not a roadmap — they are the candidate revenue paths the brief assumed when the moat was scored. Architectural decisions during init (query API vs. pure archive, live-mirror vs. retrospective-only, delivery format) should consult them; if a different monetization path is chosen, re-score the financial axis.
+
+$monetization_hypotheses_block
+
+## Financial-axis reasoning (from brief)
+
+$financial_notes_block
+
 ## Operational envelope
 
 You will deploy on a single Fedora 42 host with 250 GB RAM, 56 cores (Xeon E5-2695 v3 ×2), an NVIDIA Tesla P4 GPU shared with other services, and 17 TB of free space on a Synology BTRFS SHR1 NAS. The preferred operational pattern is a single-node Docker swarm with isolated microservices, one stack-yml per project. Ingest must be polite: respect robots.txt, ToS, and published rate limits. No auth-bypass. The orchestrator throttles the swarm in aggregate, not just per-service.
@@ -31,6 +41,7 @@ Answer these interactively when initializing the project; the answers will deter
 3. Does any service need GPU (P4 is shared — confirm fit before committing)?
 4. Does this need a dedicated database (Postgres? SQLite? Parquet store?) or can it append to a shared store?
 5. What's the per-service concurrency cap that respects the rate budget below?
+6. If this brief proposes more than one ingest tier or service (see Capture scope above): how do they coordinate — rate-budget allocation across tiers, state sharing for cross-tier hints, and failure isolation when one tier is unhealthy? Iteration 1 should pick the simplest defensible answer (e.g., independent tiers with no cross-tier state, fixed rate-budget split, fail-isolated) and document the decision. If the brief proposes only one tier, this question is vacuous.
 
 ## Resource budget (initial estimate)
 
@@ -46,13 +57,13 @@ Answer these interactively when initializing the project; the answers will deter
 (Operator: fill these in during init. Suggested defaults below.)
 
 - [ ] Ingest service running in Docker, capturing into NAS-mounted volume.
-- [ ] At least 24 hours of data captured without errors.
-- [ ] Storage rate within $resource_storage_gb_per_month GB/month estimate ±25%.
+- [ ] At least 7 continuous days of data captured without errors. (24h is too short for any periodic-spiky source — ordinary day-to-day variance trips ±25% bands and teaches the operator to ignore them. 7 days smooths out weekday/weekend, single-event spikes, and most issuance-cadence patterns. Sources with longer natural cycles — monthly regulatory filings, quarterly disclosures — should override upward to span at least one full cycle.)
+- [ ] 7-day rolling storage rate within $resource_storage_gb_per_month GB/month estimate ±25% (compute as: bytes_written_last_7d * (30/7) vs. estimate). If the source has a longer natural cycle than weekly, extend the rolling window to one full cycle before scoring this criterion.
 - [ ] No 429 / 403 / robots-disallow events in the logs.
 
 ## Out-of-scope guardrails for iteration 1
 
-- No derived artifacts yet — capture first, derive later.
+- No derived artifacts yet — capture first, derive later. **Re-read `## Capture scope` above for brief-specific items the author explicitly deferred to a Lane-4 derived-artifact layer (e.g., chain reconstruction, structured-field parsing, taxonomy enforcement, geometry extraction).** Items the brief flags as deferred are guardrails, not suggestions — they typically encode a §5 self-inflicted-wound risk (pre-classifying or pre-parsing at capture time makes the un-classified / un-parsed form unrecoverable from the archive).
 - No web UI or external API — local files only.
 - No alerting / dashboards — stdout logs only.
 
@@ -64,6 +75,7 @@ Verify each is still false before proceeding:
 - [ ] ToS / robots / rate-limit violations? (must remain `false`)
 - [ ] Un-automatable human labor? (must remain `false`)
 - [ ] DDOS-grade load against any source? (must remain `false`)
+- [ ] No-moat reconstructibility (CONSTRAINTS §5)? Since the brief was scored, has any party (the publisher or a third party) announced or shipped a public archive of this source at the cadence/fidelity the brief depends on? Re-read the brief's own re-verification triggers; if any have fired, **do not bootstrap** — re-score the brief first. (must remain `false`)
 
 ## Provenance
 

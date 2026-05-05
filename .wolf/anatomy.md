@@ -1,7 +1,17 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T16:56:10.551Z
-> Files: 79 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T21:10:07.414Z
+> Files: 85 tracked | Anatomy hits: 0 | Misses: 0
+
+## ../claude-runner/config/projects/faa-alerts/
+
+- `system-prompt.md` — faa-alerts project — additional rules (~493 tok)
+
+## ../faa-alerts/
+
+- `.gitignore` — Git ignore rules (~97 tok)
+- `CLAUDE.md` — faa-alerts (~707 tok)
+- `README.md` — Project documentation (~675 tok)
 
 ## ./
 
@@ -11,10 +21,10 @@
 - `.score_tmp.py` (~261 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `CONSTRAINTS.md` — CONSTRAINTS (~666 tok)
-- `FOCUS.md` — FOCUS (~8427 tok)
+- `FOCUS.md` — FOCUS (~8607 tok)
 - `LANES.md` — LANES (~901 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
-- `WISHLIST.md` — WISHLIST (~43340 tok)
+- `WISHLIST.md` — WISHLIST (~4588 tok)
 
 ## .claude/
 
@@ -29,6 +39,10 @@
 - `anatomy.md` — OpenWolf file index (~290 tok)
 - `cerebrum.md` — Learning memory: patterns, decisions, do-not-repeat (~2100 tok)
 - `memory.md` — Chronological action log (~1800 tok)
+
+## briefs/approved/
+
+- `07.898-20260505-faa-notams-aviation-alerts.md` — Declares researchers (~6803 tok)
 
 ## briefs/candidates/
 
@@ -63,6 +77,10 @@
 ## briefs/graduated/
 
 - `07.221-20260504-somd-cameras.md` — Discovery story (~3777 tok)
+
+## docs/
+
+- `wishlist-dismissals.md` — Wishlist dismissals — full reasoning (~1000 tok)
 
 ## docs/calibration/
 
@@ -131,8 +149,8 @@
 ## workers/init_prompt_gen/
 
 - `Dockerfile` — Docker container definition (~77 tok)
-- `init_prompt_gen.py` — render, sweep, main (~932 tok)
-- `template.md` — Project init prompt: $title (~705 tok)
+- `init_prompt_gen.py` — render, sweep, main (~1137 tok)
+- `template.md` — Project init prompt: $title (~1309 tok)
 
 ## workers/promoter/
 

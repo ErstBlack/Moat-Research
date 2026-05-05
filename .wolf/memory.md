@@ -1009,3 +1009,109 @@ WISHLIST: 4 entries flipped backlog → promoted-to-candidate. Cluster: n=20. Al
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+
+## Session: 2026-05-05 15:21
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 15:26 | Created WISHLIST.md | — | ~5283 |
+
+## Session: 2026-05-05 (post-iteration consolidation, operator-directed)
+
+Operator request: consolidate WISHLIST.md to reduce per-iteration token tax (loaded via CLAUDE.md `@WISHLIST.md` import every maximizer pass).
+
+**Changes:**
+- WISHLIST.md compressed 1796 lines / ~43k tokens → 363 lines / ~5k tokens (~88% reduction).
+- All 24 `promoted-to-candidate` entries collapsed to stubs (id/title/url/discovered/lane_hint/status/promoted_to). Canonical detail (`why_interesting`, `known_constraints`, `estimated_size`, `rate_limit_notes`) lives in `briefs/candidates/<promoted_to>.md` from now on.
+- 3 `dismissed` entries (`ndbc_realtime_buoys`, `coops_ais_coastal_fusion`, `dc_capital_bikeshare_gbfs`) retained with their full `dismissed_reason` — no brief file holds those, so the wishlist is the canonical home.
+- "Notes for the operator": collapsed multi-pass discovery iteration narratives (duplicated in `FOCUS.md` "Recently completed" and `.wolf/memory.md`) into a categorized dismissal-precedents list (hard-constraint hits, Akamai gates, §5 kills, reachability issues, Lane-3 track record).
+- Added "Promoted entries are stubs" rule to WISHLIST.md Rules section (in-document enforcement).
+- Added enforcement note to `.wolf/cerebrum.md` User Preferences so the convention persists across sessions: on every future promotion, compress the entry to ≤12 lines; iteration narratives go to FOCUS.md/`.wolf/memory.md`, not WISHLIST notes.
+
+**Outcome:** Per-iteration context cost from WISHLIST.md drops by ~38k tokens. No load-bearing detail lost (everything either lives in brief files or in the categorized notes). Pre-consolidation full file recoverable from git history if needed.
+| 15:27 | Session end: 1 writes across 1 files (WISHLIST.md) | 0 reads | ~5660 tok |
+| 15:30 | Created docs/wishlist-dismissals.md | — | ~1066 |
+| 15:31 | Edited WISHLIST.md | reduced (-33 lines) | ~452 |
+| 15:31 | Edited WISHLIST.md | 1→2 lines | ~255 |
+
+## Session: 2026-05-05 (dismissal reasons moved off-import)
+
+Operator request: move dismissed entry reasons to a separate file referenced on demand.
+
+**Changes:**
+- Created `docs/wishlist-dismissals.md` holding the three full `dismissed_reason` blocks (ndbc_realtime_buoys, coops_ais_coastal_fusion, dc_capital_bikeshare_gbfs) with revisit triggers + cached context (e.g., AIS bulk-archive properties).
+- Replaced the dismissed entries in WISHLIST.md with stubs: each carries `dismissed_reason_ref` (path + anchor into `docs/wishlist-dismissals.md`) and a one-sentence `dismissed_summary`.
+- Updated WISHLIST.md Rules section with the new convention ("Dismissed entries are stubs too").
+- Updated `.wolf/cerebrum.md` User Preferences with the unified rule covering both promoted and dismissed stubs, plus the hard token threshold (~7k) and re-promotion read-before-decide step.
+
+**Outcome:** Per-iteration context cost from WISHLIST.md drops further. `docs/wishlist-dismissals.md` is loaded only when relevant (re-promoting a dismissed source, evaluating a candidate that overlaps a precedent, calibration audit).
+| 15:32 | Session end: 4 writes across 2 files (WISHLIST.md, wishlist-dismissals.md) | 0 reads | ~7560 tok |
+
+## Session: 2026-05-05 15:34
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-05 15:34
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-05 15:34
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-05 15:35
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 15:39 | Edited briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md | 4→4 lines | ~23 |
+| 15:39 | Edited WISHLIST.md | 7→8 lines | ~84 |
+| 15:39 | Edited FOCUS.md | modified step() | ~215 |
+| 15:40 | Session end: 3 writes across 3 files (07.898-20260505-faa-notams-aviation-alerts.md, WISHLIST.md, FOCUS.md) | 3 reads | ~8651 tok |
+| 15:56 | Session end: 3 writes across 3 files (07.898-20260505-faa-notams-aviation-alerts.md, WISHLIST.md, FOCUS.md) | 4 reads | ~8651 tok |
+| 15:58 | Session end: 3 writes across 3 files (07.898-20260505-faa-notams-aviation-alerts.md, WISHLIST.md, FOCUS.md) | 5 reads | ~15416 tok |
+| 15:59 | Session end: 3 writes across 3 files (07.898-20260505-faa-notams-aviation-alerts.md, WISHLIST.md, FOCUS.md) | 5 reads | ~15416 tok |
+| 16:01 | Session end: 3 writes across 3 files (07.898-20260505-faa-notams-aviation-alerts.md, WISHLIST.md, FOCUS.md) | 5 reads | ~15416 tok |
+| 16:01 | Edited workers/init_prompt_gen/template.md | expanded (+10 lines) | ~146 |
+| 16:01 | Edited workers/init_prompt_gen/init_prompt_gen.py | modified _format_signals() | ~234 |
+| 16:01 | Edited workers/init_prompt_gen/init_prompt_gen.py | 2→4 lines | ~92 |
+| 16:02 | Edited workers/init_prompt_gen/template.md | 4→5 lines | ~162 |
+| 16:05 | Edited workers/init_prompt_gen/template.md | modified service() | ~148 |
+| 16:05 | Edited briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md | "Three-tier capture: (1) f" → "Three-tier capture: (1) f" | ~200 |
+| 16:06 | Session end: 9 writes across 5 files (07.898-20260505-faa-notams-aviation-alerts.md, WISHLIST.md, FOCUS.md, template.md, init_prompt_gen.py) | 6 reads | ~17906 tok |
+
+## Session: 2026-05-05 16:09
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 16:33 | Edited briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md | "Three-tier capture: (1) f" → "Three-tier capture: (1) f" | ~371 |
+| 16:33 | Edited briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md | "Operational-detail diff-h" → "REPLACES-chain reconstruc" | ~47 |
+| 16:33 | Session end: 2 writes across 1 files (07.898-20260505-faa-notams-aviation-alerts.md) | 1 reads | ~6561 tok |
+| 16:39 | Edited briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md | inline fix | ~201 |
+| 16:39 | Edited briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md | inline fix | ~94 |
+| 16:40 | Session end: 4 writes across 1 files (07.898-20260505-faa-notams-aviation-alerts.md) | 1 reads | ~7054 tok |
+| 16:40 | Edited briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md | inline fix | ~302 |
+| 16:41 | Session end: 5 writes across 1 files (07.898-20260505-faa-notams-aviation-alerts.md) | 1 reads | ~7378 tok |
+| 16:48 | Edited briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md | inline fix | ~448 |
+| 16:49 | Session end: 6 writes across 1 files (07.898-20260505-faa-notams-aviation-alerts.md) | 1 reads | ~8124 tok |
+| 16:58 | Session end: 6 writes across 1 files (07.898-20260505-faa-notams-aviation-alerts.md) | 1 reads | ~8124 tok |
+| 16:59 | Edited workers/init_prompt_gen/template.md | 4→4 lines | ~228 |
+| 16:59 | Session end: 7 writes across 2 files (07.898-20260505-faa-notams-aviation-alerts.md, template.md) | 1 reads | ~8369 tok |
+| 17:01 | Edited workers/init_prompt_gen/template.md | inline fix | ~141 |
+| 17:02 | Session end: 8 writes across 2 files (07.898-20260505-faa-notams-aviation-alerts.md, template.md) | 1 reads | ~8520 tok |
+
+## Session: 2026-05-05 17:04
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 17:07 | Edited briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md | 4→6 lines | ~40 |
+| 17:07 | Edited briefs/approved/07.898-20260505-faa-notams-aviation-alerts.md | removed 2 lines | ~1 |
+| 17:08 | Edited WISHLIST.md | 3→5 lines | ~47 |
+| 17:09 | Created ../faa-alerts/README.md | — | ~720 |
+| 17:09 | Created ../faa-alerts/CLAUDE.md | — | ~754 |
+| 17:09 | Created ../faa-alerts/.gitignore | — | ~97 |
+| 17:10 | Created ../claude-runner/config/projects/faa-alerts/system-prompt.md | — | ~526 |
+| 17:11 | Session end: 7 writes across 6 files (07.898-20260505-faa-notams-aviation-alerts.md, WISHLIST.md, README.md, CLAUDE.md, .gitignore) | 6 reads | ~24867 tok |
+| 17:11 | Session end: 7 writes across 6 files (07.898-20260505-faa-notams-aviation-alerts.md, WISHLIST.md, README.md, CLAUDE.md, .gitignore) | 6 reads | ~24867 tok |
