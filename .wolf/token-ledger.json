@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-04T03:13:41.850Z",
   "lifetime": {
-    "total_tokens_estimated": 377601,
-    "total_reads": 67,
+    "total_tokens_estimated": 379992,
+    "total_reads": 70,
     "total_writes": 193,
     "total_sessions": 57,
-    "anatomy_hits": 47,
-    "anatomy_misses": 20,
+    "anatomy_hits": 48,
+    "anatomy_misses": 22,
     "repeated_reads_blocked": 36,
-    "estimated_savings_vs_bare_cli": 143377
+    "estimated_savings_vs_bare_cli": 143577
   },
   "sessions": [
     {
@@ -1926,6 +1926,40 @@
         "output_tokens_estimated": 296,
         "reads_count": 1,
         "writes_count": 1,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-05-0510",
+      "started": "2026-05-05T09:10:39.731Z",
+      "ended": "2026-05-05T09:11:47.156Z",
+      "reads": [
+        {
+          "file": "/home/runner/.maximizer/projects/moat/runs/20260505T083851Z-d3bb40/review.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/.maximizer/projects/moat/runs/20260505T083851Z-d3bb40/iteration.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/calibration/2026-05-05-n8-pass.md",
+          "tokens_estimated": 2391,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 2391,
+        "output_tokens_estimated": 0,
+        "reads_count": 3,
+        "writes_count": 0,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 1
       }
