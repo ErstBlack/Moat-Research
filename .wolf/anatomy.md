@@ -1,8 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T12:00:00.000Z (20260505T114726Z-af4378/T2)
-> Files: 63 tracked | Anatomy hits: 0 | Misses: 0
-> WISHLIST.md updated: +txdot_drivetexas_cameras (L1), +uspto_patent_claim_citation_corpus (L4)
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T12:08:40.666Z
+> Files: 65 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -12,9 +11,9 @@
 - `.score_tmp.py` (~261 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `CONSTRAINTS.md` — CONSTRAINTS (~398 tok)
-- `FOCUS.md` — FOCUS (~4902 tok)
+- `FOCUS.md` — FOCUS (~5501 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
-- `WISHLIST.md` — WISHLIST (~26318 tok)
+- `WISHLIST.md` — WISHLIST (~26345 tok)
 
 ## .claude/
 
@@ -40,8 +39,10 @@
 - `06.802-20260505-nlrb-unfair-labor-practice-cases.md` — Declares L (~5790 tok)
 - `06.805-20260505-usda-aphis-animal-welfare-inspections.md` — Declares vetting (~6018 tok)
 - `06.892-20260504-multi-state-medical-board-enforcement.md` — Declares cross (~5467 tok)
+- `06.911-20260505-uspto-patent-claim-citation-corpus.md` — Declares join (~7346 tok)
 - `07.006-20260505-ferc-elibrary-regulatory-filings.md` (~7068 tok)
 - `07.009-20260504-cslb-ca-contractor-disciplinary-corpus.md` (~5108 tok)
+- `07.216-20260505-txdot-drivetexas-cameras.md` — Declares to (~5612 tok)
 - `07.360-20260504-njdot-511-cameras.md` — Declares on (~4571 tok)
 - `07.600-20260504-ndbc-realtime-buoys.md` (~5882 tok)
 - `07.771-20260504-usgs-nws-flood-fusion.md` (~6892 tok)

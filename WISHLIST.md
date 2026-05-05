@@ -980,8 +980,8 @@ sources:
       so this check is likely clear).
     estimated_size: "~80–120 GB/month raw (est. 800 cameras × 50 KB/image × 288 polls/day); ~15–25 GB/month with gzip + delta-only retention (most images identical between refresh cycles due to low-activity periods)"
     rate_limit_notes: "No published rate limits for drivetexas.org camera image endpoints. Recommend ≥5s between camera polls, single-process per-camera, total request rate ≤1 req/s across all cameras. Verify at brief stage whether camera image URLs are rate-limited at the CDN or origin separately from the web UI."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 07.216-20260505-txdot-drivetexas-cameras
     dismissed_reason: null
 
   - id: uspto_patent_claim_citation_corpus
@@ -1053,8 +1053,8 @@ sources:
       or post-2000 grants only) that a single server can realistically process.
     estimated_size: "~15 GB/week raw full-grant XML (USPTO publishes ~6,500 patents/week in full XML); ~2 GB/week at CPC-filtered scope; ~500 GB structured corpus (claim trees + citation graph + inventor ER) at 20-year historical depth"
     rate_limit_notes: "USPTO Open Data Portal and bulkdata.uspto.gov: no published per-request rate limit for bulk file downloads. Recommend ≥5s between batch file fetches, single-process. PatentsView API: no documented rate limit but best-practice polite usage applies. Honor any 429s with exponential backoff."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 06.911-20260505-uspto-patent-claim-citation-corpus
     dismissed_reason: null
 ```
 

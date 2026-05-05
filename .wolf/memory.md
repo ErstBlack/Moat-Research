@@ -3,6 +3,19 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+## 2026-05-05 (20260505T114726Z-af4378 T3 — scoring pass)
+
+- Scored two T2 backlog candidates and wrote candidate briefs:
+  - `briefs/candidates/07.216-20260505-txdot-drivetexas-cameras.md` (Lane 1+5, fin 6.833 / impl 7.000 / hw 8.000, composite 7.216).
+  - `briefs/candidates/06.911-20260505-uspto-patent-claim-citation-corpus.md` (Lane 4+5, fin 7.167 / impl 7.000 / hw 6.500, composite 6.911).
+- Both pass all 5 CONSTRAINTS hard disqualifiers including §5 Defensibility floor; no axis=0 rejections.
+- WISHLIST entries flipped backlog → promoted-to-candidate (txdot_drivetexas_cameras → 07.216-...; uspto_patent_claim_citation_corpus → 06.911-...).
+- FOCUS.md `Recently completed` appended with cluster snapshot + key learnings.
+- Active scored cluster: n=15 candidates + 1 graduated = 16. **Calibration trigger n>15 crossed** — flag for next-iteration formal calibration pass.
+- Lane balance now L1:5 / L2:5 / L4:6 (well-diversified).
+- All 65 tests still pass.
+- Files touched: 2 new briefs, `WISHLIST.md`, `FOCUS.md`, `.wolf/memory.md`.
+
 ## 2026-05-05 (20260505T114726Z-af4378 T2 — discovery synthesis pass)
 
 - Iteration `20260505T114726Z-af4378` task T2 — discovery synthesis pass with explicit L1/L4 diversification (L2 cluster already at 5, per task acceptance criteria).
@@ -559,3 +572,13 @@
 | 07:58 | Edited WISHLIST.md | modified check() | ~2833 |
 | 07:59 | Edited WISHLIST.md | added 2 condition(s) | ~1512 |
 | 08:00 | Session end: 2 writes across 1 files (WISHLIST.md) | 1 reads | ~29851 tok |
+
+## Session: 2026-05-05 08:00
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 08:03 | Created briefs/candidates/07.216-20260505-txdot-drivetexas-cameras.md | — | ~5986 |
+| 08:06 | Created briefs/candidates/06.911-20260505-uspto-patent-claim-citation-corpus.md | — | ~7836 |
+| 08:07 | Edited WISHLIST.md | 6→6 lines | ~128 |
+| 08:07 | Edited WISHLIST.md | 5→5 lines | ~119 |
+| 08:08 | Edited FOCUS.md | 3→5 lines | ~663 |
