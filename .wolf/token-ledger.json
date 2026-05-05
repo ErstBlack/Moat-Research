@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-04T03:13:41.850Z",
   "lifetime": {
-    "total_tokens_estimated": 198063,
-    "total_reads": 48,
-    "total_writes": 161,
-    "total_sessions": 41,
-    "anatomy_hits": 30,
+    "total_tokens_estimated": 232267,
+    "total_reads": 50,
+    "total_writes": 171,
+    "total_sessions": 44,
+    "anatomy_hits": 32,
     "anatomy_misses": 18,
     "repeated_reads_blocked": 28,
-    "estimated_savings_vs_bare_cli": 21699
+    "estimated_savings_vs_bare_cli": 22099
   },
   "sessions": [
     {
@@ -1503,6 +1503,85 @@
         "writes_count": 3,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-05-2254",
+      "started": "2026-05-05T02:54:42.131Z",
+      "ended": "2026-05-05T03:20:03.837Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 5722,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/07.360-20260504-njdot-511-cameras.md",
+          "tokens_estimated": 4571,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 2754,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 1138,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 432,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/07.009-20260504-cslb-ca-contractor-disciplinary-corpus.md",
+          "tokens_estimated": 5838,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/06.892-20260504-multi-state-medical-board-enforcement.md",
+          "tokens_estimated": 6248,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/06.701-20260504-us-transit-gtfsrt-smaller-agencies.md",
+          "tokens_estimated": 6664,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 126,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 132,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 120,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 459,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 10293,
+        "output_tokens_estimated": 23911,
+        "reads_count": 2,
+        "writes_count": 10,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 2
       }
     }
   ],

@@ -1,90 +1,12 @@
 {
-  "session_id": "session-2026-05-05-2254",
-  "started": "2026-05-05T02:54:42.131Z",
-  "files_read": {
-    "/home/runner/moat-research/WISHLIST.md": {
-      "count": 1,
-      "tokens": 5722,
-      "first_read": "2026-05-05T03:03:47.432Z"
-    },
-    "/home/runner/moat-research/briefs/candidates/07.360-20260504-njdot-511-cameras.md": {
-      "count": 1,
-      "tokens": 4571,
-      "first_read": "2026-05-05T03:09:54.629Z"
-    }
-  },
-  "files_written": [
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 2754,
-      "at": "2026-05-05T03:04:52.889Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 1138,
-      "at": "2026-05-05T03:05:30.983Z"
-    },
-    {
-      "file": "/home/runner/moat-research/FOCUS.md",
-      "action": "edit",
-      "tokens": 432,
-      "at": "2026-05-05T03:05:44.875Z"
-    },
-    {
-      "file": "/home/runner/moat-research/briefs/candidates/07.009-20260504-cslb-ca-contractor-disciplinary-corpus.md",
-      "action": "create",
-      "tokens": 5838,
-      "at": "2026-05-05T03:13:41.826Z"
-    },
-    {
-      "file": "/home/runner/moat-research/briefs/candidates/06.892-20260504-multi-state-medical-board-enforcement.md",
-      "action": "create",
-      "tokens": 6248,
-      "at": "2026-05-05T03:16:23.241Z"
-    },
-    {
-      "file": "/home/runner/moat-research/briefs/candidates/06.701-20260504-us-transit-gtfsrt-smaller-agencies.md",
-      "action": "create",
-      "tokens": 6664,
-      "at": "2026-05-05T03:18:50.034Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 126,
-      "at": "2026-05-05T03:18:59.612Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 132,
-      "at": "2026-05-05T03:19:07.338Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 120,
-      "at": "2026-05-05T03:19:13.575Z"
-    },
-    {
-      "file": "/home/runner/moat-research/FOCUS.md",
-      "action": "edit",
-      "tokens": 459,
-      "at": "2026-05-05T03:19:30.437Z"
-    }
-  ],
-  "edit_counts": {
-    "WISHLIST.md": 5,
-    "FOCUS.md": 2,
-    "briefs/candidates/07.009-20260504-cslb-ca-contractor-disciplinary-corpus.md": 1,
-    "briefs/candidates/06.892-20260504-multi-state-medical-board-enforcement.md": 1,
-    "briefs/candidates/06.701-20260504-us-transit-gtfsrt-smaller-agencies.md": 1
-  },
-  "anatomy_hits": 2,
+  "session_id": "session-2026-05-05-0322",
+  "started": "2026-05-05T07:22:45.933Z",
+  "files_read": {},
+  "files_written": [],
+  "edit_counts": {},
+  "anatomy_hits": 0,
   "anatomy_misses": 0,
   "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
-  "stop_count": 2
+  "stop_count": 0
 }
