@@ -256,3 +256,4 @@
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+| 19:41 | Add FOCUS item 4: recheck DC GBFS feeds (5 endpoints from DDOT page); remove stale Capitol Bikeshare dismissal from WISHLIST operator notes | FOCUS.md, WISHLIST.md | done | ~600 |

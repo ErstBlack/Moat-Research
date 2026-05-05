@@ -159,7 +159,6 @@ Candidates considered and rejected on hard-constraint grounds (2026-05-04 verifi
 
 - **PurpleAir** (purpleair.com): robots.txt `User-agent: * Disallow: /` verified 2026-05-04 — crawling the site would violate robots.txt, triggering CONSTRAINTS.md §2. Dismissed.
 - **511VA / VDOT 511** (511va.org): robots.txt `User-agent: * Disallow: /` verified 2026-05-04 — same hard-constraint violation. Dismissed.
-- **Capitol Bikeshare GBFS** (gbfs.lyft.com): API endpoint returned HTTP 403 AccessDenied (verified 2026-05-04) — cannot verify constraints or access, dropped rather than dismissed; revisit if a public endpoint is found.
 
 ## How to append (for operator quick reference)
 
