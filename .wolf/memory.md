@@ -945,3 +945,28 @@ WISHLIST: 4 entries flipped backlog → promoted-to-candidate. Cluster: n=20. Al
 - Dismissed: Illinois DOT cameras (cameras page 404 on tripcheck-style path, URL structure unconfirmable); Lane-3 Oregon camera × SNOTEL snowpack (SNOTEL archived by NRCS, dismissed per Lane-3 survival condition).
 - Lane cluster after T1: L1: 8 total (7 promoted + OR new), L2: 9 (unchanged), L4: 9 (8 promoted + SEC new). L1+L4 rebalancing achieved; L2 held at 9.
 | 12:40 | Session end: 2 writes across 1 files (WISHLIST.md) | 1 reads | ~47199 tok |
+
+## Session: 2026-05-05 12:40
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 12:48 | Created briefs/candidates/07.279-20260505-odot-tripcheck-cameras.md | — | ~5726 |
+| 12:50 | Created briefs/candidates/07.509-20260505-sec-enforcement-structured-corpus.md | — | ~7214 |
+| 12:51 | Edited WISHLIST.md | 5→5 lines | ~43 |
+| 12:51 | Edited WISHLIST.md | 6→6 lines | ~43 |
+
+## 2026-05-05 (20260505T163223Z-a75c26 T2 — Scoring pass, 2 new briefs)
+
+- Scored both T1 backlog candidates against RUBRIC.md and wrote candidate briefs:
+  - `07.279-20260505-odot-tripcheck-cameras` (Lane 1+5, fin 6.500 / impl 7.250 / hw 8.500, composite 7.279). ODOT TripCheck: I-84 Columbia Gorge, Portland metro, Cascade passes. Open /api/cameras endpoint (no auth) improves impl over WSDOT. buyer_existence=5 (smaller Oregon market vs. WA).
+  - `07.509-20260505-sec-enforcement-structured-corpus` (Lane 4+5, fin 6.833 / impl 7.750 / hw 8.250, composite 7.509). SEC litigation releases + admin proceedings 1995–present. Three Lane-4 pillars: cross-case entity resolution, violation taxonomy, penalty structured extraction. Source stability=8 (sec.gov 30-year institutional permanence). Smallest storage footprint in L4 cluster (~2 GB at full depth, ~50 MB/year incremental).
+- Both pass all 5 CONSTRAINTS hard disqualifiers; no axis-zero rejections.
+- WISHLIST entries `odot_tripcheck_cameras` and `sec_enforcement_structured_corpus` flipped backlog → promoted-to-candidate.
+- Active scored cluster grows n=23 → n=25 (24 candidates + 1 graduated). No calibration trigger (n≥25 is next threshold — now exactly at the boundary).
+- Lane balance: L1:8 / L2:9 / L4:9. L1/L4 now equal at 9 each (excluding somd graduated).
+- All 65 tests pass. .wolf/anatomy.md header updated (80 files). .wolf/memory.md appended.
+
+## Session: 2026-05-05 12:53
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|

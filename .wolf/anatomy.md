@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T16:39:15.942Z
-> Files: 76 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T17:10:00.000Z
+> Files: 80 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -14,7 +14,7 @@
 - `FOCUS.md` — FOCUS (~8033 tok)
 - `LANES.md` — LANES (~901 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
-- `WISHLIST.md` — WISHLIST (~43314 tok)
+- `WISHLIST.md` — WISHLIST (~43340 tok)
 
 ## .claude/
 
@@ -53,9 +53,11 @@
 - `07.216-20260505-txdot-drivetexas-cameras.md` (~5986 tok)
 - `07.274-20260505-cra-exam-narrative-corpus.md` (~6400 tok)
 - `07.274-20260505-cra-exam-narrative-corpus.md` — Declares edges (~5479 tok)
+- `07.279-20260505-odot-tripcheck-cameras.md` — Declares at (~5368 tok)
 - `07.315-20260505-bis-oee-export-enforcement-corpus.md` (~6300 tok)
 - `07.315-20260505-bis-oee-export-enforcement-corpus.md` — Declares taxonomy (~5307 tok)
 - `07.360-20260504-njdot-511-cameras.md` (~4876 tok)
+- `07.509-20260505-sec-enforcement-structured-corpus.md` — Declares filters (~6763 tok)
 - `07.898-20260505-faa-notams-aviation-alerts.md` (~6463 tok)
 
 ## briefs/graduated/

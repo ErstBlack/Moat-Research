@@ -1561,8 +1561,8 @@ sources:
       polls, single-process per camera, total request rate ≤1 req/s across all cameras.
     estimated_size: "~35–50 GB/month raw (est. 600 cameras × 50 KB/image × 288 polls/day × ~70% active at any time); ~7–12 GB/month with gzip + delta-only retention"
     rate_limit_notes: "No published rate limits for TripCheck camera image endpoints. Recommend ≥5s between camera polls, single-process per camera, total request rate ≤1 req/s across all cameras. Enumerate actual image URL pattern and confirm no rate limit gating at brief stage."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 07.279-20260505-odot-tripcheck-cameras
     dismissed_reason: null
 
   - id: sec_enforcement_structured_corpus
@@ -1650,8 +1650,8 @@ sources:
       developer terms at developer.sec.gov for any redistribution language.
     estimated_size: "~2–4 GB raw archive at full historical depth (~10,000 enforcement actions since 1995 × avg ~200 KB per case including linked PDFs); ~200 MB structured corpus (entity graph Parquet + violation taxonomy + penalty table); ~20–50 MB/year incremental"
     rate_limit_notes: "No published rate limit for sec.gov /litigation/ paths. Recommend ≥5s between page requests, single-process. EFTS full-text search: honor any 429s with exponential backoff; recommend ≥2s between EFTS API calls. Never exceed 10 concurrent requests to sec.gov per the SEC's informal guidance on high-volume EDGAR access."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 07.509-20260505-sec-enforcement-structured-corpus
     dismissed_reason: null
 ```
 
