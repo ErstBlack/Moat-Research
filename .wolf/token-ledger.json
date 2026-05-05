@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-04T03:13:41.850Z",
   "lifetime": {
-    "total_tokens_estimated": 477958,
-    "total_reads": 78,
-    "total_writes": 205,
-    "total_sessions": 62,
-    "anatomy_hits": 55,
+    "total_tokens_estimated": 483584,
+    "total_reads": 79,
+    "total_writes": 206,
+    "total_sessions": 63,
+    "anatomy_hits": 56,
     "anatomy_misses": 22,
     "repeated_reads_blocked": 41,
-    "estimated_savings_vs_bare_cli": 234151
+    "estimated_savings_vs_bare_cli": 234351
   },
   "sessions": [
     {
@@ -2121,6 +2121,34 @@
         "writes_count": 8,
         "repeated_reads_blocked": 3,
         "anatomy_lookups": 3
+      }
+    },
+    {
+      "id": "session-2026-05-05-0626",
+      "started": "2026-05-05T10:26:36.600Z",
+      "ended": "2026-05-05T10:28:25.118Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 5255,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 371,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 5255,
+        "output_tokens_estimated": 371,
+        "reads_count": 1,
+        "writes_count": 1,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
       }
     }
   ],

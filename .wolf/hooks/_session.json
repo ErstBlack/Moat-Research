@@ -1,84 +1,27 @@
 {
-  "session_id": "session-2026-05-05-0614",
-  "started": "2026-05-05T10:14:47.969Z",
+  "session_id": "session-2026-05-05-0626",
+  "started": "2026-05-05T10:26:36.600Z",
   "files_read": {
-    "/home/runner/moat-research/briefs/candidates/06.723-20260505-osha-enforcement-inspection-corpus.md": {
-      "count": 1,
-      "tokens": 5795,
-      "first_read": "2026-05-05T10:15:09.524Z"
-    },
-    "/home/runner/moat-research/WISHLIST.md": {
-      "count": 4,
-      "tokens": 22528,
-      "first_read": "2026-05-05T10:24:42.656Z"
-    },
     "/home/runner/moat-research/FOCUS.md": {
       "count": 1,
-      "tokens": 4661,
-      "first_read": "2026-05-05T10:25:52.136Z"
+      "tokens": 5255,
+      "first_read": "2026-05-05T10:27:15.179Z"
     }
   },
   "files_written": [
     {
-      "file": "/home/runner/moat-research/.score_t3.py",
-      "action": "create",
-      "tokens": 126,
-      "at": "2026-05-05T10:16:22.164Z"
-    },
-    {
-      "file": "/home/runner/moat-research/briefs/candidates/06.802-20260505-nlrb-unfair-labor-practice-cases.md",
-      "action": "create",
-      "tokens": 6618,
-      "at": "2026-05-05T10:19:15.816Z"
-    },
-    {
-      "file": "/home/runner/moat-research/briefs/candidates/06.608-20260505-epa-echo-enforcement-corpus.md",
-      "action": "create",
-      "tokens": 6938,
-      "at": "2026-05-05T10:21:57.113Z"
-    },
-    {
-      "file": "/home/runner/moat-research/briefs/candidates/06.470-20260505-msha-mine-safety-enforcement-corpus.md",
-      "action": "create",
-      "tokens": 6770,
-      "at": "2026-05-05T10:24:32.865Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 116,
-      "at": "2026-05-05T10:25:05.980Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 127,
-      "at": "2026-05-05T10:25:12.616Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 126,
-      "at": "2026-05-05T10:25:18.236Z"
-    },
-    {
       "file": "/home/runner/moat-research/FOCUS.md",
       "action": "edit",
-      "tokens": 775,
-      "at": "2026-05-05T10:26:04.723Z"
+      "tokens": 371,
+      "at": "2026-05-05T10:27:44.175Z"
     }
   ],
   "edit_counts": {
-    ".score_t3.py": 1,
-    "briefs/candidates/06.802-20260505-nlrb-unfair-labor-practice-cases.md": 1,
-    "briefs/candidates/06.608-20260505-epa-echo-enforcement-corpus.md": 1,
-    "briefs/candidates/06.470-20260505-msha-mine-safety-enforcement-corpus.md": 1,
-    "WISHLIST.md": 3,
     "FOCUS.md": 1
   },
-  "anatomy_hits": 3,
+  "anatomy_hits": 1,
   "anatomy_misses": 0,
-  "repeated_reads_warned": 3,
+  "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
   "stop_count": 1
 }
