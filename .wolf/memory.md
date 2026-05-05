@@ -257,3 +257,65 @@
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
 | 19:41 | Add FOCUS item 4: recheck DC GBFS feeds (5 endpoints from DDOT page); remove stale Capitol Bikeshare dismissal from WISHLIST operator notes | FOCUS.md, WISHLIST.md | done | ~600 |
+
+## Session: 2026-05-05 21:55
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-05 21:58
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:04 | Edited WISHLIST.md | expanded (+52 lines) | ~1002 |
+| 22:04 | Edited WISHLIST.md | modified grounds() | ~573 |
+| 22:04 | Edited FOCUS.md | modified Outcome() | ~210 |
+| 22:05 | Session end: 3 writes across 2 files (WISHLIST.md, FOCUS.md) | 0 reads | ~1912 tok |
+| 22:18 | Edited WISHLIST.md | added 1 condition(s) | ~378 |
+| 22:19 | Edited FOCUS.md | inline fix | ~207 |
+| 22:19 | Session end: 5 writes across 2 files (WISHLIST.md, FOCUS.md) | 0 reads | ~2539 tok |
+| 22:23 | Edited WISHLIST.md | modified LIMITATION() | ~913 |
+| 22:23 | Session end: 6 writes across 2 files (WISHLIST.md, FOCUS.md) | 0 reads | ~3517 tok |
+| 22:24 | Edited WISHLIST.md | added 1 condition(s) | ~398 |
+| 22:25 | Session end: 7 writes across 2 files (WISHLIST.md, FOCUS.md) | 0 reads | ~3943 tok |
+| 22:30 | Edited CONSTRAINTS.md | 6→7 lines | ~358 |
+| 22:31 | Edited RUBRIC.md | inline fix | ~242 |
+| 22:31 | Edited docs/superpowers/specs/2026-05-04-moat-research-design.md | 6→7 lines | ~396 |
+| 22:31 | Edited docs/superpowers/specs/2026-05-04-moat-research-design.md | inline fix | ~251 |
+| 22:32 | Edited FOCUS.md | modified recheck() | ~556 |
+| 22:33 | Session end: 12 writes across 5 files (WISHLIST.md, FOCUS.md, CONSTRAINTS.md, RUBRIC.md, 2026-05-04-moat-research-design.md) | 1 reads | ~5876 tok |
+| 22:36 | Edited briefs/candidates/07.771-20260504-usgs-nws-flood-fusion.md | modified pass() | ~293 |
+| 22:36 | Edited briefs/candidates/07.771-20260504-usgs-nws-flood-fusion.md | expanded (+9 lines) | ~595 |
+| 22:36 | Edited briefs/candidates/07.771-20260504-usgs-nws-flood-fusion.md | 9→9 lines | ~50 |
+| 22:37 | Edited briefs/candidates/07.771-20260504-usgs-nws-flood-fusion.md | modified Defensibility() | ~392 |
+| 22:37 | Edited briefs/candidates/07.771-20260504-usgs-nws-flood-fusion.md | 7.771 → 7.695 | ~6 |
+| 22:37 | Edited briefs/candidates/07.771-20260504-usgs-nws-flood-fusion.md | 33→37 lines | ~610 |
+| 22:38 | Edited WISHLIST.md | 5→7 lines | ~81 |
+| 22:38 | Edited FOCUS.md | inline fix | ~131 |
+| 22:38 | Session end: 20 writes across 6 files (WISHLIST.md, FOCUS.md, CONSTRAINTS.md, RUBRIC.md, 2026-05-04-moat-research-design.md) | 2 reads | ~14523 tok |
+
+## Session: 2026-05-05 22:40
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:46 | Edited briefs/candidates/07.600-20260504-ndbc-realtime-buoys.md | added 1 condition(s) | ~764 |
+| 22:46 | Edited briefs/candidates/07.600-20260504-ndbc-realtime-buoys.md | 11→11 lines | ~194 |
+| 22:46 | Edited briefs/candidates/07.600-20260504-ndbc-realtime-buoys.md | density() → NDBC() | ~599 |
+| 22:47 | Edited briefs/candidates/07.600-20260504-ndbc-realtime-buoys.md | expanded (+66 lines) | ~1046 |
+| 22:47 | Edited briefs/candidates/07.600-20260504-ndbc-realtime-buoys.md | entry() → COMPLETE() | ~202 |
+| 22:48 | Edited WISHLIST.md | added 1 condition(s) | ~627 |
+| 22:48 | Edited FOCUS.md | 3→4 lines | ~407 |
+| 22:49 | Session end: 7 writes across 3 files (07.600-20260504-ndbc-realtime-buoys.md, WISHLIST.md, FOCUS.md) | 2 reads | ~13270 tok |
+| 22:52 | Session end: 7 writes across 3 files (07.600-20260504-ndbc-realtime-buoys.md, WISHLIST.md, FOCUS.md) | 2 reads | ~13270 tok |
+
+## Session: 2026-05-05 22:54
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 23:04 | Edited WISHLIST.md | expanded (+140 lines) | ~2571 |
+| 23:05 | Edited WISHLIST.md | expanded (+13 lines) | ~1062 |
+| 23:05 | Edited FOCUS.md | 3→5 lines | ~403 |
+| --- | --- | --- | --- | --- |
+| 2026-05-04 | Discovery synthesis pass | WISHLIST.md +185 lines (3 new entries + dismissals); FOCUS.md +1 entry; .wolf/cerebrum.md +3 learnings | wishlist refilled from 0 to 3 backlog candidates | n/a |
+| 23:06 | Session end: 3 writes across 2 files (WISHLIST.md, FOCUS.md) | 1 reads | ~10046 tok |
+| 23:08 | Session end: 3 writes across 2 files (WISHLIST.md, FOCUS.md) | 1 reads | ~10046 tok |

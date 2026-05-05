@@ -48,6 +48,118 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-04T23:28:16.473Z"
+    },
+    {
+      "id": "bug-004",
+      "timestamp": "2026-05-05T02:18:54.648Z",
+      "error_message": "Significant refactor of ",
+      "file": "WISHLIST.md",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 5→21 lines (2 removed) | Also: https://api.tidesandcurrents.noaa.gov/robots.txt r; configured on API subdomain, verified 2026-05-04).",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-05T02:23:00.214Z"
+    },
+    {
+      "id": "bug-005",
+      "timestamp": "2026-05-05T02:19:05.831Z",
+      "error_message": "Incorrect value in code",
+      "file": "FOCUS.md",
+      "root_cause": "Had `Disallow: /`",
+      "fix": "Changed to `status: dismissed`",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-05T02:19:05.831Z"
+    },
+    {
+      "id": "bug-006",
+      "timestamp": "2026-05-05T02:36:34.683Z",
+      "error_message": "Significant refactor of ",
+      "file": "briefs/candidates/07.771-20260504-usgs-nws-flood-fusion.md",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 8→15 lines (3 removed) | Also: Defensibility (8): this is the strongest sub-crite; of the moat thesis. The historical depth of the fu",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-05T02:37:16.478Z"
+    },
+    {
+      "id": "bug-007",
+      "timestamp": "2026-05-05T02:37:20.445Z",
+      "error_message": "Wrong reference: 771 should be 695",
+      "file": "briefs/candidates/07.771-20260504-usgs-nws-flood-fusion.md",
+      "root_cause": "Used \"771\" instead of \"695\"",
+      "fix": "Changed 771 → 695",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-05T02:37:20.445Z"
+    },
+    {
+      "id": "bug-008",
+      "timestamp": "2026-05-05T02:37:50.526Z",
+      "error_message": "Missing await",
+      "file": "briefs/candidates/07.771-20260504-usgs-nws-flood-fusion.md",
+      "root_cause": "Async call without await — returned Promise instead of value",
+      "fix": "Added await to async call",
+      "tags": [
+        "auto-detected",
+        "async-fix",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-05T02:37:50.526Z"
+    },
+    {
+      "id": "bug-009",
+      "timestamp": "2026-05-05T02:46:11.238Z",
+      "error_message": "Significant refactor of ",
+      "file": "briefs/candidates/07.600-20260504-ndbc-realtime-buoys.md",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 8→44 lines (2 removed) | Also: composite: 6.167; defensibility: 9 | Also: - **NCEI spectral gap** -- NOT VERIFIED. WISHLIST ; \"the full-resolution spectral wave density data is",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 3,
+      "last_seen": "2026-05-05T02:47:29.133Z"
+    },
+    {
+      "id": "bug-010",
+      "timestamp": "2026-05-05T02:48:16.682Z",
+      "error_message": "Significant refactor of ",
+      "file": "WISHLIST.md",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 5→34 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-05T02:48:16.682Z"
     }
   ]
 }

@@ -1,14 +1,16 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-04T23:35:14.237Z
-> Files: 41 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T03:05:44.853Z
+> Files: 44 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
 - `.pre-commit-config.yaml` (~138 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
-- `FOCUS.md` — FOCUS (~3241 tok)
-- `WISHLIST.md` — WISHLIST (~2986 tok)
+- `CONSTRAINTS.md` — CONSTRAINTS (~398 tok)
+- `FOCUS.md` — FOCUS (~2952 tok)
+- `RUBRIC.md` — RUBRIC (~861 tok)
+- `WISHLIST.md` — WISHLIST (~9038 tok)
 
 ## .claude/
 
@@ -21,12 +23,16 @@
 ## briefs/candidates/
 
 - `07.360-20260504-njdot-511-cameras.md` — Declares on (~4571 tok)
-- `07.600-20260504-ndbc-realtime-buoys.md` — Discovery story (~3937 tok)
-- `07.771-20260504-usgs-nws-flood-fusion.md` — Lane 3 cross-source fusion: USGS gauge × NWS storm events. Composite 7.771. NCEI CSV path selected over api.weather.gov. (~6336 tok)
+- `07.600-20260504-ndbc-realtime-buoys.md` (~5882 tok)
+- `07.771-20260504-usgs-nws-flood-fusion.md` (~6892 tok)
 
 ## briefs/graduated/
 
 - `07.221-20260504-somd-cameras.md` — Discovery story (~3777 tok)
+
+## docs/superpowers/specs/
+
+- `2026-05-04-moat-research-design.md` — moat-research (~7094 tok)
 
 ## scripts/
 
