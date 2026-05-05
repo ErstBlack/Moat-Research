@@ -3,12 +3,12 @@
   "created_at": "2026-05-04T03:13:41.850Z",
   "lifetime": {
     "total_tokens_estimated": 591130,
-    "total_reads": 90,
+    "total_reads": 92,
     "total_writes": 214,
     "total_sessions": 73,
     "anatomy_hits": 65,
-    "anatomy_misses": 24,
-    "repeated_reads_blocked": 46,
+    "anatomy_misses": 26,
+    "repeated_reads_blocked": 48,
     "estimated_savings_vs_bare_cli": 364372
   },
   "sessions": [
@@ -2338,6 +2338,34 @@
         "writes_count": 5,
         "repeated_reads_blocked": 2,
         "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-05-05-0813",
+      "started": "2026-05-05T12:13:05.378Z",
+      "ended": "2026-05-05T12:14:29.525Z",
+      "reads": [
+        {
+          "file": "/home/runner/.maximizer/projects/moat/runs/20260505T114726Z-af4378/review.json",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/.maximizer/projects/moat/runs/20260505T114726Z-af4378/iteration.json",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 2,
+        "writes_count": 0,
+        "repeated_reads_blocked": 2,
+        "anatomy_lookups": 0
       }
     }
   ],
