@@ -430,3 +430,4 @@
 - Live-verified on 2026-05-05: OSHA (data.dol.gov + osha.gov HTTP 200, benign robots.txt), NY DFS (HTTP 200, standard Drupal), Missouri DOI (HTTP 429 = rate-limited, data confirmed), NAIC (HTTP 200).
 - Dismissed in Notes: CFPB complaint database (data.gov bulk archive collapses §5), Lane 3 investigation (4 candidate fusions examined, all had both inputs fully archived → redirect to Lane 4 or dismiss).
 - All 65 tests pass.
+| 04:57 | Session end: 2 writes across 1 files (WISHLIST.md) | 2 reads | ~20659 tok |
