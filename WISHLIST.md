@@ -1370,8 +1370,8 @@ sources:
       direct image-URL confirmation.
     estimated_size: "~130–200 GB/month raw (est. 2,200 cameras × 50 KB/image × 288 polls/day × ~2/3 active at any time); ~25–45 GB/month with gzip + delta-only retention"
     rate_limit_notes: "No published rate limits for Caltrans QuickMap or CWWP2 camera image endpoints. Recommend ≥5s between camera polls, single-process per camera, total request rate ≤1 req/s across all cameras. Discover actual image endpoint at brief stage before rate-limit assessment."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 07.139-20260505-caltrans-quickmap-cameras
     dismissed_reason: null
 
   - id: wsdot_traffic_cameras
@@ -1427,8 +1427,8 @@ sources:
       limits once confirmed at brief stage.
     estimated_size: "~40–60 GB/month raw (est. 700 cameras × 50 KB/image × 288 polls/day × ~75% active); ~8–15 GB/month with gzip + delta-only retention"
     rate_limit_notes: "No published per-image rate limit. WSDOT API access code (free) may have documented request quotas — verify in developer agreement at brief stage. Recommend ≥5s between camera polls, single-process per camera, total request rate ≤1 req/s across all cameras once API ToS reviewed."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 06.997-20260505-wsdot-traffic-cameras
     dismissed_reason: null
 
   - id: multi_state_attorney_bar_discipline
@@ -1496,8 +1496,8 @@ sources:
       CONSTRAINTS §4: polite single-process crawl across ~53 portals is well within rate limits.
     estimated_size: "~3–7 GB raw archive (PDFs + HTML across 53 jurisdictions, full historical depth ~20 years); ~300–500 MB structured artifact (Parquet entity graph + violation taxonomy + timeline)"
     rate_limit_notes: "Per-state portal limits vary; no published rate limits identified at CA/TX/FL state bars. Recommend ≥5s between requests per portal, single-process per state. Honor any 429s with exponential backoff."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 06.499-20260505-multi-state-attorney-bar-discipline
     dismissed_reason: null
 ```
 
