@@ -1056,6 +1056,22 @@ sources:
     status: promoted-to-candidate
     promoted_to: 06.911-20260505-uspto-patent-claim-citation-corpus
     dismissed_reason: null
+
+  - id: cra_exam_narrative_corpus
+    title: "CRA Performance Evaluation Exam Reports — Multi-Regulator Narrative Assessment Extraction"
+    url: https://www.occ.gov/topics/consumers-and-communities/community-development/cra-performance-evaluations/
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 4
+    why_interesting: |
+      The FFIEC aggregates Community Reinvestment Act (CRA) performance evaluation exam reports submitted by regulated banks' primary federal regulators (OCC for national banks + federal thrifts, Federal Reserve for state-member banks, FDIC for state non-member banks, NCUA for credit unions) covering ~1,000 exams/year. Raw exam reports are public records and PDFs are archived on each regulator's site, so Lane 1 fails CONSTRAINTS §5. The Lane-4 moat is the structured extraction at scale: each CRA exam contains (a) narrative performance assessments across four evaluation categories (lending test, investment test, service test, community development test), (b) verbatim citations of specific regulatory findings and satisfactory/unsatisfactory ratings, and (c) cross-bank comparative lending metrics that are not available in bulk from any single regulator or the FFIEC aggregator. A structured corpus extracting this detail via OCR + NER + tagging would support (1) regulatory filing analysis for loan-originator due diligence, (2) bank compliance risk scoring by underwriters (CRA compliance failure signals heightened regulatory risk), and (3) fair-lending research (identifying banks with patterned discriminatory lending per examination findings). Lane 5 secondary: community development / fair lending analytics niche vertical. Defensibility: compute-as-barrier (months of NLP + entity resolution to reproduce), ongoing-update compounding (quarterly exam cycle → continuous capture), cross-regulator entity resolution (same bank entity across OCC/Fed/FDIC with different charter types).
+    known_constraints: |
+      Verified 2026-05-05 T3. FFIEC CRA portal (ffiec.gov) returned HTTP 403 to "moat-research/0.1" UA — Akamai-edge gating. Applied 3-step polite-alternate-path checklist: (Step 1) data.gov bulk mirror not located; (Step 2) FOIA reading room blocked by same Akamai layer (403); (Step 3) Member-agency alternates: OCC (occ.gov/topics/consumers-and-communities/community-development/cra-performance-evaluations/) returned HTTP 200 — accessible. Federal Reserve (federalreserve.gov/apps/enforcementactions/) returned HTTP 200 — accessible. FDIC site (fdic.gov) not separately tested this pass but is likely accessible given OCC/Fed results as a member regulator with public CRA reporting. No published rate limit for any regulator's CRA exam retrieval; recommend ≥5s between document fetches. NCUA credit union exams are published separately at ncua.gov and not tested in this pass. All regulator exam PDFs are public record; no ToS clause against archival located. §5 check: raw CRA exam PDFs are archived on each regulator's portal, meaning the raw PDF corpus is reconstructible by any analyst from public sources — this confirms Lane 4 (computed artifact) rather than Lane 1. The defensible moat is the structured narrative extraction (PDF → text → taxonomy-tagged findings + lending-metrics-normalized tables) which does not exist as a free public dataset. Commercial competitors (S&P Global World-Check, Wolters Kluwer OASIS, Bloomberg CRA compliance products) are $25k–$100k+/year — paid commercial does not trigger §5.
+    estimated_size: "~3–5 GB raw PDF archive at full historical depth (~1,000 exams/yr × ~50 pages × ~500 KB/exam × 5+ years); ~300 MB structured corpus (OCR text + extracted lending tables + ER graph)."
+    rate_limit_notes: "No published rate limit on individual regulator CRA exam portals. Recommend ≥5s between PDF requests per regulator, single-process per regulator (parallel across OCC/Fed/FDIC safe). Honor any 429s with exponential backoff."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
 ```
 
 ## Notes for the operator
