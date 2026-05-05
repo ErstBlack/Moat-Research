@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T09:06:07.299Z
-> Files: 56 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T09:08:06.596Z
+> Files: 58 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -10,7 +10,7 @@
 - `.score_tmp.py` (~261 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `CONSTRAINTS.md` — CONSTRAINTS (~398 tok)
-- `FOCUS.md` — FOCUS (~4388 tok)
+- `FOCUS.md` — FOCUS (~4582 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
 - `WISHLIST.md` — WISHLIST (~17008 tok)
 
@@ -24,7 +24,9 @@
 
 ## .wolf/
 
-- `anatomy.md` — OpenWolf file index (~280 tok)
+- `anatomy.md` — OpenWolf file index (~290 tok)
+- `cerebrum.md` — Learning memory: patterns, decisions, do-not-repeat (~2100 tok)
+- `memory.md` — Chronological action log (~1800 tok)
 
 ## briefs/candidates/
 

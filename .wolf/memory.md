@@ -443,3 +443,13 @@
 | 05:05 | Edited WISHLIST.md | 5→5 lines | ~112 |
 | 05:06 | Edited FOCUS.md | 3→5 lines | ~430 |
 | 05:06 | Session end: 6 writes across 5 files (.score_tmp.py, 06.723-20260505-osha-enforcement-inspection-corpus.md, 06.483-20260505-multi-state-insurance-dept-enforcement.md, WISHLIST.md, FOCUS.md) | 5 reads | ~48755 tok |
+
+## Iteration 20260505T083851Z-d3bb40 (Complete)
+
+**Outcome (2026-05-05 T1–T4):** Calibration pass (n=9, defer-with-rationale, no rubric edits) + 2 discovery passes (5 new candidates, 8 dismissed, lane diversification L1→L2+L5) + scoring (all 5 pass §5, composites 7.898–6.483) + consolidation. Cluster grows n=8→n=10 candidates, exceeds n≥6 deferred-decision threshold but no formula change justified. Key learnings: cluster-stability σ=0.384 (normal), per-lane defensibility reasoning refined (Lane 2 = conditional moat + precedent, Lane 4 = 3 pillars or weak), free aggregators collapse §5, diversity-driven discovery improves rubric confidence. All tests pass (65). FOCUS item 1 complete, Recently completed section updated.
+
+## Session: 2026-05-05 05:06
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 05:08 | Edited FOCUS.md | 3→5 lines | ~276 |
