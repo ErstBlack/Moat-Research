@@ -319,3 +319,11 @@
 | 2026-05-04 | Discovery synthesis pass | WISHLIST.md +185 lines (3 new entries + dismissals); FOCUS.md +1 entry; .wolf/cerebrum.md +3 learnings | wishlist refilled from 0 to 3 backlog candidates | n/a |
 | 23:06 | Session end: 3 writes across 2 files (WISHLIST.md, FOCUS.md) | 1 reads | ~10046 tok |
 | 23:08 | Session end: 3 writes across 2 files (WISHLIST.md, FOCUS.md) | 1 reads | ~10046 tok |
+| 23:13 | Created briefs/candidates/07.009-20260504-cslb-ca-contractor-disciplinary-corpus.md | — | ~5449 |
+| 23:16 | Created briefs/candidates/06.892-20260504-multi-state-medical-board-enforcement.md | — | ~5831 |
+| 23:18 | Created briefs/candidates/06.701-20260504-us-transit-gtfsrt-smaller-agencies.md | — | ~6220 |
+| 23:18 | Edited WISHLIST.md | 7→7 lines | ~118 |
+| 23:19 | Edited WISHLIST.md | 7→7 lines | ~124 |
+| 23:19 | Edited WISHLIST.md | 6→6 lines | ~112 |
+| 23:19 | Edited FOCUS.md | 3→5 lines | ~429 |
+| 2026-05-04 | Scored 3 new candidates | 3 new briefs in briefs/candidates/ + WISHLIST status flips + FOCUS Recently-completed | composites 7.009 / 6.892 / 6.701, all pass §5 | n/a |

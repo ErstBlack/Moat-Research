@@ -1,16 +1,16 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T03:05:44.853Z
-> Files: 44 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T03:19:30.414Z
+> Files: 47 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
 - `.pre-commit-config.yaml` (~138 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `CONSTRAINTS.md` — CONSTRAINTS (~398 tok)
-- `FOCUS.md` — FOCUS (~2952 tok)
+- `FOCUS.md` — FOCUS (~3331 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
-- `WISHLIST.md` — WISHLIST (~9038 tok)
+- `WISHLIST.md` — WISHLIST (~9085 tok)
 
 ## .claude/
 
@@ -22,6 +22,9 @@
 
 ## briefs/candidates/
 
+- `06.701-20260504-us-transit-gtfsrt-smaller-agencies.md` — Declares reference (~5831 tok)
+- `06.892-20260504-multi-state-medical-board-enforcement.md` — Declares cross (~5467 tok)
+- `07.009-20260504-cslb-ca-contractor-disciplinary-corpus.md` (~5108 tok)
 - `07.360-20260504-njdot-511-cameras.md` — Declares on (~4571 tok)
 - `07.600-20260504-ndbc-realtime-buoys.md` (~5882 tok)
 - `07.771-20260504-usgs-nws-flood-fusion.md` (~6892 tok)

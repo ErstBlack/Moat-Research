@@ -6,6 +6,11 @@
       "count": 1,
       "tokens": 5722,
       "first_read": "2026-05-05T03:03:47.432Z"
+    },
+    "/home/runner/moat-research/briefs/candidates/07.360-20260504-njdot-511-cameras.md": {
+      "count": 1,
+      "tokens": 4571,
+      "first_read": "2026-05-05T03:09:54.629Z"
     }
   },
   "files_written": [
@@ -26,13 +31,58 @@
       "action": "edit",
       "tokens": 432,
       "at": "2026-05-05T03:05:44.875Z"
+    },
+    {
+      "file": "/home/runner/moat-research/briefs/candidates/07.009-20260504-cslb-ca-contractor-disciplinary-corpus.md",
+      "action": "create",
+      "tokens": 5838,
+      "at": "2026-05-05T03:13:41.826Z"
+    },
+    {
+      "file": "/home/runner/moat-research/briefs/candidates/06.892-20260504-multi-state-medical-board-enforcement.md",
+      "action": "create",
+      "tokens": 6248,
+      "at": "2026-05-05T03:16:23.241Z"
+    },
+    {
+      "file": "/home/runner/moat-research/briefs/candidates/06.701-20260504-us-transit-gtfsrt-smaller-agencies.md",
+      "action": "create",
+      "tokens": 6664,
+      "at": "2026-05-05T03:18:50.034Z"
+    },
+    {
+      "file": "/home/runner/moat-research/WISHLIST.md",
+      "action": "edit",
+      "tokens": 126,
+      "at": "2026-05-05T03:18:59.612Z"
+    },
+    {
+      "file": "/home/runner/moat-research/WISHLIST.md",
+      "action": "edit",
+      "tokens": 132,
+      "at": "2026-05-05T03:19:07.338Z"
+    },
+    {
+      "file": "/home/runner/moat-research/WISHLIST.md",
+      "action": "edit",
+      "tokens": 120,
+      "at": "2026-05-05T03:19:13.575Z"
+    },
+    {
+      "file": "/home/runner/moat-research/FOCUS.md",
+      "action": "edit",
+      "tokens": 459,
+      "at": "2026-05-05T03:19:30.437Z"
     }
   ],
   "edit_counts": {
-    "WISHLIST.md": 2,
-    "FOCUS.md": 1
+    "WISHLIST.md": 5,
+    "FOCUS.md": 2,
+    "briefs/candidates/07.009-20260504-cslb-ca-contractor-disciplinary-corpus.md": 1,
+    "briefs/candidates/06.892-20260504-multi-state-medical-board-enforcement.md": 1,
+    "briefs/candidates/06.701-20260504-us-transit-gtfsrt-smaller-agencies.md": 1
   },
-  "anatomy_hits": 1,
+  "anatomy_hits": 2,
   "anatomy_misses": 0,
   "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,

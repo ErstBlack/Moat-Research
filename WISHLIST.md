@@ -327,8 +327,8 @@ sources:
       payloads — verify both at brief stage).
     estimated_size: "~5–10 GB/month/agency raw; ~1 TB/year aggregate at 200 agencies with delta-only retention."
     rate_limit_notes: "GTFS-RT best-practice cadence 15–30s; honor per-agency rate limits and developer agreements. Single-process polling per agency."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 06.701-20260504-us-transit-gtfsrt-smaller-agencies
     dismissed_reason: null
 
   - id: cslb_ca_contractor_disciplinary_corpus
@@ -375,8 +375,8 @@ sources:
       no-moat=no-keep policy.
     estimated_size: "~2–5 GB raw PDF archive at full historical depth; ~500 MB structured artifact (Parquet/JSONL)."
     rate_limit_notes: "No published rate limit; recommend ≥5s between PDF fetches, single-process. CA PRA bulk requests may be the politer path for full historical."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 07.009-20260504-cslb-ca-contractor-disciplinary-corpus
     dismissed_reason: null
 
   - id: multi_state_medical_board_enforcement
@@ -420,8 +420,8 @@ sources:
       cross-state aggregation moat survives.
     estimated_size: "~5 GB raw archive (PDFs + HTML scrapes across 50 states, full historical); ~1 GB structured artifact."
     rate_limit_notes: "Per-state portal limits unpublished; recommend ≥10s between requests per portal, single-process per state, distributed across portals."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 06.892-20260504-multi-state-medical-board-enforcement
     dismissed_reason: null
 ```
 
