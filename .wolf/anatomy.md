@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T09:08:06.596Z
-> Files: 58 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T10:03:50.491Z
+> Files: 59 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -10,7 +10,7 @@
 - `.score_tmp.py` (~261 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `CONSTRAINTS.md` — CONSTRAINTS (~398 tok)
-- `FOCUS.md` — FOCUS (~4582 tok)
+- `FOCUS.md` — FOCUS (~4661 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
 - `WISHLIST.md` — WISHLIST (~17008 tok)
 
@@ -48,6 +48,7 @@
 
 ## docs/calibration/
 
+- `2026-05-05-n11-defer.md` — Calibration check — n=11 active scored cluster (n=10 candidates + 1 graduated) (~681 tok)
 - `2026-05-05-n8-pass.md` — Calibration pass — n=8 active scored cluster (n=9 incl. graduated) (~2391 tok)
 
 ## docs/superpowers/specs/
