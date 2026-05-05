@@ -1,87 +1,12 @@
 {
-  "session_id": "session-2026-05-05-1119",
-  "started": "2026-05-05T15:19:45.038Z",
-  "files_read": {
-    "/home/runner/moat-research/briefs/candidates/07.216-20260505-txdot-drivetexas-cameras.md": {
-      "count": 1,
-      "tokens": 5986,
-      "first_read": "2026-05-05T15:20:08.065Z"
-    },
-    "/home/runner/moat-research/briefs/candidates/06.892-20260504-multi-state-medical-board-enforcement.md": {
-      "count": 2,
-      "tokens": 5831,
-      "first_read": "2026-05-05T15:20:14.265Z"
-    },
-    "/home/runner/moat-research/workers/common/brief.py": {
-      "count": 1,
-      "tokens": 1462,
-      "first_read": "2026-05-05T15:20:23.295Z"
-    },
-    "/home/runner/moat-research/WISHLIST.md": {
-      "count": 1,
-      "tokens": 39433,
-      "first_read": "2026-05-05T15:30:17.463Z"
-    },
-    "/home/runner/moat-research/FOCUS.md": {
-      "count": 1,
-      "tokens": 7045,
-      "first_read": "2026-05-05T15:31:08.590Z"
-    }
-  },
-  "files_written": [
-    {
-      "file": "/home/runner/moat-research/briefs/candidates/07.139-20260505-caltrans-quickmap-cameras.md",
-      "action": "create",
-      "tokens": 6686,
-      "at": "2026-05-05T15:24:37.529Z"
-    },
-    {
-      "file": "/home/runner/moat-research/briefs/candidates/06.997-20260505-wsdot-traffic-cameras.md",
-      "action": "create",
-      "tokens": 6349,
-      "at": "2026-05-05T15:27:07.194Z"
-    },
-    {
-      "file": "/home/runner/moat-research/briefs/candidates/06.499-20260505-multi-state-attorney-bar-discipline.md",
-      "action": "create",
-      "tokens": 7653,
-      "at": "2026-05-05T15:30:03.580Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 126,
-      "at": "2026-05-05T15:30:23.435Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 133,
-      "at": "2026-05-05T15:30:29.853Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 102,
-      "at": "2026-05-05T15:30:36.493Z"
-    },
-    {
-      "file": "/home/runner/moat-research/FOCUS.md",
-      "action": "edit",
-      "tokens": 558,
-      "at": "2026-05-05T15:31:18.619Z"
-    }
-  ],
-  "edit_counts": {
-    "briefs/candidates/07.139-20260505-caltrans-quickmap-cameras.md": 1,
-    "briefs/candidates/06.997-20260505-wsdot-traffic-cameras.md": 1,
-    "briefs/candidates/06.499-20260505-multi-state-attorney-bar-discipline.md": 1,
-    "WISHLIST.md": 3,
-    "FOCUS.md": 1
-  },
-  "anatomy_hits": 5,
+  "session_id": "session-2026-05-05-1133",
+  "started": "2026-05-05T15:33:55.531Z",
+  "files_read": {},
+  "files_written": [],
+  "edit_counts": {},
+  "anatomy_hits": 0,
   "anatomy_misses": 0,
-  "repeated_reads_warned": 1,
+  "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
-  "stop_count": 1
+  "stop_count": 0
 }

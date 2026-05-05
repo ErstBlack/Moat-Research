@@ -2,7 +2,7 @@
 
 > OpenWolf's learning memory. Updated automatically as the AI learns from interactions.
 > Do not edit manually unless correcting an error.
-> Last updated: 2026-05-05 (iteration 20260505T140311Z-7ad6a2 T2–T4 complete — discovery + scoring of 4 Lane-2 briefs, cluster grows to n=20, no rubric edits)
+> Last updated: 2026-05-05 (iteration 20260505T150802Z-02beae T1–T2 complete — discovery synthesis + scoring pass: 3 new briefs, cluster n=20→23, lane balance L1:7/L2:9/L4:8, no new learnings this iteration beyond prior consolidation)
 
 ## User Preferences
 

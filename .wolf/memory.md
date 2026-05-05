@@ -875,3 +875,33 @@ WISHLIST: 4 entries flipped backlog → promoted-to-candidate. Cluster: n=20. Al
 | 11:30 | Edited WISHLIST.md | 5→5 lines | ~96 |
 | 11:31 | Edited FOCUS.md | 3→5 lines | ~521 |
 | 11:31 | Session end: 7 writes across 5 files (07.139-20260505-caltrans-quickmap-cameras.md, 06.997-20260505-wsdot-traffic-cameras.md, 06.499-20260505-multi-state-attorney-bar-discipline.md, WISHLIST.md, FOCUS.md) | 5 reads | ~81364 tok |
+
+## 2026-05-05 (Iteration 20260505T150802Z-02beae T1–T3 complete)
+
+### T1: Discovery synthesis pass (L1+L4 rebalancing)
+- Identified 3 new backlog entries: `caltrans_quickmap_cameras` (Lane 1), `wsdot_traffic_cameras` (Lane 1), `multi_state_attorney_bar_discipline` (Lane 4+5).
+- Live-verified on 2026-05-05: quickmap.dot.ca.gov HTTP 200, wsdot.wa.gov HTTP 200, calbar.ca.gov HTTP 200.
+- Lane balance achieved: L1: 5→7 (two new DOT camera states), L2: 9 (unchanged), L4: 7→8 (attorney-bar added).
+
+### T2: Scoring pass (3 new briefs)
+- Scored all 3 candidates: `07.139-caltrans-quickmap-cameras` (L1+5, 7.000/6.750/7.750), `06.997-wsdot-traffic-cameras` (L1+5, 6.500/6.750/8.000), `06.499-multi-state-attorney-bar-discipline` (L4+5, 6.333/6.250/7.000).
+- All pass §5. WISHLIST entries promoted backlog → promoted-to-candidate.
+- Cluster: n=20 → n=23 (22 candidates + 1 graduated + 1 rejected). Composite range stable 6.470–7.898. No calibration trigger.
+
+### T3: Consolidation
+- Updated `.wolf/anatomy.md` header timestamp + brief count (69 files: 23 briefs).
+- Updated `.wolf/cerebrum.md` header timestamp (no new learnings this iteration).
+- Appended `.wolf/memory.md` with consolidated T1–T2 outcome (above).
+- Updated FOCUS.md Recently completed section.
+- All 65 tests pass; git status clean.
+
+## Session: 2026-05-05 11:31
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 11:33 | Edited FOCUS.md | 3→5 lines | ~1061 |
+
+## Session: 2026-05-05 11:33
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
