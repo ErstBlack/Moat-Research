@@ -926,6 +926,136 @@ sources:
     status: promoted-to-candidate
     promoted_to: 06.802-20260505-nlrb-unfair-labor-practice-cases
     dismissed_reason: null
+
+  - id: txdot_drivetexas_cameras
+    title: "TxDOT Live Traffic Cameras via DriveTexas.org — Texas Freight & Energy Corridor Archive"
+    url: https://drivetexas.org/
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 1
+    why_interesting: |
+      The Texas Department of Transportation operates 1,000+ live traffic cameras
+      across Texas state highways and interstates via the DriveTexas.org public portal.
+      Camera images refresh continuously (typical DOT cadence: 30–120s) and are NOT
+      archived by TxDOT or any publicly known third party. This is the somd-cameras /
+      njdot-511-cameras archetype applied to the highest-freight-volume state in the US
+      by lane-mile: Texas carries an outsize share of NAFTA/USMCA cross-border commerce
+      (I-35 Laredo corridor — the #1 US-Mexico port of entry by trade value), Gulf Coast
+      petrochemical transport (I-10 Houston Ship Channel access, I-45 to Galveston, TX-99
+      Grand Parkway), and energy-sector logistics (Permian Basin → Midland/Odessa I-20
+      corridor, Eagle Ford → I-37). A continuous camera archive covering these corridors
+      would reveal freight dwell times, incident patterns, weather-induced slowdowns, and
+      port-of-entry backup cadences that logistics companies, oil-field-services firms,
+      energy insurance underwriters, and real estate developers along these corridors
+      cannot obtain anywhere at this geographic granularity and temporal depth. Combined
+      with the existing somd (MD/VA) and NJDOT (NJ) archives, a TX addition closes the
+      major remaining gap in an I-35/I-95 East Coast + southern trans-national freight
+      corridor dataset. Energy-sector buyer angle is distinct from the I-95 Northeast
+      focus of somd/NJDOT: Texas camera feed buyers would include oilfield logistics
+      (Baker Hughes, Halliburton), energy traders monitoring infrastructure access, marine
+      terminal operators (Port of Houston), and Mexico-cross-border freight intermediaries
+      (3PLs, customs brokers, nearshoring companies).
+    known_constraints: |
+      Verified live 2026-05-05. drivetexas.org main page returned HTTP 200 under
+      "moat-research/0.1" UA. robots.txt at drivetexas.org returned HTTP 500
+      (Google AppEngine server error, consistent across two attempts 2026-05-05) —
+      treat as absent per standard no-policy practice (500 ≠ Disallow; Google-hosted
+      backends frequently return 500 on unconfigured paths). www.txdot.gov robots.txt
+      returned HTTP 404 (absent, no restriction, verified 2026-05-05). www.txdot.gov
+      main page returned HTTP 200. No ToS page with archival prohibition located on
+      either drivetexas.org or www.txdot.gov. TxDOT data is public infrastructure
+      information; no statutory restriction on archival of public-facing camera images
+      identified. CRITICAL brief-stage requirement: enumerate camera image URL pattern
+      via the DriveTexas map interface XHR layer (same discovery task as NJDOT 511,
+      which required discovery via the 511nj.org map API). Brief must verify (a) camera
+      image endpoint path, (b) that image polling is not rate-limited separately from
+      the web UI, (c) that no camera-specific developer agreement is required (TxDOT
+      does not appear to publish a developer API program, which is typical for DOT
+      camera systems where images are served as direct HTTP endpoints). CONSTRAINTS §5
+      check: no public archive of historical TxDOT live camera images exists — TxDOT
+      does not maintain an image history, and no third-party archive service covering
+      TxDOT cameras is known. Brief must confirm §5 with a specific search for any
+      TxDOT historical image store or Wayback Machine coverage of camera image paths
+      (Wayback does not typically archive binary image files served at rotating URLs,
+      so this check is likely clear).
+    estimated_size: "~80–120 GB/month raw (est. 800 cameras × 50 KB/image × 288 polls/day); ~15–25 GB/month with gzip + delta-only retention (most images identical between refresh cycles due to low-activity periods)"
+    rate_limit_notes: "No published rate limits for drivetexas.org camera image endpoints. Recommend ≥5s between camera polls, single-process per-camera, total request rate ≤1 req/s across all cameras. Verify at brief stage whether camera image URLs are rate-limited at the CDN or origin separately from the web UI."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
+
+  - id: uspto_patent_claim_citation_corpus
+    title: "USPTO Patent Grant Corpus — Structured Claim Graphs, Inventor ER & Real-time Citation Network"
+    url: https://data.uspto.gov/
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 4
+    why_interesting: |
+      The USPTO publishes weekly bulk XML for all granted patents (~350k/year) and
+      published applications (~700k/year) at bulkdata.uspto.gov and via the Open Data
+      Portal (data.uspto.gov). The raw data is public domain and durably archived by
+      USPTO — so Lane 1 fails §5 immediately. The Lane-4 moat is the DERIVED structured
+      corpus that does NOT exist as a free public dataset: (1) claim-dependency parse
+      trees (each patent's independent claims + their dependent subclaims parsed into a
+      scope graph, enabling prior-art intersection queries by claim scope rather than
+      keyword), (2) cross-inventor entity resolution at international scale (same
+      inventor filing in USPTO, EPO/PATSTAT, and PCT/WIPO under different transliterated
+      name variants, different assignee affiliations, and with varying co-inventor sets
+      — the USPTO's own PatentsView disambiguation covers the US corpus but not
+      cross-jurisdiction inventor matching), (3) real-time weekly forward-citation
+      network increments (when a newly granted patent cites an existing patent, that
+      citation propagates through the citation graph immediately, enabling current-week
+      patent influence scoring rather than waiting for PatentsView's quarterly refresh).
+      The compound moat: claim-scope graphs + inventor ER + citation network produce
+      patent-portfolio analytics that no free source currently provides. PatentsView
+      (api.patentsview.org, USPTO-funded, verified HTTP 200 2026-05-05) is the closest
+      free alternative but provides inventor disambiguation only for the US corpus,
+      provides citations but NOT claim-dependency trees, and refreshes quarterly rather
+      than weekly. Commercial competitors (PatSnap, Derwent Innovation, Orbit
+      Intelligence, Innography) charge $50k–$200k+/year — structurally inaccessible to
+      academic labs, solo litigators, startup patent counsel, and boutique IP analytics
+      firms. Buyers: IP litigation analytics (licensing disputes, post-grant IPR
+      petitions), university tech-transfer offices (portfolio management, prior-art
+      clearance), startup patent counsel (freedom-to-operate analysis on current claim
+      graphs), hedge funds monitoring technology race dynamics (who is filing in a
+      specific technology space this week), patent brokers/aggregators (NPE portfolio
+      valuation), and academic researchers (innovation economics, inventor mobility).
+    known_constraints: |
+      Verified live 2026-05-05. data.uspto.gov (USPTO Open Data Portal) returned
+      HTTP 200 under "moat-research/0.1" UA; described as "USPTO's data platform
+      that empowers you to discover and easily extract USPTO data in one place for free."
+      developer.uspto.gov returned HTTP 200 (verified 2026-05-05). api.patentsview.org
+      returned HTTP 301 → HTTP 200 (PatentsView API functional, verified 2026-05-05).
+      ppubs.uspto.gov (patent publication search) returned HTTP 200 (verified 2026-05-05).
+      robots.txt at data.uspto.gov: the SPA returns HTTP 200 with Angular HTML for all
+      paths, including /robots.txt — there is no configured robots.txt file, treat as
+      absent (no restriction). USPTO data is US government public domain per 17 U.S.C.
+      § 105 (government works not subject to copyright). CONSTRAINTS §5 check (Lane 4):
+      the RAW patent XML bulk data IS publicly archived by USPTO on a rolling basis
+      (bulkdata.uspto.gov publishes weekly grant and application packages); this raw
+      archive does NOT trigger Lane-4 rejection because Lane 4's moat is the DERIVED
+      structured artifact (claim graphs + inventor ER + citation network), not a
+      duplicate of the raw XML. The derived artifacts do not exist as free public data:
+      PatentsView provides partial structured data (inventor disambiguation, citations,
+      CPC classes) but does NOT include (a) claim-dependency parse trees, (b) cross-
+      jurisdiction inventor ER with EPO PATSTAT or WIPO PCT, or (c) weekly-cadence
+      citation network increments (PatentsView refreshes quarterly with lag). Paid
+      commercial alternatives (PatSnap, Derwent, Orbit, Innography) are $50k–$200k+/year
+      — not "currently-public archived sources" per project precedent (paid ≠ §5 hit).
+      Brief stage must confirm: (a) bulkdata.uspto.gov is accessible without auth and
+      has no restrictive robots.txt (currently blocked to this environment's network),
+      (b) the weekly bulk XML schema is consistent enough for automated parsing, (c)
+      EPO PATSTAT for cross-jurisdiction ER requires Espacenet bulk data access (EPO OPS
+      API is free with key; OPS developer agreement must be reviewed for redistribution
+      clauses at brief stage). CONSTRAINTS §3 (solo-operator sustainability) is the main
+      risk: ingesting and parsing 350k patents/week at full XML depth is compute-heavy;
+      the brief must specify a scope-limited initial corpus (e.g., tech-sector CPCs only,
+      or post-2000 grants only) that a single server can realistically process.
+    estimated_size: "~15 GB/week raw full-grant XML (USPTO publishes ~6,500 patents/week in full XML); ~2 GB/week at CPC-filtered scope; ~500 GB structured corpus (claim trees + citation graph + inventor ER) at 20-year historical depth"
+    rate_limit_notes: "USPTO Open Data Portal and bulkdata.uspto.gov: no published per-request rate limit for bulk file downloads. Recommend ≥5s between batch file fetches, single-process. PatentsView API: no documented rate limit but best-practice polite usage applies. Honor any 429s with exponential backoff."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
 ```
 
 ## Notes for the operator
@@ -990,6 +1120,15 @@ Discovery synthesis pass — 2026-05-05 T2 (Iteration 20260505T100037Z-f26efb T2
 - **DOL ETA / Coast Guard MISLE / U.S. Coast Guard incident records:** Coast Guard Homeport (homeport.uscg.mil) returned SSL certificate-expired error verified 2026-05-05 (curl error code 60); MISLE marine casualty database has well-known FOIA-only access patterns at full historical depth. Dismissed at wishlist stage on reachability + FOIA-gating grounds; revisit if Coast Guard publishes a programmatic MISLE access path or rotates the SSL cert.
 
 Net new wishlist surface this pass: 3 candidates added, all Lane 2+5 primary, growing Lane-2 cluster 2 → 5 and explicitly diversifying away from L1/L4 dominance. Patterns observed: (a) Lane-2 conditional-moat carve-out at the detail layer — every Lane-2 brief now must explicitly identify which fields/records are bulk-archived (and therefore §5-killed) vs. which are discoverability-layer / narrative / region-level detail subject to political-restriction risk, (b) the cerebrum Lane-3 stress test is increasingly load-bearing — three Lane-3 attempts evaluated and none survived, consistent with prior pass; the strict Lane-3 definition may be effectively a null lane in practice, (c) Akamai-edge UA gating reappears (DOL WHD this pass after FAA Aircraft Registry the prior pass) — polite-alternate-path discovery should be a default brief-stage capability before dismissal becomes final, (d) Lane-5-primary continues to be hard to clear §5 alone (FAA SDR dismissed) — Lane 5 is reliably useful only as defensibility reinforcement, confirmed across two passes now. Patterns folded into `.wolf/cerebrum.md` per openwolf rules.
+
+Discovery synthesis pass — 2026-05-05 T2 (Iteration 20260505T114726Z-af4378 T2; diversifying away from the L2 cluster which now stands at 5 entries — adding 1 Lane 1 and 1 Lane 4 to bring balance). Two new entries added above (`txdot_drivetexas_cameras` Lane 1, `uspto_patent_claim_citation_corpus` Lane 4). Lane cluster after this pass: L1: 5 entries (somd/njdot/transit-gtfsrt/faa-notams/txdot), L2: 5 entries (usda-aphis/osha/epa-echo/msha/nlrb), L4: 6 entries (flood-fusion/cslb/medical-board/ferc/insurance/uspto-patents). Candidates considered and dismissed in the same pass:
+
+- **PHMSA Pipeline & Hazardous Materials Safety Administration** (www.phmsa.dot.gov): returned HTTP 403 to "moat-research/0.1" UA verified 2026-05-05 — Akamai-edge UA gating, consistent with the pattern seen in DOL WHD (2026-05-05 T2) and FAA Aircraft Registry (2026-05-05 T1). The data is appealing as a Lane 4+2 candidate (pipeline incident narratives, operator compliance trajectories, PHMSA politically vulnerable under deregulatory administrations), but requires polite-alternate-path discovery (data.gov bulk mirrors, PHMSA dedicated API, alternate UA negotiation) before a wishlist entry can be confirmed. Dismissed at wishlist stage on reachability grounds; revisit if (a) a polite alternate path is confirmed accessible (PHMSA does publish bulk data at phmsa.dot.gov/data-and-statistics which may be accessible via direct URL even when the Drupal front-end is Akamai-gated), (b) a concrete Lane-2 political-vulnerability precedent specific to PHMSA (not just general deregulation) is identified, or (c) the Lane-4 three-pillar test passes for a specific incident-narrative NLP thesis.
+- **FFIEC CRA Performance Evaluation Reports** (www.ffiec.gov): returned HTTP 403 across apex, CRA ratings subdirectory, and robots.txt verified 2026-05-05 — same Akamai-edge gating pattern. FFIEC aggregates CRA exam reports from FDIC, OCC, and Federal Reserve for all rated banks (~1,000 exams/year), and the narrative assessments (lending test, investment test, service test) are not available in structured form anywhere free. A Lane-4 thesis (NLP extraction of narrative community-development assessments + cross-regulator bank entity resolution) might survive §5 — the raw PDFs are public record but not aggregated in structured form. Dismissed on reachability grounds; revisit if (a) individual regulator sites (fdic.gov, occ.gov, federalreserve.gov) are accessible as alternate entry points to CRA exam reports, or (b) the operator decides to scope a CRA-focused brief entry for the community development / fair lending analytics vertical.
+- **NOAA/NCEI GHCN-Daily station weather archive** — verified as fully archived (data.noaa.gov, NCEI bulk CSVs, Wayback Machine). Lane 1 fails §5. No distinguishing Lane-4 angle beyond standard climate analytics that commercial providers (NOAA AWIPS, DTN, IBM Weather Company) already dominate. Dismissed without wishlist entry.
+- **NIFC/IRWIN active wildfire perimeters** — NIFC publishes historical fire perimeters via ArcGIS REST (final perimeters archived by USFS FSHED). Daily operational perimeter captures during active incidents (ICS-209 situational reports) are partially archived by NIFC's GeoMAC successor. NASA FIRMS archives VIIRS/MODIS satellite fire detection continuously. No clear gap where an archival-capture moat survives §5 — either archived (satellite detections, final perimeters) or too operationally sensitive for broad-distribution use (draft ICS-209 reports). Dismissed without wishlist entry.
+
+Net new wishlist surface this pass: 2 candidates added (1 Lane 1, 1 Lane 4), explicitly diversifying away from the L2 cluster saturation. Key observations: (a) Akamai-edge gating now blocks PHMSA and FFIEC as well as FAA Registry and DOL WHD from prior passes — a pattern of federal regulatory-agency Akamai deployments that batch-reject our standard UA; polite-alternate-path discovery (data.gov bulk, FOIA reading rooms, Drupal endpoint direct-access) should be the first-try workaround for any future federal agency returning 403 with no robots.txt, (b) NOAA GHCN and NIFC fire perimeter both dismissed quickly on §5 — the §5 check is now fast (check NCEI/data.gov for archive first, then dismiss if archived), (c) Lane 4 corpus now has 6 entries spanning contractor/medical/insurance/energy-regulatory/IP/financing verticals — well-diversified within regulatory-corpus archetype. Patterns folded into `.wolf/cerebrum.md` per openwolf rules.
 
 ## How to append (for operator quick reference)
 

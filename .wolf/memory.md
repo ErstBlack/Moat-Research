@@ -3,6 +3,16 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+## 2026-05-05 (20260505T114726Z-af4378 T2 — discovery synthesis pass)
+
+- Iteration `20260505T114726Z-af4378` task T2 — discovery synthesis pass with explicit L1/L4 diversification (L2 cluster already at 5, per task acceptance criteria).
+- Verified candidates: drivetexas.org HTTP 200 (robots.txt HTTP 500 = absent, no restriction; www.txdot.gov robots.txt HTTP 404 = absent); data.uspto.gov HTTP 200, developer.uspto.gov HTTP 200, api.patentsview.org HTTP 200, ppubs.uspto.gov HTTP 200 (robots.txt: SPA returns HTML = absent, no restriction).
+- Added `txdot_drivetexas_cameras` (Lane 1) — TxDOT live traffic cameras, I-10/I-35/I-45 freight/energy corridors, extends somd/njdot camera archetype, distinct energy-sector buyer angle.
+- Added `uspto_patent_claim_citation_corpus` (Lane 4) — structured claim-dependency graphs + cross-jurisdiction inventor ER + real-time citation network; PatentsView (free/USPTO-funded) does NOT include claim graphs, cross-jurisdiction ER, or weekly refresh; commercial competitors ($50k–$200k+/year) don't trigger §5.
+- Dismissed: PHMSA (HTTP 403 Akamai-edge gating), FFIEC (HTTP 403 Akamai), NOAA GHCN-Daily (archived = §5), NIFC wildfire perimeters (archived or operationally sensitive = §5).
+- Lane cluster after pass: L1: 5 entries, L2: 5 entries, L4: 6 entries.
+- All 65 tests pass. Files touched: `WISHLIST.md`, `.wolf/memory.md`, `.wolf/anatomy.md`.
+
 ## 2026-05-05 (T1 — n=9 calibration pass)
 
 - Iteration `20260505T083851Z-d3bb40` task T1 — calibration pass against the n=9 active scored cluster (the deferred-at-n≥6 work).
@@ -541,3 +551,10 @@
 |------|--------|---------|---------|--------|
 | 07:49 | Edited docs/calibration/2026-05-05-n8-pass.md | expanded (+21 lines) | ~444 |
 | 07:50 | Session end: 1 writes across 1 files (2026-05-05-n8-pass.md) | 2 reads | ~8790 tok |
+
+## Session: 2026-05-05 07:50
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 07:58 | Edited WISHLIST.md | modified check() | ~2833 |
+| 07:59 | Edited WISHLIST.md | added 2 condition(s) | ~1512 |

@@ -1,7 +1,8 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T11:49:45.143Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T12:00:00.000Z (20260505T114726Z-af4378/T2)
 > Files: 63 tracked | Anatomy hits: 0 | Misses: 0
+> WISHLIST.md updated: +txdot_drivetexas_cameras (L1), +uspto_patent_claim_citation_corpus (L4)
 
 ## ./
 
@@ -13,7 +14,7 @@
 - `CONSTRAINTS.md` — CONSTRAINTS (~398 tok)
 - `FOCUS.md` — FOCUS (~4902 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
-- `WISHLIST.md` — WISHLIST (~22571 tok)
+- `WISHLIST.md` — WISHLIST (~26318 tok)
 
 ## .claude/
 
