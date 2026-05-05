@@ -423,6 +423,180 @@ sources:
     status: promoted-to-candidate
     promoted_to: 06.892-20260504-multi-state-medical-board-enforcement
     dismissed_reason: null
+
+  - id: usda_aphis_animal_welfare_inspections
+    title: "USDA APHIS Animal Welfare Act Inspection Reports — Continuous Capture & Cross-Licensee Corpus"
+    url: https://efile.aphis.usda.gov/PublicSearchTool/
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 2
+    why_interesting: |
+      USDA APHIS Animal Care publishes inspection reports, citation/non-compliance
+      narratives, and annual reports for ~10,000 AWA-licensed/registered facilities
+      (research labs, breeders, exhibitors, dealers, transporters). The corpus is
+      Lane-2 candidate because its public availability has historically been
+      politically volatile: in February 2017 USDA abruptly removed the public
+      Animal Care Information System database, citing privacy/litigation reasons;
+      partial restorations followed years of FOIA litigation (HSUS v. Vilsack et al.)
+      and the current efile public search tool replaced ACIS in ~2020. The
+      possibility of another withdrawal under shifting administrations is the
+      Lane-2 capture-before-the-door-closes thesis. Lane 5 also fits (niche
+      vertical: animal-research compliance / lab-animal welfare / pet-trade
+      enforcement). Buyers: animal-welfare advocacy orgs (HSUS, ALDF, PETA
+      research arm), academic research-ethics offices, life-science companies
+      (vendor-vetting for IACUC compliance), insurance underwriters (kennel/
+      exhibitor liability), investigative journalism. Defensible artifacts:
+      (a) longitudinal facility-level compliance trajectories (citation count,
+      severity, repeat-offender flags) with off-platform persistence in case
+      USDA culls historical records again, (b) cross-licensee entity resolution
+      (parent companies → multiple LLC-licensed facilities), (c) NLP-extracted
+      structured citation narratives (taxa affected, AWA section cited,
+      corrective-action timelines) at scale.
+    known_constraints: |
+      Verified live 2026-05-05. www.aphis.usda.gov returned HTTP 200 and
+      redirected /animal-welfare → /animal-care/awa-services (Drupal 11 site,
+      cache headers normal). aphis.usda.gov/robots.txt is standard Drupal —
+      User-agent: * with Disallow only on Drupal admin paths (/admin/, /node/add/,
+      /user/login/, etc.); /animal-care/ and similar data paths are NOT blocked.
+      efile.aphis.usda.gov/PublicSearchTool/ returned HTTP 200 with 101 KB of UI
+      content under the "moat-research/0.1" UA. Underlying inspection-record
+      retrieval API is the AngularJS app's XHR layer; brief stage must enumerate
+      the actual JSON endpoints (PublicSearchToolApi/api/inspection/*) and
+      confirm rate-limit behavior. CONSTRAINTS §5 reconstructibility check:
+      while USDA archives current inspection reports through efile, the historical
+      record is precisely what was at risk during the 2017 withdrawal — the
+      MOAT is the off-platform continuous archive that is no longer reconstructible
+      after a future withdrawal event, NOT a duplicate of currently-public records.
+      This is a distinct §5 framing from "raw is reconstructible from public
+      sources" because the failure mode is *removal of the public source itself*.
+      Treat the moat as conditional on (i) an off-platform durable archive and
+      (ii) the political-vulnerability premise — flag if either weakens. USDA
+      data is US public-record under FOIA; no archival prohibition located. No
+      published per-request rate limit; recommend ≥5s between PDF/JSON fetches.
+    estimated_size: "~10–20 GB raw archive at full historical depth (~10k facilities × ~5 inspections/yr × ~200 KB PDFs × 5+ years); ~500 MB structured corpus."
+    rate_limit_notes: "No published rate limit on efile or aphis.usda.gov. Recommend ≥5s between requests, single-process. Bulk FOIA path exists if the public tool is throttled or withdrawn."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
+
+  - id: ferc_elibrary_regulatory_filings
+    title: "FERC eLibrary Energy Regulatory Filings — Structured-Extraction Corpus"
+    url: https://elibrary.ferc.gov/eLibrary/search
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 4
+    why_interesting: |
+      The Federal Energy Regulatory Commission's eLibrary holds ~10M+ filings
+      (rate cases, FERC Form 1/3-Q/6/6-Q/60/714, Order 1920 transmission
+      planning compliance filings, Order 2222 DER aggregation tariffs, LNG
+      facility applications, hydropower licenses, pipeline certificates)
+      submitted by ~3,000 jurisdictional entities (interstate pipelines, RTOs/
+      ISOs, electric utilities, hydropower licensees, LNG operators). Raw PDFs
+      are durably archived by FERC, so Lane 1 does NOT apply (§5: raw is
+      reconstructible). The Lane-4 moat is structured extraction at scale:
+      docket networks (intervenors, protestors, cross-docket motions),
+      tariff-change tracking (settlement vs. litigated outcomes per docket),
+      transmission-planning project pipelines (which RTO portfolios survived
+      Order 1920 windows), commissioner voting alignment, and cross-utility
+      financial-metric extraction from Form 1 narratives (where current
+      structured Form 1 CSVs from FERC capture only the schedule data, not
+      the narrative attachments). Lane 5 also fits (niche vertical: energy
+      regulatory analytics; existing commercial competitors include S&P Global
+      Market Intelligence, Velocity Suite, ICF, and FERC-specialty law firms'
+      internal databases — all paid and partial). Buyers: energy-trader
+      legal/regulatory teams, transmission planners, hedge-fund energy desks,
+      ESG-mandate compliance verifiers, plaintiffs' counsel in rate cases.
+    known_constraints: |
+      Verified live 2026-05-05. elibrary.ferc.gov/eLibrary/search returned
+      HTTP 200 with 21 KB of search-UI content under "moat-research/0.1".
+      elibrary.ferc.gov has no robots.txt configured (404 on /robots.txt =
+      absence of policy, not Disallow). www.ferc.gov/robots.txt is standard
+      Drupal — Disallow only on admin/login paths; data paths unrestricted.
+      The eLibrary search is a UI layer over an internal REST endpoint; an
+      unauthenticated POST to a guessed `/eLibraryAPIProxy/api/Search` 404'd,
+      so brief stage must reverse the actual XHR endpoint from the UI's network
+      tab (do NOT invent paths). FERC also publishes bulk-data products on
+      ferc.gov (Form 1, Form 6, Form 714, EQR by quarter) that ARE durably
+      archived — those alone fail §5 as a duplicate-the-archive thesis. The
+      defensible delta is (a) attachment-narrative extraction (Form 1 narrative
+      schedules NOT in the structured CSVs), (b) docket-graph structured
+      extraction (intervenor/protestor networks across dockets), (c) cross-
+      filing entity resolution (subsidiary LLCs → parent utility holding
+      companies). CONSTRAINTS §5 check: the structured corpus described above
+      does not exist as a public dataset; commercial offerings (S&P Velocity
+      Suite, ICF) are paid and partial; FERC's own bulk Form data is schedule-
+      only. If FERC were to release a complete narrative + docket-graph dump,
+      this moat collapses — flag at brief stage. No formal rate limit published;
+      recommend ≥5s between requests, single-process per docket. eLibrary search
+      results lazy-load; avoid pagination floods.
+    estimated_size: "~500 GB raw PDF archive at full historical depth (~10M filings × ~50 KB avg); ~5–10 GB structured corpus (docket graphs + extracted schedules + narrative-attachment text)."
+    rate_limit_notes: "No published rate limit on eLibrary or ferc.gov. Recommend ≥5s between requests, single-process per docket; respect any 429s with backoff. Bulk Form data is preferable to UI scraping when the same fields are available."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
+
+  - id: faa_notams_aviation_alerts
+    title: "FAA NOTAMs (Notice to Air Missions) — Continuous Ephemeral Capture"
+    url: https://notams.aim.faa.gov/notamSearch/
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 1
+    why_interesting: |
+      NOTAMs (Notice to Air Missions, formerly Notice to Airmen) are the FAA's
+      operational alerts for airspace conditions: GPS jamming/spoofing exercises,
+      runway closures, military-operations-area activations, VIP TFRs, drone
+      restrictions, navaid outages, obstacle hazards, and laser/light shows.
+      Each NOTAM has a defined effective period; once it expires or is cancelled,
+      the FAA NOTAM Search tool (the canonical public source) ceases to return
+      it. There is no FAA-public archive of expired NOTAMs at the same fidelity
+      as the live feed — historical NOTAM availability is patchy, requires FOIA
+      requests, and operational-detail fields are sometimes redacted on
+      retrospective release. Lane 1 holds: a continuous capture of every NOTAM
+      issued, with full effective-period metadata + cancellation timestamps,
+      cannot be retroactively reconstructed once the feed turns over. Lane 5
+      fits as the niche vertical: aviation safety analytics, drone-corridor
+      planning, and — critically — open-source intelligence on military activity
+      (GPS-denial NOTAMs near Russian/Chinese borders, US-EU military exercise
+      footprints, special-use-airspace activation patterns). Buyers: aviation
+      consulting (Cirium, FlightAware analytics arm), drone operators &
+      delivery platforms, OSINT firms (Janes, Bellingcat-class researchers),
+      defense analysts, and aviation insurance underwriters pricing route risk.
+      A multi-year archive across the ~50,000 active US NOTAMs at any moment
+      is the moat; ICAO-equivalent international NOTAM expansion (covering
+      EUROCONTROL, CAAC, etc.) is a natural extension where each FIR has its
+      own publication endpoint with similar ephemerality.
+    known_constraints: |
+      Verified live 2026-05-05. notams.aim.faa.gov/notamSearch/ returned
+      HTTP 200, 27 KB UI bundle, last-modified 2025-03-12 (stable). robots.txt
+      at notams.aim.faa.gov returned HTTP 404 (treat as absent — no policy =
+      no restriction; consistent with prior cerebrum learnings on absent-vs-
+      Disallow). The public NOTAM Search backend is XHR (Spring/Servlet 3.0
+      stack per response headers); brief stage must enumerate the actual JSON
+      endpoint from the UI's network requests (do NOT invent paths). FAA also
+      operates a registered-developer NOTAM API at external-api.faa.gov/notamapi/
+      requiring free API key registration at api.faa.gov — free-token gating
+      per the GTFS-RT precedent in cerebrum, NOT a §1 auth-bypass concern, but
+      brief stage must read the developer terms for redistribution clauses.
+      CONSTRAINTS §5 reconstructibility check: FAA does NOT publish a complete
+      expired-NOTAM archive at the cadence of the live feed; the FAA's
+      Aeronautical Information Services historical-NOTAM lookup is partial,
+      lags by months, and operational-detail fields can be redacted on
+      retrospective release per FAA Order JO 7930.2. Third-party open archives
+      (ICAO Aeronautical Information Exchange Model collectors, SkyVector's
+      backfill, OpenAIP) are partial and lossy at the operational-detail level
+      that drives the OSINT/insurance use cases. Brief stage must verify that
+      no comprehensive third-party expired-NOTAM archive (commercial OK; the
+      §5 test is "could an analyst reconstruct from currently-public sources",
+      paid commercial archives don't count per the prior CONSTRAINTS §5 reading
+      applied to Interline / GTFS-RT) exists at the operational-detail
+      fidelity our use cases need. FAA data is US government public-record;
+      no archival prohibition located. Recommend ≥30s between full-feed polls,
+      ≥5s between airport-specific queries.
+    estimated_size: "~5 GB/year (~50k active NOTAMs × ~3 KB JSON × turnover); ~50 GB at 10-year historical depth post-onboarding."
+    rate_limit_notes: "No published per-IP rate limit on notamSearch UI backend. external-api.faa.gov NOTAM API gates by free key; honor any documented per-key quota. Recommend ≥30s between feed polls, single-process; ≥5s per airport-specific query."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
 ```
 
 ## Notes for the operator
@@ -453,6 +627,16 @@ Discovery synthesis pass — 2026-05-04 (refilling wishlist after the four origi
 - **FCC fcc.gov** (license modifications, ULS): every reachability attempt 2026-05-04 timed out or returned HTTP/2 stream INTERNAL_ERROR against our UA across the apex and www subdomains. Even if reachable, ULS publishes weekly bulk dumps + maintains a public structured archive at FTP — Lane 1 fails §5. Dismissed.
 
 Net new wishlist surface: 3 candidates added (1 Lane 1, 2 Lane 4). Patterns observed during the pass are codified in `.wolf/cerebrum.md` (no-archive-without-§5-check, Lane-4 entity-resolution as moat, free-API-token vs. auth-bypass distinction).
+
+Discovery synthesis pass — 2026-05-05 (refilling wishlist; backlog was empty after the 2026-05-04 pass scored & promoted its three new candidates). Three new entries added above intentionally diversifying lane coverage into Lane 2 (`usda_aphis_animal_welfare_inspections` — politically-vulnerable capture-before-the-door-closes thesis) and Lane 5 (all three are niche-vertical: animal-welfare compliance, energy regulatory analytics, and aviation OSINT/safety respectively), satisfying the FOCUS-task requirement that at least one candidate explore an underrepresented lane (no Lane 2 or Lane 5 active before this pass; corpus was Lane 1 / 4 only). Candidates considered and dismissed in the same pass:
+
+- **registry.faa.gov FAA Aircraft Registry bulk download** (registry.faa.gov/database/ReleasableAircraft.zip): Akamai edge returned HTTP 403 to "moat-research/0.1" UA verified 2026-05-05, AND robots.txt is blocked by the same Akamai layer (403). Even if a different UA bypassed the edge gate, the FAA publishes the registry as a complete daily-refreshed snapshot intended for public download — Lane 1 fails CONSTRAINTS §5 (snapshot-deltas reconstructible by any analyst diffing two snapshots). A Lane-4 angle (cross-licensee → beneficial-owner entity resolution across aircraft trusts, Cape Town Convention liens, registration-history graph) might survive but the Akamai gate plus the §5 reconstructibility floor pushes it below the bar for this pass. Dismissed; revisit if (a) FAA discontinues the bulk dump, (b) a clear Lane-4 ER thesis crystallizes that justifies a fresh entry, or (c) a polite alternate access path (e.g., FAA Open Data via data.gov) is identified.
+- **CMS Hospital Price Transparency machine-readable files** (cms.gov/priorities/key-initiatives/hospital-price-transparency): cms.gov returned 200 on the policy-landing page; HPT enforcement remains in effect 2026-05-05. Considered as Lane 2 + 5 (politically vulnerable + niche healthcare). Dismissed at wishlist stage because the third-party aggregator landscape kills the simple-aggregation moat: dolthub.com/repositories/dolthub/hospital-price-transparency-v3 returned HTTP 200 verified 2026-05-05 — a free public Dolt repo aggregating the MRFs already exists, AND commercial competitors (Turquoise Health, Serif Health, Dolthub Trino layer) cover the structured-aggregation thesis. CONSTRAINTS §5 fails for the basic-aggregation framing (reconstructible from currently-public sources). A surviving angle would need to articulate a specific value-add over Dolthub's free corpus (e.g., higher capture cadence, finer-grained negotiated-rate normalization, hospital-by-hospital change-detection deltas, NLP over the messy free-text plan/code-description fields) — but that's a Lane-4 brief that should be filed fresh if such a thesis crystallizes, not parked here.
+- **NHTSA ODI vehicle-defect complaints corpus** (api.nhtsa.gov + static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip): both API and bulk flat-file returned HTTP 200 verified 2026-05-05; FLAT_CMPL.zip last-modified 2026-05-02 (current). Considered as Lane 4 + 5 (auto-safety niche, structured-extraction-and-cross-recall-ER moat). Dismissed because NHTSA's own flat-file already provides structured columns (VIN, make, model, year, complaint date, defect description, recall linkage where applicable) at full historical depth, refreshed within 72h — the §5 reconstructibility check fails for the basic structured-corpus framing. Surviving Lane-4 angles (NLP cluster analysis on free-text complaint narratives + temporal-escalation pattern detection across complaints-to-recall windows) are real but narrower than the corpora we currently prioritize, and a candidate brief should articulate the NLP-derived-feature thesis explicitly. Revisit only if a concrete derived-feature thesis is named.
+- **OFAC SDN list daily snapshots** (sanctionslistservice.ofac.treas.gov): SDN.XML returned HTTP 200 verified 2026-05-05, last-modified 2026-05-01. Treasury OFAC publishes the canonical SDN list and maintains historical versions in an "older versions" archive. Lane 5 (sanctions/compliance) niche but §5 fails: full historical SDN diffs are reconstructible from Treasury's own archive. Dismissed; commercial sanctions-screening vendors (Refinitiv World-Check, Dow Jones Risk & Compliance, Sayari) compete on entity resolution + cross-list synthesis (UN, EU, UK OFSI, etc.) — that fused multi-jurisdiction ER play would be a Lane-4 brief if anyone wants to scope it, but file fresh.
+- **USPTO PTAB decisions corpus** (data.uspto.gov ODP — was data.uspto.gov/apis/ptab-trials/search-proceedings, returned 200 with Angular shell): USPTO Open Data Portal is reachable 2026-05-05 but the PTAB API requires registered API-key access (free, similar to GTFS-RT free-token gating, not §1 auth-bypass). Considered as Lane 4 + 5 (IP litigation niche, structured-extraction + cross-petitioner ER moat). Dismissed at wishlist stage because PTAB decisions are durably archived by USPTO itself, AND the IP-litigation analytics market is well-served by commercial competitors (Docket Navigator, Patexia, Lex Machina, Anaqua, Innography) — the specific Lane-4 differentiation would need to be named (e.g., real-time petition-network-graph monitoring, cross-art-unit examiner behavior modeling, post-grant outcome prediction). Revisit if such a thesis crystallizes; file fresh rather than reviving.
+
+Net new wishlist surface this pass: 3 candidates added (1 Lane 1+5, 1 Lane 2+5, 1 Lane 4+5 — explicit lane diversification per FOCUS-task acceptance criteria). Patterns observed: (a) Lane 2 "capture-before-the-door-closes" framing requires a distinct §5 reasoning from Lane 1 — the moat is conditional on (i) an off-platform durable archive AND (ii) the political-vulnerability premise being real, not a duplicate of currently-public records, (b) free public aggregators (Dolthub) can collapse §5 for derived-corpora theses just like the Interline/Transitland precedent does for transit, (c) Akamai-gated FAA endpoints (registry.faa.gov) may need polite-alternate-path discovery before dismissal becomes final. These will be folded into `.wolf/cerebrum.md` in iteration task T4.
 
 ## How to append (for operator quick reference)
 
