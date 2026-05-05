@@ -944,3 +944,4 @@ WISHLIST: 4 entries flipped backlog → promoted-to-candidate. Cluster: n=20. Al
 - Verified live 2026-05-05: tripcheck.com HTTP 200 / robots.txt 404 (absent); sec.gov/litigation/ HTTP 200 (after 301) / standard Drupal robots, /litigation/ NOT blocked.
 - Dismissed: Illinois DOT cameras (cameras page 404 on tripcheck-style path, URL structure unconfirmable); Lane-3 Oregon camera × SNOTEL snowpack (SNOTEL archived by NRCS, dismissed per Lane-3 survival condition).
 - Lane cluster after T1: L1: 8 total (7 promoted + OR new), L2: 9 (unchanged), L4: 9 (8 promoted + SEC new). L1+L4 rebalancing achieved; L2 held at 9.
+| 12:40 | Session end: 2 writes across 1 files (WISHLIST.md) | 1 reads | ~47199 tok |
