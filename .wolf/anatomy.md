@@ -1,24 +1,18 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T07:21:19Z (T4 execution)
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T08:45:18.768Z
 > Files: 54 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
+- `.calibrate_tmp.py` (~1130 tok)
 - `.pre-commit-config.yaml` (~138 tok)
 - `.score_tmp.py` — c (~43 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `CONSTRAINTS.md` — CONSTRAINTS (~398 tok)
-- `FOCUS.md` — FOCUS (~3659 tok)
+- `FOCUS.md` — FOCUS (~4007 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
 - `WISHLIST.md` — WISHLIST (~13775 tok)
-
-## .wolf/
-
-- `anatomy.md` — OpenWolf file index (~280 tok)
-- `buglog.json` — Bug tracking log
-- `cerebrum.md` — Learning memory (~2800 tok, updated 2026-05-05)
-- `memory.md` — Chronological action log (~3700 tok, updated 2026-05-05)
 
 ## .claude/
 
@@ -27,6 +21,10 @@
 ## .claude/rules/
 
 - `openwolf.md` (~313 tok)
+
+## .wolf/
+
+- `anatomy.md` — OpenWolf file index (~280 tok)
 
 ## briefs/candidates/
 
@@ -43,6 +41,10 @@
 ## briefs/graduated/
 
 - `07.221-20260504-somd-cameras.md` — Discovery story (~3777 tok)
+
+## docs/calibration/
+
+- `2026-05-05-n8-pass.md` — Calibration pass — n=8 active scored cluster (n=9 incl. graduated) (~2391 tok)
 
 ## docs/superpowers/specs/
 

@@ -3,6 +3,17 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+## 2026-05-05 (T1 — n=9 calibration pass)
+
+- Iteration `20260505T083851Z-d3bb40` task T1 — calibration pass against the n=9 active scored cluster (the deferred-at-n≥6 work).
+- Compiled per-axis distributions and lane-by-lane composite spread for all 9 active briefs + the rejected NDBC for reference. Cluster shape: composite 6.701–7.898 (Δ=1.197), σ=0.384, range/σ≈3.1 (normal-distribution shape, not pathological).
+- Closest pair FERC 7.006 / CSLB 7.009 (Δ=0.003) examined; trade-off equivalence under the multiplicative formula is intentional and does not split operator decisions.
+- Re-checked every brief against `CONSTRAINTS.md` §1–§5 under current rubric. No regressions; no score changes; no file renames; no WISHLIST `promoted_to_history` updates.
+- Evaluated four formula alternatives (0.5/0.25/0.25 weights; arithmetic mean; defensibility-2x sub-weight; sub-criterion full-range anchors) — none clear a justification bar that beats comparability cost vs. graduated `07.221-somd-cameras` and the load-bearing "any-axis-zero kills" §5 enforcement property.
+- Recommendation: **defer-with-rationale**. Trigger conditions for future revisit codified in `docs/calibration/2026-05-05-n8-pass.md` (composite Δ<0.10 splitting operator decisions; counter-intuitive ordering; n>15 with L1↔L4 boundary blurring; hardware-9 / defensibility-3 reaching top-quartile composite).
+- Lane-5 framing observation logged: 5/9 briefs declare L5 secondary, 0 primary — healthy pattern (Lane 5 alone without temporal-loss / compute / political-vulnerability angle probably doesn't survive §5).
+- Files touched: `docs/calibration/2026-05-05-n8-pass.md` (new), `FOCUS.md` Recently-completed, `.wolf/memory.md`, `.wolf/anatomy.md`. RUBRIC.md and design spec §5 untouched.
+
 ## 2026-05-04 (T3 — usgs_nws_flood_fusion scoring)
 
 - Created `briefs/candidates/07.771-20260504-usgs-nws-flood-fusion.md` — Lane 3 cross-source fusion.
@@ -386,3 +397,21 @@
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+
+## Session: 2026-05-05 04:38
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-05 04:39
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-05 04:40
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 04:43 | Created .calibrate_tmp.py | — | ~1130 |
+| 04:44 | Created docs/calibration/2026-05-05-n8-pass.md | — | ~2551 |
+| 04:45 | Edited FOCUS.md | 3→5 lines | ~404 |
