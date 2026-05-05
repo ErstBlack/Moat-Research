@@ -920,3 +920,27 @@ WISHLIST: 4 entries flipped backlog → promoted-to-candidate. Cluster: n=20. Al
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+
+## Session: 2026-05-05 12:32
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-05 12:32
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-05 12:33
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 12:38 | Edited WISHLIST.md | modified check() | ~3442 |
+| 12:39 | Edited WISHLIST.md | added 1 condition(s) | ~790 |
+
+## 2026-05-05 (20260505T163223Z-a75c26 T1 — Discovery synthesis pass, 2 new backlog entries)
+
+- Added 2 new wishlist entries: `odot_tripcheck_cameras` (Lane 1, Oregon DOT — fills I-84 Columbia Gorge gap, closes Pacific Coast DOT-camera corridor between Caltrans and WSDOT) and `sec_enforcement_structured_corpus` (Lane 4+5, SEC litigation releases + admin proceedings structured extraction — cross-case entity resolution, violation taxonomy, penalty database).
+- Verified live 2026-05-05: tripcheck.com HTTP 200 / robots.txt 404 (absent); sec.gov/litigation/ HTTP 200 (after 301) / standard Drupal robots, /litigation/ NOT blocked.
+- Dismissed: Illinois DOT cameras (cameras page 404 on tripcheck-style path, URL structure unconfirmable); Lane-3 Oregon camera × SNOTEL snowpack (SNOTEL archived by NRCS, dismissed per Lane-3 survival condition).
+- Lane cluster after T1: L1: 8 total (7 promoted + OR new), L2: 9 (unchanged), L4: 9 (8 promoted + SEC new). L1+L4 rebalancing achieved; L2 held at 9.

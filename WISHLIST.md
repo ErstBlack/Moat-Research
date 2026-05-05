@@ -1499,6 +1499,160 @@ sources:
     status: promoted-to-candidate
     promoted_to: 06.499-20260505-multi-state-attorney-bar-discipline
     dismissed_reason: null
+
+  - id: odot_tripcheck_cameras
+    title: "Oregon DOT Traffic Cameras via TripCheck — Columbia Gorge & Pacific Coast Corridor Archive"
+    url: https://www.tripcheck.com/
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 1
+    why_interesting: |
+      The Oregon Department of Transportation operates 600+ live traffic cameras across
+      Oregon state highways and interstates published via the TripCheck public portal
+      (tripcheck.com). Camera images refresh at continuous DOT cadence (~30–120s) and are
+      NOT archived by ODOT or any publicly known third party. This is the somd/NJDOT/TxDOT/
+      Caltrans/WSDOT archetype applied to Oregon's strategically distinct freight network.
+      Oregon's unique corridor value is threefold: (1) I-84 Columbia River Gorge — the ONLY
+      practical east-west freight route through the Pacific Northwest, connecting Portland's
+      port complex to Boise/Salt Lake City/Denver and not covered by any existing entry in
+      the corpus (Caltrans covers CA, WSDOT covers WA, neither reaches the I-84 corridor
+      into Idaho); (2) Portland metro distribution hub — Nike world headquarters, Adidas
+      North America, Intel's largest US fab (Ronler Acres, Hillsboro), and Amazon's
+      largest PNW fulfillment center cluster generate dense I-205/I-84/US-26 drayage
+      traffic; (3) I-5 mid-corridor — Oregon's I-5 segment between the California and
+      Washington borders (already covered individually) is the connector segment whose
+      congestion cascades across both neighbors' camera archives but is currently a gap.
+      Cascade mountain pass cameras (US-26 Sunset Highway at Government Camp, US-20
+      Santiam Pass, US-97 Beaver State crossing) add unique winter-disruption capture
+      for agricultural and timber freight moving from eastern Oregon to Portland. A
+      continuous Oregon camera archive fills the last gap in a contiguous Pacific Coast
+      DOT-camera dataset from the Mexican to Canadian border. Buyers: Pacific Northwest
+      logistics companies (drayage dispatchers monitoring Portland metro + Columbia Gorge),
+      agricultural insurance underwriters (Cascade pass closure timing for perishable
+      commodity loss modeling), semiconductor logistics teams (Intel/TSMC wafer-fab supply
+      chain from Hillsboro), Columbia River port operators (Port of Portland terminal dray
+      queue estimation), and climate researchers (Cascade pass snowpack/road condition
+      monitoring). Combined with the existing Caltrans + WSDOT entries, Oregon closes the
+      Pacific gateway coast camera dataset.
+    known_constraints: |
+      Verified live 2026-05-05. www.tripcheck.com main page returned HTTP 200 under
+      "moat-research/0.1" UA. www.tripcheck.com/Map (full camera map interface) returned
+      HTTP 200. www.tripcheck.com/api/cameras returned HTTP 200 — the camera API endpoint
+      is accessible without authentication. www.tripcheck.com/robots.txt returned HTTP 404
+      (IIS "resource not found" error page, not a robots.txt file) — treat as absent (404
+      on robots.txt = no robots.txt configured = no restriction on any path, same
+      interpretation as WSDOT Varnish 403 and TxDOT AppEngine 500 patterns). No ToS page
+      with archival prohibition located on tripcheck.com. Oregon DOT data is Oregon state
+      government public infrastructure information; no statutory restriction on archiving
+      public-facing camera images identified. CRITICAL brief-stage requirement: enumerate
+      the actual camera image URL pattern from the TripCheck map API response (the
+      /api/cameras endpoint returns a JSON listing of camera locations and likely image
+      URL templates — same discovery task performed for NJDOT 511 via map API). Brief must
+      verify (a) exact camera image endpoint path(s) and image refresh cadence, (b) that
+      image polling is not rate-limited separately from the web UI, (c) that no
+      developer-agreement registration is required for direct image fetch (TripCheck does
+      not appear to publish a formal developer API program). CONSTRAINTS §5 check: ODOT
+      does NOT publish or maintain a historical archive of TripCheck camera images; no
+      third-party archive service covering Oregon DOT traffic camera images is known.
+      Wayback Machine does not archive rotating binary image files served at live camera
+      URLs. Brief must confirm §5 with a Wayback coverage check on a sample TripCheck
+      camera image path; expected to be clear (same pattern as NJDOT/TxDOT/Caltrans/WSDOT
+      §5 verifications). No published per-image rate limit; recommend ≥5s between camera
+      polls, single-process per camera, total request rate ≤1 req/s across all cameras.
+    estimated_size: "~35–50 GB/month raw (est. 600 cameras × 50 KB/image × 288 polls/day × ~70% active at any time); ~7–12 GB/month with gzip + delta-only retention"
+    rate_limit_notes: "No published rate limits for TripCheck camera image endpoints. Recommend ≥5s between camera polls, single-process per camera, total request rate ≤1 req/s across all cameras. Enumerate actual image URL pattern and confirm no rate limit gating at brief stage."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
+
+  - id: sec_enforcement_structured_corpus
+    title: "SEC Enforcement Actions — Structured Litigation Release & Admin Proceeding Corpus"
+    url: https://www.sec.gov/litigation/
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 4
+    why_interesting: |
+      The U.S. Securities and Exchange Commission archives all of its enforcement actions
+      on sec.gov: Litigation Releases (LRs, federal court civil injunctive actions going
+      back to 1995), Administrative Proceedings (APs, SEC in-house orders and settlements
+      since the early 1990s), Stop Orders, and Trading Suspensions. Each case record
+      contains the respondent identity (individual, fund, or corporate entity), alleged
+      violations (specific Securities Act / Exchange Act / Advisers Act / Investment
+      Company Act sections), case outcome (settled consent order vs. litigated judgment),
+      penalty amounts (disgorgement, civil money penalty, pre-judgment interest), and
+      in most cases a linked PDF with full findings of fact. The raw HTML pages and linked
+      PDFs are publicly archived by SEC and by Wayback Machine — so Lane 1 fails §5
+      immediately. The Lane-4 moat is the DERIVED structured corpus that does NOT exist
+      as a free public dataset: (1) respondent entity resolution and disambiguation
+      across all enforcement actions since 1995 (the same fund manager who settled a
+      2002 insider-trading action, founded a new firm in 2008, and appears again in a
+      2019 trading-ahead AP — that cross-case chain is not preserved anywhere in structured
+      form); (2) violation taxonomy extraction (SEC cases cite specific statutory provisions
+      and rule numbers; parsing and normalizing these into a hierarchical taxonomy of
+      violation types, offense severity, and regulatory section enables portfolio-level
+      screening that keyword search can't support); (3) penalty-outcome structured
+      extraction (total penalty by case, disgorgement vs. civil penalty breakdown, relief
+      defendant recoveries, SEC Fair Fund distributions — none of this is machine-readable
+      in the public record; it is locked in PDF tables and prose). Together these produce
+      a cross-case entity graph + violation taxonomy + penalty database that supports
+      regulatory-risk screening at scale. No free structured public corpus covering the
+      full SEC enforcement record with entity resolution exists: Stanford's Securities
+      Class Action Clearinghouse covers private plaintiff securities class actions, NOT
+      SEC enforcement; the SEC's own EDGAR full-text search and EFTS search are search
+      interfaces, not structured datasets. Commercial competitors (Bloomberg Law, Westlaw
+      Edge, Lex Machina / LexisNexis, CaseMine) charge $20k–$150k+/year for structured
+      enforcement analytics — paid commercial does not trigger §5 per project precedent.
+      Buyers: securities law firms (regulatory enforcement defense, tracking regulator
+      priorities and penalty precedents by violation type, vetting counterparties for
+      past SEC exposure), hedge funds and asset managers (screening portfolio companies
+      and investment managers for enforcement history before capital allocation), compliance
+      and RegTech vendors (integrating enforcement history into KYC/AML and investment
+      adviser due diligence platforms), fintech background-check companies, investigative
+      journalists covering Wall Street misconduct and SEC enforcement patterns, and
+      academic finance/law researchers (enforcement-outcomes studies, deterrence research).
+      All three Lane-4 pillars present: (1) compute-as-barrier — OCR + NER + entity
+      disambiguation at scale across ~400–600 cases/year; (2) ongoing-update compounding
+      — SEC publishes new LRs and APs weekly, so the corpus's historical depth compounds
+      continuously; (3) cross-case entity resolution as the v1 deliverable — the same
+      individual or firm appearing across multiple cases over decades is the primary value
+      layer over any single-case document.
+    known_constraints: |
+      Verified live 2026-05-05. www.sec.gov/litigation/litreleases.htm returned HTTP 301
+      redirect → HTTP 200 (accessible with full page content). www.sec.gov/litigation/
+      (parent path) returned HTTP 200. efts.sec.gov (SEC full-text search infrastructure)
+      returned HTTP 200 — the EFTS search API is accessible without authentication and
+      supports structured queries. www.sec.gov/robots.txt returned HTTP 200 with standard
+      Drupal configuration: User-agent: * with Disallow only on system/admin paths
+      (/core/, /profiles/, /README.md, /composer/, /modules/README.txt, /sites/README.txt,
+      /themes/README.txt, /web.config, /node/add/, /search/, /user/*); the /litigation/
+      path and all enforcement-action sub-paths are NOT blocked (verified 2026-05-05).
+      SEC data is US government public domain per 17 U.S.C. § 105 (government works not
+      subject to copyright). No published per-request rate limit on www.sec.gov for
+      litigation releases or admin proceedings pages. The SEC EFTS API at efts.sec.gov
+      is used by SEC.gov itself for full-text search; no separate rate limit published for
+      programmatic EFTS use, but polite usage (≥5s between requests) is strongly
+      recommended as the SEC has previously sent cease-and-desist letters to high-volume
+      scrapers of EDGAR (the enforcement-actions pages are distinct from EDGAR but on the
+      same infrastructure). CONSTRAINTS §5 check (Lane 4): the raw HTML litigation releases
+      and linked PDF orders ARE durably archived by SEC on sec.gov and by Wayback Machine
+      going back to 1995, confirming Lane 4 (derived structured corpus) rather than Lane
+      1. The defensible moat is the structured extraction artifact (respondent entity
+      graph + violation taxonomy + penalty tables) that does NOT exist in machine-readable
+      form anywhere for free. Brief stage must: (a) enumerate the canonical URL patterns
+      for both LR and AP case records (HTML list pages at /litigation/litreleases/ and
+      /litigation/admin.shtml, with individual case pages linked from those indices), (b)
+      confirm that the EFTS full-text search API returns structured JSON with case
+      metadata (case number, date, respondent name, statute cited) that supplements the
+      HTML scraping rather than replacing it, (c) verify that no free academic or
+      government dataset covers the full structured SEC enforcement record with entity
+      resolution (Stanford SCAC confirmed to cover only private plaintiff class actions,
+      not SEC enforcement — verify at brief stage). Brief must also review the SEC
+      developer terms at developer.sec.gov for any redistribution language.
+    estimated_size: "~2–4 GB raw archive at full historical depth (~10,000 enforcement actions since 1995 × avg ~200 KB per case including linked PDFs); ~200 MB structured corpus (entity graph Parquet + violation taxonomy + penalty table); ~20–50 MB/year incremental"
+    rate_limit_notes: "No published rate limit for sec.gov /litigation/ paths. Recommend ≥5s between page requests, single-process. EFTS full-text search: honor any 429s with exponential backoff; recommend ≥2s between EFTS API calls. Never exceed 10 concurrent requests to sec.gov per the SEC's informal guidance on high-volume EDGAR access."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
 ```
 
 ## Notes for the operator
@@ -1611,6 +1765,13 @@ Discovery synthesis pass — 2026-05-05 T1 (Iteration 20260505T150802Z-02beae T1
 - **Lane-3 candidates considered:** One fusion evaluated. DOT traffic cameras (Lane-1 ephemeral) × WSDOT mountain-pass weather station observations (archived by NOAA ASOS/NCEI): weather station data is durably archived; the camera-frame-at-weather-event join is a Layer-4 derived-feature stack on top of our own Lane-1 WSDOT capture, not a standalone Lane-3 moat. Dismissed per Lane-3 survival condition (LANES.md §3: only one ephemeral input + archived second input = Lane-4 derived feature, not Lane-3). Pattern reconfirmed: 8/8 evaluated Lane-3 candidates now dismissed.
 
 Net new wishlist surface this pass: 3 candidates added (2 Lane 1, 1 Lane 4+5). Lane balance moves from L1:5/L2:9/L4:7 → L1:7/L2:9/L4:8 (backlog+promoted combined count). Lane-1 DOT-camera cluster now spans five states (MD/VA somd, NJ, TX, CA, WA) covering both coasts + southern cross-border + Pacific gateway corridors.
+
+Discovery synthesis pass — 2026-05-05 T1 (Iteration 20260505T163223Z-a75c26 T1; continued L1+L4 rebalancing, explicitly avoiding L2 growth at 9 entries). Two new candidates added: `odot_tripcheck_cameras` (Lane 1, Oregon DOT — fills the I-84 Columbia Gorge gap and closes the Pacific Coast DOT-camera corridor between Caltrans CA and WSDOT WA) and `sec_enforcement_structured_corpus` (Lane 4+5, SEC litigation releases + admin proceedings structured extraction — cross-case entity resolution + violation taxonomy + penalty database, no free public analog, three Lane-4 pillars present). Lane cluster after this pass: L1: 8 backlog entries (somd/njdot/transit-gtfsrt/faa-notams/txdot/caltrans/wsdot + OR-new, all promoted-to-candidate except OR), L2: 9 (unchanged), L4: 9 (all prior + SEC-new). Net L1+L4 rebalancing as directed; L2 held at 9.
+
+Candidates considered and dismissed in this pass:
+
+- **Illinois DOT cameras** (gettingaroundillinois.com): main page returned HTTP 200 under "moat-research/0.1" UA (verified 2026-05-05); robots.txt at gettingaroundillinois.com returned HTTP 404 (absent = no restriction). Camera page path /traveler-information/traffic/cameras returned HTTP 404, indicating a site restructuring since the cameras page URL changed. Dismissed at wishlist stage because (a) the camera image URL pattern cannot be confirmed without a working camera-listing page — the brief-stage discovery task cannot be scoped reliably, and (b) the Illinois DOT Statewide Traffic Management Center camera coverage (Chicago metro I-90/I-94/I-294/I-290) is the primary value angle, but I-90/I-94 Chicago metro freight value overlaps substantially with the mid-continent coverage that could be better targeted through a Midwest DOT consolidation thesis rather than a single state. Revisit if (a) the camera listing URL is confirmed working (check getaroundillinois.com or idot.illinois.gov/travel-information/traffic-cameras), (b) the Midwest freight corridor DOT-camera consolidation thesis is scoped formally.
+- **Lane-3 attempt:** Oregon TripCheck camera frames (ephemeral, if Oregon is confirmed as Lane-1) × NOAA Cascade Range SNOTEL snowpack observations (archived by NRCS at wcc.sc.egov.usda.gov with daily timestamps): SNOTEL data is durably archived (NRCS publishes complete historical records); the join "what did US-26 Government Camp camera show during snowpack event X" is a Layer-4 derived feature on top of our own Lane-1 ODOT capture, not a standalone Lane-3 moat. Dismissed per Lane-3 survival condition. Pattern reconfirmed: 9/9 evaluated Lane-3 candidates dismissed.
 
 ## How to append (for operator quick reference)
 
