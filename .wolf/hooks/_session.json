@@ -1,51 +1,27 @@
 {
-  "session_id": "session-2026-05-05-0903",
-  "started": "2026-05-05T13:03:41.351Z",
+  "session_id": "session-2026-05-05-0907",
+  "started": "2026-05-05T13:07:14.673Z",
   "files_read": {
-    "/home/runner/moat-research/CONSTRAINTS.md": {
-      "count": 1,
-      "tokens": 398,
-      "first_read": "2026-05-05T13:04:59.838Z"
-    },
-    "/home/runner/moat-research/WISHLIST.md": {
-      "count": 5,
-      "tokens": 26345,
-      "first_read": "2026-05-05T13:05:37.945Z"
-    },
-    "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md": {
-      "count": 1,
-      "tokens": 7261,
-      "first_read": "2026-05-05T13:06:27.943Z"
+    "/home/runner/moat-research/FOCUS.md": {
+      "count": 2,
+      "tokens": 6151,
+      "first_read": "2026-05-05T13:07:32.629Z"
     }
   },
   "files_written": [
     {
-      "file": "/home/runner/moat-research/CONSTRAINTS.md",
+      "file": "/home/runner/moat-research/FOCUS.md",
       "action": "edit",
-      "tokens": 326,
-      "at": "2026-05-05T13:05:34.916Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 1201,
-      "at": "2026-05-05T13:06:21.072Z"
-    },
-    {
-      "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
-      "action": "edit",
-      "tokens": 155,
-      "at": "2026-05-05T13:06:34.911Z"
+      "tokens": 317,
+      "at": "2026-05-05T13:08:34.515Z"
     }
   ],
   "edit_counts": {
-    "CONSTRAINTS.md": 1,
-    "WISHLIST.md": 1,
-    "docs/superpowers/specs/2026-05-04-moat-research-design.md": 1
+    "FOCUS.md": 1
   },
-  "anatomy_hits": 3,
+  "anatomy_hits": 1,
   "anatomy_misses": 0,
-  "repeated_reads_warned": 4,
+  "repeated_reads_warned": 1,
   "cerebrum_warnings": 0,
   "stop_count": 1
 }
