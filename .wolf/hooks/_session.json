@@ -1,32 +1,33 @@
 {
-  "session_id": "session-2026-05-05-0748",
-  "started": "2026-05-05T11:48:46.125Z",
+  "session_id": "session-2026-05-05-0750",
+  "started": "2026-05-05T11:50:02.759Z",
   "files_read": {
-    "/home/runner/moat-research/docs/calibration/2026-05-05-n8-pass.md": {
-      "count": 1,
-      "tokens": 2391,
-      "first_read": "2026-05-05T11:48:54.289Z"
-    },
-    "/home/runner/moat-research/briefs/candidates/06.470-20260505-msha-mine-safety-enforcement-corpus.md": {
-      "count": 1,
-      "tokens": 5924,
-      "first_read": "2026-05-05T11:49:19.069Z"
+    "/home/runner/moat-research/WISHLIST.md": {
+      "count": 4,
+      "tokens": 25195,
+      "first_read": "2026-05-05T11:56:59.351Z"
     }
   },
   "files_written": [
     {
-      "file": "/home/runner/moat-research/docs/calibration/2026-05-05-n8-pass.md",
+      "file": "/home/runner/moat-research/WISHLIST.md",
       "action": "edit",
-      "tokens": 475,
-      "at": "2026-05-05T11:49:45.166Z"
+      "tokens": 3036,
+      "at": "2026-05-05T11:58:23.000Z"
+    },
+    {
+      "file": "/home/runner/moat-research/WISHLIST.md",
+      "action": "edit",
+      "tokens": 1620,
+      "at": "2026-05-05T11:59:12.929Z"
     }
   ],
   "edit_counts": {
-    "docs/calibration/2026-05-05-n8-pass.md": 1
+    "WISHLIST.md": 2
   },
-  "anatomy_hits": 2,
+  "anatomy_hits": 1,
   "anatomy_misses": 0,
-  "repeated_reads_warned": 0,
+  "repeated_reads_warned": 3,
   "cerebrum_warnings": 0,
   "stop_count": 1
 }
