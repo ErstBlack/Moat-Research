@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-04T03:13:41.850Z",
   "lifetime": {
-    "total_tokens_estimated": 232267,
-    "total_reads": 50,
-    "total_writes": 171,
-    "total_sessions": 44,
-    "anatomy_hits": 32,
+    "total_tokens_estimated": 246867,
+    "total_reads": 51,
+    "total_writes": 173,
+    "total_sessions": 45,
+    "anatomy_hits": 33,
     "anatomy_misses": 18,
-    "repeated_reads_blocked": 28,
-    "estimated_savings_vs_bare_cli": 22099
+    "repeated_reads_blocked": 29,
+    "estimated_savings_vs_bare_cli": 31384
   },
   "sessions": [
     {
@@ -1582,6 +1582,39 @@
         "writes_count": 10,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 2
+      }
+    },
+    {
+      "id": "session-2026-05-05-0326",
+      "started": "2026-05-05T07:26:45.755Z",
+      "ended": "2026-05-05T07:40:13.034Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 9085,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 3663,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 1852,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 9085,
+        "output_tokens_estimated": 5515,
+        "reads_count": 1,
+        "writes_count": 2,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 1
       }
     }
   ],

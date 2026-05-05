@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T03:19:30.414Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T07:38:51.827Z
 > Files: 47 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
@@ -10,7 +10,7 @@
 - `CONSTRAINTS.md` — CONSTRAINTS (~398 tok)
 - `FOCUS.md` — FOCUS (~3331 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
-- `WISHLIST.md` — WISHLIST (~9085 tok)
+- `WISHLIST.md` — WISHLIST (~13732 tok)
 
 ## .claude/
 
