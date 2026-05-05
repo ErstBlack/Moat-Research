@@ -47,7 +47,7 @@ Briefs declare exactly one primary lane (and may list secondaries):
 
 1. **Ephemeral public data** — published openly now, not archived by the publisher (the cameras pattern).
 2. **Soon-to-be-restricted data** — currently open, visibly trending toward paywall/API-shutdown/regulatory closure; capture before the door closes.
-3. **Cross-source fusion moats** — sources are individually public and archived, but the time-aligned join with derived features is what nobody else has.
+3. **Cross-source fusion moats** — at least one input stream is ephemeral (not archived at the required cadence by any party), and the time-aligned join with a second source produces a fused artifact that cannot be reconstructed from either stream alone after the ephemeral window closes. **Survival condition (2026-05-05):** if both inputs are publicly archived with timestamps, the historical join is reconstructible by any analyst (CONSTRAINTS §5 → Defensibility=0 → auto-reject); the brief must then be re-categorized as Lane 4 or dismissed. In practice a surviving Lane-3 brief requires at least one ephemeral input already captured by an active Lane-1 ingestor, with the cross-source fusion as an add-on. See `LANES.md` §Lane-3 discovery track record for detailed pass history and a concrete surviving hypothetical.
 4. **Derived-artifact moats** — public raw exists, but the processed artifact (embeddings, OCR, transcription, structured extraction at scale) is the moat; compute is the barrier.
 5. **Niche-vertical intelligence** — pick an underserved vertical and become the only entity with a clean longitudinal dataset on it.
 

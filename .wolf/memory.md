@@ -3,6 +3,12 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+## 2026-05-05 (20260505T125333Z-88ac55 T2 — Lane-3 status formalized)
+
+- Updated `LANES.md`: Lane 3 retained with survival-condition wording + concrete hypothetical (DOT cameras × NOAA ASOS/AWOS weather) + discovery track record section listing all 7 dismissed fusions.
+- Mirrored Lane 3 wording in `docs/superpowers/specs/2026-05-04-moat-research-design.md` §4.
+- Updated `.wolf/cerebrum.md`: replaced "Lane 3 may be a null lane" deferred entry with formalized decision (retain, stricter wording, survival condition).
+
 ## 2026-05-05 (20260505T125333Z-88ac55 T1 — formal calibration pass at n>15)
 
 - Wrote new calibration note `docs/calibration/2026-05-05-n15-pass.md` — first revisit at the explicit `n>15` threshold codified in `2026-05-05-n8-pass.md`.
@@ -657,3 +663,10 @@
 | 08:58 | Created docs/calibration/2026-05-05-n15-pass.md | — | ~3957 |
 | 09:00 | Edited FOCUS.md | 3→5 lines | ~733 |
 | 09:01 | Session end: 2 writes across 2 files (2026-05-05-n15-pass.md, FOCUS.md) | 6 reads | ~32880 tok |
+
+## Session: 2026-05-05 09:01
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 09:02 | Edited LANES.md | modified lane() | ~961 |
+| 09:02 | Edited docs/superpowers/specs/2026-05-04-moat-research-design.md | modified condition() | ~408 |
