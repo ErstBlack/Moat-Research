@@ -690,3 +690,39 @@
 | 09:06 | Edited WISHLIST.md | modified 1() | ~1121 |
 | 09:06 | Edited docs/superpowers/specs/2026-05-04-moat-research-design.md | 3→7 lines | ~144 |
 | 09:07 | Session end: 3 writes across 3 files (CONSTRAINTS.md, WISHLIST.md, 2026-05-04-moat-research-design.md) | 3 reads | ~35686 tok |
+
+## 2026-05-05 (Iteration 20260505T125333Z-88ac55 Complete — T1 through T4)
+
+### T1: Formal calibration pass (n=15 active scored cluster, first n>15 revisit)
+- Evaluated cluster stability at n=15 candidates + 1 graduated = 16 briefs. Composite range 6.470–7.898 (Δ=1.428), σ≈0.40 pop., range/σ≈3.6 (normal).
+- Outcome: **defer-with-rationale** — no rubric edits. All trigger conditions evaluated; T3 partially fired (threshold met, substance check fails).
+- §5 regression check: all 16 briefs verified, no changes. Closest pairs all candidate↔candidate, no splits.
+- File: `docs/calibration/2026-05-05-n15-pass.md` (new). All 65 tests pass.
+
+### T2: Lane-3 status formalized + Akamai-alternate-path methodology codified
+- Updated LANES.md with survival-condition wording + discovery track record listing all 7 dismissed fusions.
+- Updated CONSTRAINTS.md with "Discovery: Akamai-gated federal endpoints" section + 3-step polite-alternate-path checklist.
+- Applied checklist to 4 confirmed Akamai-gated endpoints: FAA Registry (dismissed, §5), DOL WHD (dismissed, reachability), PHMSA (dismissed, all 3 steps failed), FFIEC (partial — OCC + Fed accessible).
+- Outcome: Lane-3 definition tightened; Akamai-gating pattern documented; FFIEC flagged for lane-4 cra_exam_narrative_corpus brief.
+- Files: LANES.md, CONSTRAINTS.md, design spec §3 (mirror), WISHLIST.md. All 65 tests pass.
+
+### T3: Scoring pass (2 briefs: TxDOT cameras, USPTO patents)
+- Scored 07.216-txdot-drivetexas-cameras (fin 6.833 / impl 7.000 / hw 8.000) and 06.911-uspto-patent-claim-citation-corpus (fin 7.167 / impl 7.000 / hw 6.500).
+- Both pass §5; no axis-zero rejections. WISHLIST entries promoted backlog → promoted-to-candidate.
+- Cluster grows n=15 candidates + 1 graduated = 16 total. **Calibration trigger n>15 CROSSED** → executed formal T1 pass in same iteration.
+- Lane balance achieved: L1:5 / L2:5 / L4:6. Files: 2 new briefs, WISHLIST.md. All 65 tests pass.
+
+### T4: Consolidation (this task)
+- Updated `.wolf/anatomy.md`: no new tracked files; count remains 65.
+- Appended `.wolf/memory.md`: consolidated T1–T3 section (above).
+- Reviewed `.wolf/cerebrum.md`: no new learnings beyond T2 updates; state confirmed.
+- Updated FOCUS.md: item 1 [x] remains; added iteration consolidation entry below (this section).
+- All 65 tests pass; git status clean except hook-generated files.
+
+**Final state:** n=16 briefs (15 scored candidates + 1 graduated); 1 rejected (NDBC). Composite range 6.470–7.898. Lane-3 definition tightened. Akamai-gating methodology codified. Cluster stable; recommend next calibration at n≥25 unless another trigger fires. FOCUS item 1 complete.
+
+## Session: 2026-05-05 09:07
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 09:08 | Edited FOCUS.md | 3→5 lines | ~296 |

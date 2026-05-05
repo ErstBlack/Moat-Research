@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T13:06:34.882Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T13:08:34.493Z
 > Files: 65 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
@@ -11,7 +11,7 @@
 - `.score_tmp.py` (~261 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `CONSTRAINTS.md` — CONSTRAINTS (~666 tok)
-- `FOCUS.md` — FOCUS (~6151 tok)
+- `FOCUS.md` — FOCUS (~6406 tok)
 - `LANES.md` — LANES (~901 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
 - `WISHLIST.md` — WISHLIST (~27384 tok)
