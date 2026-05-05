@@ -41,6 +41,10 @@ The following are **automatic disqualifiers** during scoring and must be re-chec
 
 A brief that scores `0` on any axis is auto-routed to `rejected/`.
 
+### Discovery: Akamai-gated federal endpoints
+
+When a federal agency endpoint returns HTTP 403 during discovery, apply the 3-step polite-alternate-path checklist before dismissing (see `.wolf/cerebrum.md` "Akamai-edge UA gating" entry and `CONSTRAINTS.md` for the checklist). Four confirmed Akamai-gated endpoints as of 2026-05-05: FAA Aircraft Registry, DOL WHD, PHMSA, FFIEC CRA portal. Alternate-path re-attempts documented in WISHLIST.md Notes.
+
 ## 4. Lanes (in scope)
 
 Briefs declare exactly one primary lane (and may list secondaries):

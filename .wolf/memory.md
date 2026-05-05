@@ -3,6 +3,16 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+## 2026-05-05 (20260505T125333Z-88ac55 T3 — Akamai alternate-path methodology codified)
+
+- Updated `.wolf/cerebrum.md`: replaced vague Akamai-gating note with formalized entry listing all 4 confirmed gated endpoints + explicit 3-step alternate-path checklist.
+- Updated `CONSTRAINTS.md`: added "Discovery: Akamai-gated federal endpoints" section referencing checklist and listing the 4 known endpoints.
+- Updated design spec `docs/superpowers/specs/2026-05-04-moat-research-design.md` §3 (mirror of CONSTRAINTS.md change).
+- Applied 3-step checklist to FFIEC (the most viable of the 4): OCC CRA exams (occ.gov) HTTP 200, Fed enforcement (federalreserve.gov) HTTP 200 — partial alternate-path success; FFIEC as unified portal remains dismissed but a fresh `cra_exam_narrative_corpus` wishlist entry is warranted.
+- Applied 3-step checklist to PHMSA: all 3 steps (data.gov, FOIA room, direct subpath) returned 403 — confirmed dismissed.
+- Documented outcomes for all 4 endpoints in WISHLIST.md Notes.
+- 65 tests pass.
+
 ## 2026-05-05 (20260505T125333Z-88ac55 T2 — Lane-3 status formalized)
 
 - Updated `LANES.md`: Lane 3 retained with survival-condition wording + concrete hypothetical (DOT cameras × NOAA ASOS/AWOS weather) + discovery track record section listing all 7 dismissed fusions.
@@ -671,3 +681,11 @@
 | 09:02 | Edited LANES.md | modified lane() | ~961 |
 | 09:02 | Edited docs/superpowers/specs/2026-05-04-moat-research-design.md | modified condition() | ~408 |
 | 09:03 | Session end: 2 writes across 2 files (LANES.md, 2026-05-04-moat-research-design.md) | 2 reads | ~8561 tok |
+
+## Session: 2026-05-05 09:03
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 09:05 | Edited CONSTRAINTS.md | expanded (+10 lines) | ~304 |
+| 09:06 | Edited WISHLIST.md | modified 1() | ~1121 |
+| 09:06 | Edited docs/superpowers/specs/2026-05-04-moat-research-design.md | 3→7 lines | ~144 |
