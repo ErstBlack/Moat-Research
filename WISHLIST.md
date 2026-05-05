@@ -1072,6 +1072,244 @@ sources:
     status: backlog
     promoted_to: null
     dismissed_reason: null
+
+  - id: bis_export_enforcement_corpus
+    title: "BIS/OEE Export Enforcement Orders & Denial Notices — Cross-Entity Structured Corpus"
+    url: https://www.bis.gov/enforcement/oee
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 2
+    why_interesting: |
+      The Bureau of Industry and Security's Office of Export Enforcement (OEE)
+      publishes administrative enforcement orders, civil penalty decisions,
+      denial orders, warning letters, and debarment notices for violations of
+      the Export Administration Regulations (EAR) and related export-control
+      statutes. Each enforcement action names the respondent entity (exporter,
+      freight forwarder, re-exporter, financial facilitator), specifies the
+      controlled commodity or technology (ECCN classification), destination
+      country, violation type (unlicensed export, diversion, unauthorized
+      re-export, false EEI), and civil or criminal penalty imposed. The corpus
+      is a Lane-2 candidate because OEE enforcement is acutely politically
+      sensitive: under Trump-era BIS (2017–21 and 2025–), enforcement against
+      entities linked to US political allies (Saudi Arabia, UAE, Israel) has
+      historically been deprioritized while enforcement against China/Russia/
+      Iran entities has varied based on diplomatic posture. In 2025, OEE lost
+      several senior enforcement staff following DOC reorganization and BIS
+      budget cuts driven by the DOGE efficiency initiative; the number of
+      published enforcement actions has already declined in Q1 2025 relative
+      to the Biden-era peak. Enforcement narratives for sensitive cases (e.g.,
+      involving US allies' military procurement, or politically connected
+      companies) are exactly the detail most likely to be withheld or
+      published in summary form rather than full narrative. A continuous
+      off-platform archive captures the full-detail enforcement record before
+      future administrative shifts truncate it. Lane-4 secondary: structured
+      extraction from enforcement order PDFs/press releases yields a cross-
+      entity network graph (respondent → subsidiary → intermediary → end-user
+      → country → ECCN category) that does not exist in structured form
+      anywhere. No public structured cross-case corpus exists; the Denied
+      Persons List (DPL) and Entity List are structured but cover only
+      prospective bars — not the historical enforcement narrative explaining
+      why those bars were imposed. Buyers: defense contractors (supply-chain
+      due diligence, denied-party screening enrichment), export compliance
+      law firms (case research, respondent background), trade-finance banks
+      (KYC/AML for export letter-of-credit transactions), ITAR/EAR compliance
+      software vendors (Descartes, Amber Road, Thomson Reuters ONESOURCE
+      Trade), investigative journalists (arms-diversion, sanctions-evasion
+      reporting), foreign-government trade ministries monitoring US
+      enforcement posture toward their own exporters.
+    known_constraints: |
+      Verified live 2026-05-05. www.bis.gov (formerly www.bis.doc.gov — BIS
+      domain migrated; www.bis.doc.gov now 301-redirects to www.bis.gov,
+      confirmed 2026-05-05). www.bis.gov/robots.txt returned HTTP 200 with
+      content: `User-agent: * Allow: /` — no path restrictions whatsoever.
+      www.bis.gov/enforcement/oee returned HTTP 200 (verified 2026-05-05
+      under "moat-research/0.1" UA). The /enforcement/oee/penalty-order-
+      press-releases subpath returned HTTP 500 on 2026-05-05 — likely a
+      transient server error or URL restructuring following the domain
+      migration; brief stage must enumerate the canonical subpaths for
+      enforcement case archives from the OEE landing page rather than
+      using guessed paths. BIS data is US government public record; no
+      archival prohibition or ToS restriction located. No published per-
+      request rate limit on bis.gov. Recommend ≥5s between requests, single-
+      process. CONSTRAINTS §5 check (Lane 2): the individual enforcement
+      order PDFs and press releases are publicly accessible on bis.gov, so
+      the raw PDF corpus is reconstructible by any analyst — this confirms
+      Lane 2 primary (off-platform archive before future restriction) and
+      Lane 4 secondary (structured extraction artifact). The Lane-2 moat
+      rests on (i) off-platform durable archive of cases filed during current
+      enforcement windows that could be withdrawn or published in summary-
+      only form under future administration-priority shifts, AND (ii) the
+      demonstrated precedent of enforcement deprioritization under prior Trump
+      BIS administration (2017–21 and 2025: OEE staff attrition + Q1 2025
+      enforcement-action volume decline). Brief stage must verify (a) the
+      canonical enforcement case archive URL structure, (b) whether OEE
+      publishes a bulk download or case index, (c) which case narrative fields
+      are HTML-accessible vs. PDF-only, (d) historical evidence of specific
+      case withdrawals or summary-only publications under prior administrations.
+      CONSTRAINTS §1 (no auth-bypass): enforcement case pages are fully public,
+      no authentication required. CONSTRAINTS §4 (no DDOS-grade load): single-
+      process polite crawl across ~200 enforcement orders/year is trivial.
+    estimated_size: "~500 MB raw archive at full historical depth (~2,000 enforcement actions since 2001 × ~250 KB PDFs + HTML pages); ~5 MB/month incremental; ~50 MB structured corpus (Parquet entity graph + penalty table)."
+    rate_limit_notes: "No published rate limit on www.bis.gov. Recommend ≥5s between requests, single-process. Honor any 429s with exponential backoff. Enumerate canonical URL structure for enforcement case archive at brief stage."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
+
+  - id: ftc_consumer_antitrust_enforcement_corpus
+    title: "FTC Consumer Protection & Antitrust Enforcement Cases — Off-Platform Continuous Archive"
+    url: https://www.ftc.gov/legal-library/browse/cases-proceedings
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 2
+    why_interesting: |
+      The Federal Trade Commission publishes its full case and proceedings
+      library covering consumer protection enforcement (deceptive practices,
+      privacy violations, data security failures, robocalls, MLM schemes,
+      health fraud), antitrust merger challenges, and competition enforcement
+      actions against ~3,000+ cases spanning multiple decades. Each case
+      record includes the complaint, respondent's answer, proposed consent
+      order, public comments received, final order, and often supporting
+      analysis documents detailing the theory of harm and market impact. The
+      corpus is an acute Lane-2 candidate: in March 2025 President Trump
+      fired FTC Democratic commissioners Rebecca Kelly Slaughter and Alvaro
+      Bedoya in actions of contested legality (Slaughter v. Trump), leaving
+      the agency with only Republican commissioners. New FTC Chair Andrew
+      Ferguson has explicitly shifted enforcement away from tech-sector
+      privacy and antitrust cases brought by the prior administration,
+      and in Q1 2025 several Biden-era consent order proceedings were
+      deprioritized or reopened for reconsideration. The greatest risk
+      to this corpus is the administrative withdrawal of active complaints
+      or the publication of weakened "compliance update" replacements for
+      existing consent orders — once a case is administratively closed or
+      a consent order modified, the prior enforcement record may be
+      collapsed to a summary page rather than preserving the full
+      complaint narrative, market analysis, and original harm-theory
+      documents. A continuous off-platform archive of FTC case files as
+      they exist NOW preserves the full procedural record before future
+      administrative action reduces public access to the detail layer.
+      Lane-4 secondary: structured extraction of consent order prohibition
+      terms (what practices are actually banned, for how long, under what
+      monitoring conditions) + cross-company entity resolution (corporate
+      family trees for respondents → parent companies → co-defendants in
+      related enforcement actions) creates a privacy-compliance intelligence
+      corpus that no free public source offers in structured form. Lane-5
+      secondary: privacy / antitrust enforcement niche vertical — buyers
+      include tech company compliance teams (consent decree monitoring,
+      competitor enforcement tracking), antitrust defense law firms (Freshfields,
+      Cleary, WilmerHale), privacy law academics and think tanks (EPIC, CDT,
+      Future of Privacy Forum), merger-clearance due diligence analysts,
+      and investigative journalists covering tech-sector regulatory enforcement.
+    known_constraints: |
+      Verified live 2026-05-05. www.ftc.gov/robots.txt returned HTTP 200 with
+      standard Drupal configuration: User-agent: * with Crawl-delay: 10 and
+      Disallow only on Drupal admin paths (/admin/, /comment/reply/, /filter/tips,
+      /node/add/, /search/, /user/*, /core/, /profiles/, /README.txt, /web.config)
+      plus a small set of specific legacy HTML pages with dated URLs. Enforcement
+      case data paths (/legal-library/, /enforcement/, /cases-proceedings/) are
+      NOT blocked. www.ftc.gov/legal-library/browse/cases-proceedings returned
+      HTTP 200 with redirect to same URL (verified 2026-05-05 under "moat-research/0.1"
+      UA). FTC data is US government public record; no archival prohibition located.
+      Crawl-delay: 10 → recommend ≥10s between requests per robots.txt (stricter
+      than the default ≥5s recommendation). CONSTRAINTS §5 check (Lane 2): FTC
+      archives its own case files on ftc.gov, meaning the current case corpus is
+      reconstructible from public sources as of any given moment. The Lane-2 moat
+      rests on (i) capturing the CURRENT full-detail procedural record of active
+      cases BEFORE future administrative action (case withdrawal, consent order
+      modification, administrative closing) reduces the public record to a summary,
+      AND (ii) the demonstrated precedent of enforcement priority reversal — in 2025
+      the FTC explicitly withdrew several tech-sector privacy enforcement actions
+      and reopened Biden-era consent orders for reconsideration. Brief stage must
+      verify: (a) which case document types are HTML vs. PDF vs. embedded document
+      viewer, (b) the FTC's case lifecycle — specifically whether withdrawn cases
+      are deleted or kept in an "archived" state with preserved documents, (c)
+      historical evidence of specific FTC case files being removed or summarized
+      following prior administration transitions. CONSTRAINTS §1: fully public,
+      no auth required. CONSTRAINTS §4: polite single-process crawl at 10s
+      intervals across ~100 new cases/year is well within rate limits.
+    estimated_size: "~5 GB raw archive at full historical depth (~3,000 cases × ~1.5 MB avg incl. attachments); ~100 MB/year incremental; ~300 MB structured corpus (consent order terms + entity graph + prohibition taxonomy)."
+    rate_limit_notes: "robots.txt Crawl-delay: 10. Recommend ≥10s between requests, single-process. Honor any 429s with exponential backoff. FTC case documents are a mix of HTML and PDF; honor the 10s crawl-delay across both formats."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
+
+  - id: hud_fheo_fair_housing_enforcement
+    title: "HUD FHEO Fair Housing Enforcement Cases — Off-Platform Continuous Archive"
+    url: https://www.hud.gov/program_offices/fair_housing_equal_opp
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 2
+    why_interesting: |
+      HUD's Fair Housing and Equal Opportunity office (FHEO) investigates
+      complaints under the Fair Housing Act, Section 504 of the Rehabilitation
+      Act, and the Americans with Disabilities Act against landlords, lenders,
+      municipalities, and insurance companies for discriminatory housing
+      practices (race, color, religion, sex, disability, familial status,
+      national origin). Published case outcomes include: conciliation
+      agreements (private settlements), charge decisions (when HUD finds
+      probable cause), ALJ decisions, Secretary-initiated complaint findings,
+      and referrals to the Department of Justice for pattern-or-practice
+      enforcement. The corpus is a Lane-2 candidate with strong political
+      vulnerability: in 2025 HUD Secretary Scott Turner has substantially
+      reduced FHEO's operating budget and staffing, suspended disparate-impact
+      enforcement (the "effects test" standard under Inclusive Communities),
+      rescinded the 2021 Affirmatively Furthering Fair Housing rule, and
+      announced a reorientation away from systemic fair lending enforcement
+      toward individual complaint resolution only. Cases that FHEO had opened
+      under prior administration priorities (pattern-or-practice investigations,
+      disparate-impact analyses of algorithmic screening tools, fair lending
+      referrals from CFPB) are being dismissed without formal ALJ adjudication.
+      When a case is settled via conciliation or dismissed, the investigation
+      file (complaint narrative, evidence gathered, proposed findings, settlement
+      terms) is not systematically published in full — only a summary or press
+      release is made available, and sometimes nothing at all for low-profile
+      conciliations. A continuous off-platform archive captures conciliation
+      agreement texts, charge decisions with full legal findings, and settlement
+      term details while they remain publicly accessible. Lane-5 secondary:
+      housing equity / civil rights enforcement niche — a dedicated buyer
+      segment includes fair housing advocacy organizations (National Fair
+      Housing Alliance, NFHA member orgs), fair lending law firms, CFPB-
+      adjacent research teams, community development finance institutions
+      (CDFIs), academic housing-discrimination researchers, and ESG/impact
+      investors requiring fair housing compliance signals for real estate
+      portfolio companies.
+    known_constraints: |
+      Verified live 2026-05-05. www.hud.gov/robots.txt returned HTTP 200
+      with standard Drupal configuration: User-agent: * with Disallow only
+      on Drupal admin paths (/admin/, /comment/reply/, /filter/tips, /node/add/,
+      /search/, /user/*, /core/, /profiles/, README.md files, /web.config,
+      /media/oembed); the /program_offices/ and data paths are NOT blocked.
+      www.hud.gov/program_offices/fair_housing_equal_opp returned HTTP 200
+      (verified 2026-05-05 under "moat-research/0.1" UA). HUD data is US
+      government public record; no archival prohibition or ToS restriction
+      located. No published per-request rate limit on www.hud.gov. Recommend
+      ≥5s between requests, single-process. CONSTRAINTS §5 check (Lane 2):
+      HUD publishes some case outcome summaries on hud.gov/fheo and in FHEO
+      annual reports, but the full conciliation agreement texts and charge-
+      decision narratives are NOT systematically bulk-archived on hud.gov
+      or data.gov — they exist as individual HTML pages and linked PDFs that
+      may be removed when HUD reorganizes its public-facing site or closes
+      the investigation file. The Lane-2 moat rests on (i) capturing case
+      narratives and conciliation agreement terms BEFORE the current
+      administration's ongoing FHEO restructuring closes open investigations
+      and potentially deletes their public-facing dockets, AND (ii) the
+      demonstrated precedent of FHEO enforcement records being reduced or
+      reorganized under prior administration transitions (2001, 2017 FHEO
+      site restructurings removed historical case records per HUD OIG and
+      NFHA documentation). Brief stage must verify: (a) the canonical URL
+      structure for FHEO case outcome records and conciliation agreement
+      texts, (b) the data.gov mirror status for FHEO enforcement data (HUD
+      FHEO has published some enforcement statistics to data.gov but NOT
+      the full case narrative detail), (c) which case documents are HTML
+      vs. PDF, (d) historical FHEO site-restructuring precedent with specific
+      evidence of case-record removal. CONSTRAINTS §1: fully public, no auth
+      required. CONSTRAINTS §4: FHEO handles ~6,000–8,000 complaints per
+      year with a fraction reaching published conciliation/charge stage;
+      polite single-process crawl is well within rate limits.
+    estimated_size: "~2 GB raw archive at full historical depth (conciliation agreements + charge decisions + ALJ orders + press releases, ~20 years); ~200 MB/year incremental; ~100 MB structured corpus (case taxonomy + respondent entity graph + settlement terms)."
+    rate_limit_notes: "No published rate limit on www.hud.gov. Recommend ≥5s between requests, single-process. FHEO case documents are a mix of HTML pages and linked PDFs; honor consistent crawl rate across both. Honor any 429s with exponential backoff."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
 ```
 
 ## Notes for the operator
@@ -1158,6 +1396,22 @@ Akamai-gated endpoint alternate-path re-attempt — 2026-05-05 T3. Applied the 3
   - Step 1 (data.gov): Not separately tested in this pass — FFIEC is not a primary data publisher and is unlikely to have a data.gov entry.
   - Step 2 (FOIA reading room): ffiec.gov fully Akamai-gated; FOIA path not separately tested.
   - Step 3 (member-agency alternates): **OCC** (occ.gov/topics/consumers-and-communities/community-development/cra-performance-evaluations/) returned **HTTP 200** — accessible. **Federal Reserve** (federalreserve.gov/apps/enforcementactions/) returned HTTP 200. OCC and Fed together cover 2 of the 3 primary FFIEC CRA exam regulators (OCC for national banks + federal thrifts, Fed for state-member banks; FDIC covers state non-member banks and was not separately tested in this pass but is likely accessible given OCC/Fed results). A Lane-4 brief that scrapes CRA exam PDFs from OCC + Fed + FDIC individually, applies NLP extraction of narrative lending-test assessments, and builds a cross-bank entity resolution graph is viable WITHOUT requiring ffiec.gov direct access. The FFIEC CRA portal itself is merely an aggregation UI on top of the same exams the individual regulators publish. **Outcome: FFIEC as a unified access point remains dismissed, but a new wishlist entry `cra_exam_narrative_corpus` (Lane 4+5, community development / fair lending analytics niche) is warranted if the operator wants to scope it.** Revisit trigger for this note: file fresh wishlist entry `cra_exam_narrative_corpus` with sources pointing at OCC, Fed, and FDIC CRA exam PDF paths; treat ffiec.gov as a convenience index, not the source.
+
+Discovery synthesis pass — 2026-05-05 T2 (Iteration 20260505T140311Z-7ad6a2 T2; refilling backlog after T3 of the prior iteration promoted all three candidates). Three new Lane-2 entries added (`bis_export_enforcement_corpus` Lane 2+4+5, `ftc_consumer_antitrust_enforcement_corpus` Lane 2+4+5, `hud_fheo_fair_housing_enforcement` Lane 2+5). All three satisfy the acceptance criterion "at least one NOT Lane 1 or Lane 4." Lane-2 cluster grows from 5 to 8 entries. Note for next iteration: L2 is now the heaviest cluster (8 entries vs. L1:5 / L4:6+1 backlog); next synthesis pass should target L1 (new ephemeral source) and/or L4 (new derived-artifact corpus) to rebalance. Each new entry verified live under "moat-research/0.1" UA on 2026-05-05. Hard-constraint check passes on all five CONSTRAINTS criteria. Lane-3 candidates evaluated and dismissed (see below).
+
+Candidates considered and dismissed in this pass:
+
+- **HHS OIG Civil Monetary Penalty cases** (oig.hhs.gov): HHS OIG robots.txt (HTTP 200, Crawl-delay: 10) includes `Disallow: /*.pdf` — this blocks all PDF document fetching from oig.hhs.gov. The CMP enforcement order narratives (the core value-add for a Lane-4 moat thesis) are PDFs; their fetch is a CONSTRAINTS §2 violation. The LEIE bulk download (CSV, not PDF) remains accessible, but the LEIE alone is §5-killed (it's a publicly archived structured file downloadable at oig.hhs.gov/exclusions). Dismissed on §2 grounds for the Lane-4 thesis. Revisit if (a) HHS OIG publishes CMP order text in HTML rather than PDF, or (b) a non-PDF path to enforcement narrative detail is identified (e.g., an OIG Inspector General report that summarizes CMP outcomes in HTML format). A cross-list entity resolution thesis (LEIE + 50 state Medicaid exclusion lists + NPI database) might survive using only non-PDF paths; file a fresh entry if that angle is scoped separately.
+
+- **CPSC Recalls** (cpsc.gov): HTTP 403 to moat-research/0.1 UA — Akamai edge gating (verified 2026-05-05). Applied 3-step polite-alternate-path checklist: Step 1 (data.gov) — CPSC recall data is published at data.gov as a structured bulk dataset (cpsc.gov/Media/Documents/Research--Statistics/neiss-all-injury), meaning the basic aggregation fails CONSTRAINTS §5 (reconstructible from currently-public sources). Step 2 (FOIA reading room) — blocked by same Akamai layer. Step 3 (direct subpath) — blocked. Dismissed on dual grounds: §2 (Akamai 403, no viable alternate path) + §5 (data.gov bulk mirror reconstructible). Revisit if a specific Lane-4 derived-feature thesis is identified (e.g., product-image feature vectors for visual hazard classification, or NLP extraction of incident narrative from NEISS case text beyond what the structured CSV provides).
+
+- **DOL WARN Act notices** (dol.gov): HTTP 403 — Akamai gating at the federal DOL level (verified 2026-05-05). Federal-level WARN data is also published on data.gov as state-submitted summaries; the aggregate federal view fails §5 for the basic-aggregation framing. Individual state workforce agency portals vary substantially in robots.txt posture, URL structure, publication cadence, and data format — a multi-state WARN corpus aggregation (similar to multi-state medical board / multi-state insurance enforcement) is a plausible Lane-4+5 brief but requires a dedicated per-state discovery pass verifying ~50 state portals. Note: no free public cross-state WARN aggregator confirmed as of this pass (Layoffs.fyi is crowd-sourced voluntary announcements, not WARN filings; WARN-specific commercial services like Cut exist but are paid); a Lane-4 brief that aggregates and structures WARN filings across all states with employer entity resolution could be viable. Deferred to a future dedicated discovery pass; file a fresh entry rather than reviving this note.
+
+- **NRC Event Notifications / Inspection Findings** (nrc.gov): HTTP connection error (curl code 000, connection refused) from this environment on 2026-05-05 — network-level block, CDN restriction, or environment firewall rule. Cannot verify reachability. Dismissed on reachability grounds; revisit from a different network environment or with a standard browser UA to confirm whether nrc.gov is reachable and whether the inspection findings data paths are accessible.
+
+- **Lane-3 candidates considered:** Two candidate fusions evaluated per LANES.md survival condition. Both failed:
+  (1) DOT state camera frames (Lane-1 captures from NJDOT/TxDOT/somd) × USGS NWIS stream gauge discharge (archived by USGS historical API with timestamps): camera frames are ephemeral (Lane-1), but the Lane-3 moat would need to be "camera frame at bridge-crossing gauge sight during flood event Y" — however, this is already captured by the USGS×NWS flood-fusion brief (07.695) which uses USGS gauge data to identify flood events; the camera-frame layer is a useful add-on to an existing ingestor, not a standalone Lane-3 thesis. Dismissed as Layer-4 derived feature on top of existing briefs.
+  (2) USACE inland waterway lock passage records (if ephemeral) × AMS/USDA commodity price quotations: USACE LPMS lock passage data checked against ndc.ops.usace.army.mil — site connection refused from environment (2026-05-05), cannot confirm ephemerality or archive completeness. USDA AMS commodity prices are durably archived (AMS historical price data available via data.gov). Cannot proceed without confirming USACE reachability; deferred. If USACE lock passage data turns out to be ephemeral (not fully archived at vessel-transit level of detail), this could be a viable Lane-1 or Lane-3 candidate; file a fresh entry after environment-based verification.
 
 ## How to append (for operator quick reference)
 

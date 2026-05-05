@@ -3,6 +3,15 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+## 2026-05-05 (20260505T140311Z-7ad6a2 T2 — Discovery synthesis pass, 3 new backlog entries)
+
+- Added 3 new Lane-2 wishlist entries: `bis_export_enforcement_corpus` (L2+4+5, national security/export control), `ftc_consumer_antitrust_enforcement_corpus` (L2+4+5, consumer privacy/antitrust), `hud_fheo_fair_housing_enforcement` (L2+5, housing equity/civil rights).
+- All verified live under "moat-research/0.1" on 2026-05-05: bis.gov HTTP 200 / robots Allow:/, ftc.gov HTTP 200 / Crawl-delay:10, hud.gov HTTP 200 / standard Drupal robots.
+- Dismissed: HHS OIG (Disallow: /*.pdf blocks CMP narrative PDFs §2), CPSC (Akamai 403 + data.gov §5 kill), DOL WARN (Akamai 403, deferred to per-state pass), NRC (connection error, environment block).
+- Lane-3 stress test: 2 fusions evaluated, both dismissed (one existing coverage, one reachability failure).
+- L2 cluster grows to 8 entries; noted in Notes that next pass should target L1/L4 to rebalance.
+- 65 tests pass.
+
 ## 2026-05-05 (20260505T125333Z-88ac55 T3 — Akamai alternate-path methodology codified)
 
 - Updated `.wolf/cerebrum.md`: replaced vague Akamai-gating note with formalized entry listing all 4 confirmed gated endpoints + explicit 3-step alternate-path checklist.
@@ -754,3 +763,10 @@
 |------|--------|---------|---------|--------|
 | 10:05 | Edited WISHLIST.md | expanded (+16 lines) | ~1113 |
 | 10:06 | Session end: 1 writes across 1 files (WISHLIST.md) | 1 reads | ~28577 tok |
+
+## Session: 2026-05-05 10:06
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 10:15 | Edited WISHLIST.md | modified check() | ~4662 |
+| 10:16 | Edited WISHLIST.md | added 1 condition(s) | ~1518 |
