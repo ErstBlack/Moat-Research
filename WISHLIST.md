@@ -789,8 +789,8 @@ sources:
       published per-request rate limit beyond Crawl-delay: 10s on the UI.
     estimated_size: "~50 GB raw bulk archive at full historical depth (ICIS-AIR + ICIS-NPDES + RCRAInfo + SDWIS); ~5 GB/year incremental delta captures; ~2 GB structured corpus."
     rate_limit_notes: "robots.txt Crawl-delay: 10s on echo.epa.gov UI. Bulk-download paths under /tools/data-downloads/ have no published rate limit; recommend ≥5s between ZIP fetches, single-process. Honor 429s with exponential backoff."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 06.608-20260505-epa-echo-enforcement-corpus
     dismissed_reason: null
 
   - id: msha_mine_safety_enforcement_corpus
@@ -853,8 +853,8 @@ sources:
       per-request rate limit; recommend ≥5s between requests.
     estimated_size: "~10 GB raw archive at full historical depth (OGI bulk CSVs + accident investigation PDFs + citation narratives); ~1 GB/year incremental capture; ~500 MB structured corpus."
     rate_limit_notes: "No published rate limit on www.msha.gov or arlweb.msha.gov. Recommend ≥5s between requests, single-process. Honor any 429s with exponential backoff. Bulk OGI ZIPs preferred for historical bootstrap; UI scrape only for incremental narrative capture."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 06.470-20260505-msha-mine-safety-enforcement-corpus
     dismissed_reason: null
 
   - id: nlrb_unfair_labor_practice_cases
@@ -923,8 +923,8 @@ sources:
       ≥5s between requests.
     estimated_size: "~20 GB raw archive at full historical depth (Board decisions PDFs + ALJ decisions + case-tracker per-region detail); ~2 GB/year incremental capture; ~1 GB structured corpus."
     rate_limit_notes: "No published rate limit on www.nlrb.gov. Recommend ≥5s between requests, single-process. Case-tracker XHR endpoints may have separate quotas — honor any 429s with exponential backoff. Cornell LII bulk download preferred for Board-decisions historical bootstrap if coverage is verified."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 06.802-20260505-nlrb-unfair-labor-practice-cases
     dismissed_reason: null
 ```
 
