@@ -1,90 +1,27 @@
 {
-  "session_id": "session-2026-05-05-1017",
-  "started": "2026-05-05T14:17:14.645Z",
+  "session_id": "session-2026-05-05-1033",
+  "started": "2026-05-05T14:33:00.359Z",
   "files_read": {
-    "/home/runner/moat-research/WISHLIST.md": {
-      "count": 1,
-      "tokens": 34144,
-      "first_read": "2026-05-05T14:17:39.157Z"
-    },
-    "/home/runner/moat-research/briefs/candidates/06.802-20260505-nlrb-unfair-labor-practice-cases.md": {
-      "count": 1,
-      "tokens": 6176,
-      "first_read": "2026-05-05T14:17:46.819Z"
-    },
     "/home/runner/moat-research/FOCUS.md": {
-      "count": 1,
-      "tokens": 6406,
-      "first_read": "2026-05-05T14:31:34.517Z"
+      "count": 2,
+      "tokens": 6937,
+      "first_read": "2026-05-05T14:33:32.049Z"
     }
   },
   "files_written": [
     {
-      "file": "/home/runner/moat-research/briefs/candidates/07.274-20260505-cra-exam-narrative-corpus.md",
-      "action": "create",
-      "tokens": 6261,
-      "at": "2026-05-05T14:24:07.146Z"
-    },
-    {
-      "file": "/home/runner/moat-research/briefs/candidates/07.315-20260505-bis-oee-export-enforcement-corpus.md",
-      "action": "create",
-      "tokens": 6065,
-      "at": "2026-05-05T14:26:25.108Z"
-    },
-    {
-      "file": "/home/runner/moat-research/briefs/candidates/07.063-20260505-ftc-consumer-antitrust-enforcement-corpus.md",
-      "action": "create",
-      "tokens": 6006,
-      "at": "2026-05-05T14:28:41.535Z"
-    },
-    {
-      "file": "/home/runner/moat-research/briefs/candidates/06.799-20260505-hud-fheo-fair-housing-enforcement.md",
-      "action": "create",
-      "tokens": 6057,
-      "at": "2026-05-05T14:30:58.531Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 46,
-      "at": "2026-05-05T14:31:04.322Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 118,
-      "at": "2026-05-05T14:31:16.154Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 118,
-      "at": "2026-05-05T14:31:21.473Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 111,
-      "at": "2026-05-05T14:31:26.339Z"
-    },
-    {
       "file": "/home/runner/moat-research/FOCUS.md",
       "action": "edit",
-      "tokens": 632,
-      "at": "2026-05-05T14:32:06.572Z"
+      "tokens": 149,
+      "at": "2026-05-05T14:33:44.543Z"
     }
   ],
   "edit_counts": {
-    "briefs/candidates/07.274-20260505-cra-exam-narrative-corpus.md": 1,
-    "briefs/candidates/07.315-20260505-bis-oee-export-enforcement-corpus.md": 1,
-    "briefs/candidates/07.063-20260505-ftc-consumer-antitrust-enforcement-corpus.md": 1,
-    "briefs/candidates/06.799-20260505-hud-fheo-fair-housing-enforcement.md": 1,
-    "WISHLIST.md": 4,
     "FOCUS.md": 1
   },
-  "anatomy_hits": 3,
+  "anatomy_hits": 1,
   "anatomy_misses": 0,
-  "repeated_reads_warned": 0,
+  "repeated_reads_warned": 1,
   "cerebrum_warnings": 0,
   "stop_count": 1
 }
