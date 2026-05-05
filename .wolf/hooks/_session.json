@@ -1,33 +1,69 @@
 {
-  "session_id": "session-2026-05-05-0750",
-  "started": "2026-05-05T11:50:02.759Z",
+  "session_id": "session-2026-05-05-0800",
+  "started": "2026-05-05T12:00:16.163Z",
   "files_read": {
+    "/home/runner/moat-research/briefs/candidates/07.360-20260504-njdot-511-cameras.md": {
+      "count": 1,
+      "tokens": 4571,
+      "first_read": "2026-05-05T12:00:36.847Z"
+    },
+    "/home/runner/moat-research/briefs/candidates/06.892-20260504-multi-state-medical-board-enforcement.md": {
+      "count": 1,
+      "tokens": 5467,
+      "first_read": "2026-05-05T12:00:40.679Z"
+    },
     "/home/runner/moat-research/WISHLIST.md": {
-      "count": 4,
-      "tokens": 25195,
-      "first_read": "2026-05-05T11:56:59.351Z"
+      "count": 3,
+      "tokens": 26318,
+      "first_read": "2026-05-05T12:07:12.251Z"
+    },
+    "/home/runner/moat-research/FOCUS.md": {
+      "count": 1,
+      "tokens": 4902,
+      "first_read": "2026-05-05T12:08:09.386Z"
     }
   },
   "files_written": [
     {
-      "file": "/home/runner/moat-research/WISHLIST.md",
-      "action": "edit",
-      "tokens": 3036,
-      "at": "2026-05-05T11:58:23.000Z"
+      "file": "/home/runner/moat-research/briefs/candidates/07.216-20260505-txdot-drivetexas-cameras.md",
+      "action": "create",
+      "tokens": 6414,
+      "at": "2026-05-05T12:03:49.964Z"
+    },
+    {
+      "file": "/home/runner/moat-research/briefs/candidates/06.911-20260505-uspto-patent-claim-citation-corpus.md",
+      "action": "create",
+      "tokens": 8396,
+      "at": "2026-05-05T12:06:58.848Z"
     },
     {
       "file": "/home/runner/moat-research/WISHLIST.md",
       "action": "edit",
-      "tokens": 1620,
-      "at": "2026-05-05T11:59:12.929Z"
+      "tokens": 137,
+      "at": "2026-05-05T12:07:31.022Z"
+    },
+    {
+      "file": "/home/runner/moat-research/WISHLIST.md",
+      "action": "edit",
+      "tokens": 128,
+      "at": "2026-05-05T12:07:39.049Z"
+    },
+    {
+      "file": "/home/runner/moat-research/FOCUS.md",
+      "action": "edit",
+      "tokens": 711,
+      "at": "2026-05-05T12:08:40.682Z"
     }
   ],
   "edit_counts": {
-    "WISHLIST.md": 2
+    "briefs/candidates/07.216-20260505-txdot-drivetexas-cameras.md": 1,
+    "briefs/candidates/06.911-20260505-uspto-patent-claim-citation-corpus.md": 1,
+    "WISHLIST.md": 2,
+    "FOCUS.md": 1
   },
-  "anatomy_hits": 1,
+  "anatomy_hits": 4,
   "anatomy_misses": 0,
-  "repeated_reads_warned": 3,
+  "repeated_reads_warned": 2,
   "cerebrum_warnings": 0,
   "stop_count": 1
 }
