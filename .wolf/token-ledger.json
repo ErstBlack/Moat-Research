@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-04T03:13:41.850Z",
   "lifetime": {
-    "total_tokens_estimated": 423378,
-    "total_reads": 75,
-    "total_writes": 197,
-    "total_sessions": 61,
-    "anatomy_hits": 52,
+    "total_tokens_estimated": 477958,
+    "total_reads": 78,
+    "total_writes": 205,
+    "total_sessions": 62,
+    "anatomy_hits": 55,
     "anatomy_misses": 22,
-    "repeated_reads_blocked": 38,
-    "estimated_savings_vs_bare_cli": 165967
+    "repeated_reads_blocked": 41,
+    "estimated_savings_vs_bare_cli": 234151
   },
   "sessions": [
     {
@@ -2046,6 +2046,81 @@
         "writes_count": 2,
         "repeated_reads_blocked": 1,
         "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-05-0614",
+      "started": "2026-05-05T10:14:47.969Z",
+      "ended": "2026-05-05T10:26:34.127Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/06.723-20260505-osha-enforcement-inspection-corpus.md",
+          "tokens_estimated": 5795,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 22528,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 4661,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/.score_t3.py",
+          "tokens_estimated": 126,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/06.802-20260505-nlrb-unfair-labor-practice-cases.md",
+          "tokens_estimated": 6618,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/06.608-20260505-epa-echo-enforcement-corpus.md",
+          "tokens_estimated": 6938,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/06.470-20260505-msha-mine-safety-enforcement-corpus.md",
+          "tokens_estimated": 6770,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 116,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 127,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 126,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 775,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 32984,
+        "output_tokens_estimated": 21596,
+        "reads_count": 3,
+        "writes_count": 8,
+        "repeated_reads_blocked": 3,
+        "anatomy_lookups": 3
       }
     }
   ],
