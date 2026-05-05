@@ -796,3 +796,4 @@ Scored 4 backlog candidates from T2 against RUBRIC.md:
 - `06.799-20260505-hud-fheo-fair-housing-enforcement` — Lane 2+5, fin 5.500 / impl 7.000 / hw 8.750. Comparable to APHIS (6.805); two documented prior site restructurings (2001, 2017). No third-party mirror → full case record is the moat.
 
 WISHLIST: 4 entries flipped backlog → promoted-to-candidate. Cluster: n=20. All 65 tests pass.
+| 10:32 | Session end: 9 writes across 6 files (07.274-20260505-cra-exam-narrative-corpus.md, 07.315-20260505-bis-oee-export-enforcement-corpus.md, 07.063-20260505-ftc-consumer-antitrust-enforcement-corpus.md, 06.799-20260505-hud-fheo-fair-housing-enforcement.md, WISHLIST.md) | 3 reads | ~72140 tok |
