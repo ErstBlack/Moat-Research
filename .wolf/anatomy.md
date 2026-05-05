@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T10:27:44.153Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T11:49:45.143Z
 > Files: 63 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
@@ -53,7 +53,7 @@
 ## docs/calibration/
 
 - `2026-05-05-n11-defer.md` — Calibration check — n=11 active scored cluster (n=10 candidates + 1 graduated) (~681 tok)
-- `2026-05-05-n8-pass.md` — Calibration pass — n=8 active scored cluster (n=9 incl. graduated) (~2391 tok)
+- `2026-05-05-n8-pass.md` — Calibration pass — n=8 active scored cluster (n=9 incl. graduated) (~2708 tok)
 
 ## docs/superpowers/specs/
 
