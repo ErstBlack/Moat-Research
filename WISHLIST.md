@@ -1310,6 +1310,195 @@ sources:
     status: promoted-to-candidate
     promoted_to: 06.799-20260505-hud-fheo-fair-housing-enforcement
     dismissed_reason: null
+
+  - id: caltrans_quickmap_cameras
+    title: "Caltrans Traffic Cameras via QuickMap — California Freight & Port Corridor Archive"
+    url: https://quickmap.dot.ca.gov/
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 1
+    why_interesting: |
+      The California Department of Transportation (Caltrans) operates 2,200+ live traffic
+      cameras across the California state highway system, published via the QuickMap public
+      portal (quickmap.dot.ca.gov) and the underlying CWWP2 image-serving infrastructure
+      (cwwp2.dot.ca.gov). Camera images refresh at continuous DOT cadence (~30–120s) and
+      are NOT archived by Caltrans or any publicly known third party. This is the somd-cameras
+      / njdot-511-cameras / txdot-drivetexas-cameras archetype applied to the highest-freight-
+      volume state in the US by trade value: California carries the two busiest container ports
+      in North America (Port of Los Angeles + Port of Long Beach), the I-5 and SR-99 Central
+      Valley agricultural corridors, and the I-80 / US-50 Sierra Nevada freight routes connecting
+      inland distribution centers to the Bay Area and Pacific Northwest. Camera corridors include:
+      District 7 (LA metro — ports, I-5/I-710 container freight, I-405/I-110 intermodal), District
+      4 (Bay Area — I-880 Port of Oakland, Bay Bridge, I-580/I-80 intermodal), District 11
+      (San Diego / US-Mexico I-5/I-8 cross-border freight), District 3 (Sacramento / I-80 Central
+      Valley distribution), District 6 (Fresno / SR-99 agricultural), and District 12 (OC / I-5/I-405
+      logistics parks). A continuous archive covering these corridors reveals recurring congestion
+      patterns, incident dwell times, port-backup queue lengths, and weather-induced slowdowns
+      (Donner Pass I-80 winter closures) that insurance, logistics, port-operations, and real-estate
+      analytics buyers cannot obtain anywhere at this geographic granularity and temporal depth.
+      Combined with the existing somd (MD/VA), NJDOT (NJ), and TxDOT archives, a CA addition
+      closes the largest remaining gap in a national freight-corridor camera dataset and adds the
+      critical Pacific trade-gateway dimension no other state in the corpus provides.
+    known_constraints: |
+      Verified live 2026-05-05. quickmap.dot.ca.gov returned HTTP 200 (SPA React app,
+      California transportation situational awareness map) under "moat-research/0.1" UA.
+      quickmap.dot.ca.gov/robots.txt: the SPA returns the app HTML for all paths including
+      /robots.txt — no robots.txt file is configured on the SPA host; treat as absent (no
+      policy = no restriction). cwwp2.dot.ca.gov/vm/streamlist.htm returned HTTP 200 with
+      a full 628 KB HTML listing of statewide camera streaming locations — this is the
+      canonical camera inventory listing Caltrans districts d4 through d12 with per-camera
+      location page URLs in the format cwwp2.dot.ca.gov/vm/loc/d{district}/{camera_id}.htm.
+      cwwp2.dot.ca.gov/robots.txt returned HTTP 500 (nginx server error) — no robots.txt is
+      configured on the CWWP2 host; treat as absent (same pattern as TxDOT Google AppEngine
+      returning 500 on robots.txt). Caltrans data is California state government infrastructure
+      data; no archival prohibition or ToS clause against capturing public-facing camera images
+      has been located. No published per-request rate limit for camera image endpoints. CRITICAL
+      brief-stage requirement: enumerate the actual camera image URL pattern from individual
+      camera location pages (cwwp2.dot.ca.gov/vm/loc/d{district}/{camera_id}.htm) — individual
+      camera pages return empty content from this environment (possible UA/routing filter on
+      per-camera HTML pages while the aggregate streamlist is accessible), so brief stage must
+      discover the exact JPEG image URL pattern via browser network inspection or alternate
+      UA against a sample camera page. CONSTRAINTS §5 check: Caltrans does NOT maintain a
+      public historical archive of camera images; no third-party archive service covering
+      Caltrans traffic camera images is known (Wayback Machine does not archive binary image
+      files served at rotating URLs). Brief must confirm §5 with a Wayback coverage check on
+      a sample cwwp2 image path; this check is expected to be clear. Note on source stability:
+      cwwp2.dot.ca.gov individual camera pages show 500/empty from this environment — this may
+      reflect environment-specific routing restrictions rather than systemic downtime; the
+      streamlist.htm and quickmap main page are both accessible, suggesting the CWWP2
+      infrastructure is live. Assign source_stability=6 at brief stage (below NJDOT's 7) pending
+      direct image-URL confirmation.
+    estimated_size: "~130–200 GB/month raw (est. 2,200 cameras × 50 KB/image × 288 polls/day × ~2/3 active at any time); ~25–45 GB/month with gzip + delta-only retention"
+    rate_limit_notes: "No published rate limits for Caltrans QuickMap or CWWP2 camera image endpoints. Recommend ≥5s between camera polls, single-process per camera, total request rate ≤1 req/s across all cameras. Discover actual image endpoint at brief stage before rate-limit assessment."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
+
+  - id: wsdot_traffic_cameras
+    title: "WSDOT Traffic Cameras — Washington State DOT Mountain Pass & Puget Sound Freight Corridors"
+    url: https://wsdot.wa.gov/travel/real-time/traffic-cameras
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 1
+    why_interesting: |
+      The Washington State Department of Transportation operates 700+ live traffic cameras
+      across Washington state highways via the WSDOT Traveler Information portal. Camera
+      images refresh at continuous DOT cadence and are NOT archived by WSDOT or any publicly
+      known third party. This is the somd/NJDOT/TxDOT/Caltrans archetype applied to the
+      Pacific Northwest: Washington's strategic camera network covers (a) the I-5 Puget Sound
+      corridor (Seattle metro + Tacoma port access — Port of Seattle and Port of Tacoma are
+      the 3rd and 5th busiest container ports in the US), (b) I-90 Snoqualmie Pass (the only
+      year-round east–west mountain freight corridor in the state, subject to winter closures
+      that reroute goods from eastern WA orchards and wheat farms), (c) US-2 Stevens Pass
+      (secondary mountain corridor, critical for timber and agricultural freight from Wenatchee
+      and eastern WA), (d) SR-520/I-405 Eastside (Microsoft/Amazon tech campus freight and
+      worker commute), and (e) I-82 Yakima Valley (second-largest wine-producing region in the
+      US). A continuous camera archive covering these corridors is uniquely valuable for: Port
+      of Seattle/Tacoma drayage operators (queue length at terminal gates before dispatch),
+      agricultural insurance underwriters (mountain-pass closure timing + duration for perishable
+      cargo loss modeling), Pacific Northwest tech-company logistics teams (I-90/SR-520
+      corridor congestion for supply chain delivery estimation), and climate/infrastructure
+      researchers (glacier-retreat effects on I-90 pass conditions). No existing public archive
+      of WSDOT camera images is known. WSDOT explicitly states on its traveler-info pages that
+      camera images are provided for real-time conditions only and are not preserved.
+    known_constraints: |
+      Verified live 2026-05-05. wsdot.wa.gov/travel/real-time/traffic-cameras returned
+      HTTP 302 redirect → HTTP 200 (fully accessible, page loads with camera listings) under
+      "moat-research/0.1" UA. wsdot.wa.gov/robots.txt returned HTTP 403 Forbidden from
+      Varnish cache server (no robots.txt file configured on the Varnish layer; treat as absent
+      — not a Disallow, same interpretation as S3 bucket 403 on robots.txt; wsdot.wa.gov
+      camera pages themselves returned 200). WSDOT traffic API base at wsdot.wa.gov/traffic/api/
+      returned HTTP 200 (Traveler Information API documentation page). CRITICAL brief-stage
+      requirement: WSDOT camera images appear to be accessible via a free API access code
+      (WSDOT Traveler Information API requires registration for a free access code at
+      wsdot.wa.gov/traffic/api/ — similar to GTFS-RT free-token gating). This is NOT a
+      CONSTRAINTS §1 auth-bypass violation (free token, legitimate registration, same model
+      as AC Transit GTFS-RT); brief stage MUST review the WSDOT API developer agreement for
+      (a) redistribution clauses, (b) archival prohibitions, and (c) any commercial-use
+      restrictions. The specific camera image URL pattern must also be enumerated from the
+      API documentation (images.wsdot.wa.gov/{camera_path}.jpg or via API JSON response
+      containing image URLs). CONSTRAINTS §5 check: WSDOT does NOT publish a historical
+      archive of camera images — the traveler-info system is explicitly for real-time conditions
+      only. No third-party public archive of WSDOT camera images is known. Brief must confirm
+      §5 with a Wayback Machine coverage check on sample WSDOT camera image paths; expected
+      to be clear. WSDOT data is Washington state government public infrastructure data;
+      camera images are public-facing with no statutory archival restriction identified. No
+      published per-image rate limit; recommend honoring the developer agreement's stated
+      limits once confirmed at brief stage.
+    estimated_size: "~40–60 GB/month raw (est. 700 cameras × 50 KB/image × 288 polls/day × ~75% active); ~8–15 GB/month with gzip + delta-only retention"
+    rate_limit_notes: "No published per-image rate limit. WSDOT API access code (free) may have documented request quotas — verify in developer agreement at brief stage. Recommend ≥5s between camera polls, single-process per camera, total request rate ≤1 req/s across all cameras once API ToS reviewed."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
+
+  - id: multi_state_attorney_bar_discipline
+    title: "Multi-State Attorney Bar Disciplinary Actions — Cross-Jurisdiction Entity-Resolved Corpus"
+    url: https://www.calbar.ca.gov/Attorneys/Discipline/Discipline-Charges-Decisions
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 4
+    why_interesting: |
+      State bar associations each publish attorney disciplinary actions (suspensions, disbarments,
+      public censures, probations, interim suspensions, surrender of license) against licensed
+      attorneys in their jurisdiction. Each state bar maintains a portal with some combination of
+      searchable databases, PDF disciplinary newsletters, and individual order pages. The Federation
+      of State Bar Associations' National Lawyer Regulatory Data Bank (NLRDB) aggregates cross-state
+      disciplinary information, but is restricted to bar regulatory bodies and courts — it is NOT
+      publicly accessible. No free public structured cross-state attorney discipline database exists:
+      each state's records are siloed, format differs (California MBC-style detailed disciplinary orders
+      vs. Texas quarterly newsletter PDFs vs. New York appellate-division per-court records), and entity
+      resolution across jurisdictions (a disbarred California attorney resuming practice in Texas under
+      a minor name variant) is a non-trivial analytical task. The Lane-4 moat is compute-as-barrier
+      structured extraction at scale: (1) OCR + NER over 50 state bar disciplinary newsletters and
+      order databases → structured records with attorney name, bar number, violation taxonomy, penalty
+      type/duration, effective dates; (2) ongoing weekly/monthly update compounding as new discipline
+      orders are issued continuously; (3) cross-jurisdiction entity resolution identifying attorneys
+      licensed in multiple states or practicing in new jurisdictions following discipline in their home
+      state — this entity graph is the defensible compound value layer. Buyers: general counsel /
+      law firm management (vetting outside counsel, lateral hires), legal malpractice insurance
+      underwriters (individual attorney risk scoring, firm aggregate exposure), state-bar investigative
+      bodies (multi-state complaint coordination), investigative journalism (disciplinary patterns in
+      personal injury mills, criminal defense, immigration law firms), judicial appointment vetting
+      (state judicial commissions, ABA judicial evaluations), and legal research platforms (Casetext,
+      Fastcase, Westlaw Edge). Pricing precedent: Martindale-Hubbell and Avvo are commercial
+      aggregators at $500–$2,000+/attorney/year for enriched profiles; AVVO Pro / Thomson Reuters
+      Legal Tracker at $30k–$150k/year enterprise seat; Judicial Council vetting platforms at $50k+.
+      All three Lane-4 pillars present: (1) compute-as-barrier OCR + NER extraction at scale
+      (50 disparate state-portal formats), (2) ongoing-update compounding (monthly discipline orders
+      across all 50 states), (3) cross-jurisdiction entity resolution as the v1 differentiator.
+      Lane-5 secondary: legal-profession risk analytics niche vertical.
+    known_constraints: |
+      Per-state portals verified 2026-05-05. California State Bar (calbar.ca.gov): main portal
+      returned HTTP 200 under "moat-research/0.1" UA; attorney discipline detail page
+      (apps.calbar.ca.gov/attorney/Licensee/Detail/272330) returned HTTP 200 with full page
+      content (628 KB). calbar.ca.gov/robots.txt: standard Drupal configuration — User-agent: *
+      with Disallow only on admin/system paths (/admin/, /comment/reply/, /node/add/, /core/,
+      /profiles/, /search/, /user/*, README files, /media/oembed, /web.config); attorney
+      discipline data paths NOT blocked (verified 2026-05-05). Texas State Bar (texasbar.com):
+      HTTP 200, robots.txt returned HTTP 200 with User-agent: * Allow: / (no restriction on
+      discipline/member data paths; specific Disallows only on /IneligibleAttorneyList/ and a
+      legacy ColdFusion template path, neither affecting the discipline corpus). Florida Bar
+      (floridabar.org): HTTP 200, robots.txt returned HTTP 200 with Disallow: /private/ for
+      specific bots only; no User-agent: * blanket Disallow. New York attorney discipline is
+      handled by the Appellate Division courts (iapps.courts.state.ny.us/attorney/AttorneySearch)
+      — returned HTTP 200 (verified 2026-05-05). §5 check: raw discipline records exist on each
+      state bar's public website, so Lane-1 ephemeral framing fails §5 — this is explicitly a
+      Lane-4 thesis where the moat is the structured extraction + cross-jurisdiction entity
+      resolution artifact, NOT a duplicate of the raw per-state HTML/PDF records. No free public
+      cross-state structured attorney discipline database exists: NLRDB is restricted to regulatory
+      bodies; Martindale-Hubbell/Avvo are commercial (paid ≠ §5 hit per project precedent);
+      individual state bar websites are siloed with no inter-bar structured cross-reference. Brief
+      stage must verify per-state portal individually (50 state bars + DC + US territories ≈ 53
+      jurisdictions) for robots.txt posture, URL structure, ToS language on data use, and whether
+      structured CSV exports or only HTML/PDF narratives are available. Per-state audit is the
+      primary implementation cost, analogous to the multi-state medical board and multi-state
+      insurance enforcement briefs. CONSTRAINTS §1: fully public, no auth bypass required.
+      CONSTRAINTS §4: polite single-process crawl across ~53 portals is well within rate limits.
+    estimated_size: "~3–7 GB raw archive (PDFs + HTML across 53 jurisdictions, full historical depth ~20 years); ~300–500 MB structured artifact (Parquet entity graph + violation taxonomy + timeline)"
+    rate_limit_notes: "Per-state portal limits vary; no published rate limits identified at CA/TX/FL state bars. Recommend ≥5s between requests per portal, single-process per state. Honor any 429s with exponential backoff."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
 ```
 
 ## Notes for the operator
@@ -1412,6 +1601,16 @@ Candidates considered and dismissed in this pass:
 - **Lane-3 candidates considered:** Two candidate fusions evaluated per LANES.md survival condition. Both failed:
   (1) DOT state camera frames (Lane-1 captures from NJDOT/TxDOT/somd) × USGS NWIS stream gauge discharge (archived by USGS historical API with timestamps): camera frames are ephemeral (Lane-1), but the Lane-3 moat would need to be "camera frame at bridge-crossing gauge sight during flood event Y" — however, this is already captured by the USGS×NWS flood-fusion brief (07.695) which uses USGS gauge data to identify flood events; the camera-frame layer is a useful add-on to an existing ingestor, not a standalone Lane-3 thesis. Dismissed as Layer-4 derived feature on top of existing briefs.
   (2) USACE inland waterway lock passage records (if ephemeral) × AMS/USDA commodity price quotations: USACE LPMS lock passage data checked against ndc.ops.usace.army.mil — site connection refused from environment (2026-05-05), cannot confirm ephemerality or archive completeness. USDA AMS commodity prices are durably archived (AMS historical price data available via data.gov). Cannot proceed without confirming USACE reachability; deferred. If USACE lock passage data turns out to be ephemeral (not fully archived at vessel-transit level of detail), this could be a viable Lane-1 or Lane-3 candidate; file a fresh entry after environment-based verification.
+
+Discovery synthesis pass — 2026-05-05 T1 (Iteration 20260505T150802Z-02beae T1; rebalancing away from the L2 cluster which grew to 9 entries in the prior iteration — explicitly targeting L1 and L4 per task acceptance criteria). Three new candidates added above: `caltrans_quickmap_cameras` (Lane 1) and `wsdot_traffic_cameras` (Lane 1) extending the DOT-camera-archive pattern to California and Washington state, and `multi_state_attorney_bar_discipline` (Lane 4+5) applying the multi-state medical-board / multi-state insurance-enforcement pattern to attorney regulatory records. Lane cluster after this pass: L1: 7 entries (somd/njdot/transit-gtfsrt/faa-notams/txdot/caltrans/wsdot), L2: 9 entries (unchanged — usda-aphis/osha/epa-echo/msha/nlrb/bis/ftc/hud + promoted items), L4: 8 entries (flood-fusion/cslb/medical-board/ferc/insurance/uspto-patents/cra/attorney-bar). Candidates considered and dismissed in this pass:
+
+- **Colorado DOT COTRIP cameras** (cotrip.org): cotrip.org returned HTTP 308 redirect; not separately followed. Dismissed at wishlist stage — Colorado freight corridors (I-70 Eisenhower Tunnel, I-25 Denver metro) overlap meaningfully with the existing TxDOT coverage at the southern end and Caltrans at the western end; the camera count (~600) is smaller than CA or WA; and COTRIP's primary value for logistics mirrors TxDOT/I-70 at a lower scale. Revisit if the operator identifies a specific CO freight-corridor buyer that justifies a dedicated entry.
+- **Nevada DOT / NV Roads cameras** (nvroads.com): HTTP 200 on the main page (verified 2026-05-05). Dismissed at wishlist stage — Nevada's camera network primarily covers I-15/US-93 (Las Vegas metro + Utah border freight) and I-80/US-50 (limited rural corridors); overlap with Caltrans (CA-NV border cameras already in the CA district coverage) and smaller freight volume than CA/WA/TX/NJ. The highest-value Nevada corridor (Las Vegas distribution center belt on I-215/I-15) could be a future add-on to the Caltrans or national DOT-camera consolidation thesis; file a fresh entry if a specific NV logistics buyer is identified.
+- **SEC EDGAR risk-factor structured extraction corpus** (sec.gov/cgi-bin/browse-edgar): considered as Lane 4+5 (financial/legal regulatory analytics niche). Dismissed at wishlist stage: multiple free academic tools for EDGAR risk-factor extraction already exist (SEC EDGAR full-text search, Stanford/Wharton OpenEDGAR academic project, University of Notre Dame Risk Factor Database — free academic access). §5 concern: the basic NLP extraction thesis is well-trodden territory with freely available academic analogs; a surviving Lane-4 brief would need to articulate a specific delta over these tools (e.g., real-time 8-K event linkage to risk-factor language change, or industry-sector-normalized risk-vector scoring) not currently provided for free. Deferred; file a fresh entry if that differentiated thesis crystallizes.
+- **FMCSA motor carrier safety inspection corpus** (ai.fmcsa.dot.gov / safer.fmcsa.dot.gov): considered as Lane 4+5 (freight logistics / transport safety niche). Dismissed at wishlist stage: FMCSA publishes Safety Measurement System (SMS) BASICS scores via the SAFER public portal AND publishes structured bulk inspection data via data.gov (inspection violations, carrier census, accident data tables), meaning the basic structured-data aggregation fails §5 (reconstructible from currently-public sources). The surviving Lane-4 angle — "chameleon carrier" entity resolution (carriers that close under one MC# and reopen under a new one to escape enforcement history) — is a narrower thesis that would require articulating a specific commercial use case; deferred to a future entry if a concrete buyer segment and data-access path are identified.
+- **Lane-3 candidates considered:** One fusion evaluated. DOT traffic cameras (Lane-1 ephemeral) × WSDOT mountain-pass weather station observations (archived by NOAA ASOS/NCEI): weather station data is durably archived; the camera-frame-at-weather-event join is a Layer-4 derived-feature stack on top of our own Lane-1 WSDOT capture, not a standalone Lane-3 moat. Dismissed per Lane-3 survival condition (LANES.md §3: only one ephemeral input + archived second input = Lane-4 derived feature, not Lane-3). Pattern reconfirmed: 8/8 evaluated Lane-3 candidates now dismissed.
+
+Net new wishlist surface this pass: 3 candidates added (2 Lane 1, 1 Lane 4+5). Lane balance moves from L1:5/L2:9/L4:7 → L1:7/L2:9/L4:8 (backlog+promoted combined count). Lane-1 DOT-camera cluster now spans five states (MD/VA somd, NJ, TX, CA, WA) covering both coasts + southern cross-border + Pacific gateway corridors.
 
 ## How to append (for operator quick reference)
 

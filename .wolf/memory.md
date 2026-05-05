@@ -838,3 +838,26 @@ WISHLIST: 4 entries flipped backlog → promoted-to-candidate. Cluster: n=20. Al
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+
+## Session: 2026-05-05 11:08
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-05 11:08
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-05 11:09
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 11:18 | Edited WISHLIST.md | modified Bar() | ~4375 |
+| 11:18 | Edited WISHLIST.md | modified observations() | ~1260 |
+
+## Session: 2026-05-05 15:08 (Iteration 20260505T150802Z-02beae T1)
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 15:20 | Discovery synthesis pass (L1+L4 rebalancing) | WISHLIST.md | 3 new backlog entries: caltrans_quickmap_cameras (L1), wsdot_traffic_cameras (L1), multi_state_attorney_bar_discipline (L4+5); lane balance L1:7/L2:9/L4:8; dismissed 5 candidates with rationale | ~8500 |

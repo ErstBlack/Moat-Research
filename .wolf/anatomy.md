@@ -1,7 +1,8 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T14:33:44.520Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T15:20:00.000Z (20260505T150802Z-02beae T1)
 > Files: 73 tracked | Anatomy hits: 0 | Misses: 0
+> Wishlist: 3 new backlog entries added (caltrans_quickmap_cameras L1, wsdot_traffic_cameras L1, multi_state_attorney_bar_discipline L4+5); lane balance L1:7/L2:9/L4:8
 
 ## ./
 
@@ -14,7 +15,7 @@
 - `FOCUS.md` — FOCUS (~7045 tok)
 - `LANES.md` — LANES (~901 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
-- `WISHLIST.md` — WISHLIST (~34203 tok)
+- `WISHLIST.md` — WISHLIST (~39433 tok)
 
 ## .claude/
 
