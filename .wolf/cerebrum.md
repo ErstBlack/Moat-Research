@@ -2,7 +2,7 @@
 
 > OpenWolf's learning memory. Updated automatically as the AI learns from interactions.
 > Do not edit manually unless correcting an error.
-> Last updated: 2026-05-05 (iteration 20260505T125333Z-88ac55 T1–T4 complete — calibration, Lane-3 formalization, Akamai-gating methodology, consolidation)
+> Last updated: 2026-05-05 (iteration 20260505T140311Z-7ad6a2 T2–T4 complete — discovery + scoring of 4 Lane-2 briefs, cluster grows to n=20, no rubric edits)
 
 ## User Preferences
 

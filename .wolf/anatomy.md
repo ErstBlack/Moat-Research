@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T14:32:06.550Z
-> Files: 69 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T14:33:44.520Z
+> Files: 73 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -11,7 +11,7 @@
 - `.score_tmp.py` (~261 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `CONSTRAINTS.md` — CONSTRAINTS (~666 tok)
-- `FOCUS.md` — FOCUS (~6937 tok)
+- `FOCUS.md` — FOCUS (~7045 tok)
 - `LANES.md` — LANES (~901 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
 - `WISHLIST.md` — WISHLIST (~34203 tok)
@@ -32,15 +32,12 @@
 
 ## briefs/candidates/
 
-- `06.799-20260505-hud-fheo-fair-housing-enforcement.md` (~6100 tok)
-- `07.063-20260505-ftc-consumer-antitrust-enforcement-corpus.md` (~6500 tok)
-- `07.274-20260505-cra-exam-narrative-corpus.md` (~6400 tok)
-- `07.315-20260505-bis-oee-export-enforcement-corpus.md` (~6300 tok)
 - `06.470-20260505-msha-mine-safety-enforcement-corpus.md` (~6314 tok)
 - `06.483-20260505-multi-state-insurance-dept-enforcement.md` (~6717 tok)
 - `06.608-20260505-epa-echo-enforcement-corpus.md` (~6476 tok)
 - `06.701-20260504-us-transit-gtfsrt-smaller-agencies.md` (~6220 tok)
 - `06.723-20260505-osha-enforcement-inspection-corpus.md` (~6182 tok)
+- `06.799-20260505-hud-fheo-fair-housing-enforcement.md` (~6100 tok)
 - `06.799-20260505-hud-fheo-fair-housing-enforcement.md` — Declares distribution (~5300 tok)
 - `06.802-20260505-nlrb-unfair-labor-practice-cases.md` (~6176 tok)
 - `06.805-20260505-usda-aphis-animal-welfare-inspections.md` (~6419 tok)
@@ -48,9 +45,12 @@
 - `06.911-20260505-uspto-patent-claim-citation-corpus.md` (~7836 tok)
 - `07.006-20260505-ferc-elibrary-regulatory-filings.md` (~7539 tok)
 - `07.009-20260504-cslb-ca-contractor-disciplinary-corpus.md` (~5449 tok)
+- `07.063-20260505-ftc-consumer-antitrust-enforcement-corpus.md` (~6500 tok)
 - `07.063-20260505-ftc-consumer-antitrust-enforcement-corpus.md` — Declares and (~5255 tok)
 - `07.216-20260505-txdot-drivetexas-cameras.md` (~5986 tok)
+- `07.274-20260505-cra-exam-narrative-corpus.md` (~6400 tok)
 - `07.274-20260505-cra-exam-narrative-corpus.md` — Declares edges (~5479 tok)
+- `07.315-20260505-bis-oee-export-enforcement-corpus.md` (~6300 tok)
 - `07.315-20260505-bis-oee-export-enforcement-corpus.md` — Declares taxonomy (~5307 tok)
 - `07.360-20260504-njdot-511-cameras.md` (~4876 tok)
 - `07.898-20260505-faa-notams-aviation-alerts.md` (~6463 tok)

@@ -797,3 +797,33 @@ Scored 4 backlog candidates from T2 against RUBRIC.md:
 
 WISHLIST: 4 entries flipped backlog → promoted-to-candidate. Cluster: n=20. All 65 tests pass.
 | 10:32 | Session end: 9 writes across 6 files (07.274-20260505-cra-exam-narrative-corpus.md, 07.315-20260505-bis-oee-export-enforcement-corpus.md, 07.063-20260505-ftc-consumer-antitrust-enforcement-corpus.md, 06.799-20260505-hud-fheo-fair-housing-enforcement.md, WISHLIST.md) | 3 reads | ~72140 tok |
+
+## 2026-05-05 (Iteration 20260505T140311Z-7ad6a2 Complete — T2 through T4)
+
+### T2: Discovery synthesis pass
+- Added 3 new backlog WISHLIST entries (all Lane 2+5): `cra_exam_narrative_corpus` (per-regulator access via OCC/Fed/FDIC after FFIEC Akamai gating), `bis_export_enforcement_corpus` (trivial corpus ~500 MB, cleanest robots.txt, honest ongoing_revenue), `ftc_consumer_antitrust_enforcement_corpus` (strongest L2 precedent: Slaughter v. Trump litigation), `hud_fheo_fair_housing_enforcement` (two documented prior site restructurings 2001/2017, no third-party mirror).
+- Verified all endpoints live 2026-05-05: bis.gov HTTP 200 / Allow:/, ftc.gov HTTP 200 / Crawl-delay:10, hud.gov HTTP 200, with explicit per-agency ToS / rate-limit notes.
+- Lane-2 cluster grows 9→12 entries (before scoring); deliberately filled backlog with Lane 2 + 5 secondary niche verticals (national security, consumer privacy, fair housing).
+- All 65 tests pass.
+
+### T3: Scoring pass (4 briefs: CRA, BIS, FTC, HUD)
+- Scored all 4 briefs against RUBRIC.md: `07.274-cra-exam-narrative-corpus` (L4+5, 6.333/7.500/8.500), `07.315-bis-oee-export-enforcement-corpus` (L2+4+5, 6.000/7.750/9.000), `07.063-ftc-consumer-antitrust-enforcement-corpus` (L2+4+5, 6.500/6.750/8.250), `06.799-hud-fheo-fair-housing-enforcement` (L2+5, 5.500/7.000/8.750).
+- All pass §5; no axis-zero rejections. WISHLIST entries promoted backlog → promoted-to-candidate.
+- Cluster grows n=16 → n=20 (19 candidates + 1 graduated). No calibration trigger (n≥25 is the next threshold).
+- Lane balance after T3: L1:5 / L2:9 / L4:7 / L5: secondary on most. L2 cluster now dominant (9 entries).
+- All 65 tests pass.
+
+### T4: Consolidation (this task)
+- Updated `.wolf/anatomy.md`: header timestamp, brief count (no new tracked files; total count 69 same).
+- Appended `.wolf/memory.md`: consolidated iteration T2–T4 outcomes (above).
+- Reviewed `.wolf/cerebrum.md`: no new learnings generated this iteration; updated header timestamp only.
+- Updated FOCUS.md: item 1 [x] remains checked from prior iteration; added new Recently-completed entry (below).
+- All 65 tests pass; git status clean.
+
+**Final state:** n=20 briefs (19 scored candidates + 1 graduated); 1 rejected (NDBC). Composite range 6.470–7.898 (unchanged). Lane-2 cluster now dominant (9 entries); L1/L4 rebalance deferred to next synthesis pass. Cluster ready for next formal calibration at n≥25 threshold. FOCUS item 1 complete.
+
+## Session: 2026-05-05 10:33
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 10:33 | Edited FOCUS.md | 3→5 lines | ~139 |
