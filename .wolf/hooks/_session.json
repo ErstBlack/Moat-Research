@@ -1,23 +1,59 @@
 {
-  "session_id": "session-2026-05-05-0813",
-  "started": "2026-05-05T12:13:05.378Z",
+  "session_id": "session-2026-05-05-0854",
+  "started": "2026-05-05T12:54:49.014Z",
   "files_read": {
-    "/home/runner/.maximizer/projects/moat/runs/20260505T114726Z-af4378/review.json": {
-      "count": 2,
-      "tokens": 0,
-      "first_read": "2026-05-05T12:13:14.394Z"
+    "/home/runner/moat-research/docs/calibration/2026-05-05-n8-pass.md": {
+      "count": 1,
+      "tokens": 2708,
+      "first_read": "2026-05-05T12:55:01.539Z"
     },
-    "/home/runner/.maximizer/projects/moat/runs/20260505T114726Z-af4378/iteration.json": {
-      "count": 2,
-      "tokens": 0,
-      "first_read": "2026-05-05T12:13:14.509Z"
+    "/home/runner/moat-research/docs/calibration/2026-05-05-n11-defer.md": {
+      "count": 1,
+      "tokens": 681,
+      "first_read": "2026-05-05T12:55:07.215Z"
+    },
+    "/home/runner/moat-research/briefs/candidates/06.608-20260505-epa-echo-enforcement-corpus.md": {
+      "count": 1,
+      "tokens": 6476,
+      "first_read": "2026-05-05T12:55:38.132Z"
+    },
+    "/home/runner/moat-research/briefs/candidates/06.470-20260505-msha-mine-safety-enforcement-corpus.md": {
+      "count": 1,
+      "tokens": 6314,
+      "first_read": "2026-05-05T12:55:41.969Z"
+    },
+    "/home/runner/moat-research/briefs/candidates/06.802-20260505-nlrb-unfair-labor-practice-cases.md": {
+      "count": 1,
+      "tokens": 6176,
+      "first_read": "2026-05-05T12:55:49.564Z"
+    },
+    "/home/runner/moat-research/FOCUS.md": {
+      "count": 1,
+      "tokens": 5501,
+      "first_read": "2026-05-05T12:59:31.649Z"
     }
   },
-  "files_written": [],
-  "edit_counts": {},
-  "anatomy_hits": 0,
-  "anatomy_misses": 2,
-  "repeated_reads_warned": 2,
+  "files_written": [
+    {
+      "file": "/home/runner/moat-research/docs/calibration/2026-05-05-n15-pass.md",
+      "action": "create",
+      "tokens": 4239,
+      "at": "2026-05-05T12:58:27.275Z"
+    },
+    {
+      "file": "/home/runner/moat-research/FOCUS.md",
+      "action": "edit",
+      "tokens": 785,
+      "at": "2026-05-05T13:00:03.567Z"
+    }
+  ],
+  "edit_counts": {
+    "docs/calibration/2026-05-05-n15-pass.md": 1,
+    "FOCUS.md": 1
+  },
+  "anatomy_hits": 6,
+  "anatomy_misses": 0,
+  "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
   "stop_count": 1
 }

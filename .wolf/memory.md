@@ -656,3 +656,4 @@
 |------|--------|---------|---------|--------|
 | 08:58 | Created docs/calibration/2026-05-05-n15-pass.md | — | ~3957 |
 | 09:00 | Edited FOCUS.md | 3→5 lines | ~733 |
+| 09:01 | Session end: 2 writes across 2 files (2026-05-05-n15-pass.md, FOCUS.md) | 6 reads | ~32880 tok |

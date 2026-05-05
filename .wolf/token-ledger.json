@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-04T03:13:41.850Z",
   "lifetime": {
-    "total_tokens_estimated": 591130,
-    "total_reads": 92,
-    "total_writes": 214,
-    "total_sessions": 73,
-    "anatomy_hits": 65,
+    "total_tokens_estimated": 624010,
+    "total_reads": 98,
+    "total_writes": 216,
+    "total_sessions": 76,
+    "anatomy_hits": 71,
     "anatomy_misses": 26,
     "repeated_reads_blocked": 48,
-    "estimated_savings_vs_bare_cli": 364372
+    "estimated_savings_vs_bare_cli": 365572
   },
   "sessions": [
     {
@@ -2366,6 +2366,69 @@
         "writes_count": 0,
         "repeated_reads_blocked": 2,
         "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-05-05-0854",
+      "started": "2026-05-05T12:54:49.014Z",
+      "ended": "2026-05-05T13:01:27.017Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/docs/calibration/2026-05-05-n8-pass.md",
+          "tokens_estimated": 2708,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/calibration/2026-05-05-n11-defer.md",
+          "tokens_estimated": 681,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/06.608-20260505-epa-echo-enforcement-corpus.md",
+          "tokens_estimated": 6476,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/06.470-20260505-msha-mine-safety-enforcement-corpus.md",
+          "tokens_estimated": 6314,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/06.802-20260505-nlrb-unfair-labor-practice-cases.md",
+          "tokens_estimated": 6176,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 5501,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/docs/calibration/2026-05-05-n15-pass.md",
+          "tokens_estimated": 4239,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 785,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 27856,
+        "output_tokens_estimated": 5024,
+        "reads_count": 6,
+        "writes_count": 2,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 6
       }
     }
   ],
