@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-04T03:13:41.850Z",
   "lifetime": {
-    "total_tokens_estimated": 632571,
-    "total_reads": 100,
-    "total_writes": 218,
-    "total_sessions": 77,
-    "anatomy_hits": 72,
+    "total_tokens_estimated": 668257,
+    "total_reads": 103,
+    "total_writes": 221,
+    "total_sessions": 78,
+    "anatomy_hits": 75,
     "anatomy_misses": 27,
-    "repeated_reads_blocked": 48,
-    "estimated_savings_vs_bare_cli": 365772
+    "repeated_reads_blocked": 52,
+    "estimated_savings_vs_bare_cli": 471752
   },
   "sessions": [
     {
@@ -2468,6 +2468,56 @@
         "writes_count": 2,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-05-0903",
+      "started": "2026-05-05T13:03:41.351Z",
+      "ended": "2026-05-05T13:07:12.650Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/CONSTRAINTS.md",
+          "tokens_estimated": 398,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 26345,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 7261,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/CONSTRAINTS.md",
+          "tokens_estimated": 326,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 1201,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 155,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 34004,
+        "output_tokens_estimated": 1682,
+        "reads_count": 3,
+        "writes_count": 3,
+        "repeated_reads_blocked": 4,
+        "anatomy_lookups": 3
       }
     }
   ],

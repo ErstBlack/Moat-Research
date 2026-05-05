@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T13:02:50.936Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T13:06:34.882Z
 > Files: 65 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
@@ -10,11 +10,11 @@
 - `.score_t3.py` — composite (~126 tok)
 - `.score_tmp.py` (~261 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
-- `CONSTRAINTS.md` — CONSTRAINTS (~398 tok)
+- `CONSTRAINTS.md` — CONSTRAINTS (~666 tok)
 - `FOCUS.md` — FOCUS (~6151 tok)
 - `LANES.md` — LANES (~901 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
-- `WISHLIST.md` — WISHLIST (~26345 tok)
+- `WISHLIST.md` — WISHLIST (~27384 tok)
 
 ## .claude/
 
@@ -59,7 +59,7 @@
 
 ## docs/superpowers/specs/
 
-- `2026-05-04-moat-research-design.md` — moat-research (~7261 tok)
+- `2026-05-04-moat-research-design.md` — moat-research (~7373 tok)
 
 ## scripts/
 
