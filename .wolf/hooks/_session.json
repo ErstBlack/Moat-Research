@@ -1,27 +1,28 @@
 {
-  "session_id": "session-2026-05-05-0506",
-  "started": "2026-05-05T09:06:44.873Z",
+  "session_id": "session-2026-05-05-0510",
+  "started": "2026-05-05T09:10:39.731Z",
   "files_read": {
-    "/home/runner/moat-research/FOCUS.md": {
+    "/home/runner/.maximizer/projects/moat/runs/20260505T083851Z-d3bb40/review.json": {
       "count": 1,
-      "tokens": 4388,
-      "first_read": "2026-05-05T09:07:56.402Z"
+      "tokens": 0,
+      "first_read": "2026-05-05T09:10:48.122Z"
+    },
+    "/home/runner/.maximizer/projects/moat/runs/20260505T083851Z-d3bb40/iteration.json": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-05-05T09:10:48.425Z"
+    },
+    "/home/runner/moat-research/docs/calibration/2026-05-05-n8-pass.md": {
+      "count": 1,
+      "tokens": 2391,
+      "first_read": "2026-05-05T09:11:05.976Z"
     }
   },
-  "files_written": [
-    {
-      "file": "/home/runner/moat-research/FOCUS.md",
-      "action": "edit",
-      "tokens": 296,
-      "at": "2026-05-05T09:08:06.618Z"
-    }
-  ],
-  "edit_counts": {
-    "FOCUS.md": 1
-  },
+  "files_written": [],
+  "edit_counts": {},
   "anatomy_hits": 1,
-  "anatomy_misses": 0,
+  "anatomy_misses": 2,
   "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
-  "stop_count": 1
+  "stop_count": 0
 }
