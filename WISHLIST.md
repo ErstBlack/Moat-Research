@@ -597,6 +597,136 @@ sources:
     status: promoted-to-candidate
     promoted_to: 07.898-20260505-faa-notams-aviation-alerts
     dismissed_reason: null
+
+  - id: osha_enforcement_inspection_corpus
+    title: "DOL/OSHA Enforcement Inspection Records & Violation Data — Continuous Off-Platform Archive"
+    url: https://www.osha.gov/enforcement
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 2
+    why_interesting: |
+      OSHA publishes inspection records, violation citations, penalty assessments,
+      and fatality/catastrophe accident reports for approximately 3.5 million
+      workplace inspections conducted since the agency's founding. The data is
+      publicly accessible via data.dol.gov (successor to enforcedata.dol.gov).
+      The Lane-2 moat is political volatility: the current administration has
+      dramatically curtailed OSHA enforcement — inspection counts, staffing, and
+      budget have all been reduced in 2025, and individual inspection reports
+      (particularly politically sensitive ones involving high-profile employers)
+      have historically been suppressed when challenged. The 2017 USDA APHIS
+      database removal is the canonical precedent for this risk pattern; OSHA
+      enforcement data under a sustained anti-regulatory administration faces
+      analogous structural pressure. A continuous off-platform archive captures
+      new inspection records BEFORE any future restriction event, preserving the
+      full-text violation narratives and penalty detail that may be removed
+      mid-stream. Lane 5 fits as a secondary (workplace safety / industrial
+      compliance niche vertical). Buyers: workplace safety law firms (plaintiff
+      and defense), industrial insurance underwriters (workers' comp / general
+      liability risk scoring by establishment), investigative journalists
+      (FOIA-alternative for active inspection cycle data), labor-research
+      institutions, ESG data vendors (supply-chain safety due diligence).
+      No public cross-time continuous archive of OSHA inspections exists outside
+      OSHA's own data.dol.gov system; data.gov bulk snapshots lag the live feed
+      and are subject to the same political risk as the primary source.
+    known_constraints: |
+      Verified live 2026-05-05. www.osha.gov returned HTTP 200 under
+      "moat-research/0.1" UA. robots.txt at www.osha.gov is standard Drupal:
+      User-agent: * with Disallow only on system/admin paths (/admin/, /core/,
+      /profiles/, README.md, etc.); enforcement data paths (/enforcement/, /data/)
+      are NOT blocked. data.dol.gov (successor to enforcedata.dol.gov — 301
+      redirect to data.dol.gov confirmed HTTP 200) has User-agent: * Disallow:
+      /static/ only (data paths unrestricted, verified 2026-05-05).
+      data.dol.gov/api/v1/endpoint/enforcement/osha_inspection returned HTTP 200
+      under "moat-research/0.1" UA. OSHA data is US government public-record;
+      no archival prohibition located. No published per-request rate limit for
+      data.dol.gov API. Recommend ≥5s between requests, single-process.
+      CRITICAL §5 check (Lane-2 framing): data.gov does publish OSHA enforcement
+      bulk snapshots, meaning the historical corpus as of the last data.gov dump
+      is reconstructible by any analyst. The Lane-2 moat rests specifically on:
+      (a) continuous real-time capture of new inspection records that may be filed
+      and subsequently suppressed before appearing in a data.gov bulk dump,
+      (b) the off-platform archive surviving a future source restriction/removal
+      event analogous to 2017 USDA APHIS withdrawal, and (c) preserving per-
+      inspection violation narratives that data.gov aggregated snapshots may
+      omit or summarize. Brief stage must verify (c) — if data.gov preserves
+      full narrative detail at equal latency to the primary feed, the moat
+      narrows to (a) and (b), which must be explicitly weighed against the
+      APHIS-pattern precedent for Lane-2 scoring. OSHA fatality/catastrophe
+      reports (Form 170) are particularly high-value and historically suppressed;
+      these should be treated as priority capture targets at brief stage.
+    estimated_size: "~5 GB/year for new inspections (~30k inspections/year × ~150 KB avg record set); ~20 GB full historical corpus at depth from API."
+    rate_limit_notes: "No published rate limit on data.dol.gov API or www.osha.gov/enforcement. Recommend ≥5s between requests, single-process. data.gov bulk download path preferred for historical depth bootstrapping."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
+
+  - id: multi_state_insurance_dept_enforcement
+    title: "Multi-State Insurance Department Enforcement Orders — Cross-State Entity-Resolved Corpus"
+    url: https://www.dfs.ny.gov/industry_guidance/enforcement_actions
+    discovered: 2026-05-05
+    discovered_by: maximizer
+    lane_hint: 4
+    why_interesting: |
+      State departments of insurance each publish enforcement orders against
+      licensed entities (insurers, producers/agents, adjusters, surplus-lines
+      brokers, premium-finance companies) covering license revocations, consent
+      orders, cease-and-desist orders, market-conduct penalties, and criminal
+      referrals. Individual state portals exist (NY DFS, CA DOI, TX TDI, FL OIR,
+      IL IDFPR, etc.) but each is siloed — no entity resolution across states,
+      no structured national aggregate, no longitudinal compliance trajectory.
+      The NAIC (National Association of Insurance Commissioners) publishes
+      selected regulatory actions but not a comprehensive structured enforcement
+      corpus. The Lane-4 moat is compute-as-barrier: OCR + NER + structured
+      extraction at scale across ~55 state+territory portals, with cross-state
+      entity resolution as the compound defensibility layer — the same license-
+      holder operating across multiple states under different LLC structures
+      (e.g., a national health insurer with 50 state-specific subsidiaries)
+      cannot be resolved without entity-graph methodology that an analyst would
+      need months to reproduce. Lane 5 is strong (insurance regulatory compliance
+      analytics niche vertical). Buyers: insurance law firms (adverse-party
+      vetting, regulatory defense), carrier compliance teams (producer appointment
+      vetting, market-conduct risk scoring), insurtech background-check vendors,
+      surplus-lines brokerages (non-admitted producer screening), state-AG
+      consumer-protection units, investigative journalists. Pricing precedent:
+      NAIC data products + Wolters Kluwer / IVANS-connected licensing databases
+      suggest $25k–$100k/year API tiers for structured cross-state regulatory data.
+      All three Lane-4 pillars present: (1) compute-as-barrier OCR + NER extraction,
+      (2) ongoing-update compounding (new enforcement orders issued weekly per state),
+      (3) cross-state entity resolution is the v1 deliverable. Natural extension:
+      federate to Puerto Rico, DC, and US territories (~55 total jurisdictions);
+      cross-reference with FINRA BrokerCheck and NIPR for dual-licensed producer
+      entities in financial + insurance markets.
+    known_constraints: |
+      Per-state portals verified 2026-05-05. NY DFS (www.dfs.ny.gov):
+      enforcement_actions page returned HTTP 200 at
+      https://www.dfs.ny.gov/industry_guidance/enforcement_actions.
+      robots.txt at www.dfs.ny.gov is standard Drupal — User-agent: * with
+      Disallow only on admin/system paths (/admin/, /core/, /profiles/,
+      /webny-protected-content/, /public-appeal/search/); enforcement data
+      paths NOT blocked (verified 2026-05-05). Missouri DOI (insurance.mo.gov):
+      enforcement orders page returned HTTP 429 (rate-limited, verified 2026-05-05),
+      confirming live data is published; rate limit must be respected at brief stage
+      (≥10s between requests minimum). WA OIC (insurance.wa.gov):
+      enforcement-actions URL pattern returned HTTP 403 (2026-05-05) — exact URL
+      structure requires discovery at brief stage; robots.txt check required.
+      CA DOI (insurance.ca.gov): enforcement-actions URL 404s (site restructuring
+      confirmed 2026-05-05); current canonical path must be verified at brief stage
+      via CA DOI site search or sitemap. NAIC aggregate (naic.org): returned HTTP 200,
+      132 KB page confirmed 2026-05-05 — NAIC publishes summary regulatory actions
+      but NOT a comprehensive structured enforcement corpus suitable as a §5 archive.
+      §5 check: no comprehensive public cross-state structured enforcement corpus
+      exists; NAIC and commercial competitors (Wolters Kluwer, IVANS, Verisk Sequel)
+      are paid-access — paid commercial does not trigger §5 per project precedent.
+      Each state's raw enforcement orders exist on their portal, so Lane-1 raw fails
+      §5; the moat is the Lane-4 structured extraction + entity resolution artifact,
+      not the raw PDFs. Brief stage must verify each state portal individually (URL
+      pattern, robots.txt, ToS, rate-limit behavior) — same per-state audit
+      requirement as the multi-state medical-board brief, analogous implementation cost.
+    estimated_size: "~3 GB raw archive (PDFs + HTML across 55 portals, full historical depth); ~300 MB structured artifact (Parquet/JSONL entity graph)."
+    rate_limit_notes: "Per-state portal limits vary; Missouri DOI confirmed rate limiting (429 observed 2026-05-05). Recommend ≥10s between requests per portal, single-process per state. Honor any 429s with exponential backoff. WA OIC URL pattern must be identified before polling."
+    status: backlog
+    promoted_to: null
+    dismissed_reason: null
 ```
 
 ## Notes for the operator
@@ -637,6 +767,19 @@ Discovery synthesis pass — 2026-05-05 (refilling wishlist; backlog was empty a
 - **USPTO PTAB decisions corpus** (data.uspto.gov ODP — was data.uspto.gov/apis/ptab-trials/search-proceedings, returned 200 with Angular shell): USPTO Open Data Portal is reachable 2026-05-05 but the PTAB API requires registered API-key access (free, similar to GTFS-RT free-token gating, not §1 auth-bypass). Considered as Lane 4 + 5 (IP litigation niche, structured-extraction + cross-petitioner ER moat). Dismissed at wishlist stage because PTAB decisions are durably archived by USPTO itself, AND the IP-litigation analytics market is well-served by commercial competitors (Docket Navigator, Patexia, Lex Machina, Anaqua, Innography) — the specific Lane-4 differentiation would need to be named (e.g., real-time petition-network-graph monitoring, cross-art-unit examiner behavior modeling, post-grant outcome prediction). Revisit if such a thesis crystallizes; file fresh rather than reviving.
 
 Net new wishlist surface this pass: 3 candidates added (1 Lane 1+5, 1 Lane 2+5, 1 Lane 4+5 — explicit lane diversification per FOCUS-task acceptance criteria). Patterns observed: (a) Lane 2 "capture-before-the-door-closes" framing requires a distinct §5 reasoning from Lane 1 — the moat is conditional on (i) an off-platform durable archive AND (ii) the political-vulnerability premise being real, not a duplicate of currently-public records, (b) free public aggregators (Dolthub) can collapse §5 for derived-corpora theses just like the Interline/Transitland precedent does for transit, (c) Akamai-gated FAA endpoints (registry.faa.gov) may need polite-alternate-path discovery before dismissal becomes final. These will be folded into `.wolf/cerebrum.md` in iteration task T4.
+
+Discovery synthesis pass — 2026-05-05 T2 (second pass; adding Lane 2 and Lane 4+5 entries to further diversify cluster; backlog contained 0 `backlog`-status entries after prior pass promoted all three 2026-05-05 T1 candidates). Two new entries added above (`osha_enforcement_inspection_corpus` Lane 2+5, `multi_state_insurance_dept_enforcement` Lane 4+5). Candidates considered and dismissed in the same pass:
+
+- **CFPB Consumer Complaint Database** (consumerfinance.gov/data-research/consumer-complaints/): API returned HTTP 200 with 14.9M complaints verified 2026-05-05; robots.txt at consumerfinance.gov has specific Disallows on UI/form paths but data API paths NOT blocked. Considered as Lane 2 (CFPB faced near-shutdown in 2025; complaint database is politically sensitive). Dismissed at wishlist stage on §5 grounds: data.gov publishes the same CFPB complaint data as a bulk download dataset (`catalog.data.gov/dataset/consumer-complaint-database`), meaning the historical corpus as of the last data.gov snapshot is reconstructible by any analyst from a currently-public archived source. The incremental "between-snapshots" window (days to weeks of new complaints filed between the last data.gov dump and any future shutdown) is too thin to anchor a Lane-2 moat story. If CFPB were to STOP publishing bulk updates to data.gov while keeping the API live (i.e., the moat is access to real-time feed that data.gov can't mirror), the thesis revives; file a fresh entry if that divergence occurs.
+
+- **Lane 3 investigation (cross-source fusion):** Evaluated four candidate cross-source fusions in this pass. None survived the §5 + cerebrum Lane-3 test:
+  (1) NOAA GOES active-fire detection (FRP) × EPA AirNow PM2.5 hourly: both archived (GOES via NOAA CLASS, AirNow via EPA AQS — both with hourly timestamps); historical join reconstructible; moat if any is Lane 4 derived-feature compute, not Lane 3.
+  (2) FEC campaign finance × SEC EDGAR insider trades: both fully archived with timestamps; legal/ToS risk for derivative products from EDGAR; no Lane-3 moat.
+  (3) NOAA storm prediction center mesoscale convective discussions × USGS stream gauges: SPC MDC archives exist at spc.noaa.gov, USGS NWIS archives all historical; join reconstructible; same Lane-4 redirect.
+  (4) EPA ECHO facility violations × BLS QCEW employment size: ECHO is the source we're separately evaluating as Lane 2; BLS QCEW is fully archived; join reconstructible from public sources.
+  **Pattern confirmed:** Under the strict cerebrum Lane-3 definition, a genuine Lane-3 moat requires at least one ephemeral input (the join key is time-sensitive and at least one input is NOT preserved in a public timestamped archive). In practice all evaluated candidates had both inputs fully archived → Lane 3 resolves to Lane 4 or Lane 1. No Lane-3 wishlist entry added this pass; this is consistent with the prior iteration's observation that the corpus has 0 Lane-3 entries and no viable Lane-3 thesis has cleared §5.
+
+Net new wishlist surface this pass: 2 candidates added (1 Lane 2+5, 1 Lane 4+5). Lane 2 cluster grows to 2 entries (USDA APHIS + OSHA). Lane 5 secondary coverage broadens. No Lane-3 entry added with explicit rationale above.
 
 ## How to append (for operator quick reference)
 

@@ -416,3 +416,17 @@
 | 04:44 | Created docs/calibration/2026-05-05-n8-pass.md | — | ~2551 |
 | 04:45 | Edited FOCUS.md | 3→5 lines | ~404 |
 | 04:46 | Session end: 3 writes across 3 files (.calibrate_tmp.py, 2026-05-05-n8-pass.md, FOCUS.md) | 1 reads | ~7954 tok |
+
+## Session: 2026-05-05 04:46
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 04:55 | Edited WISHLIST.md | modified check() | ~2591 |
+| 04:55 | Edited WISHLIST.md | modified investigation() | ~1078 |
+
+## 2026-05-05 T2 — Discovery synthesis pass
+
+- Added 2 new WISHLIST.md entries: `osha_enforcement_inspection_corpus` (Lane 2+5) and `multi_state_insurance_dept_enforcement` (Lane 4+5).
+- Live-verified on 2026-05-05: OSHA (data.dol.gov + osha.gov HTTP 200, benign robots.txt), NY DFS (HTTP 200, standard Drupal), Missouri DOI (HTTP 429 = rate-limited, data confirmed), NAIC (HTTP 200).
+- Dismissed in Notes: CFPB complaint database (data.gov bulk archive collapses §5), Lane 3 investigation (4 candidate fusions examined, all had both inputs fully archived → redirect to Lane 4 or dismiss).
+- All 65 tests pass.
