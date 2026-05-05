@@ -656,8 +656,8 @@ sources:
       these should be treated as priority capture targets at brief stage.
     estimated_size: "~5 GB/year for new inspections (~30k inspections/year × ~150 KB avg record set); ~20 GB full historical corpus at depth from API."
     rate_limit_notes: "No published rate limit on data.dol.gov API or www.osha.gov/enforcement. Recommend ≥5s between requests, single-process. data.gov bulk download path preferred for historical depth bootstrapping."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 06.723-20260505-osha-enforcement-inspection-corpus
     dismissed_reason: null
 
   - id: multi_state_insurance_dept_enforcement
@@ -724,8 +724,8 @@ sources:
       requirement as the multi-state medical-board brief, analogous implementation cost.
     estimated_size: "~3 GB raw archive (PDFs + HTML across 55 portals, full historical depth); ~300 MB structured artifact (Parquet/JSONL entity graph)."
     rate_limit_notes: "Per-state portal limits vary; Missouri DOI confirmed rate limiting (429 observed 2026-05-05). Recommend ≥10s between requests per portal, single-process per state. Honor any 429s with exponential backoff. WA OIC URL pattern must be identified before polling."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 06.483-20260505-multi-state-insurance-dept-enforcement
     dismissed_reason: null
 ```
 
