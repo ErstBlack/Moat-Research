@@ -583,3 +583,35 @@
 | 08:07 | Edited WISHLIST.md | 5→5 lines | ~119 |
 | 08:08 | Edited FOCUS.md | 3→5 lines | ~663 |
 | 08:09 | Session end: 5 writes across 4 files (07.216-20260505-txdot-drivetexas-cameras.md, 06.911-20260505-uspto-patent-claim-citation-corpus.md, WISHLIST.md, FOCUS.md) | 4 reads | ~57044 tok |
+
+## 2026-05-05 (Iteration 20260505T114726Z-af4378 Complete — T1 through T4)
+
+### T1: Calibration pass (n=13 active scored cluster)
+- Evaluated cluster stability at n=13 (12 candidates + 1 graduated). Composite range 6.470–7.898 (Δ=1.428), σ≈0.52, range/σ≈2.7.
+- Closest pair: medical-board 6.892 / FERC 6.911 (Δ=0.019) — defensible trade-off, does not split decisions.
+- Outcome: **defer-with-rationale** — cluster stability observed; no rubric edits justified; new n>15 trigger condition codified in docs/calibration/.
+
+### T2: Discovery synthesis pass
+- Identified 2 new wishlist candidates: `txdot_drivetexas_cameras` (Lane 1) + `uspto_patent_claim_citation_corpus` (Lane 4).
+- Verified all endpoints live (drivetexas.org HTTP 200, data.uspto.gov HTTP 200). Robots.txt checks clean.
+- Lane balance achieved: L1: 5 entries, L2: 5 entries, L4: 6 entries (well-diversified).
+- Dismissed 4 candidates on hard constraints / Akamai gating / archived sources.
+
+### T3: Scoring pass (2 new briefs)
+- Scored TxDOT and USPTO briefs against RUBRIC.md: **07.216-txdot-drivetexas-cameras** (fin 6.833 / impl 7.000 / hw 8.000), **06.911-uspto-patent-claim-citation-corpus** (fin 7.167 / impl 7.000 / hw 6.500).
+- Both pass all 5 CONSTRAINTS hard disqualifiers; no axis-zero rejections.
+- WISHLIST entries flipped backlog → promoted-to-candidate.
+- Active scored cluster: n=15 candidates + 1 graduated = **16 total. Calibration trigger n>15 CROSSED** — formal calibration pass recommended next iteration.
+
+### T4: Consolidation (this task)
+- Updated `.wolf/anatomy.md` to reflect T2/T3 file state (2 new briefs, 1 rejected NDBC).
+- Appending `.wolf/memory.md` with consolidated T1–T3 outcomes.
+- Updated `.wolf/cerebrum.md` with any new pattern observations (covered in prior sessions, no new entries needed).
+- All 65 tests pass; committed on branch with iteration_id.
+
+**Final state:** n=16 briefs (15 scored candidates + 1 graduated); 1 rejected. Cluster composite range 6.470–7.898. Lane balance L1:5 / L2:5 / L4:6 / L5: secondary on most. FOCUS.md item 1 marked complete. Cluster ready for next-iteration formal calibration and continued discovery synthesis.
+
+## Session: 2026-05-05 08:09
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|

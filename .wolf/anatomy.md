@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T12:08:40.666Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T14:10:00Z
 > Files: 65 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
@@ -31,22 +31,21 @@
 
 ## briefs/candidates/
 
-- `06.470-20260505-msha-mine-safety-enforcement-corpus.md` (~5924 tok)
-- `06.483-20260505-multi-state-insurance-dept-enforcement.md` — Declares for (~6303 tok)
-- `06.608-20260505-epa-echo-enforcement-corpus.md` (~6071 tok)
-- `06.701-20260504-us-transit-gtfsrt-smaller-agencies.md` — Declares reference (~5831 tok)
-- `06.723-20260505-osha-enforcement-inspection-corpus.md` — Declares regulatory (~5795 tok)
-- `06.802-20260505-nlrb-unfair-labor-practice-cases.md` — Declares L (~5790 tok)
-- `06.805-20260505-usda-aphis-animal-welfare-inspections.md` — Declares vetting (~6018 tok)
-- `06.892-20260504-multi-state-medical-board-enforcement.md` — Declares cross (~5467 tok)
-- `06.911-20260505-uspto-patent-claim-citation-corpus.md` — Declares join (~7346 tok)
-- `07.006-20260505-ferc-elibrary-regulatory-filings.md` (~7068 tok)
-- `07.009-20260504-cslb-ca-contractor-disciplinary-corpus.md` (~5108 tok)
-- `07.216-20260505-txdot-drivetexas-cameras.md` — Declares to (~5612 tok)
-- `07.360-20260504-njdot-511-cameras.md` — Declares on (~4571 tok)
-- `07.600-20260504-ndbc-realtime-buoys.md` (~5882 tok)
-- `07.771-20260504-usgs-nws-flood-fusion.md` (~6892 tok)
-- `07.898-20260505-faa-notams-aviation-alerts.md` — Declares researchers (~6059 tok)
+- `06.470-20260505-msha-mine-safety-enforcement-corpus.md` (~6314 tok)
+- `06.483-20260505-multi-state-insurance-dept-enforcement.md` (~6717 tok)
+- `06.608-20260505-epa-echo-enforcement-corpus.md` (~6476 tok)
+- `06.701-20260504-us-transit-gtfsrt-smaller-agencies.md` (~6220 tok)
+- `06.723-20260505-osha-enforcement-inspection-corpus.md` (~6182 tok)
+- `06.802-20260505-nlrb-unfair-labor-practice-cases.md` (~6176 tok)
+- `06.805-20260505-usda-aphis-animal-welfare-inspections.md` (~6419 tok)
+- `06.892-20260504-multi-state-medical-board-enforcement.md` (~5831 tok)
+- `06.911-20260505-uspto-patent-claim-citation-corpus.md` (~7836 tok)
+- `07.006-20260505-ferc-elibrary-regulatory-filings.md` (~7539 tok)
+- `07.009-20260504-cslb-ca-contractor-disciplinary-corpus.md` (~5449 tok)
+- `07.216-20260505-txdot-drivetexas-cameras.md` (~5986 tok)
+- `07.360-20260504-njdot-511-cameras.md` (~4876 tok)
+- `07.695-20260504-usgs-nws-flood-fusion.md` (~6892 tok, renamed from 07.771 per CONSTRAINTS §5)
+- `07.898-20260505-faa-notams-aviation-alerts.md` (~6463 tok)
 
 ## briefs/graduated/
 
