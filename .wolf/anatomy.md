@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T17:10:00.000Z
-> Files: 80 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T16:56:10.551Z
+> Files: 79 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -11,7 +11,7 @@
 - `.score_tmp.py` (~261 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `CONSTRAINTS.md` — CONSTRAINTS (~666 tok)
-- `FOCUS.md` — FOCUS (~8033 tok)
+- `FOCUS.md` — FOCUS (~8427 tok)
 - `LANES.md` — LANES (~901 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
 - `WISHLIST.md` — WISHLIST (~43340 tok)
@@ -68,6 +68,7 @@
 
 - `2026-05-05-n11-defer.md` — Calibration check — n=11 active scored cluster (n=10 candidates + 1 graduated) (~681 tok)
 - `2026-05-05-n15-pass.md` — Calibration pass — n=15 active scored cluster (n=16 incl. graduated) (~3709 tok)
+- `2026-05-05-n25-pass.md` — Calibration Pass — n≥25 Cluster (2026-05-05) (~1625 tok)
 - `2026-05-05-n8-pass.md` — Calibration pass — n=8 active scored cluster (n=9 incl. graduated) (~2708 tok)
 
 ## docs/superpowers/specs/

@@ -970,3 +970,27 @@ WISHLIST: 4 entries flipped backlog → promoted-to-candidate. Cluster: n=20. Al
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+
+## 2026-05-05 (20260505T163223Z-a75c26 T3 — Consolidation, calibration pass at n=25)
+
+**Calibration pass at n≥25 threshold (24 candidates + 1 graduated = 25 briefs active):**
+- Wrote calibration note `docs/calibration/2026-05-05-n25-pass.md` with full trigger evaluation.
+- Cluster snapshot: composite 6.470–7.898 (Δ=1.428), σ~0.42 (normal), mean~7.118, median~7.002.
+- Lane balance: L1:8 / L2:9 / L4:9 — well-diversified, L1↔L4 balanced, L2 slightly higher (intentional political-vulnerability clustering).
+- Trigger evaluation all passed: T1 no decision conflict, T2 no counter-intuitive ranking, T3 boundary intact, T4 no hardware-strong/defensibility-weak slip.
+- **Decision: DEFER — no RUBRIC.md edits.** Cluster stable; per-lane defensibility reasoning load-bearing across all 25 briefs. Recommend next calibration n≥30.
+- Updated `.wolf/anatomy.md` header (timestamp, file count 80).
+- Updated FOCUS.md 'Recently completed' (new consolidation entry for iteration 20260505T163223Z-a75c26).
+- All 65 tests pass; git status clean.
+
+## Session: 2026-05-05 12:54
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 12:55 | Created docs/calibration/2026-05-05-n25-pass.md | — | ~1733 |
+| 12:56 | Edited FOCUS.md | 3→5 lines | ~459 |
+
+## Session: 2026-05-05 12:56
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
