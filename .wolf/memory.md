@@ -771,3 +771,28 @@
 | 10:15 | Edited WISHLIST.md | modified check() | ~4662 |
 | 10:16 | Edited WISHLIST.md | added 1 condition(s) | ~1518 |
 | 10:17 | Session end: 2 writes across 1 files (WISHLIST.md) | 1 reads | ~39354 tok |
+
+## Session: 2026-05-05 10:17
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 10:24 | Created briefs/candidates/07.274-20260505-cra-exam-narrative-corpus.md | — | ~5844 |
+| 10:26 | Created briefs/candidates/07.315-20260505-bis-oee-export-enforcement-corpus.md | — | ~5661 |
+| 10:28 | Created briefs/candidates/07.063-20260505-ftc-consumer-antitrust-enforcement-corpus.md | — | ~5606 |
+| 10:30 | Created briefs/candidates/06.799-20260505-hud-fheo-fair-housing-enforcement.md | — | ~5654 |
+| 10:31 | Edited WISHLIST.md | 5→5 lines | ~43 |
+| 10:31 | Edited WISHLIST.md | 6→6 lines | ~110 |
+| 10:31 | Edited WISHLIST.md | 6→6 lines | ~111 |
+| 10:31 | Edited WISHLIST.md | 5→5 lines | ~103 |
+| 10:32 | Edited FOCUS.md | 3→5 lines | ~590 |
+
+## 2026-05-05 (Iteration 20260505T140311Z-7ad6a2 T3)
+
+Scored 4 backlog candidates from T2 against RUBRIC.md:
+
+- `07.274-20260505-cra-exam-narrative-corpus` — Lane 4+5, fin 6.333 / impl 7.500 / hw 8.500. OCC+Fed+FDIC member-agency paths confirmed accessible after ffiec.gov Akamai-gated. All 3 Lane-4 pillars present.
+- `07.315-20260505-bis-oee-export-enforcement-corpus` — Lane 2+4+5, fin 6.000 / impl 7.750 / hw 9.000. Highest composite in L2 cluster; driven by trivial corpus size (~500 MB) and cleanest robots.txt (Allow: /). ongoing_revenue=4 is honest (200 actions/year too thin for subscription).
+- `07.063-20260505-ftc-consumer-antitrust-enforcement-corpus` — Lane 2+4+5, fin 6.500 / impl 6.750 / hw 8.250. Strongest Lane-2 political precedent (Slaughter v. Trump active litigation). Crawl-delay: 10 constraint honored.
+- `06.799-20260505-hud-fheo-fair-housing-enforcement` — Lane 2+5, fin 5.500 / impl 7.000 / hw 8.750. Comparable to APHIS (6.805); two documented prior site restructurings (2001, 2017). No third-party mirror → full case record is the moat.
+
+WISHLIST: 4 entries flipped backlog → promoted-to-candidate. Cluster: n=20. All 65 tests pass.

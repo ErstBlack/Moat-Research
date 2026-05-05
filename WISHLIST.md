@@ -1069,8 +1069,8 @@ sources:
       Verified 2026-05-05 T3. FFIEC CRA portal (ffiec.gov) returned HTTP 403 to "moat-research/0.1" UA — Akamai-edge gating. Applied 3-step polite-alternate-path checklist: (Step 1) data.gov bulk mirror not located; (Step 2) FOIA reading room blocked by same Akamai layer (403); (Step 3) Member-agency alternates: OCC (occ.gov/topics/consumers-and-communities/community-development/cra-performance-evaluations/) returned HTTP 200 — accessible. Federal Reserve (federalreserve.gov/apps/enforcementactions/) returned HTTP 200 — accessible. FDIC site (fdic.gov) not separately tested this pass but is likely accessible given OCC/Fed results as a member regulator with public CRA reporting. No published rate limit for any regulator's CRA exam retrieval; recommend ≥5s between document fetches. NCUA credit union exams are published separately at ncua.gov and not tested in this pass. All regulator exam PDFs are public record; no ToS clause against archival located. §5 check: raw CRA exam PDFs are archived on each regulator's portal, meaning the raw PDF corpus is reconstructible by any analyst from public sources — this confirms Lane 4 (computed artifact) rather than Lane 1. The defensible moat is the structured narrative extraction (PDF → text → taxonomy-tagged findings + lending-metrics-normalized tables) which does not exist as a free public dataset. Commercial competitors (S&P Global World-Check, Wolters Kluwer OASIS, Bloomberg CRA compliance products) are $25k–$100k+/year — paid commercial does not trigger §5.
     estimated_size: "~3–5 GB raw PDF archive at full historical depth (~1,000 exams/yr × ~50 pages × ~500 KB/exam × 5+ years); ~300 MB structured corpus (OCR text + extracted lending tables + ER graph)."
     rate_limit_notes: "No published rate limit on individual regulator CRA exam portals. Recommend ≥5s between PDF requests per regulator, single-process per regulator (parallel across OCC/Fed/FDIC safe). Honor any 429s with exponential backoff."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 07.274-20260505-cra-exam-narrative-corpus
     dismissed_reason: null
 
   - id: bis_export_enforcement_corpus
@@ -1151,8 +1151,8 @@ sources:
       process polite crawl across ~200 enforcement orders/year is trivial.
     estimated_size: "~500 MB raw archive at full historical depth (~2,000 enforcement actions since 2001 × ~250 KB PDFs + HTML pages); ~5 MB/month incremental; ~50 MB structured corpus (Parquet entity graph + penalty table)."
     rate_limit_notes: "No published rate limit on www.bis.gov. Recommend ≥5s between requests, single-process. Honor any 429s with exponential backoff. Enumerate canonical URL structure for enforcement case archive at brief stage."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 07.315-20260505-bis-oee-export-enforcement-corpus
     dismissed_reason: null
 
   - id: ftc_consumer_antitrust_enforcement_corpus
@@ -1228,8 +1228,8 @@ sources:
       intervals across ~100 new cases/year is well within rate limits.
     estimated_size: "~5 GB raw archive at full historical depth (~3,000 cases × ~1.5 MB avg incl. attachments); ~100 MB/year incremental; ~300 MB structured corpus (consent order terms + entity graph + prohibition taxonomy)."
     rate_limit_notes: "robots.txt Crawl-delay: 10. Recommend ≥10s between requests, single-process. Honor any 429s with exponential backoff. FTC case documents are a mix of HTML and PDF; honor the 10s crawl-delay across both formats."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 07.063-20260505-ftc-consumer-antitrust-enforcement-corpus
     dismissed_reason: null
 
   - id: hud_fheo_fair_housing_enforcement
@@ -1307,8 +1307,8 @@ sources:
       polite single-process crawl is well within rate limits.
     estimated_size: "~2 GB raw archive at full historical depth (conciliation agreements + charge decisions + ALJ orders + press releases, ~20 years); ~200 MB/year incremental; ~100 MB structured corpus (case taxonomy + respondent entity graph + settlement terms)."
     rate_limit_notes: "No published rate limit on www.hud.gov. Recommend ≥5s between requests, single-process. FHEO case documents are a mix of HTML pages and linked PDFs; honor consistent crawl rate across both. Honor any 429s with exponential backoff."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 06.799-20260505-hud-fheo-fair-housing-enforcement
     dismissed_reason: null
 ```
 
