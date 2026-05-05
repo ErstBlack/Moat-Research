@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-04T03:13:41.850Z",
   "lifetime": {
-    "total_tokens_estimated": 624010,
-    "total_reads": 98,
-    "total_writes": 216,
-    "total_sessions": 76,
-    "anatomy_hits": 71,
-    "anatomy_misses": 26,
+    "total_tokens_estimated": 632571,
+    "total_reads": 100,
+    "total_writes": 218,
+    "total_sessions": 77,
+    "anatomy_hits": 72,
+    "anatomy_misses": 27,
     "repeated_reads_blocked": 48,
-    "estimated_savings_vs_bare_cli": 365572
+    "estimated_savings_vs_bare_cli": 365772
   },
   "sessions": [
     {
@@ -2429,6 +2429,45 @@
         "writes_count": 2,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 6
+      }
+    },
+    {
+      "id": "session-2026-05-05-0901",
+      "started": "2026-05-05T13:01:29.195Z",
+      "ended": "2026-05-05T13:03:38.985Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 7094,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/LANES.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/LANES.md",
+          "tokens_estimated": 1029,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 438,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 7094,
+        "output_tokens_estimated": 1467,
+        "reads_count": 2,
+        "writes_count": 2,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
       }
     }
   ],
