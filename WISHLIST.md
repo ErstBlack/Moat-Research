@@ -475,8 +475,8 @@ sources:
       published per-request rate limit; recommend ≥5s between PDF/JSON fetches.
     estimated_size: "~10–20 GB raw archive at full historical depth (~10k facilities × ~5 inspections/yr × ~200 KB PDFs × 5+ years); ~500 MB structured corpus."
     rate_limit_notes: "No published rate limit on efile or aphis.usda.gov. Recommend ≥5s between requests, single-process. Bulk FOIA path exists if the public tool is throttled or withdrawn."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 06.805-20260505-usda-aphis-animal-welfare-inspections
     dismissed_reason: null
 
   - id: ferc_elibrary_regulatory_filings
@@ -531,8 +531,8 @@ sources:
       results lazy-load; avoid pagination floods.
     estimated_size: "~500 GB raw PDF archive at full historical depth (~10M filings × ~50 KB avg); ~5–10 GB structured corpus (docket graphs + extracted schedules + narrative-attachment text)."
     rate_limit_notes: "No published rate limit on eLibrary or ferc.gov. Recommend ≥5s between requests, single-process per docket; respect any 429s with backoff. Bulk Form data is preferable to UI scraping when the same fields are available."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 07.006-20260505-ferc-elibrary-regulatory-filings
     dismissed_reason: null
 
   - id: faa_notams_aviation_alerts
@@ -594,8 +594,8 @@ sources:
       ≥5s between airport-specific queries.
     estimated_size: "~5 GB/year (~50k active NOTAMs × ~3 KB JSON × turnover); ~50 GB at 10-year historical depth post-onboarding."
     rate_limit_notes: "No published per-IP rate limit on notamSearch UI backend. external-api.faa.gov NOTAM API gates by free key; honor any documented per-key quota. Recommend ≥30s between feed polls, single-process; ≥5s per airport-specific query."
-    status: backlog
-    promoted_to: null
+    status: promoted-to-candidate
+    promoted_to: 07.898-20260505-faa-notams-aviation-alerts
     dismissed_reason: null
 ```
 
