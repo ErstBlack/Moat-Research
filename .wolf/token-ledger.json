@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-04T03:13:41.850Z",
   "lifetime": {
-    "total_tokens_estimated": 862122,
-    "total_reads": 117,
-    "total_writes": 237,
-    "total_sessions": 92,
-    "anatomy_hits": 83,
+    "total_tokens_estimated": 943486,
+    "total_reads": 122,
+    "total_writes": 244,
+    "total_sessions": 93,
+    "anatomy_hits": 88,
     "anatomy_misses": 33,
-    "repeated_reads_blocked": 63,
-    "estimated_savings_vs_bare_cli": 778628
+    "repeated_reads_blocked": 64,
+    "estimated_savings_vs_bare_cli": 785459
   },
   "sessions": [
     {
@@ -2816,6 +2816,88 @@
         "writes_count": 2,
         "repeated_reads_blocked": 2,
         "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-05-1119",
+      "started": "2026-05-05T15:19:45.038Z",
+      "ended": "2026-05-05T15:31:45.214Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/07.216-20260505-txdot-drivetexas-cameras.md",
+          "tokens_estimated": 5986,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/06.892-20260504-multi-state-medical-board-enforcement.md",
+          "tokens_estimated": 5831,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/workers/common/brief.py",
+          "tokens_estimated": 1462,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 39433,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 7045,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/07.139-20260505-caltrans-quickmap-cameras.md",
+          "tokens_estimated": 6686,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/06.997-20260505-wsdot-traffic-cameras.md",
+          "tokens_estimated": 6349,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/candidates/06.499-20260505-multi-state-attorney-bar-discipline.md",
+          "tokens_estimated": 7653,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 126,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 133,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 102,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 558,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 59757,
+        "output_tokens_estimated": 21607,
+        "reads_count": 5,
+        "writes_count": 7,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 5
       }
     }
   ],
