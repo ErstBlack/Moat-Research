@@ -2,7 +2,7 @@
 
 > OpenWolf's learning memory. Updated automatically as the AI learns from interactions.
 > Do not edit manually unless correcting an error.
-> Last updated: 2026-05-04 (discovery synthesis pass — wishlist refill)
+> Last updated: 2026-05-05 (discovery synthesis pass 2 + scoring pass — lane diversification)
 
 ## User Preferences
 
@@ -27,6 +27,10 @@
 - **System-of-record archival kills Lane-1 across whole agency types:** When an agency's primary data product IS a long-term archival platform (e.g., Legistar for municipal council records, court-records portals, Socrata-backed open-data sites), Lane 1 universally fails §5 for that agency type because preservation is the platform's purpose. During discovery synthesis, dismiss the entire category at first-pass rather than per-instance: city council legislative platforms, court-records public-access portals, Socrata/Tyler/CKAN-backed open-data sites are §5-killing categories. Re-route any apparent moat to Lane 4 (compute-as-barrier on the archived corpus) and apply the Lane-4 entity-resolution test above. Confirmed 2026-05-04 against NYC Council Legistar, NJ Judiciary public-access portal, Chicago Open Data 311.
 
 - **AIS bulk-archive properties (NOAA MarineCadastre):** AIS data via marinecadastre.gov is bulk-only, hosted at coast.noaa.gov/htdata/CMSP/AISDataHandler/{year}/, with a 6–12 month publishing latency (2026 archive did not exist yet on 2026-05-04). Format changed from daily .zip in 2024 → daily .csv.zst (zstd) starting 2025; full year ≈ 81.5 GB. Public domain. Any brief touching AIS must NOT assume real-time or near-real-time; AISHub (live AIS) requires a data-sharing agreement and is not publicly accessible.
+
+- **Lane 2 "capture-before-the-door-closes" conditional-moat reasoning:** Distinct from Lane 1 ephemeral-data logic. The moat is conditional on (i) an off-platform durable archive that outlasts the political/regulatory vulnerability AND (ii) verified evidence that the public source has been withdrawn/restricted before. A Lane-2 brief must not duplicate a currently-public archive (that's §5 reconstructibility, not Lane 2); instead it must justify why capturing now prevents future loss. Applied 2026-05-05 to USDA APHIS Animal Welfare (2017 ACIS withdrawal precedent + HSUS litigation history = demonstrated political risk). Revisit if administrations change or source restoration occurs.
+
+- **Free public aggregators collapse §5:** When verifying whether raw data can be reconstructed, include free aggregators (e.g., Dolthub's hospital-price-transparency-v3 repo) in the reconstructibility check. A brief claiming to aggregate structured hospital-pricing data from CMS fails §5 not because CMS archives it, but because Dolthub publishes the same aggregation for free. Confirmed 2026-05-05 during discovery synthesis: rejected Hospital Price Transparency entry on this basis. Different from the paid-incumbent precedent (Interline, S&P Velocity Suite) which don't trigger §5 because commercial barriers don't count as public reconstructibility.
 
 ## Do-Not-Repeat
 

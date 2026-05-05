@@ -365,3 +365,14 @@
 | 03:52 | Edited WISHLIST.md | 6→6 lines | ~135 |
 | 03:52 | Edited FOCUS.md | 3→5 lines | ~386 |
 | 03:53 | Session end: 8 writes across 6 files (.score_tmp.py, 07.898-20260505-faa-notams-aviation-alerts.md, 06.805-20260505-usda-aphis-animal-welfare-inspections.md, 07.006-20260505-ferc-elibrary-regulatory-filings.md, WISHLIST.md) | 4 reads | ~45023 tok |
+
+## Session: 2026-05-05 03:53
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## 2026-05-05 (T2–T3 outcomes — discovery synthesis pass 2 + scoring pass 2)
+
+- T2: Discovery synthesis pass 2 identified 3 new candidates (FAA NOTAMs Lane 1+5, USDA APHIS Lane 2+4+5, FERC eLibrary Lane 4+5); consciously diversified lane coverage (first Lane 2 and Lane 5 entries). Eight additional candidates dismissed on hard constraints or §5 reconstructibility (Bay Area 511 robots, CMS pricing/Dolthub free aggregator, FCC ULS Akamai gate, etc.). New learnings on Lane-2 conditional-moat, free-aggregator §5 check, Akamai-gated endpoints.
+- T3: Scored all 3 new candidates. Composites: FAA 7.898, FERC 7.006, USDA 6.805. All pass §5 with explicit per-lane reasoning (FAA operational-detail fidelity gap, FERC compute-as-barrier + ER, USDA political-vulnerability + archive). Active scored cluster: n=8 (NOTAMs 7.898 > flood-fusion 7.695 > others > rejected NDBC 0.000); exceeds n≥6 threshold deferred in prior calibration.
+- Patterns: Lane 2 moat is conditional on archive + political risk. Free public aggregators are §5 reconstructibility. Akamai-gated endpoints need polite-alternate-path discovery before dismissal.

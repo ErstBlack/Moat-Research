@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T07:52:40.945Z
-> Files: 51 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-05T07:21:19Z (T4 execution)
+> Files: 54 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -12,6 +12,13 @@
 - `FOCUS.md` — FOCUS (~3659 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
 - `WISHLIST.md` — WISHLIST (~13775 tok)
+
+## .wolf/
+
+- `anatomy.md` — OpenWolf file index (~280 tok)
+- `buglog.json` — Bug tracking log
+- `cerebrum.md` — Learning memory (~2800 tok, updated 2026-05-05)
+- `memory.md` — Chronological action log (~3700 tok, updated 2026-05-05)
 
 ## .claude/
 
