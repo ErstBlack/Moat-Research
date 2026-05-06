@@ -1335,3 +1335,4 @@ Operator request: move dismissed entry reasons to a separate file referenced on 
 | 13:40 | Created .calibrate_n30.py | — | ~936 |
 | 13:42 | Created docs/calibration/2026-05-06-n30-pass.md | — | ~3078 |
 | 13:43 | Edited FOCUS.md | modified plateau() | ~490 |
+| 13:44 | Session end: 3 writes across 3 files (.calibrate_n30.py, 2026-05-06-n30-pass.md, FOCUS.md) | 2 reads | ~15596 tok |

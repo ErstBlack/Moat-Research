@@ -1,51 +1,46 @@
 {
-  "session_id": "session-2026-05-06-1330",
-  "started": "2026-05-06T17:30:21.010Z",
+  "session_id": "session-2026-05-06-1339",
+  "started": "2026-05-06T17:39:28.879Z",
   "files_read": {
-    "/home/runner/moat-research/briefs/candidates/07.141-20260506-gdot-ga511-cameras.md": {
+    "/home/runner/moat-research/docs/calibration/2026-05-05-n25-pass.md": {
       "count": 1,
-      "tokens": 5922,
-      "first_read": "2026-05-06T17:30:37.188Z"
+      "tokens": 1625,
+      "first_read": "2026-05-06T17:39:44.566Z"
     },
-    "/home/runner/moat-research/briefs/candidates/06.914-20260506-multi-state-real-estate-commission-enforcement.md": {
+    "/home/runner/moat-research/FOCUS.md": {
       "count": 1,
-      "tokens": 6634,
-      "first_read": "2026-05-06T17:30:37.495Z"
-    },
-    "/home/runner/moat-research/WISHLIST.md": {
-      "count": 2,
-      "tokens": 5851,
-      "first_read": "2026-05-06T17:38:46.277Z"
+      "tokens": 9212,
+      "first_read": "2026-05-06T17:43:25.152Z"
     }
   },
   "files_written": [
     {
-      "file": "/home/runner/moat-research/briefs/candidates/07.138-20260506-adot-az511-cameras.md",
+      "file": "/home/runner/moat-research/.calibrate_n30.py",
       "action": "create",
-      "tokens": 6742,
-      "at": "2026-05-06T17:36:09.222Z"
+      "tokens": 936,
+      "at": "2026-05-06T17:40:39.997Z"
     },
     {
-      "file": "/home/runner/moat-research/briefs/candidates/07.060-20260506-multi-state-ag-consumer-protection.md",
+      "file": "/home/runner/moat-research/docs/calibration/2026-05-06-n30-pass.md",
       "action": "create",
-      "tokens": 7960,
-      "at": "2026-05-06T17:38:42.469Z"
+      "tokens": 3298,
+      "at": "2026-05-06T17:42:26.952Z"
     },
     {
-      "file": "/home/runner/moat-research/WISHLIST.md",
+      "file": "/home/runner/moat-research/FOCUS.md",
       "action": "edit",
-      "tokens": 169,
-      "at": "2026-05-06T17:39:01.521Z"
+      "tokens": 525,
+      "at": "2026-05-06T17:43:37.451Z"
     }
   ],
   "edit_counts": {
-    "briefs/candidates/07.138-20260506-adot-az511-cameras.md": 1,
-    "briefs/candidates/07.060-20260506-multi-state-ag-consumer-protection.md": 1,
-    "WISHLIST.md": 1
+    ".calibrate_n30.py": 1,
+    "docs/calibration/2026-05-06-n30-pass.md": 1,
+    "FOCUS.md": 1
   },
-  "anatomy_hits": 3,
+  "anatomy_hits": 2,
   "anatomy_misses": 0,
-  "repeated_reads_warned": 1,
+  "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
   "stop_count": 1
 }
