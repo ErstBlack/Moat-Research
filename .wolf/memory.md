@@ -1115,3 +1115,41 @@ Operator request: move dismissed entry reasons to a separate file referenced on 
 | 17:10 | Created ../claude-runner/config/projects/faa-alerts/system-prompt.md | — | ~526 |
 | 17:11 | Session end: 7 writes across 6 files (07.898-20260505-faa-notams-aviation-alerts.md, WISHLIST.md, README.md, CLAUDE.md, .gitignore) | 6 reads | ~24867 tok |
 | 17:11 | Session end: 7 writes across 6 files (07.898-20260505-faa-notams-aviation-alerts.md, WISHLIST.md, README.md, CLAUDE.md, .gitignore) | 6 reads | ~24867 tok |
+| 17:13 | Session end: 7 writes across 6 files (07.898-20260505-faa-notams-aviation-alerts.md, WISHLIST.md, README.md, CLAUDE.md, .gitignore) | 6 reads | ~24867 tok |
+| 17:15 | Session end: 7 writes across 6 files (07.898-20260505-faa-notams-aviation-alerts.md, WISHLIST.md, README.md, CLAUDE.md, .gitignore) | 6 reads | ~24867 tok |
+| 17:16 | Session end: 7 writes across 6 files (07.898-20260505-faa-notams-aviation-alerts.md, WISHLIST.md, README.md, CLAUDE.md, .gitignore) | 6 reads | ~24867 tok |
+
+## Session: 2026-05-05 17:17
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-06 00:42
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-06 05:43
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-06 05:43
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-06 05:44
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 05:49 | Edited WISHLIST.md | modified txt() | ~1555 |
+
+## 2026-05-06 (20260506T094308Z-dd2ef2 T1 — Discovery synthesis pass, 2 new backlog entries)
+
+- Added 2 new wishlist entries targeting L1 geographic gap and L4 archetype parallel:
+  - `fdot_fl511_cameras` (Lane 1): FL511 traffic cameras, 600+ cameras, I-95/I-4/I-75/I-10, Port of Miami/Port Everglades approaches. HTTP 200 verified 2026-05-06; robots.txt `disallow: /my511/ /map/map* /bundles/ /list/getdata/ /eventdetails/ /error/` — camera CDN paths NOT blocked. Same iCone/511-portal platform as NJDOT/AZ511. §5: FDOT has no public historical image archive; Wayback doesn't capture CDN binary images; no third-party archive found.
+  - `multi_state_pharmacy_board_enforcement` (Lane 4): 50-state pharmacy board enforcement PDFs, OCR+NER+cross-state ER. No FSMB equivalent for pharmacists; NABP e-Profile is subscription-only. Buyer pool: PBMs, drug manufacturers, pharmacy chains, healthcare compliance SaaS. CA pharmacy.ca.gov HTTP 200, robots.txt `Allow: /` verified 2026-05-06. Direct parallel to multi_state_medical_board_enforcement (scored 6.892) in adjacent underserved segment.
+- Dismissed during pass (not added to dismissals — reachability issues, not hard-constraint violations): AZ511 (valid but weaker than FL511 — lower market, same platform; can be added in future pass); NC DOT DriveNC (correct camera endpoint path not determined, not dismissed); FARA eFile bulk CSV (path 404, APEX-based portal needs correct URL — not dismissed, revisit).
+- Lane balance after T1: L1 7→8, L2 9 (unchanged), L4 8→9. L2 cluster growth avoided.
+- All 65 tests pass.

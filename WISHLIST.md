@@ -219,6 +219,84 @@ sources:
     status: promoted-to-candidate
     promoted_to: 07.509-20260505-sec-enforcement-structured-corpus
 
+  - id: fdot_fl511_cameras
+    title: "Florida DOT Traffic Camera Images (FL511)"
+    url: https://fl511.com
+    discovered: 2026-05-06
+    lane_hint: 1
+    why_interesting: |
+      FL511 publishes live JPEG images from 600+ cameras across the most commercially
+      dense corridors in the southeastern US: I-95 (Miami to Jacksonville — busiest
+      freight artery in the SE), I-4 (Orlando tourism triangle — DisneyWorld/Universal
+      supply chain + visitor traffic), I-75 (Miami to Tampa to Atlanta, Everglades
+      agricultural corridor + Port of Tampa approaches), I-10 (Pensacola to Jacksonville,
+      panhandle freight). FDOT does not archive historical camera images; the portal is
+      a real-time traffic monitoring tool with CDN-hosted JPEGs overwritten on each
+      capture cycle (~2-5 min interval). §5 verification: FDOT/FL511 has no public
+      historical image archive; Wayback Machine does not capture CDN binary image
+      endpoints; no third-party commercial image-level archive found. The moat thesis
+      mirrors somd-cameras/NJDOT/TxDOT/Caltrans/WSDOT/ODOT archetype extended to the
+      Florida market — the largest geographic and population gap in the existing DOT-
+      camera corpus. Port of Miami, Port Everglades, and PortMiami intermodal approach
+      roads add a marine-freight buyer angle not present in other state camera briefs.
+      HTTP 200 verified 2026-05-06 against https://fl511.com.
+    known_constraints: |
+      FL511 robots.txt (fetched 2026-05-06): disallows /my511/, /Map/map*,
+      /bundles/, /list/getdata/, /eventdetails/, /error/ — camera image CDN paths
+      NOT blocked. Same portal platform as AZ511 (iCone/511-portal vendor) and
+      NJ511. No formal API ToS for camera image capture located; images are
+      public-facing with no login. ToS change possible. Camera URL endpoint
+      discovery requires one-time browser-devtools inspection at init (same as
+      somd-cameras / NJDOT precedent).
+    estimated_size: "~100-150 GB/month (600+ cameras × 35 KB/image × 5 captures/hr × 720 hr)"
+    rate_limit_notes: "No published per-request rate limit. Polite serial polling 1 req/2 min per camera (somd-cameras politeness pattern)."
+    status: backlog
+    promoted_to: null
+
+  - id: multi_state_pharmacy_board_enforcement
+    title: "Multi-State Pharmacy Board Enforcement Actions — Cross-State Entity-Resolved Corpus"
+    url: https://www.pharmacy.ca.gov/enforcement/
+    discovered: 2026-05-06
+    lane_hint: 4
+    why_interesting: |
+      Each of the 50 state pharmacy boards independently publishes enforcement orders,
+      consent agreements, and license revocations for pharmacists, pharmacy technicians,
+      and pharmacy facilities. No unified cross-state disciplinary database exists for
+      pharmacists — the closest analog (NABP e-Profile Connect) is subscription-based
+      at $20-50/query and not publicly accessible in aggregate. The NABP disciplinary
+      archives page provides only superficial summaries without full order text. Direct
+      archetype parallel to multi_state_medical_board_enforcement (scored 6.892) in an
+      underserved adjacent segment: the pharmacy discipline gap is arguably larger than
+      medical because there is no FSMB equivalent for pharmacists (FSMB publishes a
+      Physician Data Center; NABP has no comparable free aggregator).
+      Moat rests on three Lane-4 pillars: (1) compute-as-barrier — OCR + NER +
+      structured extraction from per-state PDFs (typical order length 3-15 pages, high
+      variation in format); (2) ongoing-update compounding — state boards publish new
+      orders monthly/quarterly, so corpus value compounds with each update cycle;
+      (3) cross-state entity resolution — a pharmacist disciplined in CA who relocates
+      and re-licenses in AZ is not surfaced by any per-state query; ER across 50 boards
+      using name + license-number + NPI cross-walk is the v1 deliverable.
+      Buyer pool: pharmacy benefit managers (PBMs, $500B market — CVS/Caremark,
+      Express Scripts, OptumRx use for network credentialing), drug manufacturers
+      (pharmacovigilance), pharmacy chains (multi-state compliance teams), healthcare
+      litigation firms, healthcare compliance SaaS (same vertical as medical-board
+      buyers). §5 verification: raw PDFs are publicly archived per-state; no free or
+      commercial product provides full-text cross-state pharmacy enforcement corpus —
+      derived structured corpus is not reconstructible from public aggregates.
+      CA pharmacy board HTTP 200 verified 2026-05-06, robots.txt `Allow: /`.
+    known_constraints: |
+      Per-state portal friction varies significantly. CA (pharmacy.ca.gov): HTTP 200,
+      robots.txt `Allow: /` (2026-05-06). TX (txpharmacy.texas.gov): needs URL
+      verification — texaspharmacy.org returned 403 (wrong portal). NY (op.nysed.gov):
+      needs URL verification — tested path returned 404. Some states use SAIS/OSCAR
+      systems; others publish simple HTML/PDF lists. Full 50-state per-portal discovery
+      is a one-time init step. No known bulk-download API; ingestion is per-portal
+      PDF harvesting.
+    estimated_size: "~1-5 GB/year (50 states × 200-500 PDFs/year × 500 KB/PDF avg)"
+    rate_limit_notes: "No published rate limits on state pharmacy board portals. Polite per-portal polling at 1 req/min sufficient given low document volume."
+    status: backlog
+    promoted_to: null
+
   # ───────── Dismissed (full reasoning in docs/wishlist-dismissals.md) ─────────
   # Stubs only here — read docs/wishlist-dismissals.md before re-promoting any of these
   # or evaluating a candidate that overlaps with a dismissed precedent.
