@@ -1,27 +1,12 @@
 {
-  "session_id": "session-2026-05-06-1344",
-  "started": "2026-05-06T17:44:02.994Z",
-  "files_read": {
-    "/home/runner/moat-research/FOCUS.md": {
-      "count": 1,
-      "tokens": 9639,
-      "first_read": "2026-05-06T17:44:28.773Z"
-    }
-  },
-  "files_written": [
-    {
-      "file": "/home/runner/moat-research/FOCUS.md",
-      "action": "edit",
-      "tokens": 920,
-      "at": "2026-05-06T17:45:10.069Z"
-    }
-  ],
-  "edit_counts": {
-    "FOCUS.md": 1
-  },
-  "anatomy_hits": 1,
+  "session_id": "session-2026-05-06-1349",
+  "started": "2026-05-06T17:49:10.132Z",
+  "files_read": {},
+  "files_written": [],
+  "edit_counts": {},
+  "anatomy_hits": 0,
   "anatomy_misses": 0,
   "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
-  "stop_count": 2
+  "stop_count": 1
 }
