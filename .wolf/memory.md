@@ -3,6 +3,14 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+## 2026-05-06 (Iteration 20260506T134246Z-edfe37 T1 — Discovery synthesis)
+
+- T1: Discovery synthesis pass added 2 new backlog entries targeting L1 geographic gap (Southeast) and L4 professional-licensing archetype extension. Live-verified HTTP reachability, robots.txt, and archive posture for all candidates.
+  - `gdot_ga511_cameras` (Lane 1, Georgia DOT 511): site HTTP 200, robots.txt selective (camera image paths not blocked), camera metadata API requires key (known constraint for brief stage), no archive of historical frames documented. Fills Southeast gap between FDOT and NE corridor; Savannah port + Atlanta intermodal logistics buyer angle.
+  - `multi_state_real_estate_commission_enforcement` (Lane 4): CA DRE HTTP 200 + accessible, FL DBPR HTTP 200 + robots.txt absent, TX TREC Crawl-delay:10 + URL path needs brief-stage correction. ARELLO paid-restricted analogue confirmed. All 3 Lane-4 cerebrum pillars present (OCR+NER+ER, monthly updates, cross-state licensee ER). Buyer pool: mortgage lenders, title insurers, RE investment funds.
+- Lane balance after T1: L1 grows 8→9, L2 unchanged (9 = dominant), L4 grows 10→11. L2 not further skewed ✓.
+- All 65 tests pass; 2 WISHLIST.md entries appended.
+
 ## 2026-05-06 (Iteration 20260506T094308Z-dd2ef2 T1–T3 complete — Discovery + Scoring + Consolidation)
 
 - T1: Discovery synthesis pass identified 2 new backlog entries: `fdot_fl511_cameras` (Lane 1, Florida's I-95/I-4 freight & port corridors), `multi_state_pharmacy_board_enforcement` (Lane 4+5, cross-state entity-resolved pharmacy disciplinary corpus). Live-verified both endpoints; briefs promoted.
@@ -1191,3 +1199,19 @@ Operator request: move dismissed entry reasons to a separate file referenced on 
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+
+## Session: 2026-05-06 09:42
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-06 09:43
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-06 09:43
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 09:48 | Edited WISHLIST.md | expanded (+68 lines) | ~1311 |
