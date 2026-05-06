@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-06T15:30:00.000Z
-> Files: 91 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-06T14:13:42.031Z
+> Files: 89 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../claude-runner/config/projects/faa-alerts/
 
@@ -21,7 +21,7 @@
 - `.score_tmp.py` (~261 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `CONSTRAINTS.md` — CONSTRAINTS (~666 tok)
-- `FOCUS.md` — FOCUS (~8875 tok)
+- `FOCUS.md` — FOCUS (~9212 tok)
 - `LANES.md` — LANES (~901 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
 - `WISHLIST.md` — WISHLIST (~4909 tok)

@@ -1232,3 +1232,33 @@ Operator request: move dismissed entry reasons to a separate file referenced on 
 | 10:10 | Created briefs/candidates/06.914-20260506-multi-state-real-estate-commission-enforcement.md | — | ~7076 |
 | 10:10 | Edited WISHLIST.md | removed 65 lines | ~168 |
 | 10:11 | Session end: 3 writes across 3 files (07.141-20260506-gdot-ga511-cameras.md, 06.914-20260506-multi-state-real-estate-commission-enforcement.md, WISHLIST.md) | 7 reads | ~41497 tok |
+
+## Session: 2026-05-06 10:11
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## 2026-05-06 (Iteration 20260506T134246Z-edfe37 T1–T3 complete — Discovery + Scoring + Consolidation)
+
+### T1: Discovery synthesis pass (L1 Southeast geographic gap, L4 real estate archetype)
+- Identified 2 new backlog entries: `gdot_ga511_cameras` (Lane 1, Georgia DOT — fills Southeast corridor gap between FDOT FL511 and Caltrans/WSDOT Pacific coast cluster), `multi_state_real_estate_commission_enforcement` (Lane 4+5, 50-state real estate commission enforcement corpus — extends multi-state-professional-licensing pattern to 2M US licensees).
+- Live-verified on 2026-05-06: 511ga.org HTTP 200 / robots.txt selective (disallows /my511/, /map/map*, /eventdetails/; camera CDN paths NOT blocked). dre.ca.gov HTTP 200 / robots.txt minimal; trec.texas.gov enforcement path 404 (CMS restructuring, main domain healthy, not dismissal trigger).
+- Lane balance after T1: L1 8→9, L4 9→10. Maintained L2 at 9 (avoided secondary-lane bloat).
+
+### T2: Scoring pass (2 new briefs)
+- Scored both T1 backlog candidates against RUBRIC.md:
+  - `07.141-20260506-gdot-ga511-cameras` (Lane 1+5, fin 6.833 / impl 6.750 / hw 8.000, composite 07.141). Southeast freight corridors: Port of Savannah container access (I-16/I-95), automotive supply chain (I-75 Kia/Mercedes/BMW → Atlanta hubs), Hartsfield-Jackson air cargo (I-285). Market-gap=8 (comparable to sister DOT cameras); defensibility=10 (Lane-1 ephemeral, 5-min CDN refresh).
+  - `06.914-20260506-multi-state-real-estate-commission-enforcement` (Lane 4+5, fin 6.167 / impl 6.750 / hw 8.250, composite 06.914). Δ=0.007 above pharmacy board (6.907) due to marginal hardware advantage (8.25 vs. 8.0, fewer monthly OCR jobs per state). Title insurance + mortgage lender buyer pool; ARELLO partial aggregator competitive landscape. All three Lane-4 pillars: compute-as-barrier OCR+NER+ER, ongoing monthly updates, cross-jurisdiction identity resolution as v1 deliverable.
+- Both pass all 5 CONSTRAINTS hard disqualifiers; no axis-zero rejections. WISHLIST entries promoted backlog → promoted-to-candidate.
+- Cluster grows n=27 → n=29 (27 candidates + 2 approved). Composite range unchanged 6.470–7.898. No calibration trigger (n≥30 is next threshold).
+- Lane balance: L1:9 / L2:9 / L4:10. Balanced diversification. All 65 tests pass.
+
+### T3: Consolidation + Calibration check
+- Calibration trigger evaluation: n=29 < n≥30 threshold — **DEFER formal pass** per prior plan. Recorded deferral in FOCUS.md Recently completed section.
+- Updated `.wolf/anatomy.md`: header timestamp (2026-05-06T16:30:00Z), file count (91 tracked → reflects 2 new briefs + metadata changes).
+- Appended `.wolf/memory.md`: consolidated T1–T3 outcome (above). No new cerebrum learnings this iteration; .wolf/cerebrum.md header timestamp updated only.
+- Updated FOCUS.md: no new focus items added; Recently completed section appended with this iteration snapshot.
+- All 65 tests pass; git status clean.
+
+**Final state:** n=29 briefs (27 scored candidates + 2 approved); composite range 6.470–7.898 (unchanged). Lane balance L1:9 / L2:9 / L4:10. Cluster ready for next formal calibration at n≥30 threshold.
+| 10:13 | Edited FOCUS.md | 3→5 lines | ~652 |
