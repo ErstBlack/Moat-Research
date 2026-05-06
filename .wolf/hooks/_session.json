@@ -1,37 +1,23 @@
 {
-  "session_id": "session-2026-05-06-0559",
-  "started": "2026-05-06T09:59:58.767Z",
+  "session_id": "session-2026-05-06-0604",
+  "started": "2026-05-06T10:04:45.117Z",
   "files_read": {
-    "/home/runner/moat-research/briefs/candidates/07.283-20260506-fdot-fl511-cameras.md": {
+    "/home/runner/.maximizer/projects/moat/runs/20260506T094308Z-dd2ef2/review.json": {
       "count": 1,
-      "tokens": 5617,
-      "first_read": "2026-05-06T10:00:49.798Z"
+      "tokens": 0,
+      "first_read": "2026-05-06T10:04:53.695Z"
     },
-    "/home/runner/moat-research/docs/calibration/2026-05-05-n25-pass.md": {
+    "/home/runner/.maximizer/projects/moat/runs/20260506T094308Z-dd2ef2/iteration.json": {
       "count": 1,
-      "tokens": 1625,
-      "first_read": "2026-05-06T10:01:01.096Z"
-    },
-    "/home/runner/moat-research/FOCUS.md": {
-      "count": 1,
-      "tokens": 8607,
-      "first_read": "2026-05-06T10:01:29.572Z"
+      "tokens": 0,
+      "first_read": "2026-05-06T10:04:53.885Z"
     }
   },
-  "files_written": [
-    {
-      "file": "/home/runner/moat-research/FOCUS.md",
-      "action": "edit",
-      "tokens": 518,
-      "at": "2026-05-06T10:01:43.187Z"
-    }
-  ],
-  "edit_counts": {
-    "FOCUS.md": 1
-  },
-  "anatomy_hits": 3,
-  "anatomy_misses": 0,
+  "files_written": [],
+  "edit_counts": {},
+  "anatomy_hits": 0,
+  "anatomy_misses": 2,
   "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
-  "stop_count": 1
+  "stop_count": 0
 }
