@@ -1,51 +1,37 @@
 {
-  "session_id": "session-2026-05-06-0550",
-  "started": "2026-05-06T09:50:43.867Z",
+  "session_id": "session-2026-05-06-0559",
+  "started": "2026-05-06T09:59:58.767Z",
   "files_read": {
-    "/home/runner/moat-research/WISHLIST.md": {
-      "count": 2,
-      "tokens": 5947,
-      "first_read": "2026-05-06T09:51:04.111Z"
-    },
-    "/home/runner/moat-research/briefs/candidates/07.279-20260505-odot-tripcheck-cameras.md": {
+    "/home/runner/moat-research/briefs/candidates/07.283-20260506-fdot-fl511-cameras.md": {
       "count": 1,
-      "tokens": 5368,
-      "first_read": "2026-05-06T09:51:12.677Z"
+      "tokens": 5617,
+      "first_read": "2026-05-06T10:00:49.798Z"
     },
-    "/home/runner/moat-research/briefs/candidates/06.892-20260504-multi-state-medical-board-enforcement.md": {
+    "/home/runner/moat-research/docs/calibration/2026-05-05-n25-pass.md": {
       "count": 1,
-      "tokens": 5831,
-      "first_read": "2026-05-06T09:51:18.552Z"
+      "tokens": 1625,
+      "first_read": "2026-05-06T10:01:01.096Z"
+    },
+    "/home/runner/moat-research/FOCUS.md": {
+      "count": 1,
+      "tokens": 8607,
+      "first_read": "2026-05-06T10:01:29.572Z"
     }
   },
   "files_written": [
     {
-      "file": "/home/runner/moat-research/briefs/candidates/07.283-20260506-fdot-fl511-cameras.md",
-      "action": "create",
-      "tokens": 6420,
-      "at": "2026-05-06T09:56:25.282Z"
-    },
-    {
-      "file": "/home/runner/moat-research/briefs/candidates/06.907-20260506-multi-state-pharmacy-board-enforcement.md",
-      "action": "create",
-      "tokens": 7430,
-      "at": "2026-05-06T09:58:51.938Z"
-    },
-    {
-      "file": "/home/runner/moat-research/WISHLIST.md",
+      "file": "/home/runner/moat-research/FOCUS.md",
       "action": "edit",
-      "tokens": 167,
-      "at": "2026-05-06T09:59:09.732Z"
+      "tokens": 518,
+      "at": "2026-05-06T10:01:43.187Z"
     }
   ],
   "edit_counts": {
-    "briefs/candidates/07.283-20260506-fdot-fl511-cameras.md": 1,
-    "briefs/candidates/06.907-20260506-multi-state-pharmacy-board-enforcement.md": 1,
-    "WISHLIST.md": 1
+    "FOCUS.md": 1
   },
   "anatomy_hits": 3,
   "anatomy_misses": 0,
-  "repeated_reads_warned": 1,
+  "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
   "stop_count": 1
 }
