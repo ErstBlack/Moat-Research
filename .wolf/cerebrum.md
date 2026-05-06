@@ -2,7 +2,7 @@
 
 > OpenWolf's learning memory. Updated automatically as the AI learns from interactions.
 > Do not edit manually unless correcting an error.
-> Last updated: 2026-05-05 (post-iteration consolidation — WISHLIST.md compressed from ~43k tokens → ~5k tokens by stubbing promoted entries; new convention codified below)
+> Last updated: 2026-05-06 (post-iteration 20260506T134246Z-edfe37 consolidation — T1–T3 discovery/scoring/calibration pass, no new learnings; established patterns applied cleanly)
 
 ## User Preferences
 
