@@ -1278,3 +1278,27 @@ Operator request: move dismissed entry reasons to a separate file referenced on 
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+
+## Session: 2026-05-06 13:24
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-06 13:25
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-06 13:25
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 13:29 | Edited WISHLIST.md | modified txt() | ~1108 |
+
+## 2026-05-06 (Iteration 20260506T172446Z-c69a3e T1 — Discovery synthesis)
+
+- T1: Discovery synthesis pass to push active cluster from n=29 to n≥30. Added 2 new backlog entries:
+  - `adot_az511_cameras` (Lane 1): Arizona DOT cameras via az511.gov — fills I-10 Tucson-Phoenix-Nogales gap between TxDOT and Caltrans. Nogales POE is #2 US commercial land border by truck volume; produce import (#1 fresh produce POE) + maquiladora/automotive buyer thesis. HTTP 200 (2026-05-06). robots.txt selective: blocks /list/GetData/ (AJAX metadata API) but NOT camera image paths. Brief-stage: confirm image URLs accessible without hitting blocked endpoint.
+  - `multi_state_ag_consumer_protection` (Lane 4+5): 50-state AG consumer protection enforcement corpus — structurally parallel to multi-state-medical-board but distinct buyer pool (corporate compliance, risk, competitive intelligence). Distinct from FTC brief (federal enforcement only). LexisNexis/Westlaw commercial precedent ($50k+/year). Lane-4 three pillars all present. CA/TX/NY AG HTTP 200 (2026-05-06); CA AG robots.txt permissive.
+- Active cluster grows n=29 → n=31 (29 existing + 2 new backlog entries; calibration trigger n≥30 now ARMED pending promotion).
+- All 65 tests pass; git commit pending.
