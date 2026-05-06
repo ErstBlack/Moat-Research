@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-06T09:49:38.889Z
-> Files: 85 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-06T09:59:09.709Z
+> Files: 87 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../claude-runner/config/projects/faa-alerts/
 
@@ -24,7 +24,7 @@
 - `FOCUS.md` — FOCUS (~8607 tok)
 - `LANES.md` — LANES (~901 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
-- `WISHLIST.md` — WISHLIST (~5947 tok)
+- `WISHLIST.md` — WISHLIST (~4734 tok)
 
 ## .claude/
 
@@ -57,6 +57,7 @@
 - `06.802-20260505-nlrb-unfair-labor-practice-cases.md` (~6176 tok)
 - `06.805-20260505-usda-aphis-animal-welfare-inspections.md` (~6419 tok)
 - `06.892-20260504-multi-state-medical-board-enforcement.md` (~5831 tok)
+- `06.907-20260506-multi-state-pharmacy-board-enforcement.md` — Declares brief (~6501 tok)
 - `06.911-20260505-uspto-patent-claim-citation-corpus.md` (~7836 tok)
 - `06.997-20260505-wsdot-traffic-cameras.md` — Declares to (~5556 tok)
 - `07.006-20260505-ferc-elibrary-regulatory-filings.md` (~7539 tok)
@@ -68,6 +69,7 @@
 - `07.274-20260505-cra-exam-narrative-corpus.md` (~6400 tok)
 - `07.274-20260505-cra-exam-narrative-corpus.md` — Declares edges (~5479 tok)
 - `07.279-20260505-odot-tripcheck-cameras.md` — Declares at (~5368 tok)
+- `07.283-20260506-fdot-fl511-cameras.md` (~5617 tok)
 - `07.315-20260505-bis-oee-export-enforcement-corpus.md` (~6300 tok)
 - `07.315-20260505-bis-oee-export-enforcement-corpus.md` — Declares taxonomy (~5307 tok)
 - `07.360-20260504-njdot-511-cameras.md` (~4876 tok)
