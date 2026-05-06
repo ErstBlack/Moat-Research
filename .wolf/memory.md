@@ -3,6 +3,13 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+## 2026-05-06 (Iteration 20260506T134246Z-edfe37 T2 — Scoring pass)
+
+- T2: Scored both T1 backlog candidates against RUBRIC.md and wrote candidate briefs.
+  - `07.141-20260506-gdot-ga511-cameras` (Lane 1+5, fin 6.833 / impl 6.750 / hw 8.000): Port of Savannah I-16/I-95 approach + Atlanta auto-supply-chain corridors; NaviTech/SilverLogic platform with browser-devtools URL discovery; impl=6.75 matches WSDOT (same free-API-token gating concern); hw=8.0 matches WSDOT (similar camera count at ~5-min cadence); §5 Lane-1 passes (no GDOT historical archive).
+  - `06.914-20260506-multi-state-real-estate-commission-enforcement` (Lane 4+5, fin 6.167 / impl 6.750 / hw 8.250): applies multi-state-professional-licensing-enforcement archetype to real estate agents/brokers; ARELLO paid-restricted partial aggregator as market-gap evidence; all 3 Lane-4 cerebrum pillars (compute OCR+NER+ER, monthly update compounding, cross-state licensee ER); TX TREC URL path 404 flagged as build-phase pre-condition; §5 passes under Lane-4 derived-artifact framing.
+  - WISHLIST entries flipped backlog → promoted-to-candidate (stubs). Active cluster grows n=27 → n=29 (27 candidates + 2 graduated). All 65 tests pass.
+
 ## 2026-05-06 (Iteration 20260506T134246Z-edfe37 T1 — Discovery synthesis)
 
 - T1: Discovery synthesis pass added 2 new backlog entries targeting L1 geographic gap (Southeast) and L4 professional-licensing archetype extension. Live-verified HTTP reachability, robots.txt, and archive posture for all candidates.
@@ -1216,3 +1223,11 @@ Operator request: move dismissed entry reasons to a separate file referenced on 
 |------|--------|---------|---------|--------|
 | 09:48 | Edited WISHLIST.md | expanded (+68 lines) | ~1311 |
 | 09:58 | Session end: 1 writes across 1 files (WISHLIST.md) | 2 reads | ~7138 tok |
+
+## Session: 2026-05-06 09:58
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 10:07 | Created briefs/candidates/07.141-20260506-gdot-ga511-cameras.md | — | ~6317 |
+| 10:10 | Created briefs/candidates/06.914-20260506-multi-state-real-estate-commission-enforcement.md | — | ~7076 |
+| 10:10 | Edited WISHLIST.md | removed 65 lines | ~168 |

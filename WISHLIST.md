@@ -273,67 +273,17 @@ sources:
     title: "Georgia DOT Traffic Camera Images (511GA)"
     url: https://www.511ga.org/
     discovered: 2026-05-06
-    discovered_by: maximizer
     lane_hint: 1
-    why_interesting: |
-      GDOT operates cameras across the Southeast's critical logistics corridors: I-75
-      (Atlanta to Florida/Alabama auto-corridor), I-85 (NC to AL), I-95/I-16 (Port of
-      Savannah gateway), and I-285 (Atlanta metro perimeter). Port of Savannah is the
-      second-busiest container port on the East Coast; Atlanta is the Southeast's largest
-      intermodal freight hub. Fills the Southeast geographic gap between FDOT (FL) and the
-      NJDOT/TxDOT coverage area. Buyer pool: logistics analytics, just-in-time automotive
-      supply chains (Kia GA, Mercedes AL, BMW SC), Southeast retail distribution. Camera
-      frames are overwritten on each poll (same ephemeral archetype as NJDOT/TxDOT/Caltrans);
-      no GDOT historical camera-frame archive documented.
-    known_constraints: |
-      Site reachable HTTP 200 (301→200). Robots.txt selective: Disallow /my511/, /map/map*,
-      /list/getdata/, /eventdetails/, /error/ — camera image paths not blocked. Camera
-      metadata API (/api/v2/get/cameras) returns "Invalid Key" — API key required for
-      camera list. Direct camera image URLs (common on NaviTech/SilverLogic DOT platform
-      used by multiple 511 states) may be accessible without key; brief-stage verification
-      required. 511VA (Virginia) was dismissed on robots.txt Disallow:/; Georgia's
-      robots.txt is less restrictive. No ToS language forbidding archival found.
-      Verified 2026-05-06.
-    estimated_size: "~100–300 MB/day (~500 cameras, 5-min cadence, 50 KB/image JPEG)"
-    rate_limit_notes: "No published rate limit; typical GDOT camera refresh ~5 minutes"
-    status: backlog
-    promoted_to: null
-    dismissed_reason: null
+    status: promoted-to-candidate
+    promoted_to: 07.141-20260506-gdot-ga511-cameras
 
   - id: multi_state_real_estate_commission_enforcement
     title: "Multi-State Real Estate Commission Disciplinary Actions — Cross-State Entity-Resolved Corpus"
     url: https://www.dre.ca.gov/Licensees/EnforcementActions.html
     discovered: 2026-05-06
-    discovered_by: maximizer
     lane_hint: 4
-    why_interesting: |
-      Applies the multi-state professional-licensing-enforcement archetype (cf. medical
-      board 06.892, pharmacy board 06.907, attorney bar 06.499) to real estate licensees.
-      State real estate commissions issue license revocations, suspensions, fines, and
-      cease-and-desist orders against agents, brokers, and developers. No public cross-state
-      aggregator exists: ARELLO (Association of Real Estate License Law Officials) compiles
-      a partial lookup but is paid/restricted; the NAR does not publish enforcement data.
-      All three Lane-4 cerebrum pillars: (1) compute-as-barrier — OCR+NER across PDFs and
-      structured tables across 50 state portals; (2) ongoing-update compounding — monthly
-      new actions in all 50 states; (3) cross-jurisdiction ER — same agent/broker may hold
-      licenses in multiple states (common in border markets), canon entity across different
-      name formats and license-number schemes. Buyer pool: mortgage lenders (fraud risk),
-      title insurance companies, real estate investment funds, property management platforms.
-      ARELLO partial lookup at ~$5k–$15k/year as paid commercial precedent.
-    known_constraints: |
-      CA DRE HTTP 200, robots.txt minimal restrictions (blocks /images, /files/db, /css, /js
-      only), content pages fully accessible. TX TREC robots.txt Crawl-delay: 10, tested URL
-      path 404 (Drupal CMS restructuring; correct enforcement path needs brief-stage
-      resolution). FL DBPR HTTP 200 via redirect (myfloridalicense.com→www2.), robots.txt
-      absent (treated as no restriction per CONSTRAINTS §2). Akamai gating not observed on
-      tested portals. Per-state scraping complexity varies: CA/TX/FL publish structured HTML
-      tables; smaller states publish scanned PDFs. No ToS language forbidding archival found
-      on tested portals. Verified 2026-05-06.
-    estimated_size: "~5–10 GB total corpus; monthly delta ~50–100 MB (predominantly PDFs)"
-    rate_limit_notes: "TX TREC Crawl-delay: 10 in robots.txt; other tested states no published rate limit"
-    status: backlog
-    promoted_to: null
-    dismissed_reason: null
+    status: promoted-to-candidate
+    promoted_to: 06.914-20260506-multi-state-real-estate-commission-enforcement
 ```
 
 ## How to append
