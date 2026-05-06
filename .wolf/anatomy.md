@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-06T18:00:00.000Z
-> Files: 89 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-06T17:39:01.502Z
+> Files: 91 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../claude-runner/config/projects/faa-alerts/
 
@@ -24,7 +24,7 @@
 - `FOCUS.md` — FOCUS (~9212 tok)
 - `LANES.md` — LANES (~901 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
-- `WISHLIST.md` — WISHLIST (~5851 tok)
+- `WISHLIST.md` — WISHLIST (~5057 tok)
 
 ## .claude/
 
@@ -63,8 +63,10 @@
 - `06.997-20260505-wsdot-traffic-cameras.md` — Declares to (~5556 tok)
 - `07.006-20260505-ferc-elibrary-regulatory-filings.md` (~7539 tok)
 - `07.009-20260504-cslb-ca-contractor-disciplinary-corpus.md` (~5449 tok)
+- `07.060-20260506-multi-state-ag-consumer-protection.md` — Declares brief (~6965 tok)
 - `07.063-20260505-ftc-consumer-antitrust-enforcement-corpus.md` (~6500 tok)
 - `07.063-20260505-ftc-consumer-antitrust-enforcement-corpus.md` — Declares and (~5255 tok)
+- `07.138-20260506-adot-az511-cameras.md` — Declares as (~5899 tok)
 - `07.139-20260505-caltrans-quickmap-cameras.md` — Declares to (~5850 tok)
 - `07.141-20260506-gdot-ga511-cameras.md` — Declares used (~5922 tok)
 - `07.216-20260505-txdot-drivetexas-cameras.md` (~5986 tok)
