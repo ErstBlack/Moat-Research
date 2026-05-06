@@ -1,10 +1,30 @@
 {
-  "session_id": "session-2026-05-06-0605",
-  "started": "2026-05-06T10:05:39.135Z",
-  "files_read": {},
-  "files_written": [],
-  "edit_counts": {},
-  "anatomy_hits": 0,
+  "session_id": "session-2026-05-06-0943",
+  "started": "2026-05-06T13:43:55.590Z",
+  "files_read": {
+    "/home/runner/moat-research/docs/wishlist-dismissals.md": {
+      "count": 1,
+      "tokens": 1000,
+      "first_read": "2026-05-06T13:44:07.923Z"
+    },
+    "/home/runner/moat-research/WISHLIST.md": {
+      "count": 1,
+      "tokens": 4734,
+      "first_read": "2026-05-06T13:47:56.786Z"
+    }
+  },
+  "files_written": [
+    {
+      "file": "/home/runner/moat-research/WISHLIST.md",
+      "action": "edit",
+      "tokens": 1404,
+      "at": "2026-05-06T13:48:19.242Z"
+    }
+  ],
+  "edit_counts": {
+    "WISHLIST.md": 1
+  },
+  "anatomy_hits": 2,
   "anatomy_misses": 0,
   "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
