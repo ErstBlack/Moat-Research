@@ -3,6 +3,12 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+## 2026-05-06 (Iteration 20260506T094308Z-dd2ef2 T1–T3 complete — Discovery + Scoring + Consolidation)
+
+- T1: Discovery synthesis pass identified 2 new backlog entries: `fdot_fl511_cameras` (Lane 1, Florida's I-95/I-4 freight & port corridors), `multi_state_pharmacy_board_enforcement` (Lane 4+5, cross-state entity-resolved pharmacy disciplinary corpus). Live-verified both endpoints; briefs promoted.
+- T2: Scored both candidates: `07.283-20260506-fdot-fl511-cameras` (L1, fin 6.667 / impl 6.500 / hw 8.000), `06.907-20260506-multi-state-pharmacy-board-enforcement` (L4+5, fin 6.733 / impl 6.500 / hw 7.500). Both pass §5.
+- T3: Calibration check at n=27 (25 candidates + 2 graduated, 1 rejected). n<30, no Δ<0.10 splits (no approvals exist), L1↔L4 boundary intact. **Decision: defer calibration pass** until n≥30. Updated `.wolf/anatomy.md` timestamp + file count (89). Appended `.wolf/memory.md` with T1–T3 outcomes. Updated FOCUS.md Recently completed section. All 65 tests pass; git status clean.
+
 ## 2026-05-05 (20260505T140311Z-7ad6a2 T2 — Discovery synthesis pass, 3 new backlog entries)
 
 - Added 3 new Lane-2 wishlist entries: `bis_export_enforcement_corpus` (L2+4+5, national security/export control), `ftc_consumer_antitrust_enforcement_corpus` (L2+4+5, consumer privacy/antitrust), `hud_fheo_fair_housing_enforcement` (L2+5, housing equity/civil rights).
@@ -1163,3 +1169,9 @@ Operator request: move dismissed entry reasons to a separate file referenced on 
 | 05:58 | Created briefs/candidates/06.907-20260506-multi-state-pharmacy-board-enforcement.md | — | ~6935 |
 | 05:59 | Edited WISHLIST.md | removed 77 lines | ~156 |
 | 05:59 | Session end: 3 writes across 3 files (07.283-20260506-fdot-fl511-cameras.md, 06.907-20260506-multi-state-pharmacy-board-enforcement.md, WISHLIST.md) | 3 reads | ~31163 tok |
+
+## Session: 2026-05-06 05:59
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 06:01 | Edited FOCUS.md | modified step() | ~484 |
