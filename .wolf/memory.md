@@ -1262,3 +1262,4 @@ Operator request: move dismissed entry reasons to a separate file referenced on 
 
 **Final state:** n=29 briefs (27 scored candidates + 2 approved); composite range 6.470–7.898 (unchanged). Lane balance L1:9 / L2:9 / L4:10. Cluster ready for next formal calibration at n≥30 threshold.
 | 10:13 | Edited FOCUS.md | 3→5 lines | ~652 |
+| 10:14 | Session end: 1 writes across 1 files (FOCUS.md) | 3 reads | ~22129 tok |
