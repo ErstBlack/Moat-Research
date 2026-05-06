@@ -1153,3 +1153,4 @@ Operator request: move dismissed entry reasons to a separate file referenced on 
 - Dismissed during pass (not added to dismissals — reachability issues, not hard-constraint violations): AZ511 (valid but weaker than FL511 — lower market, same platform; can be added in future pass); NC DOT DriveNC (correct camera endpoint path not determined, not dismissed); FARA eFile bulk CSV (path 404, APEX-based portal needs correct URL — not dismissed, revisit).
 - Lane balance after T1: L1 7→8, L2 9 (unchanged), L4 8→9. L2 cluster growth avoided.
 - All 65 tests pass.
+| 05:50 | Session end: 1 writes across 1 files (WISHLIST.md) | 1 reads | ~6254 tok |
