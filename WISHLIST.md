@@ -290,57 +290,16 @@ sources:
     url: https://az511.gov/list/cameras
     discovered: 2026-05-06
     lane_hint: 1
-    why_interesting: |
-      Fills the I-10 Tucson–Phoenix–Nogales gap between TxDOT's El Paso coverage and the Pacific
-      corridor (Caltrans). Nogales POE is the #2 commercial land border crossing in the US by truck
-      volume — cross-border supply chain intelligence is a direct buyer vertical. AZ also covers
-      I-19 (Tucson→Nogales), I-17 (Phoenix→Flagstaff), and SR-51/I-10 Phoenix metro freight
-      corridors. Camera JPEGs served via CDN; no upstream historical archive found (same archetype
-      as NJDOT/TxDOT/Caltrans/WSDOT). Distinct buyer thesis: maquiladora supply chain, produce
-      imports (Nogales is #1 US fresh produce POE by value), automotive parts (Sonora/Hermosillo
-      plant nexus).
-    known_constraints: |
-      robots.txt (2026-05-06): Selective Disallow — blocks /list/GetData/ and /list/getdata/
-      (AJAX camera-metadata API), /my511/, /map/map*, /bundles/, /eventdetails/, /error/.
-      Camera image delivery paths NOT blocked. Brief-stage: confirm image URLs are accessible
-      without calling the blocked /list/GetData/ endpoint (camera IDs derivable from HTML or
-      alternate public path). No ToS prohibition on archival found. HTTP 200 on az511.gov and
-      az511.com (2026-05-06).
-    estimated_size: "<1 GB/day (est. ~500–800 cameras, ~1 frame/min, ~20 KB/frame)"
-    rate_limit_notes: "No published rate limit found; TTL/refresh cadence ~60s per camera standard for AZ511"
-    status: backlog
-    promoted_to: null
-    dismissed_reason: null
+    status: promoted-to-candidate
+    promoted_to: 07.138-20260506-adot-az511-cameras
 
   - id: multi_state_ag_consumer_protection
     title: "Multi-State Attorney General Consumer Protection Enforcement Actions — Cross-State Entity-Resolved Corpus"
     url: https://oag.ca.gov/
     discovered: 2026-05-06
     lane_hint: 4
-    why_interesting: |
-      50 state AGs independently enforce consumer protection, antitrust, data privacy, and
-      environmental law — a corpus structurally parallel to multi-state-medical-board but with
-      a broader buyer vertical (corporate compliance, risk, insurance, competitive intelligence).
-      Distinct from the FTC brief (federal enforcement only); state AGs file cases the FTC does
-      not and vice versa. No free public comprehensive multi-state AG consumer enforcement database
-      exists; NAAG publishes press releases, not structured case data. LexisNexis/Westlaw cover
-      AG enforcement commercially ($50k+/year) — paid precedent confirming buyer willingness.
-      Lane-4 three pillars: (1) OCR + NER + structured extraction across 50 heterogeneous state
-      portals; (2) ongoing weekly/monthly compounding as new actions are filed; (3) cross-state
-      entity resolution of defendant company and individual names across divergent state naming
-      conventions.
-    known_constraints: |
-      Primary sources: individual state AG websites (oag.ca.gov, texasattorneygeneral.gov,
-      ag.ny.gov, etc.) — all HTTP 200 (2026-05-06). CA AG robots.txt: no blocking of enforcement
-      pages (2026-05-06). NAAG (naag.org) HTTP 301→200, robots.txt blocks /wp-content/uploads/CPDB/
-      (PDF upload dir) only — HTML pages not blocked. Brief-stage: per-state robots.txt audit
-      required (same methodology as multi-state-medical-board). Raw enforcement PDFs/HTML are
-      publicly posted; §5 applies to raw input, not the derived structured corpus.
-    estimated_size: "<5 GB/year (PDFs + structured extraction; ~50 states × ~200 actions/year avg)"
-    rate_limit_notes: "No published rate limits; polite crawl (Crawl-delay: 10 where specified) sufficient"
-    status: backlog
-    promoted_to: null
-    dismissed_reason: null
+    status: promoted-to-candidate
+    promoted_to: 07.060-20260506-multi-state-ag-consumer-protection
 ```
 
 ## How to append
