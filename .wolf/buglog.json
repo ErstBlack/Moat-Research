@@ -272,6 +272,22 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-05T20:59:07.621Z"
+    },
+    {
+      "id": "bug-018",
+      "timestamp": "2026-05-06T09:59:09.736Z",
+      "error_message": "Significant refactor of ",
+      "file": "WISHLIST.md",
+      "root_cause": "66 lines replaced/restructured",
+      "fix": "Rewrote 77→15 lines (66 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-06T09:59:09.736Z"
     }
   ]
 }
