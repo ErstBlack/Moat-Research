@@ -1,32 +1,71 @@
 {
-  "session_id": "session-2026-05-06-0943",
-  "started": "2026-05-06T13:43:55.590Z",
+  "session_id": "session-2026-05-06-0958",
+  "started": "2026-05-06T13:58:59.186Z",
   "files_read": {
-    "/home/runner/moat-research/docs/wishlist-dismissals.md": {
+    "/home/runner/moat-research/briefs/candidates/07.283-20260506-fdot-fl511-cameras.md": {
       "count": 1,
-      "tokens": 1000,
-      "first_read": "2026-05-06T13:44:07.923Z"
+      "tokens": 5617,
+      "first_read": "2026-05-06T13:59:14.589Z"
+    },
+    "/home/runner/moat-research/briefs/candidates/06.907-20260506-multi-state-pharmacy-board-enforcement.md": {
+      "count": 1,
+      "tokens": 6501,
+      "first_read": "2026-05-06T13:59:20.968Z"
+    },
+    "/home/runner/moat-research/tests/fixtures/brief_valid_scored.md": {
+      "count": 1,
+      "tokens": 360,
+      "first_read": "2026-05-06T14:01:36.900Z"
+    },
+    "/home/runner/moat-research/briefs/candidates/06.997-20260505-wsdot-traffic-cameras.md": {
+      "count": 3,
+      "tokens": 5556,
+      "first_read": "2026-05-06T14:02:34.454Z"
+    },
+    "/home/runner/moat-research/workers/common/brief.py": {
+      "count": 1,
+      "tokens": 1462,
+      "first_read": "2026-05-06T14:03:40.756Z"
+    },
+    "/home/runner/moat-research/tests/unit/test_brief.py": {
+      "count": 1,
+      "tokens": 1633,
+      "first_read": "2026-05-06T14:05:03.783Z"
     },
     "/home/runner/moat-research/WISHLIST.md": {
-      "count": 1,
-      "tokens": 4734,
-      "first_read": "2026-05-06T13:47:56.786Z"
+      "count": 2,
+      "tokens": 5838,
+      "first_read": "2026-05-06T14:10:15.121Z"
     }
   },
   "files_written": [
     {
+      "file": "/home/runner/moat-research/briefs/candidates/07.141-20260506-gdot-ga511-cameras.md",
+      "action": "create",
+      "tokens": 6768,
+      "at": "2026-05-06T14:07:40.605Z"
+    },
+    {
+      "file": "/home/runner/moat-research/briefs/candidates/06.914-20260506-multi-state-real-estate-commission-enforcement.md",
+      "action": "create",
+      "tokens": 7582,
+      "at": "2026-05-06T14:10:11.204Z"
+    },
+    {
       "file": "/home/runner/moat-research/WISHLIST.md",
       "action": "edit",
-      "tokens": 1404,
-      "at": "2026-05-06T13:48:19.242Z"
+      "tokens": 180,
+      "at": "2026-05-06T14:10:37.002Z"
     }
   ],
   "edit_counts": {
+    "briefs/candidates/07.141-20260506-gdot-ga511-cameras.md": 1,
+    "briefs/candidates/06.914-20260506-multi-state-real-estate-commission-enforcement.md": 1,
     "WISHLIST.md": 1
   },
-  "anatomy_hits": 2,
+  "anatomy_hits": 7,
   "anatomy_misses": 0,
-  "repeated_reads_warned": 0,
+  "repeated_reads_warned": 3,
   "cerebrum_warnings": 0,
   "stop_count": 1
 }
