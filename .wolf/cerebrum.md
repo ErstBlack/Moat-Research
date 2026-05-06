@@ -2,7 +2,7 @@
 
 > OpenWolf's learning memory. Updated automatically as the AI learns from interactions.
 > Do not edit manually unless correcting an error.
-> Last updated: 2026-05-06 (post-iteration 20260506T134246Z-edfe37 consolidation — T1–T3 discovery/scoring/calibration pass, no new learnings; established patterns applied cleanly)
+> Last updated: 2026-05-06 (post-iteration 20260506T172446Z-c69a3e consolidation — T1–T3 discovery/scoring/calibration pass, no new learnings; established patterns applied cleanly; n=31 cluster stable)
 
 ## User Preferences
 

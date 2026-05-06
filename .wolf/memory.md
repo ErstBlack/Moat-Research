@@ -3,20 +3,15 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
-## 2026-05-06 (Iteration 20260506T172446Z-c69a3e T3 — Calibration pass at n≥30)
+## 2026-05-06 (Iteration 20260506T172446Z-c69a3e T1–T4 complete — Discovery + Scoring + Calibration + Consolidation)
 
-- **T3 calibration pass at n=31** (29 candidates + 1 graduated + 1 approved). First revisit at the explicit n≥30 threshold from `docs/calibration/2026-05-05-n25-pass.md`. New note at `docs/calibration/2026-05-06-n30-pass.md`.
-- **Decision: DEFER** — no `RUBRIC.md` edits, no design spec §5 edits, no brief renames.
-- All four trigger conditions evaluated NOT FIRED:
-  - T1 (decision conflict at Δ<0.10): only 1 approval, no splits to observe.
-  - T2 (counter-intuitive ordering): top-of-cluster ordering structurally defensible (FAA NOTAMs > flood-fusion > SEC > NJDOT > BIS > FDOT).
-  - T3 (L1↔L4 boundary): substance check holds — flood-fusion 7.695, SEC 7.509, CRA 7.274 all pass cerebrum 3-pillar test.
-  - T4 (HW-strong / Def-weak top-quartile): top-quartile defensibility floor is 7; no slip.
-- **Cluster snapshot:** composite range 6.470–7.898 (Δ=1.428), σ=0.331 (population), range/σ=4.31, mean 7.036, median 7.009. Per-lane: L1:11 / L2:8 / L4:12. Per-axis ranges plateau (no stretch since n=25): financial 2.333, implementation 1.750, hardware 3.000.
-- **Closest pairs at n=31:** ADOT/Caltrans/GDOT all within Δ=0.003 (both L1 camera archetype); pharmacy/USPTO/real-estate within Δ=0.007 (all L4 cross-state ER); multi-state-AG/FTC Δ=0.003 (cross-lane L4↔L2 consumer-protection adjacency). All defensible trade-off equivalences under multiplicative formula.
-- **Trigger refresh:** the n>15 substance-revisit trigger has been mechanically exhausted across n=15 → n=25 → n=30 without firing. Future revisits should be substance-driven (operator decision conflict at Δ<0.10, top-quartile L4 failing 3-pillar test, hw-runaway, OR n≥40 default cadence).
-- **Lane balance observation:** L4 now dominant at n=12 with 6 entries clustering at 6.483–6.914 (multi-state cross-jurisdiction ER pattern repeated across professions). Marginal new L4 entries from this archetype produce diminishing cluster-spread improvement.
-- All 65 tests pass; git status clean.
+- **T1 discovery synthesis:** 2 new backlog entries identified: `adot_az511_cameras` (Lane 1, Arizona DOT — Southwest I-10 corridor gap), `multi_state_ag_consumer_protection` (Lane 4+5, cross-state AG consumer-protection enforcement corpus). Live-verified HTTP reachability + robots.txt + archive posture for both.
+- **T2 scoring:** both T1 candidates scored against RUBRIC.md and promoted to candidate briefs.
+  - `07.138-20260506-adot-az511-cameras` (L1+5, fin 6.750 / impl 6.500 / hw 8.000): Phoenix metro + Tucson intermodal + cross-border buyer angle; §5 Lane-1 passes (az511.gov historical archive posture verified).
+  - `07.060-20260506-multi-state-ag-consumer-protection` (L4+5, fin 6.667 / impl 6.500 / hw 8.500): applies state-AG enforcement pattern; NCSAG paid-restricted partial analogue; all 3 Lane-4 cerebrum pillars present (compute OCR+NER+ER, ongoing monthly updates, cross-jurisdiction AG ER as v1).
+  - WISHLIST entries flipped backlog → promoted-to-candidate. Active cluster grows n=29 → n=31 (29 candidates + 2 graduated + 1 approved).
+- **T3 calibration pass:** n=31 active (first revisit at explicit n≥30 threshold). New calibration note at `docs/calibration/2026-05-06-n30-pass.md`. **Decision: DEFER** — no RUBRIC.md/spec edits, no brief renames. All four trigger conditions NOT FIRED: T1 (only 1 approval, no conflict splits), T2 (top-cluster ordering structurally defensible), T3 (L1↔L4 boundary intact — flood-fusion 7.695 / SEC 7.509 / CRA 7.274 all pass 3-pillar test), T4 (top-quartile defensibility floor 7, no slip). Cluster snapshot: range 6.470–7.898 (Δ=1.428), σ=0.331, range/σ=4.31. Per-lane: L1:11 / L2:8 / L4:12. Closest pairs (ADOT/Caltrans/GDOT Δ=0.003; pharmacy/USPTO/real-estate Δ=0.007; AG/FTC Δ=0.003 cross-lane) all defensible trade-off equivalences. **Trigger refresh:** n>15 threshold exhausted across n=15→25→30; future revisits substance-driven (Δ<0.10 decision split, top-quartile L4 failing 3-pillar, hw-runaway, or n≥40 default cadence). Lane-4 cluster now dominant (n=12 with 6 entries clustering 6.483–6.914 on multi-state cross-jurisdiction ER pattern; marginal entries produce diminishing spread improvement).
+- **T4 consolidation:** Updated `.wolf/anatomy.md` header timestamp + file count (95, up from 93). Appended `.wolf/memory.md` with T1–T3 outcomes. `.wolf/cerebrum.md` no new learnings (timestamp-only refresh). Updated FOCUS.md Recently completed. All 65 tests pass; git status clean.
 
 ## 2026-05-06 (Iteration 20260506T134246Z-edfe37 T2 — Scoring pass)
 
@@ -1336,3 +1331,9 @@ Operator request: move dismissed entry reasons to a separate file referenced on 
 | 13:42 | Created docs/calibration/2026-05-06-n30-pass.md | — | ~3078 |
 | 13:43 | Edited FOCUS.md | modified plateau() | ~490 |
 | 13:44 | Session end: 3 writes across 3 files (.calibrate_n30.py, 2026-05-06-n30-pass.md, FOCUS.md) | 2 reads | ~15596 tok |
+
+## Session: 2026-05-06 13:44
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 13:45 | Edited FOCUS.md | modified plateau() | ~859 |
