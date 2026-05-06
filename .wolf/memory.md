@@ -3,6 +3,21 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+## 2026-05-06 (Iteration 20260506T172446Z-c69a3e T3 — Calibration pass at n≥30)
+
+- **T3 calibration pass at n=31** (29 candidates + 1 graduated + 1 approved). First revisit at the explicit n≥30 threshold from `docs/calibration/2026-05-05-n25-pass.md`. New note at `docs/calibration/2026-05-06-n30-pass.md`.
+- **Decision: DEFER** — no `RUBRIC.md` edits, no design spec §5 edits, no brief renames.
+- All four trigger conditions evaluated NOT FIRED:
+  - T1 (decision conflict at Δ<0.10): only 1 approval, no splits to observe.
+  - T2 (counter-intuitive ordering): top-of-cluster ordering structurally defensible (FAA NOTAMs > flood-fusion > SEC > NJDOT > BIS > FDOT).
+  - T3 (L1↔L4 boundary): substance check holds — flood-fusion 7.695, SEC 7.509, CRA 7.274 all pass cerebrum 3-pillar test.
+  - T4 (HW-strong / Def-weak top-quartile): top-quartile defensibility floor is 7; no slip.
+- **Cluster snapshot:** composite range 6.470–7.898 (Δ=1.428), σ=0.331 (population), range/σ=4.31, mean 7.036, median 7.009. Per-lane: L1:11 / L2:8 / L4:12. Per-axis ranges plateau (no stretch since n=25): financial 2.333, implementation 1.750, hardware 3.000.
+- **Closest pairs at n=31:** ADOT/Caltrans/GDOT all within Δ=0.003 (both L1 camera archetype); pharmacy/USPTO/real-estate within Δ=0.007 (all L4 cross-state ER); multi-state-AG/FTC Δ=0.003 (cross-lane L4↔L2 consumer-protection adjacency). All defensible trade-off equivalences under multiplicative formula.
+- **Trigger refresh:** the n>15 substance-revisit trigger has been mechanically exhausted across n=15 → n=25 → n=30 without firing. Future revisits should be substance-driven (operator decision conflict at Δ<0.10, top-quartile L4 failing 3-pillar test, hw-runaway, OR n≥40 default cadence).
+- **Lane balance observation:** L4 now dominant at n=12 with 6 entries clustering at 6.483–6.914 (multi-state cross-jurisdiction ER pattern repeated across professions). Marginal new L4 entries from this archetype produce diminishing cluster-spread improvement.
+- All 65 tests pass; git status clean.
+
 ## 2026-05-06 (Iteration 20260506T134246Z-edfe37 T2 — Scoring pass)
 
 - T2: Scored both T1 backlog candidates against RUBRIC.md and wrote candidate briefs.
@@ -1312,3 +1327,11 @@ Operator request: move dismissed entry reasons to a separate file referenced on 
 | 13:38 | Created briefs/candidates/07.060-20260506-multi-state-ag-consumer-protection.md | — | ~7430 |
 | 13:39 | Edited WISHLIST.md | removed 56 lines | ~158 |
 | 13:39 | Session end: 3 writes across 3 files (07.138-20260506-adot-az511-cameras.md, 07.060-20260506-multi-state-ag-consumer-protection.md, WISHLIST.md) | 3 reads | ~33278 tok |
+
+## Session: 2026-05-06 13:39
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 13:40 | Created .calibrate_n30.py | — | ~936 |
+| 13:42 | Created docs/calibration/2026-05-06-n30-pass.md | — | ~3078 |
+| 13:43 | Edited FOCUS.md | modified plateau() | ~490 |

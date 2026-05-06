@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-06T17:39:01.502Z
-> Files: 91 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-06T17:43:37.427Z
+> Files: 93 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../claude-runner/config/projects/faa-alerts/
 
@@ -15,13 +15,14 @@
 
 ## ./
 
+- `.calibrate_n30.py` (~936 tok)
 - `.calibrate_tmp.py` (~1130 tok)
 - `.pre-commit-config.yaml` (~138 tok)
 - `.score_t3.py` — composite (~126 tok)
 - `.score_tmp.py` (~261 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `CONSTRAINTS.md` — CONSTRAINTS (~666 tok)
-- `FOCUS.md` — FOCUS (~9212 tok)
+- `FOCUS.md` — FOCUS (~9639 tok)
 - `LANES.md` — LANES (~901 tok)
 - `RUBRIC.md` — RUBRIC (~861 tok)
 - `WISHLIST.md` — WISHLIST (~5057 tok)
@@ -94,6 +95,7 @@
 - `2026-05-05-n15-pass.md` — Calibration pass — n=15 active scored cluster (n=16 incl. graduated) (~3709 tok)
 - `2026-05-05-n25-pass.md` — Calibration Pass — n≥25 Cluster (2026-05-05) (~1625 tok)
 - `2026-05-05-n8-pass.md` — Calibration pass — n=8 active scored cluster (n=9 incl. graduated) (~2708 tok)
+- `2026-05-06-n30-pass.md` — Calibration Pass — n≥30 Cluster (2026-05-06) (~2885 tok)
 
 ## docs/superpowers/specs/
 
