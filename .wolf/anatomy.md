@@ -1,13 +1,14 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-07T18:51:10.777Z
-> Files: 12 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-07T19:18:07.834Z
+> Files: 25 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
-- `.gitignore` — Git ignore rules (~108 tok)
+- `.gitignore` — Git ignore rules (~160 tok)
 - `CLAUDE.md` — OpenWolf (~1315 tok)
-- `FOCUS.md` — FOCUS (~1788 tok)
+- `pyproject.toml` — Solo-operator CLI for discovering, scoring, and graduating data-moat opportunities (~258 tok)
+- `uv.lock` — uv lockfile for 42 resolved packages, Python 3.14+ (~1484 tok)
 - `WISHLIST.md` — WISHLIST (~571 tok)
 
 ## .claude/
@@ -22,16 +23,58 @@
 
 - `filters.toml` — Project-local RTK filters — commit this file with your repo. (~136 tok)
 
-## briefs/
-
-- `index.json` — Declares research (~106762 tok)
-
 ## docs/superpowers/plans/
 
-- `2026-05-04-moat-research-implementation.md` — moat-research Implementation Plan (~24360 tok)
 - `2026-05-07-moat-research-implementation.md` — moat-research Implementation Plan (~72771 tok)
 
 ## docs/superpowers/specs/
 
-- `2026-05-04-moat-research-design.md` — moat-research (~6692 tok)
 - `2026-05-07-moat-research-design.md` — moat-research — design (greenfield, v2) (~13027 tok)
+
+## mr/
+
+- `__init__.py` — moat-research: solo-operator CLI for data-moat opportunities. (~26 tok)
+- `__main__.py` (~19 tok)
+
+## mr/cli/
+
+- `__init__.py` (~0 tok)
+- `main.py` — Entry point for the `mr` CLI. Typer app with `version` subcommand and `_callback` for multi-command mode. (~145 tok)
+
+## mr/dedup/
+
+- `__init__.py` (~0 tok)
+
+## mr/handoff/
+
+- `__init__.py` (~0 tok)
+
+## mr/lifecycle/
+
+- `__init__.py` (~0 tok)
+
+## mr/scoring/
+
+- `__init__.py` (~0 tok)
+
+## mr/synth/
+
+- `__init__.py` (~0 tok)
+
+## mr/tools/
+
+- `__init__.py` (~0 tok)
+
+## mr/util/
+
+- `__init__.py` (~0 tok)
+
+## mr/wishlist/
+
+- `__init__.py` (~0 tok)
+
+## tests/
+
+- `__init__.py` (~0 tok)
+- `conftest.py` — Shared pytest fixtures for moat-research tests. (~71 tok)
+- `test_package.py` — test_mr_imports, test_cli_main_app_callable (~45 tok)

@@ -3,6 +3,9 @@
 > Chronological action log. Hooks and AI append to this file automatically.
 > Old sessions are consolidated by the daemon weekly.
 
+| 19:15 | Task 2: created pyproject.toml with exact spec deps + ruff/pytest config | pyproject.toml | committed ec4443b | ~200 |
+| 19:15 | ran `uv sync --no-install-project`; generated uv.lock (42 packages, Python 3.14.3) | uv.lock | committed ec4443b | ~100 |
+
 ## Session: 2026-05-07 23:32
 
 | Time | Action | File(s) | Outcome | ~Tokens |
@@ -127,3 +130,25 @@
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
 | 14:51 | Edited .gitignore | expanded (+7 lines) | ~30 |
+| 14:56 | Session end: 1 writes across 1 files (.gitignore) | 6 reads | ~72890 tok |
+| 15:07 | Edited .gitignore | expanded (+8 lines) | ~73 |
+| 15:09 | Created pyproject.toml | — | ~256 |
+| 15:14 | Edited pyproject.toml | 23→21 lines | ~101 |
+| 15:14 | Edited pyproject.toml | 4→5 lines | ~41 |
+| 15:15 | Created tests/test_package.py | — | ~45 |
+| 15:16 | Created mr/__init__.py | — | ~26 |
+| 15:16 | Created mr/__main__.py | — | ~19 |
+| 15:16 | Created mr/cli/__init__.py | — | ~0 |
+| 15:16 | Created mr/lifecycle/__init__.py | — | ~0 |
+| 15:16 | Created mr/scoring/__init__.py | — | ~0 |
+| 15:16 | Created mr/dedup/__init__.py | — | ~0 |
+| 15:16 | Created mr/tools/__init__.py | — | ~0 |
+| 15:16 | Created mr/synth/__init__.py | — | ~0 |
+| 15:16 | Created mr/wishlist/__init__.py | — | ~0 |
+| 15:16 | Created mr/handoff/__init__.py | — | ~0 |
+| 15:16 | Created mr/util/__init__.py | — | ~0 |
+| 15:16 | Created mr/cli/main.py | — | ~94 |
+| 15:16 | Created tests/__init__.py | — | ~0 |
+| 15:16 | Created tests/conftest.py | — | ~71 |
+| 15:18 | Edited mr/cli/main.py | modified _callback() | ~129 |
+| 15:19 | Task 3 complete: TDD cycle (red→green), mr/ skeleton, tests/, `uv run mr version` → "mr 0.1.0" | mr/, tests/ | committed | ~600 |
