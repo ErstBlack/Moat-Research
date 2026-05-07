@@ -190,3 +190,120 @@ def test_fabrication_when_claim_inconsistent_with_evidence():
     )
     outcome = verify_disqualifier_check(brief, cfg=None)
     assert outcome.fabrication_detected
+
+
+def test_fabrication_set_on_single_source_flip():
+    """Spec §6.4 step 4: claim/evidence mismatch on any predicate is fabrication."""
+    brief = _brief_with_verdicts(
+        sources=[{"url": "https://a.com/", "role": "primary", "archive_status": "none"}],
+        verification_evidence=[],
+        disqualifier_verdicts={"single_source": {"verdict": "pass"}},
+    )
+    outcome = verify_disqualifier_check(brief, cfg=None)
+    assert outcome.flipped_to_fail("single_source")
+    assert outcome.fabrication_detected
+
+
+@patch("mr.synth.verify.wayback_check")
+def test_fabrication_set_on_unrestricted_archives_flip(mock_wayback):
+    from datetime import date as ddate
+
+    from mr.tools.wayback import WaybackResult
+
+    mock_wayback.return_value = WaybackResult(
+        count=150, first=ddate(2020, 1, 1), last=ddate(2026, 1, 1)
+    )
+    brief = _brief_with_verdicts(
+        sources=[
+            {"url": "https://a.com/", "role": "primary", "archive_status": "none"},
+            {"url": "https://b.com/", "role": "corroborating", "archive_status": "none"},
+        ],
+        verification_evidence=[
+            {"id": "e1", "tool": "wayback_check", "args": {"url": "https://a.com/"},
+             "result": {"count": 47}},
+        ],
+        disqualifier_verdicts={
+            "single_source": {"verdict": "pass"},
+            "unrestricted_archives": {
+                "verdict": "pass", "wayback_evidence_id": "e1",
+                "publisher_archive_evidence_id": None,
+            },
+        },
+    )
+    cfg = type("C", (), {"disqualifiers": {
+        "unrestricted_archive_min_snapshots": 100,
+        "unrestricted_archive_min_years": 3,
+    }})()
+    outcome = verify_disqualifier_check(brief, cfg=cfg)
+    assert outcome.flipped_to_fail("unrestricted_archives")
+    assert outcome.fabrication_detected
+
+
+@patch("mr.synth.verify._publisher_archive_regex_matches")
+@patch("mr.synth.verify.wayback_check")
+def test_publisher_archive_arm_fails_only_when_regex_matches(mock_wayback, mock_regex):
+    """Spec §6.4: re-fetch URL and regex-check; unconditional fail was a bug."""
+    from mr.tools.wayback import WaybackResult
+
+    mock_wayback.return_value = WaybackResult(count=0, first=None, last=None)
+    mock_regex.return_value = True
+
+    brief = _brief_with_verdicts(
+        sources=[
+            {"url": "https://a.com/", "role": "primary", "archive_status": "none"},
+            {"url": "https://b.com/", "role": "corroborating", "archive_status": "none"},
+        ],
+        verification_evidence=[
+            {"id": "e2", "tool": "head_check", "args": {"url": "https://pub.com/archive"},
+             "result": {"status": 200}},
+        ],
+        disqualifier_verdicts={
+            "single_source": {"verdict": "pass"},
+            "unrestricted_archives": {
+                "verdict": "fail", "wayback_evidence_id": None,
+                "publisher_archive_evidence_id": "e2",
+            },
+        },
+    )
+    cfg = type("C", (), {"disqualifiers": {
+        "unrestricted_archive_min_snapshots": 100,
+        "unrestricted_archive_min_years": 3,
+    }})()
+    outcome = verify_disqualifier_check(brief, cfg=cfg)
+    assert outcome.new_verdicts["unrestricted_archives"] == "fail"
+    mock_regex.assert_called_once_with("https://pub.com/archive")
+
+
+@patch("mr.synth.verify._publisher_archive_regex_matches")
+@patch("mr.synth.verify.wayback_check")
+def test_publisher_archive_arm_passes_when_regex_no_match(mock_wayback, mock_regex):
+    """Regex no-match → unverified; treat as pass (don't fail the brief)."""
+    from mr.tools.wayback import WaybackResult
+
+    mock_wayback.return_value = WaybackResult(count=0, first=None, last=None)
+    mock_regex.return_value = False
+
+    brief = _brief_with_verdicts(
+        sources=[
+            {"url": "https://a.com/", "role": "primary", "archive_status": "none"},
+            {"url": "https://b.com/", "role": "corroborating", "archive_status": "none"},
+        ],
+        verification_evidence=[
+            {"id": "e2", "tool": "head_check", "args": {"url": "https://pub.com/news"},
+             "result": {"status": 200}},
+        ],
+        disqualifier_verdicts={
+            "single_source": {"verdict": "pass"},
+            "unrestricted_archives": {
+                "verdict": "pass", "wayback_evidence_id": None,
+                "publisher_archive_evidence_id": "e2",
+            },
+        },
+    )
+    cfg = type("C", (), {"disqualifiers": {
+        "unrestricted_archive_min_snapshots": 100,
+        "unrestricted_archive_min_years": 3,
+    }})()
+    outcome = verify_disqualifier_check(brief, cfg=cfg)
+    assert outcome.new_verdicts["unrestricted_archives"] == "pass"
+    assert not outcome.flipped_to_fail("unrestricted_archives")
