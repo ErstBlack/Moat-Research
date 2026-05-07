@@ -95,7 +95,11 @@ def _validate(fm: dict[str, Any]) -> None:
     if fm["delivery_form"] == "feature" and not fm.get("parent_project"):
         raise FrontmatterError("delivery_form: feature requires parent_project")
 
+    if not isinstance(fm["sources"], list):
+        raise FrontmatterError("sources must be a YAML sequence")
     for s in fm["sources"]:
+        if not isinstance(s, dict):
+            raise FrontmatterError(f"each source must be a YAML mapping, got {type(s).__name__}")
         if s.get("role") not in SOURCE_ROLES:
             raise FrontmatterError(f"source role {s.get('role')!r} not in {sorted(SOURCE_ROLES)}")
 
@@ -156,17 +160,24 @@ def write_brief(path: Path, brief: Brief, body: str | None = None) -> None:
 
 
 def extract_thesis_first_sentence(path: Path) -> str:
-    """Pull the first sentence from the brief's `## Thesis` body section."""
+    """Pull the first sentence from the brief's `## Thesis` body section.
+
+    Returns an empty string if the section is empty or missing. Splits on
+    ". " (period followed by space) so URLs and abbreviations don't truncate
+    the result.
+    """
     raw = path.read_text()
     _, body = _parse_split(raw)
     m = _THESIS_RE.search(body)
     if not m:
         return ""
     para = m.group(1).strip().split("\n")[0].strip()
-    # Split on '. ' for sentence boundary; keep terminal punctuation.
-    if "." in para:
-        first = para.split(".")[0].strip() + "."
-        return first
+    if not para or para.startswith("##"):
+        # Empty thesis or regex captured the next header.
+        return ""
+    idx = para.find(". ")
+    if idx != -1:
+        return para[: idx + 1]
     return para
 
 

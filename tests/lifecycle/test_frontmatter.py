@@ -152,3 +152,42 @@ def test_unsupported_schema_version_rejected(tmp_path: Path):
     p.write_text(_minimal_brief_yaml().replace("schema_version: 1", "schema_version: 2"))
     with pytest.raises(FrontmatterError, match="schema_version"):
         read_brief(p)
+
+
+def test_extract_thesis_empty_section_returns_empty(tmp_path: Path):
+    # When the Thesis section is empty, the regex would otherwise capture
+    # the next section's header. Guard against that.
+    p = tmp_path / "x.md"
+    yaml_text = _minimal_brief_yaml().replace(
+        "## Thesis\nNOTAMs expire and are not archived by the FAA. "
+        "Aggregating them creates a unique time-series corpus.\n",
+        "## Thesis\n\n",
+    )
+    p.write_text(yaml_text)
+    assert extract_thesis_first_sentence(p) == ""
+
+
+def test_extract_thesis_keeps_url_intact(tmp_path: Path):
+    # Splitter must not break inside URLs (period+space, not bare period).
+    p = tmp_path / "x.md"
+    yaml_text = _minimal_brief_yaml().replace(
+        "NOTAMs expire and are not archived by the FAA. "
+        "Aggregating them creates a unique time-series corpus.",
+        "See https://a.com/b for details. Second sentence.",
+    )
+    p.write_text(yaml_text)
+    assert extract_thesis_first_sentence(p) == "See https://a.com/b for details."
+
+
+def test_sources_non_list_rejected(tmp_path: Path):
+    # A YAML scalar (or any non-list) for `sources` must surface as a clear
+    # FrontmatterError, not a downstream AttributeError on `.get(...)`.
+    p = tmp_path / "x.md"
+    yaml_text = _minimal_brief_yaml().replace(
+        "sources:\n  - url: https://notams.aim.faa.gov/notamSearch\n"
+        "    role: primary\n    archive_status: none",
+        "sources: just-a-string",
+    )
+    p.write_text(yaml_text)
+    with pytest.raises(FrontmatterError, match="sources must be a YAML sequence"):
+        read_brief(p)
