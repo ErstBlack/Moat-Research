@@ -36,15 +36,15 @@ def test_appendix_capped_at_3():
 
 def test_appendix_filters_to_matching_lane_niche():
     entries = [
-        _entry("a", "ephemeral_public", "alerts_aviation", "single source"),
-        _entry("b", "ephemeral_public", "different_niche", "single source"),
-        _entry("c", "niche_vertical", "alerts_aviation", "single source"),
+        _entry("matching-slug", "ephemeral_public", "alerts_aviation", "single source"),
+        _entry("wrong-niche-slug", "ephemeral_public", "different_niche", "single source"),
+        _entry("wrong-lane-slug", "niche_vertical", "alerts_aviation", "single source"),
     ]
     out = build_appendix(entries, target_lane="ephemeral_public",
                         target_niche_key="alerts_aviation")
-    assert "a" in out
-    assert "b" not in out
-    assert "c" not in out
+    assert "matching-slug" in out
+    assert "wrong-niche-slug" not in out
+    assert "wrong-lane-slug" not in out
 
 
 def test_appendix_empty_when_no_matches():
