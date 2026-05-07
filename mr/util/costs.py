@@ -39,10 +39,13 @@ def read_cost_history(path: Path) -> list[CostRecord]:
     if not path.exists():
         return []
     out: list[CostRecord] = []
-    for line in path.read_text().splitlines():
+    for lineno, line in enumerate(path.read_text().splitlines(), start=1):
         if not line.strip():
             continue
-        d = json.loads(line)
+        try:
+            d = json.loads(line)
+        except json.JSONDecodeError as e:
+            raise ValueError(f"{path}:{lineno}: malformed JSON in costs ledger — {e}") from e
         d["ts"] = datetime.fromisoformat(d["ts"])
         out.append(CostRecord(**d))
     return out

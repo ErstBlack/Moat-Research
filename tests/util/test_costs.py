@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from mr.util.costs import CostRecord, append_cost, read_cost_history
+from mr.util.costs import CostRecord, append_cost, read_cost_history, running_total
 
 
 def test_append_and_read_roundtrip(tmp_path: Path):
@@ -44,7 +44,6 @@ def test_appends_to_existing_file(tmp_path: Path):
 
 
 def test_running_total_for_command(tmp_path: Path):
-    from mr.util.costs import running_total
     path = tmp_path / "costs.jsonl"
     for cmd, cost in [("discover", 0.10), ("score", 0.05), ("discover", 0.20)]:
         append_cost(path, CostRecord(
