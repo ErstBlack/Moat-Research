@@ -3,11 +3,13 @@ from pathlib import Path
 
 import typer
 
+from mr.cli import discover as discover_module
 from mr.cli import graduate as graduate_module
 from mr.cli import init as init_module
 from mr.cli import promote as promote_module
 from mr.cli import reject as reject_module
 from mr.cli import status as status_module
+from mr.synth.budget import BudgetExceeded
 
 app = typer.Typer(
     name="mr",
@@ -62,6 +64,24 @@ def reject_cmd(
 ) -> None:
     """Move a scored brief to rejected/ with optional reason."""
     reject_module.reject(path, root or Path.cwd(), reason)
+
+
+@app.command(name="discover")
+def discover_cmd(
+    lane: str = typer.Option(None, "--lane"),  # noqa: B008
+    n: int = typer.Option(5, "--n"),  # noqa: B008
+    budget: float = typer.Option(5.0, "--budget"),  # noqa: B008
+    root: Path = typer.Option(None, "--root"),  # noqa: B008
+) -> None:
+    """Generate candidate briefs from WISHLIST + live web tools."""
+    try:
+        discover_module.discover(root or Path.cwd(), lane, n, budget)
+    except BudgetExceeded as e:
+        typer.echo(f"budget aborted: {e}", err=True)
+        raise typer.Exit(code=2) from e
+    except RuntimeError as e:
+        typer.echo(f"error: {e}", err=True)
+        raise typer.Exit(code=2) from e
 
 
 @app.command(name="graduate")
