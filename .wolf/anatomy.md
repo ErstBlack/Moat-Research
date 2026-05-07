@@ -1,13 +1,13 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-07T19:27:43.981Z
-> Files: 29 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-07T19:50:55.363Z
+> Files: 35 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
 - `.gitignore` — Git ignore rules (~160 tok)
 - `CLAUDE.md` — OpenWolf (~1315 tok)
-- `pyproject.toml` — Solo-operator CLI for discovering, scoring, and graduating data-moat opportunities (~284 tok)
+- `pyproject.toml` — Solo-operator CLI for discovering, scoring, and graduating data-moat opportunities (~292 tok)
 - `uv.lock` — uv lockfile for 42 resolved packages, Python 3.14+ (~1484 tok)
 - `WISHLIST.md` — WISHLIST (~571 tok)
 
@@ -69,7 +69,10 @@
 
 - `__init__.py` (~0 tok)
 - `config_schema.json` (~973 tok)
-- `config.py` — mr.yaml loader with JSON-Schema validation, schema-version-1-only. (~1294 tok)
+- `config.py` — mr.yaml loader with JSON-Schema validation, schema-version-1-only. (~1387 tok)
+- `costs.py` — costs.jsonl writer and reader for spend tracking. (~518 tok)
+- `lock.py` — POSIX flock(2)-based exclusive lock for .moat-research/.lock. (~472 tok)
+- `slug.py` — Slug normalization for filenames and identifiers. (~228 tok)
 
 ## mr/wishlist/
 
@@ -84,4 +87,7 @@
 ## tests/util/
 
 - `__init__.py` (~0 tok)
-- `test_config.py` — Tests for mr.util.config. (~454 tok)
+- `test_config.py` — Tests for mr.util.config. (~636 tok)
+- `test_costs.py` — test_append_and_read_roundtrip, test_appends_to_existing_file, test_running_total_for_command, test_ (~708 tok)
+- `test_lock.py` — test_acquires_and_releases, test_blocks_then_times_out, test_creates_parent_dir, test_releases_on_ex (~513 tok)
+- `test_slug.py` — test_basic_lowercase_kebab, test_strips_punctuation, test_max_40_chars, test_truncates_at_word_bound (~239 tok)

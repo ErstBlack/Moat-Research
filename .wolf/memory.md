@@ -161,3 +161,22 @@
 | 15:26 | Created mr/util/config.py | — | ~1294 |
 | 15:27 | Edited tests/util/test_config.py | modified test_default_config_validates_against_its_own_schema() | ~88 |
 | 15:28 | Task 4 complete: mr.yaml loader with JSON-Schema validation; 5/5 tests pass; ValidationError import removed (F401); pytest.approx fix for float weight sum | mr/util/config.py, mr/util/config_schema.json, tests/util/test_config.py, tests/util/__init__.py | committed | ~800 |
+| 15:34 | Edited mr/util/config.py | added 1 import(s) | ~65 |
+| 15:34 | Edited mr/util/config.py | modified _load_schema() | ~398 |
+| 15:34 | Edited pyproject.toml | 3→4 lines | ~21 |
+| 15:34 | Edited tests/util/test_config.py | modified test_default_config_validates_against_its_own_schema() | ~270 |
+| 15:36 | Created tests/util/test_slug.py | — | ~239 |
+| 15:36 | Created mr/util/slug.py | — | ~228 |
+| 15:36 | Task 5 complete: TDD cycle (red→green), slugify() with NFKD+ASCII+truncation; 7/7 tests pass; ruff clean | mr/util/slug.py, tests/util/test_slug.py | committed ddc2942 | ~300 |
+| 15:40 | Created tests/util/test_lock.py | — | ~384 |
+| 15:41 | Created mr/util/lock.py | — | ~451 |
+| 15:41 | Edited mr/util/lock.py | modified LockTimeout() | ~34 |
+| 15:41 | Edited tests/util/test_lock.py | modified exclusive_lock() | ~30 |
+| 15:42 | Task 6 complete: flock-based exclusive_lock(); 3/3 new tests pass; 20/20 full suite; ruff clean; noqa:N818 for LockTimeout name per spec; collections.abc.Iterator over typing.Iterator | mr/util/lock.py, tests/util/test_lock.py | committed | ~400 |
+| 15:48 | Edited mr/util/lock.py | modified exclusive_lock() | ~397 |
+| 15:48 | Edited tests/util/test_lock.py | modified test_blocks_then_times_out() | ~328 |
+| 15:48 | Edited tests/util/test_lock.py | modified test_releases_on_exception_in_with_block() | ~106 |
+| 15:50 | Created tests/util/test_costs.py | — | ~720 |
+| 15:50 | Created mr/util/costs.py | — | ~518 |
+| 15:50 | Edited tests/util/test_costs.py | 3→3 lines | ~21 |
+| 15:50 | Edited tests/util/test_costs.py | inline fix | ~1 |
