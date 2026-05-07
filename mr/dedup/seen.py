@@ -145,20 +145,26 @@ def _resolve_duplicate(slug: str, copies: list[tuple[Path, str]]) -> tuple[Path,
     fwd_mtime = forward_path.stat().st_mtime
     ear_mtime = earlier_path.stat().st_mtime
 
-    if forward == "candidates":
-        # Should be impossible given _ADJACENT_PAIRS construction
-        return forward_path, forward
+    # candidates/ has _DIR_INDEX 0 (always min), so forward is never "candidates"
+    # for any adjacent pair. Assert rather than silently passing through, since
+    # a future change to _ADJACENT_PAIRS or _DIR_INDEX could otherwise produce
+    # a wrong-disposition entry.
+    assert forward != "candidates", "unreachable: candidates is always the earlier dir"
 
     if fwd_mtime >= ear_mtime and (fwd_mtime - ear_mtime) <= _PARTIAL_MOVE_MTIME_DELTA_SECONDS:
-        # Partial-move artifact: keep forward, delete earlier
+        # Partial-move artifact: keep forward, delete earlier.
         earlier_path.unlink()
         return forward_path, forward
 
-    # Operator-error fallback: candidates/ newer → leave alone, record candidates/ as canonical
+    # Operator-error fallback (§6.3): the operator copied (instead of moved)
+    # a brief from scored/ back to candidates/ to re-score. We leave both
+    # copies alone; mr score will consume candidates/ and write to scored/
+    # (resolving the duplicate via filename collision logic on its next move).
+    # This case is candidates/-specific: for any other adjacent pair, an
+    # earlier-newer copy is unexpected and falls through to a fatal violation.
     if earlier == "candidates" and ear_mtime > fwd_mtime:
         return earlier_path, earlier
 
-    # Anything else with mtime delta > 60s: fatal
     raise LifecycleViolation(
         f"slug {slug!r} duplicate in {dir_a!r} and {dir_b!r} with mtime "
         f"delta {abs(fwd_mtime - ear_mtime):.0f}s — requires manual resolution"
