@@ -5,6 +5,7 @@ import typer
 
 from mr.cli import init as init_module
 from mr.cli import promote as promote_module
+from mr.cli import reject as reject_module
 from mr.cli import status as status_module
 
 app = typer.Typer(
@@ -50,3 +51,13 @@ def promote_cmd(
 ) -> None:
     """Move a scored brief to approved/."""
     promote_module.promote(path, root or Path.cwd())
+
+
+@app.command(name="reject")
+def reject_cmd(
+    path: Path = typer.Argument(..., exists=True, dir_okay=False),  # noqa: B008
+    reason: str = typer.Option(None, "--reason", help="Operator's rejection reason"),  # noqa: B008
+    root: Path = typer.Option(None, "--root"),  # noqa: B008
+) -> None:
+    """Move a scored brief to rejected/ with optional reason."""
+    reject_module.reject(path, root or Path.cwd(), reason)
