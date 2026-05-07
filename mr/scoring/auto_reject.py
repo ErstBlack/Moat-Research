@@ -25,7 +25,7 @@ class AutoRejectReason(Enum):
 # and referenced by §13.3 severity classification. DO NOT change the strings without
 # also updating the spec.
 REASON_STRINGS: dict[AutoRejectReason, str] = {
-    AutoRejectReason.DEFENSIBILITY_LOW: "defensibility ≤ 4",  # noqa: RUF001
+    AutoRejectReason.DEFENSIBILITY_LOW: "defensibility ≤ 4",
     AutoRejectReason.AXIS_ZERO: "any axis = 0",
     AutoRejectReason.SINGLE_SOURCE: "single source",
     AutoRejectReason.UNRESTRICTED_ARCHIVES: "unrestricted archives",
