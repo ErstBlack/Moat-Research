@@ -9,14 +9,8 @@ from mr.synth.budget import (
     cold_corpus_preflight,
     worst_case_ceiling,
 )
-from mr.synth.pricing import ModelPricing
 from mr.util.config import DEFAULT_CONFIG, Config
 from mr.util.costs import CostRecord, append_cost
-
-
-def _opus() -> ModelPricing:
-    return ModelPricing(input_per_mtok=15.0, output_per_mtok=75.0,
-                        cache_read_per_mtok=1.5, cache_write_per_mtok=18.75)
 
 
 def test_worst_case_ceiling_for_discover_fits_5usd_budget():
