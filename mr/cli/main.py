@@ -4,6 +4,7 @@ from pathlib import Path
 import typer
 
 from mr.cli import init as init_module
+from mr.cli import promote as promote_module
 from mr.cli import status as status_module
 
 app = typer.Typer(
@@ -40,3 +41,12 @@ def status_cmd(
 ) -> None:
     """Show lifecycle counts and operator-relevant warnings."""
     status_module.status(root or Path.cwd())
+
+
+@app.command(name="promote")
+def promote_cmd(
+    path: Path = typer.Argument(..., exists=True, dir_okay=False),  # noqa: B008
+    root: Path = typer.Option(None, "--root"),  # noqa: B008
+) -> None:
+    """Move a scored brief to approved/."""
+    promote_module.promote(path, root or Path.cwd())
