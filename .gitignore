@@ -34,3 +34,11 @@ briefs/index.json
 # Build artifacts
 dist/
 build/
+
+# OpenWolf runtime state (machine-specific, ephemeral)
+.wolf/daemon.log
+.wolf/token-ledger.json
+.wolf/cron-state.json
+.wolf/hooks/_session.json
+.wolf/suggestions.json
+.wolf/designqc-report.json
