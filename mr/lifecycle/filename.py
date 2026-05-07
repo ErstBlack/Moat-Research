@@ -4,6 +4,15 @@ Per spec §6.1:
 - scored:    <composite_padded>-<yyyymmdd>-<slug>.md
 - candidate: <yyyymmdd>-<slug>.md (no score yet)
 - collision: append -02, -03, … (zero-padded to 2 digits, max 99)
+
+Known limitation: a slug that ends in `-NN` (where NN is exactly two
+digits) is indistinguishable from a slug + collision suffix when
+parsed back. parse_filename treats trailing `-NN` as a collision
+suffix in that case. Slugs ending in `-NN` are uncommon (slugify
+truncates at word boundaries and the corpus has historically been
+verbal-named) but operators should avoid topics that naturally
+slugify to `something-12` style names if precise round-trip parsing
+matters.
 """
 from __future__ import annotations
 
@@ -52,9 +61,7 @@ def resolve_collision(target_dir: Path, desired_name: str) -> str:
     if not (target_dir / desired_name).exists():
         return desired_name
 
-    base, _, ext = desired_name.rpartition(".md")
-    base = base[:-1] if base.endswith("-") else base  # defensive
-
+    base = desired_name.removesuffix(".md")
     # Strip trailing collision suffix if present so we re-suffix cleanly.
     base = re.sub(r"-\d{2}$", "", base)
 

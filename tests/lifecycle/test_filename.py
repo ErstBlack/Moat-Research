@@ -87,3 +87,12 @@ def test_parse_with_collision_suffix():
     parsed = parse_filename("07221-20260507-foo-02.md")
     assert parsed.slug == "foo"
     assert parsed.collision_suffix == 2
+
+
+def test_parse_slug_ending_in_two_digits_is_ambiguous():
+    # Documented limitation: trailing -NN is always parsed as a collision
+    # suffix, even when the slug itself ends in two digits. Slugs like
+    # "model-42" round-trip incorrectly. See module docstring.
+    parsed = parse_filename("07221-20260507-model-42.md")
+    assert parsed.slug == "model"
+    assert parsed.collision_suffix == 42
