@@ -669,11 +669,6 @@ dependencies = [
     { name = "waybackpy" },
 ]
 
-[package.optional-dependencies]
-firecrawl = [
-    { name = "firecrawl-py" },
-]
-
 [package.dev-dependencies]
 dev = [
     { name = "pytest" },
@@ -681,11 +676,13 @@ dev = [
     { name = "pytest-mock" },
     { name = "ruff" },
 ]
+firecrawl = [
+    { name = "firecrawl-py" },
+]
 
 [package.metadata]
 requires-dist = [
-    { name = "anthropic", specifier = ">=0.40.0" },
-    { name = "firecrawl-py", marker = "extra == 'firecrawl'", specifier = ">=4.21.0" },
+    { name = "anthropic", specifier = ">=0.50.0" },
     { name = "httpx", specifier = ">=0.27.0" },
     { name = "jsonschema", specifier = ">=4.21.0" },
     { name = "pyyaml", specifier = ">=6.0" },
@@ -693,7 +690,6 @@ requires-dist = [
     { name = "typer", specifier = ">=0.12.0" },
     { name = "waybackpy", specifier = ">=3.0.6" },
 ]
-provides-extras = ["firecrawl"]
 
 [package.metadata.requires-dev]
 dev = [
@@ -702,6 +698,7 @@ dev = [
     { name = "pytest-mock", specifier = ">=3.12.0" },
     { name = "ruff", specifier = ">=0.5.0" },
 ]
+firecrawl = [{ name = "firecrawl-py", specifier = ">=4.21.0" }]
 
 [[package]]
 name = "multidict"
