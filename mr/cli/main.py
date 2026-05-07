@@ -8,6 +8,7 @@ from mr.cli import graduate as graduate_module
 from mr.cli import init as init_module
 from mr.cli import promote as promote_module
 from mr.cli import reject as reject_module
+from mr.cli import score as score_module
 from mr.cli import status as status_module
 from mr.synth.budget import BudgetExceeded
 
@@ -91,3 +92,17 @@ def graduate_cmd(
 ) -> None:
     """Emit hand-off prompt and move approved → graduated. Idempotent."""
     graduate_module.graduate(path, root or Path.cwd())
+
+
+@app.command(name="score")
+def score_cmd(
+    paths: list[Path] = typer.Argument(..., exists=True),  # noqa: B008
+    budget: float = typer.Option(3.0, "--budget"),  # noqa: B008
+    root: Path = typer.Option(None, "--root"),  # noqa: B008
+) -> None:
+    """Score candidates: route to scored/ or rejected/ with auto-reject."""
+    try:
+        score_module.score(paths, root or Path.cwd(), budget)
+    except BudgetExceeded as e:
+        typer.echo(f"budget aborted: {e}", err=True)
+        raise typer.Exit(code=2) from e
