@@ -11,6 +11,7 @@ from mr.cli import promote as promote_module
 from mr.cli import reject as reject_module
 from mr.cli import score as score_module
 from mr.cli import status as status_module
+from mr.cli.wishlist import wishlist_app
 from mr.synth.budget import BudgetExceeded
 
 app = typer.Typer(
@@ -18,6 +19,8 @@ app = typer.Typer(
     help="Discover, score, and graduate data-moat opportunities.",
     no_args_is_help=True,
 )
+
+app.add_typer(wishlist_app, name="wishlist")
 
 
 # Force multi-command mode: typer >= 0.12 collapses single-command apps,
