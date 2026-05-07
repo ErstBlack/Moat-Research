@@ -9,7 +9,7 @@ import errno
 import fcntl
 import os
 import time
-from collections.abc import Iterator
+from collections.abc import Generator
 from contextlib import contextmanager
 from pathlib import Path
 
@@ -19,7 +19,7 @@ class LockTimeout(Exception):  # noqa: N818
 
 
 @contextmanager
-def exclusive_lock(path: Path, timeout_seconds: float = 60.0) -> Iterator[None]:
+def exclusive_lock(path: Path, timeout_seconds: float = 60.0) -> Generator[None]:
     """Hold an exclusive flock on `path` for the duration of the with-block.
 
     Creates the parent directory and the lockfile if missing. Polls
@@ -28,9 +28,10 @@ def exclusive_lock(path: Path, timeout_seconds: float = 60.0) -> Iterator[None]:
     """
     path.parent.mkdir(parents=True, exist_ok=True)
 
-    fd = os.open(path, os.O_RDWR | os.O_CREAT, 0o644)
-    deadline = time.monotonic() + timeout_seconds
+    fd = -1
     try:
+        fd = os.open(path, os.O_RDWR | os.O_CREAT, 0o644)
+        deadline = time.monotonic() + timeout_seconds
         while True:
             try:
                 fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
@@ -45,7 +46,8 @@ def exclusive_lock(path: Path, timeout_seconds: float = 60.0) -> Iterator[None]:
                 time.sleep(0.1)
         yield
     finally:
-        try:
-            fcntl.flock(fd, fcntl.LOCK_UN)
-        finally:
-            os.close(fd)
+        if fd != -1:
+            try:
+                fcntl.flock(fd, fcntl.LOCK_UN)
+            finally:
+                os.close(fd)

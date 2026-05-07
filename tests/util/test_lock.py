@@ -34,9 +34,21 @@ def test_blocks_then_times_out(tmp_path: Path):
             pass
     finally:
         holder.join(timeout=5.0)
+        if holder.is_alive():
+            holder.terminate()
+            holder.join(timeout=2.0)
 
 
 def test_creates_parent_dir(tmp_path: Path):
     lockfile = tmp_path / "subdir" / ".lock"
     with exclusive_lock(lockfile, timeout_seconds=2.0):
         assert lockfile.parent.is_dir()
+
+
+def test_releases_on_exception_in_with_block(tmp_path: Path):
+    lockfile = tmp_path / ".lock"
+    with pytest.raises(RuntimeError, match="boom"), exclusive_lock(lockfile, timeout_seconds=2.0):
+        raise RuntimeError("boom")
+    # If the finally block ran correctly, we can re-acquire immediately.
+    with exclusive_lock(lockfile, timeout_seconds=2.0):
+        pass
