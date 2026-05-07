@@ -28,7 +28,7 @@ DISPOSITIONS: tuple[str, ...] = (
 )
 """seen.jsonl disposition values, parallel to LIFECYCLE_DIRS."""
 
-_DIR_TO_DISPOSITION = dict(zip(LIFECYCLE_DIRS, DISPOSITIONS, strict=True))
+_DIR_TO_DISPOSITION: dict[str, str] = dict(zip(LIFECYCLE_DIRS, DISPOSITIONS, strict=True))
 
 
 def disposition_for_dir(dirname: str) -> str:

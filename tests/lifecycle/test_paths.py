@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import pytest
+
 from mr.lifecycle.paths import (
     DISPOSITIONS,
     LIFECYCLE_DIRS,
@@ -54,3 +56,15 @@ def test_lifecycle_dirs_iter(tmp_path: Path):
     assert len(paths) == 5
     assert paths[0] == tmp_path / "candidates"
     assert paths[-1] == tmp_path / "graduated"
+
+
+def test_disposition_for_dir_invalid():
+    with pytest.raises(KeyError):
+        disposition_for_dir("nonexistent")
+
+
+def test_ensure_dirs_idempotent(tmp_path: Path):
+    """Calling ensure_dirs() twice must not raise (exist_ok=True is preserved)."""
+    layout = RepoLayout(tmp_path)
+    layout.ensure_dirs()
+    layout.ensure_dirs()  # second call must not raise
