@@ -57,3 +57,24 @@ def test_default_config_validates_against_its_own_schema():
     cfg = Config(**DEFAULT_CONFIG)
     assert cfg.weights["defensibility"] + cfg.weights["financial"] \
         + cfg.weights["implementation"] + cfg.weights["hardware"] == pytest.approx(1.0)
+
+
+def test_malformed_yaml_raises_config_error(tmp_path: Path):
+    p = tmp_path / "mr.yaml"
+    p.write_text("schema_version: 1\nweights: {unclosed\n")
+    with pytest.raises(ConfigError, match="invalid YAML"):
+        load_config(p)
+
+
+def test_yaml_list_root_raises_config_error(tmp_path: Path):
+    p = tmp_path / "mr.yaml"
+    p.write_text("- one\n- two\n")
+    with pytest.raises(ConfigError, match="must be a YAML mapping"):
+        load_config(p)
+
+
+def test_empty_yaml_file_returns_defaults(tmp_path: Path):
+    p = tmp_path / "mr.yaml"
+    p.write_text("")
+    cfg = load_config(p)
+    assert cfg.weights["defensibility"] == 0.35

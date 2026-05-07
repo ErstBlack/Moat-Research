@@ -38,6 +38,7 @@ packages = ["mr"]
 [tool.pyright]
 venvPath = "."
 venv = ".venv"
+pythonPath = ".venv/bin/python"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

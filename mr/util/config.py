@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass, field
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -110,6 +111,7 @@ def _deep_merge(base: dict, override: dict) -> dict:
     return out
 
 
+@lru_cache(maxsize=1)
 def _load_schema() -> dict:
     return json.loads(_SCHEMA_PATH.read_text())
 
@@ -122,24 +124,30 @@ def load_config(path: Path) -> Config:
     if not path.exists():
         return Config(**DEFAULT_CONFIG)
 
-    raw = yaml.safe_load(path.read_text()) or {}
+    try:
+        parsed = yaml.safe_load(path.read_text())
+    except yaml.YAMLError as e:
+        raise ConfigError(f"{path}: invalid YAML — {e}") from e
 
-    if not isinstance(raw, dict):
-        raise ConfigError(f"{path}: root must be a YAML mapping")
+    if parsed is None:
+        return Config(**DEFAULT_CONFIG)
+    if not isinstance(parsed, dict):
+        raise ConfigError(f"{path}: root must be a YAML mapping, got {type(parsed).__name__}")
 
-    schema_version = raw.get("schema_version", 1)
+    schema_version = parsed.get("schema_version", 1)
     if schema_version != 1:
         raise ConfigError(
             f"{path}: schema_version {schema_version} is not supported in v1. "
             f"Migration framework is deferred (see spec §15.2)."
         )
 
-    schema = _load_schema()
-    validator = Draft202012Validator(schema)
-    errors = sorted(validator.iter_errors(raw), key=lambda e: e.path)
+    validator = Draft202012Validator(_load_schema())
+    errors = sorted(validator.iter_errors(parsed), key=lambda e: e.path)
     if errors:
         first = errors[0]
-        raise ConfigError(f"{path}: {first.message} at {'/'.join(str(p) for p in first.path)}")
+        path_str = "/".join(str(p) for p in first.path)
+        location = f" at {path_str}" if path_str else ""
+        raise ConfigError(f"{path}: {first.message}{location}")
 
-    merged = _deep_merge(DEFAULT_CONFIG, raw)
+    merged = _deep_merge(DEFAULT_CONFIG, parsed)
     return Config(**merged)
