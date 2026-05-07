@@ -8,9 +8,10 @@ app = typer.Typer(
 )
 
 
+# Force multi-command mode: typer >= 0.12 collapses single-command apps,
+# which would route `mr version` to the root and reject the subcommand.
 @app.callback()
-def _callback() -> None:
-    """moat-research: discover, score, and graduate data-moat opportunities."""
+def _callback() -> None: ...
 
 
 @app.command()
