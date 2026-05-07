@@ -3,6 +3,7 @@ from pathlib import Path
 
 import typer
 
+from mr.cli import graduate as graduate_module
 from mr.cli import init as init_module
 from mr.cli import promote as promote_module
 from mr.cli import reject as reject_module
@@ -61,3 +62,12 @@ def reject_cmd(
 ) -> None:
     """Move a scored brief to rejected/ with optional reason."""
     reject_module.reject(path, root or Path.cwd(), reason)
+
+
+@app.command(name="graduate")
+def graduate_cmd(
+    path: Path = typer.Argument(..., exists=True, dir_okay=False),  # noqa: B008
+    root: Path = typer.Option(None, "--root"),  # noqa: B008
+) -> None:
+    """Emit hand-off prompt and move approved → graduated. Idempotent."""
+    graduate_module.graduate(path, root or Path.cwd())
