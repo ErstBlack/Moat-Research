@@ -8,7 +8,10 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import date
 
-from waybackpy import WaybackMachineCDXServerAPI
+try:
+    from waybackpy import WaybackMachineCDXServerAPI
+except ImportError:
+    WaybackMachineCDXServerAPI = None  # type: ignore[assignment,misc]
 
 
 @dataclass
