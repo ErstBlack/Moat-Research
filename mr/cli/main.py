@@ -4,6 +4,7 @@ from pathlib import Path
 import typer
 
 from mr.cli import discover as discover_module
+from mr.cli import gain as gain_module
 from mr.cli import graduate as graduate_module
 from mr.cli import init as init_module
 from mr.cli import promote as promote_module
@@ -92,6 +93,14 @@ def graduate_cmd(
 ) -> None:
     """Emit hand-off prompt and move approved → graduated. Idempotent."""
     graduate_module.graduate(path, root or Path.cwd())
+
+
+@app.command(name="gain")
+def gain_cmd(
+    root: Path = typer.Option(None, "--root"),  # noqa: B008
+) -> None:
+    """Summarize API spend from .moat-research/costs.jsonl."""
+    gain_module.gain(root or Path.cwd())
 
 
 @app.command(name="score")
