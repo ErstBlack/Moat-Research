@@ -4,6 +4,7 @@ from pathlib import Path
 import typer
 
 from mr.cli import init as init_module
+from mr.cli import status as status_module
 
 app = typer.Typer(
     name="mr",
@@ -31,3 +32,11 @@ def init_cmd(
 ) -> None:
     """Bootstrap dirs, mr.yaml, prompts/, WISHLIST.md (idempotent)."""
     init_module.init(root or Path.cwd())
+
+
+@app.command(name="status")
+def status_cmd(
+    root: Path = typer.Argument(None, help="Repo root"),  # noqa: B008
+) -> None:
+    """Show lifecycle counts and operator-relevant warnings."""
+    status_module.status(root or Path.cwd())
