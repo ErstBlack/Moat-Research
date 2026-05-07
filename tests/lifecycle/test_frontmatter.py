@@ -101,7 +101,7 @@ def test_extract_thesis_first_sentence(tmp_path: Path):
     assert sentence == "NOTAMs expire and are not archived by the FAA."
 
 
-def test_source_set_dedups_by_host(tmp_path: Path):
+def test_source_set_dedups_by_host():
     sources = [
         {"url": "https://example.com/a", "role": "primary"},
         {"url": "https://example.com/b", "role": "corroborating"},
