@@ -1,0 +1,3248 @@
+{
+  "version": 1,
+  "created_at": "2026-05-07T03:32:34.963Z",
+  "lifetime": {
+    "total_tokens_estimated": 1541718,
+    "total_reads": 54,
+    "total_writes": 518,
+    "total_sessions": 5,
+    "anatomy_hits": 54,
+    "anatomy_misses": 0,
+    "repeated_reads_blocked": 67,
+    "estimated_savings_vs_bare_cli": 870848
+  },
+  "sessions": [
+    {
+      "id": "session-2026-05-07-2332",
+      "started": "2026-05-07T03:32:40.635Z",
+      "ended": "2026-05-07T03:46:07.671Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 1788,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 571,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 6692,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/index.json",
+          "tokens_estimated": 106762,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 115813,
+        "output_tokens_estimated": 0,
+        "reads_count": 4,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-05-07-2348",
+      "started": "2026-05-07T03:48:40.924Z",
+      "ended": "2026-05-07T04:10:31.347Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 1788,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 571,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 6692,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/index.json",
+          "tokens_estimated": 106762,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-04-moat-research-implementation.md",
+          "tokens_estimated": 24360,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/.claude/settings.json",
+          "tokens_estimated": 441,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 140614,
+        "output_tokens_estimated": 0,
+        "reads_count": 6,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 6
+      }
+    },
+    {
+      "id": "session-2026-05-07-2348",
+      "started": "2026-05-07T03:48:40.924Z",
+      "ended": "2026-05-07T04:13:58.538Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 1788,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 571,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 6692,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/index.json",
+          "tokens_estimated": 106762,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-04-moat-research-implementation.md",
+          "tokens_estimated": 24360,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/.claude/settings.json",
+          "tokens_estimated": 441,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 140614,
+        "output_tokens_estimated": 0,
+        "reads_count": 6,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 6
+      }
+    },
+    {
+      "id": "session-2026-05-07-2348",
+      "started": "2026-05-07T03:48:40.924Z",
+      "ended": "2026-05-07T04:20:28.596Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 1788,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 571,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 6692,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/index.json",
+          "tokens_estimated": 106762,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-04-moat-research-implementation.md",
+          "tokens_estimated": 24360,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/.claude/settings.json",
+          "tokens_estimated": 441,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 140614,
+        "output_tokens_estimated": 0,
+        "reads_count": 6,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 6
+      }
+    },
+    {
+      "id": "session-2026-05-07-2348",
+      "started": "2026-05-07T03:48:40.924Z",
+      "ended": "2026-05-07T04:25:54.095Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 1788,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 571,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 6692,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/index.json",
+          "tokens_estimated": 106762,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-04-moat-research-implementation.md",
+          "tokens_estimated": 24360,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/.claude/settings.json",
+          "tokens_estimated": 441,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 140614,
+        "output_tokens_estimated": 0,
+        "reads_count": 6,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 6
+      }
+    },
+    {
+      "id": "session-2026-05-07-2348",
+      "started": "2026-05-07T03:48:40.924Z",
+      "ended": "2026-05-07T04:26:50.267Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 1788,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 571,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 6692,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/index.json",
+          "tokens_estimated": 106762,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-04-moat-research-implementation.md",
+          "tokens_estimated": 24360,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/.claude/settings.json",
+          "tokens_estimated": 441,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 140614,
+        "output_tokens_estimated": 0,
+        "reads_count": 6,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 6
+      }
+    },
+    {
+      "id": "session-2026-05-07-2348",
+      "started": "2026-05-07T03:48:40.924Z",
+      "ended": "2026-05-07T04:31:54.188Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 1788,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 571,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 6692,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/index.json",
+          "tokens_estimated": 106762,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-04-moat-research-implementation.md",
+          "tokens_estimated": 24360,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/.claude/settings.json",
+          "tokens_estimated": 441,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 140614,
+        "output_tokens_estimated": 0,
+        "reads_count": 6,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 6
+      }
+    },
+    {
+      "id": "session-2026-05-07-2348",
+      "started": "2026-05-07T03:48:40.924Z",
+      "ended": "2026-05-07T04:36:38.005Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/FOCUS.md",
+          "tokens_estimated": 1788,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/WISHLIST.md",
+          "tokens_estimated": 571,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-04-moat-research-design.md",
+          "tokens_estimated": 6692,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/briefs/index.json",
+          "tokens_estimated": 106762,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-04-moat-research-implementation.md",
+          "tokens_estimated": 24360,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/runner/moat-research/.claude/settings.json",
+          "tokens_estimated": 441,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 140614,
+        "output_tokens_estimated": 0,
+        "reads_count": 6,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 6
+      }
+    },
+    {
+      "id": "session-2026-05-07-0042",
+      "started": "2026-05-07T04:42:17.236Z",
+      "ended": "2026-05-07T04:55:09.899Z",
+      "reads": [],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 5060,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 489,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 5549,
+        "reads_count": 0,
+        "writes_count": 2,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-05-07-0042",
+      "started": "2026-05-07T04:42:17.236Z",
+      "ended": "2026-05-07T05:11:13.039Z",
+      "reads": [],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 5060,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 489,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 918,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 12,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 6,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 7,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 132,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 100,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 78,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 90,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 6892,
+        "reads_count": 0,
+        "writes_count": 10,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-05-07-0042",
+      "started": "2026-05-07T04:42:17.236Z",
+      "ended": "2026-05-07T05:21:21.764Z",
+      "reads": [],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 5060,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 489,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 918,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 12,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 6,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 7,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 132,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 100,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 78,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 90,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 1442,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 164,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 138,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 45,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 120,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 8801,
+        "reads_count": 0,
+        "writes_count": 15,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-05-07-0042",
+      "started": "2026-05-07T04:42:17.236Z",
+      "ended": "2026-05-07T05:28:31.153Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 6267,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 5060,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 489,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 918,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 12,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 6,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 7,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 132,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 100,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 78,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 90,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 1442,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 164,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 138,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 45,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 120,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 6267,
+        "output_tokens_estimated": 8801,
+        "reads_count": 1,
+        "writes_count": 15,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-07-0042",
+      "started": "2026-05-07T04:42:17.236Z",
+      "ended": "2026-05-07T05:51:57.741Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 7979,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 5060,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 489,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 918,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 12,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 6,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 7,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 132,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 100,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 78,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 90,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 1442,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 164,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 138,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 45,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 120,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 54,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 126,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 125,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 313,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 220,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 554,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 442,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 167,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 614,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 334,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 422,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 74,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 43,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 581,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 484,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 564,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 262,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 645,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 120,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 432,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 117,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 375,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 7979,
+        "output_tokens_estimated": 15915,
+        "reads_count": 1,
+        "writes_count": 38,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-07-0042",
+      "started": "2026-05-07T04:42:17.236Z",
+      "ended": "2026-05-07T05:55:07.501Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 7979,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 5060,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 489,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 918,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 12,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 6,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 7,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 132,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 100,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 78,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 90,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 1442,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 164,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 138,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 45,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 120,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 54,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 126,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 125,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 313,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 220,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 554,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 442,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 167,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 614,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 334,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 422,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 74,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 43,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 581,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 484,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 564,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 262,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 645,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 120,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 432,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 117,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 375,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 7979,
+        "output_tokens_estimated": 15915,
+        "reads_count": 1,
+        "writes_count": 38,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-07-0042",
+      "started": "2026-05-07T04:42:17.236Z",
+      "ended": "2026-05-07T06:22:49.914Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 12986,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 5060,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 489,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 918,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 12,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 6,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 7,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 132,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 100,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 78,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 90,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 1442,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 164,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 138,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 45,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 120,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 54,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 126,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 125,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 313,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 220,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 554,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 442,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 167,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 614,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 334,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 422,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 74,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 43,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 581,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 484,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 564,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 262,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 645,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 120,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 432,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 117,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 375,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 190,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 61,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 134,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 404,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 629,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 812,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 128,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 176,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 186,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 182,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 132,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 238,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 277,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 196,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 273,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 281,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 390,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 266,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 244,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 352,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 192,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 305,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 389,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 195,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 341,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 109,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 248,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 131,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 535,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 146,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 322,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 177,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 240,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 92,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 129,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 12986,
+        "output_tokens_estimated": 25063,
+        "reads_count": 1,
+        "writes_count": 74,
+        "repeated_reads_blocked": 13,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-07-0042",
+      "started": "2026-05-07T04:42:17.236Z",
+      "ended": "2026-05-07T06:28:13.997Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 12986,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 5060,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 489,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 918,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 12,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 6,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 7,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 132,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 100,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 78,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 90,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 1442,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 164,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 138,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 45,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 120,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 54,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 126,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 125,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 313,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 220,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 554,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 442,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 167,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 614,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 334,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 422,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 74,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 43,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 581,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 484,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 564,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 262,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 645,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 120,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 432,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 117,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 375,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 190,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 61,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 134,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 404,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 629,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 812,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 128,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 176,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 186,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 182,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 132,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 238,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 277,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 196,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 273,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 281,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 390,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 266,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 244,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 352,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 192,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 305,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 389,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 195,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 341,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 109,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 248,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 131,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 535,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 146,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 322,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 177,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 240,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 92,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 129,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 12986,
+        "output_tokens_estimated": 25063,
+        "reads_count": 1,
+        "writes_count": 74,
+        "repeated_reads_blocked": 13,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-07-0042",
+      "started": "2026-05-07T04:42:17.236Z",
+      "ended": "2026-05-07T06:30:03.948Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 12986,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 5060,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 489,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 918,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 12,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 6,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 7,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 132,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 100,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 78,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 90,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 1442,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 164,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 138,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 45,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 120,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 54,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 126,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 125,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 313,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 220,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 554,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 442,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 167,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 614,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 334,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 422,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 74,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 43,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 581,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 484,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 564,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 262,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 645,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 120,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 432,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 117,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 375,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 190,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 61,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 134,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 404,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 629,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 812,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 128,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 176,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 186,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 182,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 132,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 238,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 277,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 196,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 273,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 281,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 390,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 266,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 244,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 352,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 192,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 305,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 389,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 195,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 341,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 109,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 248,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 131,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 535,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 146,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 322,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 177,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 240,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 92,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 129,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 30,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 218,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 12986,
+        "output_tokens_estimated": 25311,
+        "reads_count": 1,
+        "writes_count": 76,
+        "repeated_reads_blocked": 13,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-07-0042",
+      "started": "2026-05-07T04:42:17.236Z",
+      "ended": "2026-05-07T07:04:39.556Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 12986,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 5060,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 489,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 918,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 12,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 6,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 7,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 132,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 100,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 78,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 90,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 1442,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 164,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 138,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 45,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 120,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 54,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 126,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 125,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 313,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 220,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 554,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 442,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 167,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 614,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 334,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 422,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 74,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 43,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 581,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 484,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 564,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 262,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 645,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 120,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 432,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 117,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 375,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 190,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 61,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 134,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 404,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 629,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 812,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 128,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 176,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 186,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 182,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 132,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 238,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 277,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 196,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 273,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 281,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 390,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 266,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 244,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 352,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 192,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 305,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 389,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 195,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 341,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 109,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 248,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 131,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 535,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 146,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 322,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 177,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 240,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 92,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 129,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 30,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 218,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 2285,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 6604,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 7950,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 3484,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 7445,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 6302,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 14093,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 6840,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 3725,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 7155,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 9938,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 7439,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 12986,
+        "output_tokens_estimated": 108571,
+        "reads_count": 1,
+        "writes_count": 88,
+        "repeated_reads_blocked": 13,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-07-0042",
+      "started": "2026-05-07T04:42:17.236Z",
+      "ended": "2026-05-07T07:06:29.960Z",
+      "reads": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 12986,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 5060,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 489,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 918,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 12,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 6,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 7,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 132,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 100,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 78,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 90,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 1442,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 164,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 138,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 45,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 120,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 54,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 126,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 125,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 313,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 220,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 554,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 442,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 167,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 614,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 334,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 422,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 74,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 43,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 581,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 484,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 564,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 262,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 645,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 120,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 432,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 117,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 375,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 190,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 61,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 134,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 404,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 629,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 812,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 128,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 176,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 186,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 182,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 132,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 238,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 277,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 196,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 273,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 281,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 390,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 266,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 244,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 352,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 192,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 305,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 389,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 195,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 341,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 109,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 248,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 131,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 535,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 146,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 322,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 177,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 240,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 92,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 129,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 30,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/specs/2026-05-07-moat-research-design.md",
+          "tokens_estimated": 218,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 2285,
+          "action": "create"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 6604,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 7950,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 3484,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 7445,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 6302,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 14093,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 6840,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 3725,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 7155,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 9938,
+          "action": "edit"
+        },
+        {
+          "file": "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md",
+          "tokens_estimated": 7439,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 12986,
+        "output_tokens_estimated": 108571,
+        "reads_count": 1,
+        "writes_count": 88,
+        "repeated_reads_blocked": 13,
+        "anatomy_lookups": 1
+      }
+    }
+  ],
+  "daemon_usage": [],
+  "waste_flags": [],
+  "optimization_report": {
+    "last_generated": null,
+    "patterns": []
+  }
+}

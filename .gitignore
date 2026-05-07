@@ -27,3 +27,10 @@ signals/digests/*
 
 # Generated
 briefs/index.json
+
+# moat-research runtime state
+/.moat-research/
+
+# Build artifacts
+dist/
+build/

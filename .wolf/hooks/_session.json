@@ -1,0 +1,47 @@
+{
+  "session_id": "session-2026-05-07-1443",
+  "started": "2026-05-07T18:43:38.140Z",
+  "files_read": {
+    "/home/runner/.claude/plugins/cache/claude-plugins-official/superpowers/5.1.0/skills/subagent-driven-development/implementer-prompt.md": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-05-07T18:45:20.530Z"
+    },
+    "/home/runner/.claude/plugins/cache/claude-plugins-official/superpowers/5.1.0/skills/subagent-driven-development/spec-reviewer-prompt.md": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-05-07T18:45:21.175Z"
+    },
+    "/home/runner/.claude/plugins/cache/claude-plugins-official/superpowers/5.1.0/skills/subagent-driven-development/code-quality-reviewer-prompt.md": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-05-07T18:45:21.784Z"
+    },
+    "/home/runner/moat-research/docs/superpowers/plans/2026-05-07-moat-research-implementation.md": {
+      "count": 2,
+      "tokens": 72771,
+      "first_read": "2026-05-07T18:46:06.442Z"
+    },
+    "/home/runner/moat-research/.gitignore": {
+      "count": 1,
+      "tokens": 87,
+      "first_read": "2026-05-07T18:50:36.430Z"
+    }
+  },
+  "files_written": [
+    {
+      "file": "/home/runner/moat-research/.gitignore",
+      "action": "edit",
+      "tokens": 32,
+      "at": "2026-05-07T18:51:10.803Z"
+    }
+  ],
+  "edit_counts": {
+    ".gitignore": 1
+  },
+  "anatomy_hits": 2,
+  "anatomy_misses": 3,
+  "repeated_reads_warned": 1,
+  "cerebrum_warnings": 0,
+  "stop_count": 0
+}
