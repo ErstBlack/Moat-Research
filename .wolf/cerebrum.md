@@ -26,6 +26,9 @@
 
 ## Do-Not-Repeat
 
+- [2026-05-07] **Don't assert float weight sums with `== 1.0` using sequential `+`.** `0.35 + 0.30 + 0.20 + 0.15` is `0.9999...` in IEEE 754. Use `pytest.approx(1.0)` in tests. `sum([...]) == 1.0` happens to be True due to different evaluation order, but sequential addition is not.
+
+
 <!-- Format: [YYYY-MM-DD] Description of what went wrong and what to do instead. -->
 
 - [2026-05-07] **Don't propose `defensibility = 0` as the auto-reject floor.** The user is strict — anything below 5 falls apart in a focused competitor quarter. Encode the threshold as `defensibility ≤ 4 → auto-reject`, not `= 0`.

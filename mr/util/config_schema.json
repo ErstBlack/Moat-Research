@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version"],
+  "properties": {
+    "schema_version": {"type": "integer", "const": 1},
+    "models": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "default": {"type": "string"},
+        "bulk": {"type": "string"},
+        "per_command": {"type": "object", "additionalProperties": {"type": "string"}},
+        "pricing": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["input", "output", "cache_read", "cache_write"],
+            "properties": {
+              "input": {"type": "number"},
+              "output": {"type": "number"},
+              "cache_read": {"type": "number"},
+              "cache_write": {"type": "number"}
+            }
+          }
+        }
+      }
+    },
+    "weights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["defensibility", "financial", "implementation", "hardware"],
+      "properties": {
+        "defensibility": {"type": "number", "minimum": 0, "maximum": 1},
+        "financial": {"type": "number", "minimum": 0, "maximum": 1},
+        "implementation": {"type": "number", "minimum": 0, "maximum": 1},
+        "hardware": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "disqualifiers": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "defensibility_min": {"type": "integer"},
+        "any_axis_zero": {"type": "boolean"},
+        "unrestricted_archive_min_snapshots": {"type": "integer"},
+        "unrestricted_archive_min_years": {"type": "integer"}
+      }
+    },
+    "lanes": {"type": "array", "items": {"type": "string"}},
+    "niche_aliases": {
+      "type": "object",
+      "additionalProperties": {"type": "array", "items": {"type": "string"}}
+    },
+    "interests": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "affirm": {"type": "array", "items": {"type": "string"}},
+        "avoid": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "hardware": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cpu": {"type": "string"},
+        "ram_gb": {"type": "integer"},
+        "gpu": {"type": "string"},
+        "storage_tb": {"type": "integer"},
+        "network": {"type": "string"}
+      }
+    },
+    "budgets": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "default_per_invocation_usd": {
+          "type": "object",
+          "additionalProperties": {"type": "number"}
+        },
+        "max_tool_turns": {
+          "type": "object",
+          "additionalProperties": {"type": "integer"}
+        },
+        "max_tokens_per_turn": {"type": "integer"},
+        "max_wallclock_seconds": {"type": "integer"},
+        "max_verification_calls": {"type": "integer"},
+        "base_input_tokens": {"type": "integer"},
+        "avg_tool_result_tokens": {"type": "integer"}
+      }
+    },
+    "status": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "stale_approved_days": {"type": "integer"},
+        "dead_link_window_days": {"type": "integer"}
+      }
+    }
+  }
+}

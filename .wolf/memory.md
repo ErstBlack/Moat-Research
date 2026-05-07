@@ -152,3 +152,12 @@
 | 15:16 | Created tests/conftest.py | — | ~71 |
 | 15:18 | Edited mr/cli/main.py | modified _callback() | ~129 |
 | 15:19 | Task 3 complete: TDD cycle (red→green), mr/ skeleton, tests/, `uv run mr version` → "mr 0.1.0" | mr/, tests/ | committed | ~600 |
+| 15:23 | Edited mr/cli/main.py | modified _callback() | ~54 |
+| 15:23 | Edited pyproject.toml | 5→5 lines | ~48 |
+| 15:23 | Edited pyproject.toml | expanded (+7 lines) | ~38 |
+| 15:25 | Created tests/util/__init__.py | — | ~0 |
+| 15:26 | Created tests/util/test_config.py | — | ~449 |
+| 15:26 | Created mr/util/config_schema.json | — | ~973 |
+| 15:26 | Created mr/util/config.py | — | ~1294 |
+| 15:27 | Edited tests/util/test_config.py | modified test_default_config_validates_against_its_own_schema() | ~88 |
+| 15:28 | Task 4 complete: mr.yaml loader with JSON-Schema validation; 5/5 tests pass; ValidationError import removed (F401); pytest.approx fix for float weight sum | mr/util/config.py, mr/util/config_schema.json, tests/util/test_config.py, tests/util/__init__.py | committed | ~800 |
