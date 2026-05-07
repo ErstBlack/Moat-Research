@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 from mr.dedup.seen import SeenEntry
-from mr.tools.seen_lookup import SeenLookupResult, seen_lookup  # noqa: F401
+from mr.tools.seen_lookup import seen_lookup
 
 
 def _write_seen(path: Path, entries: list[SeenEntry]) -> None:
