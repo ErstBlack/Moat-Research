@@ -37,6 +37,6 @@ def test_wishlist_expand_via_cli(mock_expand, tmp_path: Path, monkeypatch):
     monkeypatch.setenv("ANTHROPIC_API_KEY", "test")
     runner.invoke(app, ["init", str(tmp_path)])
     mock_expand.return_value = "(no proposals)"
-    result = runner.invoke(app, ["wishlist", "expand", "--seed", "--budget", "0.5"])
+    result = runner.invoke(app, ["wishlist", "expand", "--seed"])
     assert result.exit_code == 0
     mock_expand.assert_called_once()
