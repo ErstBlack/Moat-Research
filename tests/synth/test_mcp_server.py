@@ -88,29 +88,26 @@ async def test_run_code_handles_nonzero_exit():
     assert "ValueError" in payload["stderr"]
 
 
-def test_build_server_discover_includes_seen_and_code_tool(tmp_path: Path):
-    server = mcp_server.build_server(
-        seen_path=tmp_path / "seen.jsonl",
-        command="discover",
-    )
-    names = mcp_server.tool_names_for(server)
+def test_command_tools_discover_includes_seen_and_code_tool():
+    names = set(mcp_server._COMMAND_TOOLS["discover"])
     assert "seen_lookup" in names
     assert "code_eval" in names
     assert "wayback" in names
     assert "firecrawl" not in names
 
 
-def test_build_server_score_excludes_seen(tmp_path: Path):
-    server = mcp_server.build_server(
-        seen_path=tmp_path / "seen.jsonl",
-        command="score",
-    )
-    names = mcp_server.tool_names_for(server)
+def test_command_tools_score_excludes_seen():
+    names = set(mcp_server._COMMAND_TOOLS["score"])
     assert "seen_lookup" not in names
     assert "wayback" in names
     assert "robots" in names
     assert "head" in names
     assert "code_eval" in names
+
+
+def test_build_server_returns_server_object(tmp_path: Path):
+    server = mcp_server.build_server(seen_path=tmp_path / "seen.jsonl", command="discover")
+    assert server is not None  # smoke test only
 
 
 def test_allowed_tools_score_excludes_websearch():

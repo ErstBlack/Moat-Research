@@ -11,7 +11,6 @@ inner function is decorated inside the factory so ``seen_path`` is captured.
 """
 from __future__ import annotations
 
-import asyncio
 import json
 import os
 import resource
@@ -21,7 +20,6 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
-import mcp.types as _mcp_types
 from claude_agent_sdk import create_sdk_mcp_server, tool
 
 
@@ -186,34 +184,6 @@ def build_server(
         elif name == "code_eval":
             tools_list.append(_run_code)
     return create_sdk_mcp_server(name="moat", version="1.0.0", tools=tools_list)
-
-
-async def _collect_tool_names(server) -> set[str]:
-    """Async helper: call the MCP server's list_tools handler and return names.
-
-    SDK server is a McpSdkServerConfig dict with 'instance' key pointing to an
-    mcp.server.lowlevel.server.Server. The ListToolsRequest handler returns a
-    ServerResult whose .root is a ListToolsResult with a .tools list.
-    """
-    instance = server["instance"]
-    handler = instance.request_handlers.get(_mcp_types.ListToolsRequest)
-    if not handler:
-        return set()
-    result = await handler(None)
-    # result is ServerResult; .root is ListToolsResult with .tools
-    tools_list = getattr(result.root, "tools", [])
-    return {t.name for t in tools_list}
-
-
-def tool_names_for(server) -> set[str]:
-    """Extract registered tool names from an SDK MCP server.
-
-    The SDK MCP server (McpSdkServerConfig) is a dict with an 'instance' key
-    holding an mcp.server.lowlevel.server.Server. Tool names are retrieved by
-    calling the ListToolsRequest handler; result.root.tools holds Tool objects
-    with .name attributes.
-    """
-    return asyncio.run(_collect_tool_names(server))
 
 
 MCP_TOOL_PREFIX = "mcp__moat__"
