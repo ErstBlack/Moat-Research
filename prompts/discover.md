@@ -101,4 +101,4 @@ A moat is a structural barrier that cannot be overcome by spending money, acquir
 
 ## Tool use
 
-You have access to `web_search` (broad scan), `web_fetch` (targeted retrieval with dynamic filtering), `code_execution` (free Python sandbox when bundled with web tools — use it for utilization estimates and dedup-against-source_set arithmetic), `wayback_check` (archive evidence), `seen_lookup` (corpus dedup), and optionally `firecrawl_scrape` (fallback for JS-heavy pages). Use `code_execution` aggressively — it's free.
+You have access to `web_search` (broad scan), `web_fetch` (targeted retrieval with dynamic filtering), `code_execution` (free Python sandbox when bundled with web tools — use it for utilization estimates and dedup-against-source_set arithmetic), `wayback_check` (archive evidence), and `seen_lookup` (corpus dedup). Use `code_execution` aggressively — it's free.

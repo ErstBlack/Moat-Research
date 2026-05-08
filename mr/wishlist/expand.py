@@ -20,7 +20,6 @@ from mr.synth.client import SynthClient, build_cached_blocks
 from mr.synth.dispatch import dispatch_tool_call
 from mr.synth.prompts import load_prompt
 from mr.synth.tools import tools_for_command
-from mr.tools.firecrawl import is_firecrawl_available
 from mr.util.config import Config
 from mr.util.costs import CostRecord, append_cost
 
@@ -67,7 +66,7 @@ def expand_wishlist(
         budget_usd=budget_usd, costs_path=layout.costs_path,
     )
 
-    tools = tools_for_command("wishlist_expand", firecrawl_available=is_firecrawl_available())
+    tools = tools_for_command("wishlist_expand")
 
     user_msg = (
         "Propose 3-7 new WISHLIST sources following the diversity bias. "

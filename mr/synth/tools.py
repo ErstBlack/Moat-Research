@@ -80,20 +80,6 @@ CUSTOM_TOOL_DEFS: dict[str, dict[str, Any]] = {
             },
         },
     },
-    "firecrawl_scrape": {
-        "name": "firecrawl_scrape",
-        "description": (
-            "Fallback for JS-rendered pages. Returns {markdown, url}. "
-            "Only available when MR_FIRECRAWL_API_KEY is set."
-        ),
-        "input_schema": {
-            "type": "object",
-            "required": ["url"],
-            "properties": {
-                "url": {"type": "string"},
-            },
-        },
-    },
 }
 
 # Per-command tool inclusion (§8.2)
@@ -104,7 +90,6 @@ _COMMAND_TOOLS: dict[str, list[str]] = {
         "code_execution",
         "seen_lookup",
         "wayback_check",
-        "firecrawl_scrape",
     ],
     "score": [
         "web_fetch",
@@ -118,17 +103,14 @@ _COMMAND_TOOLS: dict[str, list[str]] = {
         "web_fetch",
         "code_execution",
         "seen_lookup",
-        "firecrawl_scrape",
     ],
 }
 
 
-def tools_for_command(command: str, firecrawl_available: bool) -> list[dict[str, Any]]:
+def tools_for_command(command: str) -> list[dict[str, Any]]:
     """Return the tool definitions list for `command`, in API request shape."""
     out: list[dict[str, Any]] = []
     for name in _COMMAND_TOOLS.get(command, []):
-        if name == "firecrawl_scrape" and not firecrawl_available:
-            continue
         if name in NATIVE_TOOL_DEFS:
             out.append(NATIVE_TOOL_DEFS[name])
         elif name in CUSTOM_TOOL_DEFS:

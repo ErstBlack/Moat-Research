@@ -120,7 +120,7 @@ def run_score_loop(  # noqa: PLR0913
         cfg=cfg, command="score", model=client.model,
         budget_usd=budget, costs_path=layout.costs_path,
     )
-    tools = tools_for_command("score", firecrawl_available=False)
+    tools = tools_for_command("score")
 
     user_msg = (
         "Score the following candidate brief on the 4-axis rubric (defensibility, financial, "

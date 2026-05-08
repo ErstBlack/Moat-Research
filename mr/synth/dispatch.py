@@ -10,11 +10,6 @@ from dataclasses import asdict
 from pathlib import Path
 from typing import Any
 
-from mr.tools.firecrawl import (
-    FirecrawlNotConfiguredError,
-    firecrawl_scrape,
-    is_firecrawl_available,
-)
 from mr.tools.head import head_check
 from mr.tools.robots import robots_check
 from mr.tools.seen_lookup import seen_lookup
@@ -63,15 +58,6 @@ def dispatch_tool_call(
                 "last_modified": r.last_modified.isoformat() if r.last_modified else None,
                 "error": r.error,
             }
-
-        if name == "firecrawl_scrape":
-            if not is_firecrawl_available():
-                return {"error": "firecrawl unavailable: MR_FIRECRAWL_API_KEY not set"}
-            try:
-                r = firecrawl_scrape(args["url"])
-                return {"markdown": r.markdown, "url": r.url}
-            except FirecrawlNotConfiguredError as e:
-                return {"error": str(e)}
 
         return {"error": f"unknown tool: {name}"}
     except Exception as e:  # noqa: BLE001

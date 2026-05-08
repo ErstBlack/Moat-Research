@@ -31,4 +31,4 @@ dead_link: false
 
 ## Tool use
 
-You have `web_search`, `web_fetch`, `code_execution` (free when bundled), `seen_lookup`, and optionally `firecrawl_scrape`. Use `code_execution` aggressively for dedup arithmetic against the seen-summary frequency table.
+You have `web_search`, `web_fetch`, `code_execution` (free when bundled), and `seen_lookup`. Use `code_execution` aggressively for dedup arithmetic against the seen-summary frequency table.

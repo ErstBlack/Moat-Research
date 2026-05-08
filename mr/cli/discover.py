@@ -20,7 +20,6 @@ from mr.synth.client import SynthClient, build_cached_blocks
 from mr.synth.dispatch import dispatch_tool_call
 from mr.synth.prompts import load_prompt
 from mr.synth.tools import tools_for_command
-from mr.tools.firecrawl import is_firecrawl_available
 from mr.util.config import Config, load_config
 from mr.util.costs import CostRecord, append_cost
 from mr.util.lock import exclusive_lock
@@ -72,7 +71,7 @@ def run_discover_loop(
         cfg=cfg, command="discover", model=client.model,
         budget_usd=budget, costs_path=layout.costs_path,
     )
-    tools = tools_for_command("discover", firecrawl_available=is_firecrawl_available())
+    tools = tools_for_command("discover")
 
     lane_clause = (
         f"Generate exactly {n} candidates in lane `{lane}`."

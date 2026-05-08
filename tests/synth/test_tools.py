@@ -22,7 +22,7 @@ def test_custom_seen_lookup_schema():
 
 
 def test_tools_for_discover_has_seen_lookup_search_fetch_code_wayback():
-    tools = tools_for_command("discover", firecrawl_available=False)
+    tools = tools_for_command("discover")
     names = {t.get("name", t.get("type")) for t in tools}
     assert "web_search_20260209" in names
     assert "web_fetch_20260209" in names
@@ -33,7 +33,7 @@ def test_tools_for_discover_has_seen_lookup_search_fetch_code_wayback():
 
 
 def test_tools_for_score_excludes_web_search():
-    tools = tools_for_command("score", firecrawl_available=False)
+    tools = tools_for_command("score")
     names = {t.get("name", t.get("type")) for t in tools}
     assert "web_search_20260209" not in names
     assert "web_fetch_20260209" in names
@@ -43,13 +43,7 @@ def test_tools_for_score_excludes_web_search():
 
 
 def test_tools_for_wishlist_expand_includes_seen_lookup():
-    tools = tools_for_command("wishlist_expand", firecrawl_available=False)
+    tools = tools_for_command("wishlist_expand")
     names = {t.get("name", t.get("type")) for t in tools}
     assert "seen_lookup" in names
     assert "web_search_20260209" in names
-
-
-def test_firecrawl_only_when_available():
-    tools_with = tools_for_command("discover", firecrawl_available=True)
-    names_with = {t.get("name", t.get("type")) for t in tools_with}
-    assert "firecrawl_scrape" in names_with
