@@ -61,3 +61,28 @@ async def test_head_returns_status(mock_head):
     payload = _text_payload(result)
     assert payload["status"] == 200
     assert payload["content_type"] == "text/html"
+
+
+@pytest.mark.anyio
+async def test_run_code_simple():
+    result = await mcp_server._run_code.handler({"code": "print(1 + 1)"})
+    payload = _text_payload(result)
+    assert payload["exit_code"] == 0
+    assert payload["stdout"].strip() == "2"
+
+
+@pytest.mark.anyio
+async def test_run_code_handles_timeout():
+    result = await mcp_server._run_code.handler(
+        {"code": "import time; time.sleep(10)", "timeout_seconds": 1},
+    )
+    payload = _text_payload(result)
+    assert payload.get("error") == "timeout"
+
+
+@pytest.mark.anyio
+async def test_run_code_handles_nonzero_exit():
+    result = await mcp_server._run_code.handler({"code": "raise ValueError('boom')"})
+    payload = _text_payload(result)
+    assert payload["exit_code"] != 0
+    assert "ValueError" in payload["stderr"]
