@@ -4,7 +4,7 @@
 
 **Goal:** Port the `mr` CLI from the metered Anthropic API to the Claude Max subscription via the Claude Agent SDK, while preserving all command behavior and trimming the financial cost-tracking layer.
 
-**Architecture:** typer commands stay sync; each wraps a single `asyncio.run(session.run(...))` call. `session.run` invokes `claude_agent_sdk.query()` with an in-process MCP server that exposes the project's six custom tools (`seen_lookup`, `wayback`, `robots`, `head`, `firecrawl`, `code_eval`) plus Claude Code's `WebSearch`/`WebFetch`. The SDK owns the tool-use loop. Wallclock is enforced with `asyncio.wait_for`; turn cap is the SDK's `max_turns` option.
+**Architecture:** typer commands stay sync; each wraps a single `asyncio.run(session.run(...))` call. `session.run` invokes `claude_agent_sdk.query()` with an in-process MCP server that exposes the project's five custom tools (`seen_lookup`, `wayback`, `robots`, `head`, `code_eval`) plus Claude Code's `WebSearch`/`WebFetch`. The SDK owns the tool-use loop. Wallclock is enforced with `asyncio.wait_for`; turn cap is the SDK's `max_turns` option.
 
 **Tech Stack:** Python 3.12, `claude-agent-sdk`, typer, pytest, pytest-anyio, pyyaml, jsonschema, httpx.
 
@@ -87,7 +87,7 @@ rtk git commit -m "deps: add claude-agent-sdk and pytest-anyio"
 - Create: `mr/synth/mcp_server.py`
 - Create: `tests/synth/test_mcp_server.py`
 
-**Rationale:** Define the four delegating MCP tools that wrap existing domain functions (`seen_lookup`, `wayback`, `robots`, `head`). These have no new logic — just bridging from the SDK's `@tool` shape to the existing returns. Defer `code_eval` (Task 3) and `firecrawl` + `build_server` factory (Task 4).
+**Rationale:** Define the four delegating MCP tools that wrap existing domain functions (`seen_lookup`, `wayback`, `robots`, `head`). These have no new logic — just bridging from the SDK's `@tool` shape to the existing returns. Defer `code_eval` (Task 3) and `build_server` factory (Task 4).
 
 - [ ] **Step 1: Write failing test for `seen_lookup` tool**
 
@@ -429,34 +429,22 @@ rtk git commit -m "feat(synth): code_eval MCP tool with subprocess sandbox"
 
 ---
 
-## Task 4: Add `firecrawl` tool and `build_server` factory
+## Task 4: Add `build_server` factory
 
 **Files:**
 - Modify: `mr/synth/mcp_server.py`
 - Modify: `tests/synth/test_mcp_server.py`
 
-**Rationale:** `firecrawl` is conditional on `MR_FIRECRAWL_API_KEY` (mirrors current `tools_for_command` behavior). The `build_server` factory composes tools per-command and exposes the SDK MCP server object. Tools-per-command map preserves the spec's `score`-excludes-`WebSearch` rule.
+**Rationale:** The `build_server` factory composes tools per-command and exposes the SDK MCP server object. Tools-per-command map preserves the spec's `score`-excludes-`WebSearch` rule.
 
-- [ ] **Step 1: Write failing tests for firecrawl + build_server**
+- [ ] **Step 1: Write failing tests for build_server**
 
 Append to `tests/synth/test_mcp_server.py`:
 
 ```python
-@pytest.mark.anyio
-@patch("mr.tools.firecrawl.scrape")
-@patch("mr.tools.firecrawl.is_firecrawl_available", return_value=True)
-async def test_firecrawl_when_available(_mock_avail, mock_scrape, tmp_path: Path):
-    mock_scrape.return_value = {"markdown": "# Hello", "url": "https://example.com/"}
-    fn = mcp_server._make_firecrawl()
-    result = await fn({"url": "https://example.com/"})
-    payload = _text_payload(result)
-    assert payload["markdown"] == "# Hello"
-
-
 def test_build_server_discover_includes_seen_and_code_tool(tmp_path: Path):
     server = mcp_server.build_server(
         seen_path=tmp_path / "seen.jsonl",
-        firecrawl_available=False,
         command="discover",
     )
     names = mcp_server.tool_names_for(server)
@@ -469,7 +457,6 @@ def test_build_server_discover_includes_seen_and_code_tool(tmp_path: Path):
 def test_build_server_score_excludes_seen(tmp_path: Path):
     server = mcp_server.build_server(
         seen_path=tmp_path / "seen.jsonl",
-        firecrawl_available=False,
         command="score",
     )
     names = mcp_server.tool_names_for(server)
@@ -478,60 +465,33 @@ def test_build_server_score_excludes_seen(tmp_path: Path):
     assert "robots" in names
     assert "head" in names
     assert "code_eval" in names
-
-
-def test_build_server_includes_firecrawl_when_available(tmp_path: Path):
-    server = mcp_server.build_server(
-        seen_path=tmp_path / "seen.jsonl",
-        firecrawl_available=True,
-        command="discover",
-    )
-    names = mcp_server.tool_names_for(server)
-    assert "firecrawl" in names
 ```
 
 - [ ] **Step 2: Run to verify they fail**
 
-Run: `rtk pytest tests/synth/test_mcp_server.py -k 'firecrawl or build_server' -v`
-Expected: 4 tests FAIL with `AttributeError`.
+Run: `rtk pytest tests/synth/test_mcp_server.py -k 'build_server' -v`
+Expected: 2 tests FAIL with `AttributeError`.
 
-- [ ] **Step 3: Implement `_make_firecrawl`, `build_server`, `tool_names_for`, `allowed_tools_for`**
+- [ ] **Step 3: Implement `build_server`, `tool_names_for`, `allowed_tools_for`**
 
 Append to `mr/synth/mcp_server.py`:
 
 ```python
-def _make_firecrawl() -> Callable:
-    @tool(
-        "firecrawl",
-        "Fallback for JS-rendered pages. Returns {markdown, url}. "
-        "Only registered when MR_FIRECRAWL_API_KEY is set.",
-        {"url": str},
-    )
-    async def firecrawl_tool(args: dict[str, Any]) -> dict[str, Any]:
-        from mr.tools.firecrawl import scrape
-        result = scrape(args["url"])
-        return _wrap_text(result)
-
-    return firecrawl_tool
-
-
 _COMMAND_TOOLS: dict[str, list[str]] = {
-    "discover": ["seen_lookup", "wayback", "code_eval", "firecrawl"],
+    "discover": ["seen_lookup", "wayback", "code_eval"],
     "score": ["wayback", "robots", "head", "code_eval"],
-    "wishlist_expand": ["seen_lookup", "code_eval", "firecrawl"],
+    "wishlist_expand": ["seen_lookup", "code_eval"],
 }
 
 
 def build_server(
     *,
     seen_path: Path,
-    firecrawl_available: bool,
     command: str,
 ):
     """Build an in-process MCP server with the tools needed for `command`.
 
-    `seen_path` is captured by closure for `seen_lookup`. `firecrawl` is
-    only registered when `firecrawl_available` is True.
+    `seen_path` is captured by closure for `seen_lookup`.
     """
     wanted = _COMMAND_TOOLS.get(command, [])
     tools_list: list[Callable] = []
@@ -546,8 +506,6 @@ def build_server(
             tools_list.append(_head)
         elif name == "code_eval":
             tools_list.append(_run_code)
-        elif name == "firecrawl" and firecrawl_available:
-            tools_list.append(_make_firecrawl())
     return create_sdk_mcp_server(name="moat", version="1.0.0", tools=tools_list)
 
 
@@ -570,7 +528,7 @@ def tool_names_for(server) -> set[str]:
 MCP_TOOL_PREFIX = "mcp__moat__"
 
 
-def allowed_tools_for(command: str, firecrawl_available: bool) -> list[str]:
+def allowed_tools_for(command: str) -> list[str]:
     """Whitelist passed as `allowed_tools` to ClaudeAgentOptions.
 
     Includes our MCP tools plus Claude Code's `WebFetch` (always) and
@@ -578,11 +536,7 @@ def allowed_tools_for(command: str, firecrawl_available: bool) -> list[str]:
     opportunities mid-evaluation, per prompts/score.md).
     """
     wanted = _COMMAND_TOOLS.get(command, [])
-    out: list[str] = []
-    for name in wanted:
-        if name == "firecrawl" and not firecrawl_available:
-            continue
-        out.append(f"{MCP_TOOL_PREFIX}{name}")
+    out: list[str] = [f"{MCP_TOOL_PREFIX}{name}" for name in wanted]
     out.append("WebFetch")
     if command in ("discover", "wishlist_expand"):
         out.append("WebSearch")
@@ -600,22 +554,17 @@ Append to `tests/synth/test_mcp_server.py`:
 
 ```python
 def test_allowed_tools_score_excludes_websearch():
-    out = mcp_server.allowed_tools_for("score", firecrawl_available=False)
+    out = mcp_server.allowed_tools_for("score")
     assert "WebSearch" not in out
     assert "WebFetch" in out
     assert "mcp__moat__wayback" in out
 
 
 def test_allowed_tools_discover_includes_websearch():
-    out = mcp_server.allowed_tools_for("discover", firecrawl_available=False)
+    out = mcp_server.allowed_tools_for("discover")
     assert "WebSearch" in out
     assert "mcp__moat__seen_lookup" in out
     assert "mcp__moat__firecrawl" not in out
-
-
-def test_allowed_tools_includes_firecrawl_when_available():
-    out = mcp_server.allowed_tools_for("discover", firecrawl_available=True)
-    assert "mcp__moat__firecrawl" in out
 ```
 
 Run: `rtk pytest tests/synth/test_mcp_server.py -v`
@@ -625,7 +574,7 @@ Expected: all tests PASS.
 
 ```bash
 rtk git add mr/synth/mcp_server.py tests/synth/test_mcp_server.py
-rtk git commit -m "feat(synth): firecrawl tool, build_server factory, allowed_tools_for"
+rtk git commit -m "feat(synth): build_server factory, allowed_tools_for"
 ```
 
 **Note for executor:** `tool_names_for` introspects SDK internals. If the installed SDK exposes a different attribute path than `_tool_name`, fix the helper before moving on — don't suppress failing tests.
@@ -1111,7 +1060,6 @@ from mr.lifecycle.paths import RepoLayout
 from mr.synth import mcp_server, session
 from mr.synth.limits import cold_corpus_preflight, run_limits_from_config
 from mr.synth.prompts import load_prompt
-from mr.tools.firecrawl import is_firecrawl_available
 from mr.util.config import Config, load_config
 from mr.util.lock import exclusive_lock
 from mr.util.slug import slugify
@@ -1156,13 +1104,8 @@ async def _async_discover(
         f"interest filter; obey the diversity bias."
     )
 
-    fc_avail = is_firecrawl_available()
-    server = mcp_server.build_server(
-        seen_path=layout.seen_path,
-        firecrawl_available=fc_avail,
-        command="discover",
-    )
-    allowed = mcp_server.allowed_tools_for("discover", firecrawl_available=fc_avail)
+    server = mcp_server.build_server(seen_path=layout.seen_path, command="discover")
+    allowed = mcp_server.allowed_tools_for("discover")
     limits = run_limits_from_config(cfg.limits, command="discover")
 
     final_text = await session.run(
@@ -1330,7 +1273,6 @@ from mr.synth import mcp_server, session
 from mr.synth.limits import run_limits_from_config
 from mr.synth.prompts import load_prompt
 from mr.synth.verify import verify_disqualifier_check
-from mr.tools.firecrawl import is_firecrawl_available
 from mr.util.config import Config, load_config
 from mr.util.lock import exclusive_lock
 
@@ -1406,13 +1348,8 @@ async def _async_score(
         f"Brief:\n```\n{_serialize_brief(brief)}\n```"
     )
 
-    fc_avail = is_firecrawl_available()
-    server = mcp_server.build_server(
-        seen_path=layout.seen_path,
-        firecrawl_available=fc_avail,
-        command="score",
-    )
-    allowed = mcp_server.allowed_tools_for("score", firecrawl_available=fc_avail)
+    server = mcp_server.build_server(seen_path=layout.seen_path, command="score")
+    allowed = mcp_server.allowed_tools_for("score")
     limits = run_limits_from_config(cfg.limits, command="score")
 
     final_text = await session.run(
@@ -1527,13 +1464,8 @@ from mr.synth import mcp_server, session
 from mr.synth.limits import run_limits_from_config
 
 # Inside the new _async_expand:
-fc_avail = is_firecrawl_available()
-server = mcp_server.build_server(
-    seen_path=layout.seen_path,
-    firecrawl_available=fc_avail,
-    command="wishlist_expand",
-)
-allowed = mcp_server.allowed_tools_for("wishlist_expand", firecrawl_available=fc_avail)
+server = mcp_server.build_server(seen_path=layout.seen_path, command="wishlist_expand")
+allowed = mcp_server.allowed_tools_for("wishlist_expand")
 limits = run_limits_from_config(cfg.limits, command="wishlist_expand")
 
 final_text = await session.run(
@@ -1809,8 +1741,6 @@ Replace any "Prerequisites" section with:
 
 The `mr` CLI uses the Claude Agent SDK to ride your Max subscription via the local `claude` binary. There is no `ANTHROPIC_API_KEY` configuration. Each invocation of `mr discover`, `mr score`, or `mr wishlist expand` opens a one-shot session through Claude Code.
 
-Optional:
-- `MR_FIRECRAWL_API_KEY` — enables the `firecrawl` MCP tool for JS-rendered pages.
 ```
 
 Remove any other references to API keys, metered costs, `mr gain`, `--budget` flags, or `costs.jsonl`.
