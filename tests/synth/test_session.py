@@ -26,7 +26,6 @@ async def test_session_run_returns_concatenated_text(mock_query):
             mcp_server=None,
             allowed_tools=[],
             max_turns=5,
-            max_output_tokens=1024,
             wallclock_seconds=60,
         )
     assert "Part 1." in out
@@ -49,7 +48,6 @@ async def test_session_run_wallclock_timeout(monkeypatch):
             mcp_server=None,
             allowed_tools=[],
             max_turns=5,
-            max_output_tokens=1024,
             wallclock_seconds=1,
         )
 
@@ -69,6 +67,5 @@ async def test_session_run_propagates_sdk_errors(monkeypatch):
             mcp_server=None,
             allowed_tools=[],
             max_turns=5,
-            max_output_tokens=1024,
             wallclock_seconds=60,
         )

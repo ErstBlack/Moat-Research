@@ -33,19 +33,16 @@ def test_run_limits_from_config():
     cfg = {
         "max_tool_turns": {"default": 12, "discover": 20},
         "max_wallclock_seconds": 600,
-        "max_output_tokens": 8192,
     }
     limits = run_limits_from_config(cfg, command="discover")
     assert limits.max_tool_turns == 20
     assert limits.max_wallclock_seconds == 600
-    assert limits.max_output_tokens == 8192
 
 
 def test_run_limits_falls_back_to_default():
     cfg = {
         "max_tool_turns": {"default": 12},
         "max_wallclock_seconds": 600,
-        "max_output_tokens": 8192,
     }
     limits = run_limits_from_config(cfg, command="score")
     assert limits.max_tool_turns == 12

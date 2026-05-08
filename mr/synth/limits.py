@@ -23,7 +23,6 @@ class LimitExceeded(Exception):  # noqa: N818
 class RunLimits:
     max_tool_turns: int
     max_wallclock_seconds: int
-    max_output_tokens: int
 
 
 def run_limits_from_config(cfg: dict[str, Any], *, command: str) -> RunLimits:
@@ -32,7 +31,6 @@ def run_limits_from_config(cfg: dict[str, Any], *, command: str) -> RunLimits:
     return RunLimits(
         max_tool_turns=turns.get(command, turns["default"]),
         max_wallclock_seconds=cfg["max_wallclock_seconds"],
-        max_output_tokens=cfg["max_output_tokens"],
     )
 
 

@@ -28,7 +28,6 @@ async def run(
     mcp_server: Any,
     allowed_tools: list[str],
     max_turns: int,
-    max_output_tokens: int,
     wallclock_seconds: int,
 ) -> str:
     """Run a single, one-shot Claude Agent SDK query and return the final text."""
