@@ -7,7 +7,7 @@ from pathlib import Path
 import typer
 
 from mr.lifecycle.paths import RepoLayout
-from mr.synth.budget import BudgetExceeded
+from mr.synth.limits import LimitExceeded
 from mr.util.config import load_config
 from mr.util.lock import exclusive_lock
 from mr.wishlist.add import add_source
@@ -43,7 +43,6 @@ def refresh_cmd(
 @wishlist_app.command("expand")
 def expand_cmd(
     seed: bool = typer.Option(False, "--seed", help="Bootstrap from empty WISHLIST"),  # noqa: B008
-    budget: float = typer.Option(2.0, "--budget"),  # noqa: B008
     root: Path = typer.Option(None, "--root"),  # noqa: B008
 ) -> None:
     """LLM proposes new WISHLIST sources for operator review."""
@@ -51,8 +50,11 @@ def expand_cmd(
     cfg = load_config(layout.config_path)
     try:
         with exclusive_lock(layout.lock_path):
-            output = expand_wishlist(layout, cfg, seed=seed, budget_usd=budget)
-        typer.echo(output)
-    except BudgetExceeded as e:
-        typer.echo(f"budget aborted: {e}", err=True)
+            output = expand_wishlist(layout, cfg, seed=seed)
+    except LimitExceeded as e:
+        typer.echo(f"error: {e}", err=True)
         raise typer.Exit(code=2) from e
+    except RuntimeError as e:
+        typer.echo(f"error: {e}", err=True)
+        raise typer.Exit(code=1) from e
+    typer.echo(output)

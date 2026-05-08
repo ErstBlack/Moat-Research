@@ -1,16 +1,44 @@
 """End-to-end smoke test: init → seeded WISHLIST → discover (mocked LLM)
 → score (mocked LLM) → promote → graduate."""
-from datetime import date
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import AsyncMock, patch
 
 from typer.testing import CliRunner
 
 from mr.cli.main import app
-from mr.lifecycle.frontmatter import Brief, write_brief
 from mr.lifecycle.paths import RepoLayout
 
 runner = CliRunner()
+
+FAKE_FINAL_TEXT = """
+```yaml-brief
+frontmatter:
+  title: Test Brief
+  slug: test-brief
+  lane: ephemeral_public
+  niche: synthetic
+  sources:
+    - url: https://a.example.com/
+      role: primary
+      archive_status: none
+    - url: https://b.example.com/
+      role: corroborating
+      archive_status: none
+  date_created: "2026-05-08"
+  delivery_form: project
+  verification_evidence:
+    - id: e1
+      tool: code_execution
+      args: {code: x}
+      result: {peak_gpu_gb: 4, sustained_ram_gb: 32, storage_tb: 0.5}
+  disqualifier_verdicts:
+    single_source: {verdict: pass}
+    hardware_over_envelope: {verdict: pass, evidence_id: e1}
+body: |
+  ## Thesis
+  Synthetic test brief body.
+```
+"""
 
 
 def _seed_wishlist(layout: RepoLayout) -> None:
@@ -21,36 +49,13 @@ def _seed_wishlist(layout: RepoLayout) -> None:
     ))
 
 
-def _mock_discover_loop_to_emit_one_candidate(layout: RepoLayout):
-    """Patch the discover loop to write a candidate file directly,
-    bypassing the LLM."""
-    def fake(*args, **kwargs):
-        target = layout.candidates / "20260507-test-brief.md"
-        brief = Brief(
-            schema_version=1, title="Test Brief", slug="test-brief",
-            lane="ephemeral_public", niche="aviation alerts",
-            niche_key="alerts_aviation", delivery_form="project",
-            date_created=date(2026, 5, 7),
-            sources=[
-                {"url": "https://a.com/", "role": "primary", "archive_status": "none"},
-                {"url": "https://b.com/", "role": "corroborating", "archive_status": "none"},
-            ],
-            verification_evidence=[
-                {"id": "e3", "tool": "code_execution", "args": {"code": "x"},
-                 "result": {"peak_gpu_gb": 4, "sustained_ram_gb": 32, "storage_tb": 0.5}},
-            ],
-            disqualifier_verdicts={
-                "single_source": {"verdict": "pass"},
-                "hardware_over_envelope": {"verdict": "pass", "evidence_id": "e3"},
-            },
-        )
-        write_brief(target, brief, body="## Thesis\nTest thesis.\n")
-    return fake
+async def _fake_session_run(*_args, **_kwargs) -> str:
+    """Return FAKE_FINAL_TEXT so _extract_candidates + _write_candidates are exercised."""
+    return FAKE_FINAL_TEXT
 
 
 def test_full_lifecycle_e2e(tmp_path: Path, monkeypatch):
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setenv("ANTHROPIC_API_KEY", "test")
 
     # init
     result = runner.invoke(app, ["init", str(tmp_path)])
@@ -59,21 +64,21 @@ def test_full_lifecycle_e2e(tmp_path: Path, monkeypatch):
     layout = RepoLayout(tmp_path)
     _seed_wishlist(layout)
 
-    # discover (mocked)
-    with patch("mr.cli.discover.run_discover_loop",
-               side_effect=_mock_discover_loop_to_emit_one_candidate(layout)):
-        result = runner.invoke(app, ["discover", "--lane", "ephemeral_public",
-                                     "--n", "1", "--budget", "5.0"])
+    # discover (mocked session.run — seam is mr.cli.discover.session.run)
+    # Uses FAKE_FINAL_TEXT so _extract_candidates + _write_candidates are exercised.
+    with patch("mr.cli.discover.session.run", side_effect=_fake_session_run):
+        result = runner.invoke(app, ["discover", "--lane", "ephemeral_public", "--n", "1"])
         assert result.exit_code == 0
 
     candidate_files = list(layout.candidates.glob("*.md"))
     assert len(candidate_files) == 1
 
-    # score (mocked LLM scores)
-    with patch("mr.cli.score.run_score_loop",
-               return_value={"defensibility": 7, "financial": 6,
-                             "implementation": 8, "hardware": 9}):
-        result = runner.invoke(app, ["score", str(candidate_files[0]), "--budget", "3.0"])
+    # score (mocked session.run)
+    mock_score_run = AsyncMock(
+        return_value='{"defensibility": 7, "financial": 6, "implementation": 8, "hardware": 9}'
+    )
+    with patch("mr.cli.score.session.run", mock_score_run):
+        result = runner.invoke(app, ["score", str(candidate_files[0])])
         assert result.exit_code == 0
 
     scored_files = list(layout.scored.glob("*.md"))
@@ -100,9 +105,6 @@ def test_full_lifecycle_e2e(tmp_path: Path, monkeypatch):
     assert result.exit_code == 0
     assert "graduated" in result.stdout.lower()
 
-    # gain
-    result = runner.invoke(app, ["gain"])
-    assert result.exit_code == 0
 
 
 def test_full_test_suite_runs_under_30_seconds(tmp_path: Path):

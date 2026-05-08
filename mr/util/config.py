@@ -1,6 +1,6 @@
-"""mr.yaml loader with JSON-Schema validation, schema-version-1-only.
+"""mr.yaml loader with JSON-Schema validation, schema-version-2.
 
-Spec: §9 (config schema) and §15.2 (migration deferred).
+Spec: §9 (config schema) and §15.2 (migration via mr init --migrate).
 """
 from __future__ import annotations
 
@@ -16,16 +16,11 @@ from jsonschema import Draft202012Validator
 _SCHEMA_PATH = Path(__file__).parent / "config_schema.json"
 
 DEFAULT_CONFIG: dict[str, Any] = {
-    "schema_version": 1,
+    "schema_version": 2,
     "models": {
         "default": "claude-opus-4-7",
         "bulk": "claude-sonnet-4-6",
         "per_command": {"wishlist_expand": "claude-sonnet-4-6"},
-        "pricing": {
-            "claude-opus-4-7": {"input": 15.00, "output": 75.00, "cache_read": 1.50, "cache_write": 18.75},
-            "claude-sonnet-4-6": {"input": 3.00, "output": 15.00, "cache_read": 0.30, "cache_write": 3.75},
-            "claude-haiku-4-5": {"input": 1.00, "output": 5.00, "cache_read": 0.10, "cache_write": 1.25},
-        },
     },
     "weights": {
         "defensibility": 0.35,
@@ -56,24 +51,14 @@ DEFAULT_CONFIG: dict[str, Any] = {
         "storage_tb": 17,
         "network": "residential broadband",
     },
-    "budgets": {
-        "default_per_invocation_usd": {
-            "default": 1.00,
-            "discover": 5.00,
-            "score": 3.00,
-            "wishlist_expand": 2.00,
-        },
+    "limits": {
         "max_tool_turns": {
             "default": 12,
-            "discover": 25,
-            "score": 15,
-            "wishlist_expand": 20,
+            "discover": 20,
+            "score": 8,
+            "wishlist_expand": 10,
         },
-        "max_tokens_per_turn": 1500,
-        "max_wallclock_seconds": 240,
-        "max_verification_calls": 12,
-        "base_input_tokens": 6000,
-        "avg_tool_result_tokens": 1500,
+        "max_wallclock_seconds": 600,
     },
     "status": {
         "stale_approved_days": 90,
@@ -86,9 +71,15 @@ class ConfigError(Exception):
     """Raised on invalid mr.yaml content."""
 
 
+_LIMITS_DEFAULT: dict[str, Any] = {
+    "max_tool_turns": {"default": 12, "discover": 20, "score": 8, "wishlist_expand": 10},
+    "max_wallclock_seconds": 600,
+}
+
+
 @dataclass
 class Config:
-    schema_version: int = 1
+    schema_version: int = 2
     models: dict[str, Any] = field(default_factory=dict)
     weights: dict[str, float] = field(default_factory=dict)
     disqualifiers: dict[str, Any] = field(default_factory=dict)
@@ -96,8 +87,8 @@ class Config:
     niche_aliases: dict[str, list[str]] = field(default_factory=dict)
     interests: dict[str, list[str]] = field(default_factory=dict)
     hardware: dict[str, Any] = field(default_factory=dict)
-    budgets: dict[str, Any] = field(default_factory=dict)
     status: dict[str, Any] = field(default_factory=dict)
+    limits: dict[str, Any] = field(default_factory=lambda: dict(_LIMITS_DEFAULT))
 
 
 def _deep_merge(base: dict, override: dict) -> dict:
@@ -134,11 +125,16 @@ def load_config(path: Path) -> Config:
     if not isinstance(parsed, dict):
         raise ConfigError(f"{path}: root must be a YAML mapping, got {type(parsed).__name__}")
 
-    schema_version = parsed.get("schema_version", 1)
-    if schema_version != 1:
+    schema_version = parsed.get("schema_version")
+    if schema_version == 1:
         raise ConfigError(
-            f"{path}: schema_version {schema_version} is not supported in v1. "
-            f"Migration framework is deferred (see spec §15.2)."
+            f"{path}: mr.yaml uses schema_version 1 (pre Max-subscription port). "
+            f"Run `mr init --migrate` to upgrade. "
+            f"The old file will be saved as mr.yaml.bak."
+        )
+    if schema_version != 2:
+        raise ConfigError(
+            f"{path}: unsupported schema_version: {schema_version}"
         )
 
     validator = Draft202012Validator(_load_schema())

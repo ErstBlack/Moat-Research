@@ -27,8 +27,8 @@ mr discover (typer, sync)
              └─ asyncio.wait_for(                 ← wallclock cap
                   claude_agent_sdk.query(...)     ← SDK owns turn loop; max_turns enforces turn cap
                       ↕ MCP stdio (in-process)
-                  mcp_server (6 @tool funcs:
-                    seen_lookup, wayback, robots, head, firecrawl, code_eval)
+                  mcp_server (5 @tool funcs:
+                    seen_lookup, wayback, robots, head, code_eval)
                 )
              returns final assistant text
         parse ```yaml-brief blocks → write Briefs to candidates/
@@ -71,20 +71,19 @@ Six `@tool`-decorated async functions, exposed via `claude_agent_sdk.create_sdk_
 | `wayback` | Delegates to `mr.tools.wayback.wayback_check(...)` |
 | `robots` | Delegates to `mr.tools.robots.robots_check(...)` |
 | `head` | Delegates to `mr.tools.head.head_check(...)` |
-| `firecrawl` | Delegates to `mr.tools.firecrawl.scrape(...)` (registered iff `MR_FIRECRAWL_API_KEY` set) |
 | `code_eval` | `subprocess.run(["python", "-c", code], ...)` with `RLIMIT_AS=256 MB`, `RLIMIT_CPU=30s`, working dir = `tempfile.mkdtemp()`, no `PATH` inheritance. Returns `{stdout, stderr, exit_code}` or `{error: "timeout", ...}` on `TimeoutExpired`. |
 
-The five domain tools delegate to existing implementations under `mr/tools/` and `mr/dedup/seen_lookup.py` — those files are unchanged.
+The four domain tools delegate to existing implementations under `mr/tools/` and `mr/dedup/seen_lookup.py` — those files are unchanged.
 
-State problem: `seen_lookup` needs `seen_path` (per-invocation). Solution: a factory function `build_server(seen_path: Path, firecrawl_available: bool) -> MCPServer` whose closures capture `seen_path`. Server is rebuilt per command run.
+State problem: `seen_lookup` needs `seen_path` (per-invocation). Solution: a factory function `build_server(seen_path: Path) -> MCPServer` whose closures capture `seen_path`. Server is rebuilt per command run.
 
 Per-command tool whitelist (passed as `allowed_tools` to `session.run`):
 
 | Command | MCP tools | Claude Code built-ins |
 |---------|-----------|------------------------|
-| `discover` | `seen_lookup`, `wayback`, `firecrawl`, `code_eval` | `WebSearch`, `WebFetch` |
+| `discover` | `seen_lookup`, `wayback`, `code_eval` | `WebSearch`, `WebFetch` |
 | `score` | `wayback`, `robots`, `head`, `code_eval` | `WebFetch` (no `WebSearch` — preserves §`prevents drift into adjacent opportunities`) |
-| `wishlist expand` | `seen_lookup`, `firecrawl`, `code_eval` | `WebSearch`, `WebFetch` |
+| `wishlist expand` | `seen_lookup`, `code_eval` | `WebSearch`, `WebFetch` |
 
 `Bash`, `Read`, `Edit`, `Write` and other Claude Code built-ins are **never** in `allowed_tools`.
 
@@ -97,7 +96,6 @@ class LimitExceeded(Exception): ...
 class RunLimits:
     max_tool_turns: int
     max_wallclock_seconds: int
-    max_output_tokens: int
 
 def cold_corpus_preflight(wishlist_path: Path) -> None: ...
     # Verbatim from budget.py; raises LimitExceeded if WISHLIST < 5 sources or missing.
@@ -106,7 +104,6 @@ def cold_corpus_preflight(wishlist_path: Path) -> None: ...
 No `BudgetTracker` equivalent class. Enforcement is delegated:
 - `max_tool_turns` → SDK `max_turns` option (raises SDK exception when hit)
 - `max_wallclock_seconds` → `asyncio.wait_for` timeout (`session.py` translates `asyncio.TimeoutError` → `LimitExceeded`)
-- `max_output_tokens` → SDK option
 
 ### Replaced files (mechanical trim)
 
@@ -134,7 +131,6 @@ limits:
     score: 8
     wishlist_expand: 10
   max_wallclock_seconds: 600
-  max_output_tokens: 8192
 ```
 
 `models.per_command` preserved (passed to SDK as `model` option per command).
@@ -165,7 +161,7 @@ limits:
 2. Builds three pieces of static text: `system_text` (from `prompts/discover.md`), `wishlist_text` (from `WISHLIST.md`), `seen_summary` (from `build_summary_block(read_seen(...))`).
 3. Concatenates all three into a single `system_prompt` string. Order: system_text → "## Current WISHLIST" block → "## Seen Summary" block. Relies on Claude Code's automatic prompt caching.
 4. Builds `user_prompt` = the existing lane/n directive ("Generate exactly N candidates in lane X…").
-5. Calls `mcp_server.build_server(seen_path=layout.seen_path, firecrawl_available=is_firecrawl_available())`.
+5. Calls `mcp_server.build_server(seen_path=layout.seen_path)`.
 
 **Async hand-off:**
 6. `asyncio.run(session.run(system_prompt=..., user_prompt=..., model=cfg.models.per_command["discover"], mcp_server=server, allowed_tools=[...], max_turns=cfg.limits.max_tool_turns["discover"], wallclock_seconds=cfg.limits.max_wallclock_seconds))`
@@ -201,7 +197,7 @@ No retry logic at the session layer. Agent SDK handles transport-level retries i
 **New tests:**
 
 - **`tests/synth/test_session.py`** — mocks `claude_agent_sdk.query` to yield a fixed sequence of messages; asserts `session.run` returns expected concatenated text. Covers: happy path, wallclock timeout → `LimitExceeded`, SDK-raised exception passthrough.
-- **`tests/synth/test_mcp_server.py`** — calls each `@tool` function directly as a Python coroutine (no MCP transport). Asserts: `seen_lookup` returns `matches`/`near_matches` structure, `wayback`/`robots`/`head` delegate to existing `mr.tools.*`, `firecrawl` registered iff `MR_FIRECRAWL_API_KEY` set, `code_eval` succeeds on simple math + handles timeout + handles syntax error.
+- **`tests/synth/test_mcp_server.py`** — calls each `@tool` function directly as a Python coroutine (no MCP transport). Asserts: `seen_lookup` returns `matches`/`near_matches` structure, `wayback`/`robots`/`head` delegate to existing `mr.tools.*`, `code_eval` succeeds on simple math + handles timeout + handles syntax error.
 - **`tests/synth/test_limits.py`** — `RunLimits` config loading, `cold_corpus_preflight` raises on missing/short WISHLIST.
 
 **Modified tests:**

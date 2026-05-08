@@ -6,8 +6,7 @@ bootstraps from an empty list.
 """
 from __future__ import annotations
 
-import json
-from datetime import UTC, datetime
+import asyncio
 from typing import Any
 
 import yaml
@@ -15,14 +14,10 @@ import yaml
 from mr.dedup.seen import is_stale, read_seen, regenerate_seen
 from mr.dedup.summary import build_summary_block
 from mr.lifecycle.paths import RepoLayout
-from mr.synth.budget import BudgetTracker
-from mr.synth.client import SynthClient, build_cached_blocks
-from mr.synth.dispatch import dispatch_tool_call
+from mr.synth import mcp_server, session
+from mr.synth.limits import run_limits_from_config
 from mr.synth.prompts import load_prompt
-from mr.synth.tools import tools_for_command
-from mr.tools.firecrawl import is_firecrawl_available
 from mr.util.config import Config
-from mr.util.costs import CostRecord, append_cost
 
 
 def format_proposal(proposals: list[dict[str, Any]]) -> str:
@@ -42,12 +37,18 @@ def expand_wishlist(
     cfg: Config,
     *,
     seed: bool,
-    budget_usd: float,
 ) -> str:
     """Run the LLM to propose new WISHLIST sources. Returns stdout text."""
     if is_stale(layout):
         regenerate_seen(layout, niche_aliases=cfg.niche_aliases)
 
+    proposals = asyncio.run(_async_expand(layout=layout, cfg=cfg, seed=seed))
+    return format_proposal(proposals)
+
+
+async def _async_expand(
+    *, layout: RepoLayout, cfg: Config, seed: bool,
+) -> list[dict[str, Any]]:
     summary = build_summary_block(read_seen(layout.seen_path))
 
     wishlist_text = layout.wishlist_path.read_text() if layout.wishlist_path.exists() else "sources: []\n"
@@ -55,101 +56,37 @@ def expand_wishlist(
         wishlist_text = "sources: []\n"
 
     system_text = load_prompt(layout.prompts_dir, "wishlist_expand")
-    system_blocks = build_cached_blocks(
-        system_text=system_text,
-        wishlist_text=f"## Current WISHLIST\n```yaml\n{wishlist_text}\n```",
-        seen_summary=summary,
+
+    system_prompt = (
+        f"{system_text}\n\n"
+        f"## Current WISHLIST\n```yaml\n{wishlist_text}\n```\n\n"
+        f"## Seen Summary\n{summary}\n"
     )
 
-    client = SynthClient(cfg=cfg, command="wishlist_expand")
-    tracker = BudgetTracker(
-        cfg=cfg, command="wishlist_expand", model=client.model,
-        budget_usd=budget_usd, costs_path=layout.costs_path,
-    )
-
-    tools = tools_for_command("wishlist_expand", firecrawl_available=is_firecrawl_available())
-
-    user_msg = (
+    user_prompt = (
         "Propose 3-7 new WISHLIST sources following the diversity bias. "
         "For each, output a YAML block with id/url/lane/rationale. "
         "Use seen_lookup to verify novelty before final commit."
     )
 
-    proposals = _run_loop(client, tracker, layout, system_blocks, user_msg, tools, cfg)
-    return format_proposal(proposals)
+    server = mcp_server.build_server(seen_path=layout.seen_path, command="wishlist_expand")
+    allowed = mcp_server.allowed_tools_for("wishlist_expand")
+    limits = run_limits_from_config(cfg.limits, command="wishlist_expand")
+
+    final_text = await session.run(
+        system_prompt=system_prompt,
+        user_prompt=user_prompt,
+        model=cfg.models.get("per_command", {}).get("wishlist_expand", cfg.models["default"]),
+        mcp_server=server,
+        allowed_tools=allowed,
+        max_turns=limits.max_tool_turns,
+        wallclock_seconds=limits.max_wallclock_seconds,
+    )
+    return _extract_proposals(final_text)
 
 
-def _run_loop(  # noqa: PLR0913
-    client: SynthClient,
-    tracker: BudgetTracker,
-    layout: RepoLayout,
-    system_blocks: list[dict[str, Any]],
-    user_text: str,
-    tools: list[dict[str, Any]],
-    cfg: Config,
-) -> list[dict[str, Any]]:
-    """Multi-turn tool-use loop. Extracts proposals from final assistant text."""
-    messages: list[dict[str, Any]] = [{"role": "user", "content": user_text}]
-    max_tokens = cfg.budgets["max_tokens_per_turn"]
-
-    while True:
-        tracker.note_tool_turn()
-        tracker.check_wallclock()
-        tracker.check_pre_call(input_tokens_estimate=10000, max_output_tokens=max_tokens)  # noqa: PLR2004
-
-        response = client.create_message(
-            system_blocks=system_blocks,
-            messages=messages,
-            tools=tools,
-            max_tokens=max_tokens,
-        )
-        usage = client.extract_usage(response)
-        cost = client.compute_cost_usd(usage)
-
-        append_cost(layout.costs_path, CostRecord(
-            ts=datetime.now(UTC), command="wishlist_expand",
-            model=client.model, input_tokens=usage["input_tokens"],
-            cached_input_tokens=0, output_tokens=usage["output_tokens"],
-            cache_hits=usage["cache_hits"], cache_misses=usage["cache_misses"],
-            code_execution_container_seconds=0.0, cost_usd=cost,
-        ))
-
-        tracker.note_turn_cache_status(missed=usage["cache_misses"] > 0, fingerprint="wishlist_expand_system")
-
-        assistant_content = list(response.content)
-        messages.append({"role": "assistant", "content": [_block_to_dict(b) for b in assistant_content]})
-
-        if response.stop_reason != "tool_use":
-            return _extract_proposals(assistant_content)
-
-        tool_uses = [b for b in assistant_content if getattr(b, "type", None) == "tool_use"]
-        tool_results = []
-        for tu in tool_uses:
-            result = dispatch_tool_call(name=tu.name, args=tu.input, seen_path=layout.seen_path)
-            tool_results.append({
-                "type": "tool_result",
-                "tool_use_id": tu.id,
-                "content": json.dumps(result),
-            })
-        messages.append({"role": "user", "content": tool_results})
-
-
-def _block_to_dict(block: Any) -> dict[str, Any]:
-    """Convert SDK content block back to JSON-safe dict."""
-    btype = getattr(block, "type", None)
-    if btype == "text":
-        return {"type": "text", "text": block.text}
-    if btype == "tool_use":
-        return {"type": "tool_use", "id": block.id, "name": block.name, "input": block.input}
-    return {"type": btype}
-
-
-def _extract_proposals(content: list[Any]) -> list[dict[str, Any]]:
+def _extract_proposals(full: str) -> list[dict[str, Any]]:
     """Parse YAML blocks from the assistant's final text."""
-    text_parts = [b.text for b in content if getattr(b, "type", None) == "text"]
-    if not text_parts:
-        return []
-    full = "\n".join(text_parts)
     proposals: list[dict[str, Any]] = []
     for chunk in full.split("---"):
         chunk = chunk.strip()  # noqa: PLW2901

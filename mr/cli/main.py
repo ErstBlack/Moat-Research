@@ -4,7 +4,6 @@ from pathlib import Path
 import typer
 
 from mr.cli import discover as discover_module
-from mr.cli import gain as gain_module
 from mr.cli import graduate as graduate_module
 from mr.cli import init as init_module
 from mr.cli import promote as promote_module
@@ -12,7 +11,7 @@ from mr.cli import reject as reject_module
 from mr.cli import score as score_module
 from mr.cli import status as status_module
 from mr.cli.wishlist import wishlist_app
-from mr.synth.budget import BudgetExceeded
+from mr.synth.limits import LimitExceeded
 
 app = typer.Typer(
     name="mr",
@@ -39,9 +38,10 @@ def version() -> None:
 @app.command(name="init")
 def init_cmd(
     root: Path = typer.Argument(None, help="Repo root (default: cwd)"),  # noqa: B008
+    migrate: bool = typer.Option(False, "--migrate", help="Overwrite existing mr.yaml (backs up to mr.yaml.bak)."),  # noqa: B008
 ) -> None:
-    """Bootstrap dirs, mr.yaml, prompts/, WISHLIST.md (idempotent)."""
-    init_module.init(root or Path.cwd())
+    """Bootstrap dirs, mr.yaml, prompts/, WISHLIST.md."""
+    init_module.init(root or Path.cwd(), migrate=migrate)
 
 
 @app.command(name="status")
@@ -75,14 +75,13 @@ def reject_cmd(
 def discover_cmd(
     lane: str = typer.Option(None, "--lane"),  # noqa: B008
     n: int = typer.Option(5, "--n"),  # noqa: B008
-    budget: float = typer.Option(5.0, "--budget"),  # noqa: B008
     root: Path = typer.Option(None, "--root"),  # noqa: B008
 ) -> None:
     """Generate candidate briefs from WISHLIST + live web tools."""
     try:
-        discover_module.discover(root or Path.cwd(), lane, n, budget)
-    except BudgetExceeded as e:
-        typer.echo(f"budget aborted: {e}", err=True)
+        discover_module.discover(root or Path.cwd(), lane, n)
+    except LimitExceeded as e:
+        typer.echo(f"error: {e}", err=True)
         raise typer.Exit(code=2) from e
     except RuntimeError as e:
         typer.echo(f"error: {e}", err=True)
@@ -98,23 +97,17 @@ def graduate_cmd(
     graduate_module.graduate(path, root or Path.cwd())
 
 
-@app.command(name="gain")
-def gain_cmd(
-    root: Path = typer.Option(None, "--root"),  # noqa: B008
-) -> None:
-    """Summarize API spend from .moat-research/costs.jsonl."""
-    gain_module.gain(root or Path.cwd())
-
-
 @app.command(name="score")
 def score_cmd(
     paths: list[Path] = typer.Argument(..., exists=True),  # noqa: B008
-    budget: float = typer.Option(3.0, "--budget"),  # noqa: B008
     root: Path = typer.Option(None, "--root"),  # noqa: B008
 ) -> None:
     """Score candidates: route to scored/ or rejected/ with auto-reject."""
     try:
-        score_module.score(paths, root or Path.cwd(), budget)
-    except BudgetExceeded as e:
-        typer.echo(f"budget aborted: {e}", err=True)
+        score_module.score(paths, root or Path.cwd())
+    except LimitExceeded as e:
+        typer.echo(f"error: {e}", err=True)
+        raise typer.Exit(code=2) from e
+    except RuntimeError as e:
+        typer.echo(f"error: {e}", err=True)
         raise typer.Exit(code=2) from e
