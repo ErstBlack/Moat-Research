@@ -4,16 +4,16 @@ Tools delegate to existing implementations under mr.tools.* and
 mr.dedup.seen_lookup. The factory `build_server` (Task 4) captures `seen_path`
 via closure so per-invocation state stays out of the tool signature.
 
-Module-level names ``_wayback``, ``_robots``, ``_head`` are the raw async
-handler functions (directly awaitable). ``_wayback_tool`` etc. are the
-``SdkMcpTool`` wrappers used by ``build_server`` (Task 4).
-``_make_seen_lookup`` returns the raw async handler for the same reason.
+Module-level names ``_wayback``, ``_robots``, ``_head`` are ``SdkMcpTool``
+objects (decorated with ``@tool``). Tests invoke them via ``.handler({...})``.
+``_make_seen_lookup`` returns an ``SdkMcpTool`` for the same reason — the
+inner function is decorated inside the factory so ``seen_path`` is captured.
 """
 from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
 from claude_agent_sdk import tool
 
@@ -23,12 +23,14 @@ def _wrap_text(payload: dict[str, Any]) -> dict[str, Any]:
     return {"content": [{"type": "text", "text": json.dumps(payload, default=str)}]}
 
 
-def _make_seen_lookup(seen_path: Path) -> Callable:
-    """Return a raw async handler (not SdkMcpTool) for seen_lookup.
+def _make_seen_lookup(seen_path: Path):
+    """Return an SdkMcpTool for seen_lookup, capturing seen_path via closure."""
 
-    The SdkMcpTool wrapper is built inside ``build_server`` (Task 4) by
-    re-decorating with ``@tool`` after binding ``seen_path``.
-    """
+    @tool(
+        "seen_lookup",
+        "Query seen.jsonl for exact or near-matches by slug, source_set, or lane_niche.",
+        {"slug": str, "source_set": list, "lane_niche": list},
+    )
     async def seen_lookup_tool(args: dict[str, Any]) -> dict[str, Any]:
         from mr.tools.seen_lookup import seen_lookup
 
@@ -46,11 +48,11 @@ def _make_seen_lookup(seen_path: Path) -> Callable:
     return seen_lookup_tool
 
 
-# ---------------------------------------------------------------------------
-# Module-level tool handlers (raw async functions, directly awaitable).
-# SdkMcpTool wrappers are constructed in build_server (Task 4).
-# ---------------------------------------------------------------------------
-
+@tool(
+    "wayback",
+    "Query Wayback Machine CDX for snapshot count and date range. Returns {count, first, last, years}.",
+    {"url": str},
+)
 async def _wayback(args: dict[str, Any]) -> dict[str, Any]:
     """Query Wayback Machine CDX for snapshot count and date range."""
     from mr.tools.wayback import wayback_check
@@ -63,6 +65,11 @@ async def _wayback(args: dict[str, Any]) -> dict[str, Any]:
     })
 
 
+@tool(
+    "robots",
+    "Check robots.txt for the URL's origin. Returns {allowed, robots_url, error}.",
+    {"url": str, "user_agent": str},
+)
 async def _robots(args: dict[str, Any]) -> dict[str, Any]:
     """Check robots.txt for the URL's origin."""
     from mr.tools.robots import robots_check
@@ -74,6 +81,11 @@ async def _robots(args: dict[str, Any]) -> dict[str, Any]:
     })
 
 
+@tool(
+    "head",
+    "HTTP HEAD a URL. Returns {status, content_type, last_modified, error}.",
+    {"url": str},
+)
 async def _head(args: dict[str, Any]) -> dict[str, Any]:
     """HTTP HEAD a URL."""
     from mr.tools.head import head_check
@@ -84,23 +96,3 @@ async def _head(args: dict[str, Any]) -> dict[str, Any]:
         "last_modified": result.last_modified.isoformat() if result.last_modified else None,
         "error": result.error,
     })
-
-
-# SdkMcpTool descriptors for use by build_server (Task 4).
-_wayback_tool = tool(
-    "wayback",
-    "Query Wayback Machine CDX for snapshot count and date range. Returns {count, first, last, years}.",
-    {"url": str},
-)(_wayback)
-
-_robots_tool = tool(
-    "robots",
-    "Check robots.txt for the URL's origin. Returns {allowed, robots_url, error}.",
-    {"url": str, "user_agent": str},
-)(_robots)
-
-_head_tool = tool(
-    "head",
-    "HTTP HEAD a URL. Returns {status, content_type, last_modified, error}.",
-    {"url": str},
-)(_head)
