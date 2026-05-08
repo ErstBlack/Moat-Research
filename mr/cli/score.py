@@ -1,8 +1,8 @@
 """mr score — score, verify, route to scored/ or rejected/."""
 from __future__ import annotations
 
+import asyncio
 import json
-from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -19,44 +19,26 @@ from mr.scoring.auto_reject import (
     decide_floor_rejection,
 )
 from mr.scoring.rubric import Scores, composite
-from mr.synth.budget import BudgetTracker, worst_case_ceiling
-from mr.synth.client import SynthClient, build_cached_blocks
-from mr.synth.dispatch import dispatch_tool_call
+from mr.synth import mcp_server, session
+from mr.synth.limits import run_limits_from_config
 from mr.synth.prompts import load_prompt
-from mr.synth.tools import tools_for_command
 from mr.synth.verify import verify_disqualifier_check
 from mr.util.config import Config, load_config
-from mr.util.costs import CostRecord, append_cost
 from mr.util.lock import exclusive_lock
 
-_INPUT_TOKENS_ESTIMATE = 8000
 
-
-def score(paths: list[Path], root: Path, budget: float) -> None:
+def score(paths: list[Path], root: Path) -> None:
     layout = RepoLayout(root)
     cfg = load_config(layout.config_path)
-
-    cli = SynthClient(cfg=cfg, command="score")
-    ceiling = worst_case_ceiling(cfg, "score", cli.model)
-    if ceiling > budget:
-        typer.echo(f"error: tier-1 ceiling ${ceiling:.2f} exceeds budget ${budget:.2f}", err=True)
-        raise typer.Exit(code=2)
 
     with exclusive_lock(layout.lock_path):
         if is_stale(layout):
             regenerate_seen(layout, niche_aliases=cfg.niche_aliases)
         for path in paths:
-            _score_one(path, layout=layout, cfg=cfg, budget=budget, client=cli)
+            _score_one(path, layout=layout, cfg=cfg)
 
 
-def _score_one(  # noqa: PLR0912
-    src: Path,
-    *,
-    layout: RepoLayout,
-    cfg: Config,
-    budget: float,
-    client: SynthClient,
-) -> None:
+def _score_one(src: Path, *, layout: RepoLayout, cfg: Config) -> None:  # noqa: PLR0911
     brief = read_brief(src)
 
     outcome = verify_disqualifier_check(brief, cfg=cfg)
@@ -76,7 +58,7 @@ def _score_one(  # noqa: PLR0912
         _route_to_rejected(brief, src, layout, REASON_STRINGS[AutoRejectReason.HARDWARE_OVER])
         return
 
-    scores_dict = run_score_loop(brief=brief, layout=layout, cfg=cfg, budget=budget, client=client)
+    scores_dict = asyncio.run(_async_score(brief=brief, layout=layout, cfg=cfg))
     s = Scores(
         defensibility=scores_dict["defensibility"],
         financial=scores_dict["financial"],
@@ -104,81 +86,35 @@ def _score_one(  # noqa: PLR0912
     typer.echo(f"scored: {dst} (composite {comp:.3f})")
 
 
-def run_score_loop(  # noqa: PLR0913
-    *,
-    brief: Brief,
-    layout: RepoLayout,
-    cfg: Config,
-    budget: float,
-    client: SynthClient,
+async def _async_score(
+    *, brief: Brief, layout: RepoLayout, cfg: Config,
 ) -> dict[str, int]:
-    """Run the LLM scoring conversation. Returns the four axis scores."""
-    system_text = load_prompt(layout.prompts_dir, "score")
-    system_blocks = build_cached_blocks(system_text=system_text)
+    system_prompt = load_prompt(layout.prompts_dir, "score")
 
-    tracker = BudgetTracker(
-        cfg=cfg, command="score", model=client.model,
-        budget_usd=budget, costs_path=layout.costs_path,
-    )
-    tools = tools_for_command("score")
-
-    user_msg = (
+    user_prompt = (
         "Score the following candidate brief on the 4-axis rubric (defensibility, financial, "
         "implementation, hardware), each 0-10 integer. Output ONLY a JSON object "
         '{"defensibility": int, "financial": int, "implementation": int, "hardware": int}.\n\n'
         f"Brief:\n```\n{_serialize_brief(brief)}\n```"
     )
-    messages: list[dict[str, Any]] = [{"role": "user", "content": user_msg}]
-    max_tokens = cfg.budgets["max_tokens_per_turn"]
 
-    while True:
-        tracker.note_tool_turn()
-        tracker.check_wallclock()
-        tracker.check_pre_call(input_tokens_estimate=_INPUT_TOKENS_ESTIMATE, max_output_tokens=max_tokens)
+    server = mcp_server.build_server(seen_path=layout.seen_path, command="score")
+    allowed = mcp_server.allowed_tools_for("score")
+    limits = run_limits_from_config(cfg.limits, command="score")
 
-        response = client.create_message(
-            system_blocks=system_blocks, messages=messages, tools=tools,
-            max_tokens=max_tokens,
-        )
-        usage = client.extract_usage(response)
-        cost = client.compute_cost_usd(usage)
-        append_cost(layout.costs_path, CostRecord(
-            ts=datetime.now(UTC), command="score", model=client.model,
-            input_tokens=usage["input_tokens"], cached_input_tokens=0,
-            output_tokens=usage["output_tokens"],
-            cache_hits=usage["cache_hits"], cache_misses=usage["cache_misses"],
-            code_execution_container_seconds=0.0, cost_usd=cost,
-        ))
-        tracker.note_turn_cache_status(missed=usage["cache_misses"] > 0, fingerprint="score_system")
-
-        assistant = list(response.content)
-        messages.append({"role": "assistant", "content": [_block_to_dict(b) for b in assistant]})
-
-        if response.stop_reason != "tool_use":
-            return _extract_scores(assistant)
-
-        tool_uses = [b for b in assistant if getattr(b, "type", None) == "tool_use"]
-        tool_results = []
-        for tu in tool_uses:
-            result = dispatch_tool_call(name=tu.name, args=tu.input, seen_path=layout.seen_path)
-            tool_results.append({
-                "type": "tool_result", "tool_use_id": tu.id,
-                "content": json.dumps(result),
-            })
-        messages.append({"role": "user", "content": tool_results})
+    final_text = await session.run(
+        system_prompt=system_prompt,
+        user_prompt=user_prompt,
+        model=cfg.models.get("per_command", {}).get("score", cfg.models["default"]),
+        mcp_server=server,
+        allowed_tools=allowed,
+        max_turns=limits.max_tool_turns,
+        wallclock_seconds=limits.max_wallclock_seconds,
+    )
+    return _extract_scores(final_text)
 
 
-def _block_to_dict(block: Any) -> dict[str, Any]:
-    btype = getattr(block, "type", None)
-    if btype == "text":
-        return {"type": "text", "text": block.text}
-    if btype == "tool_use":
-        return {"type": "tool_use", "id": block.id, "name": block.name, "input": block.input}
-    return {"type": btype}
-
-
-def _extract_scores(content: list[Any]) -> dict[str, int]:
-    text = " ".join(b.text for b in content if getattr(b, "type", None) == "text")
+def _extract_scores(text: str) -> dict[str, int]:
     start = text.find("{")
     end = text.rfind("}")
     if start < 0 or end <= start:
@@ -193,7 +129,6 @@ def _extract_scores(content: list[Any]) -> dict[str, int]:
 
 
 def _serialize_brief(brief: Brief) -> str:
-    """Render a brief for inclusion in the scoring prompt."""
     return f"""title: {brief.title}
 slug: {brief.slug}
 lane: {brief.lane}
@@ -204,13 +139,9 @@ disqualifier_verdicts: {brief.disqualifier_verdicts}
 
 
 def _route_to_rejected(
-    brief: Brief,
-    src: Path,
-    layout: RepoLayout,
-    reason: str,
+    brief: Brief, src: Path, layout: RepoLayout, reason: str,
     scores: Scores | None = None,
 ) -> None:
-    """Auto-reject: write 00000- prefixed filename, set auto_reject_reason."""
     if brief.scores is None:
         brief.scores = {}
     if scores is not None:

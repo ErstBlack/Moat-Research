@@ -1,6 +1,6 @@
 from datetime import date
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import AsyncMock, patch
 
 from typer.testing import CliRunner
 
@@ -34,46 +34,45 @@ def _candidate_with_verdicts(layout: RepoLayout, slug: str, hw_result: dict) -> 
     return target
 
 
-@patch("mr.cli.score.run_score_loop")
-def test_score_routes_to_rejected_when_hw_keys_missing(mock_loop, tmp_path: Path, monkeypatch):
+def test_score_routes_to_rejected_when_hw_keys_missing(tmp_path: Path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("ANTHROPIC_API_KEY", "test")
     runner.invoke(app, ["init", str(tmp_path)])
     layout = RepoLayout(tmp_path)
+    # hw_result missing required keys → verify step rejects before LLM is called
     src = _candidate_with_verdicts(layout, "foo", hw_result={"peak_gpu_gb": 4})
-    mock_loop.return_value = {"defensibility": 7, "financial": 7, "implementation": 7, "hardware": 7}
 
-    result = runner.invoke(app, ["score", str(src), "--budget", "3.0"])
+    result = runner.invoke(app, ["score", str(src)])
     assert result.exit_code == 0
     assert any(layout.rejected.glob("00000-*-foo*.md"))
 
 
-@patch("mr.cli.score.run_score_loop")
-def test_score_routes_to_scored_when_predicates_pass(mock_loop, tmp_path: Path, monkeypatch):
+@patch("mr.cli.score.session.run", new_callable=AsyncMock)
+def test_score_routes_to_scored_when_predicates_pass(mock_run, tmp_path: Path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("ANTHROPIC_API_KEY", "test")
     runner.invoke(app, ["init", str(tmp_path)])
     layout = RepoLayout(tmp_path)
     src = _candidate_with_verdicts(layout, "foo",
                                    hw_result={"peak_gpu_gb": 4, "sustained_ram_gb": 32, "storage_tb": 0.5})
-    mock_loop.return_value = {"defensibility": 7, "financial": 6, "implementation": 8, "hardware": 9}
+    mock_run.return_value = '{"defensibility": 7, "financial": 6, "implementation": 8, "hardware": 5}'
 
-    result = runner.invoke(app, ["score", str(src), "--budget", "3.0"])
+    result = runner.invoke(app, ["score", str(src)])
     assert result.exit_code == 0
     moved = list(layout.scored.glob("*-20260507-foo*.md"))
     assert len(moved) == 1
 
 
-@patch("mr.cli.score.run_score_loop")
-def test_score_floor_rejection_low_defensibility(mock_loop, tmp_path: Path, monkeypatch):
+@patch("mr.cli.score.session.run", new_callable=AsyncMock)
+def test_score_floor_rejection_low_defensibility(mock_run, tmp_path: Path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("ANTHROPIC_API_KEY", "test")
     runner.invoke(app, ["init", str(tmp_path)])
     layout = RepoLayout(tmp_path)
     src = _candidate_with_verdicts(layout, "foo",
                                    hw_result={"peak_gpu_gb": 4, "sustained_ram_gb": 32, "storage_tb": 0.5})
-    mock_loop.return_value = {"defensibility": 3, "financial": 8, "implementation": 8, "hardware": 8}
+    mock_run.return_value = '{"defensibility": 2, "financial": 8, "implementation": 8, "hardware": 8}'
 
-    result = runner.invoke(app, ["score", str(src), "--budget", "3.0"])
+    result = runner.invoke(app, ["score", str(src)])
     assert result.exit_code == 0
     assert any(layout.rejected.glob("00000-*-foo*.md"))

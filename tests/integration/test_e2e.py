@@ -1,7 +1,7 @@
 """End-to-end smoke test: init → seeded WISHLIST → discover (mocked LLM)
 → score (mocked LLM) → promote → graduate."""
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import AsyncMock, patch
 
 from typer.testing import CliRunner
 
@@ -74,11 +74,12 @@ def test_full_lifecycle_e2e(tmp_path: Path, monkeypatch):
     candidate_files = list(layout.candidates.glob("*.md"))
     assert len(candidate_files) == 1
 
-    # score (mocked LLM scores)
-    with patch("mr.cli.score.run_score_loop",
-               return_value={"defensibility": 7, "financial": 6,
-                             "implementation": 8, "hardware": 9}):
-        result = runner.invoke(app, ["score", str(candidate_files[0]), "--budget", "3.0"])
+    # score (mocked session.run)
+    mock_score_run = AsyncMock(
+        return_value='{"defensibility": 7, "financial": 6, "implementation": 8, "hardware": 9}'
+    )
+    with patch("mr.cli.score.session.run", mock_score_run):
+        result = runner.invoke(app, ["score", str(candidate_files[0])])
         assert result.exit_code == 0
 
     scored_files = list(layout.scored.glob("*.md"))
