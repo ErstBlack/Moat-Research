@@ -2,7 +2,7 @@
 → score (mocked LLM) → promote → graduate."""
 from datetime import date
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import AsyncMock, patch
 
 from typer.testing import CliRunner
 
@@ -11,6 +11,22 @@ from mr.lifecycle.frontmatter import Brief, write_brief
 from mr.lifecycle.paths import RepoLayout
 
 runner = CliRunner()
+
+FAKE_FINAL_TEXT = """
+```yaml-brief
+frontmatter:
+  title: Test Brief
+  slug: test-brief
+  lane: ephemeral_public
+  niche: synthetic
+  sources:
+    - host: example.com
+      kind: archive
+  date_created: "2026-05-08"
+body: |
+  Synthetic test brief body.
+```
+"""
 
 
 def _seed_wishlist(layout: RepoLayout) -> None:
@@ -22,15 +38,24 @@ def _seed_wishlist(layout: RepoLayout) -> None:
 
 
 def _mock_discover_loop_to_emit_one_candidate(layout: RepoLayout):
-    """Patch the discover loop to write a candidate file directly,
-    bypassing the LLM."""
-    def fake(*args, **kwargs):
-        target = layout.candidates / "20260507-test-brief.md"
+    """Write a candidate file directly (bypassing LLM), and return empty string.
+
+    session.run is patched with this as side_effect. The side_effect writes the
+    candidate file directly so the test doesn't need a parseable FAKE_FINAL_TEXT
+    (which would require all required Brief fields). Returning "" means
+    _extract_candidates gets an empty string → no additional candidates from
+    parsing, but the file is already present from the direct write.
+
+    NOTE: because session.run is called inside asyncio.run(_async_discover(...)),
+    the side_effect must be set on AsyncMock so await works correctly.
+    """
+    async def fake(*args, **kwargs):
+        target = layout.candidates / "20260508-test-brief.md"
         brief = Brief(
             schema_version=1, title="Test Brief", slug="test-brief",
             lane="ephemeral_public", niche="aviation alerts",
             niche_key="alerts_aviation", delivery_form="project",
-            date_created=date(2026, 5, 7),
+            date_created=date(2026, 5, 8),
             sources=[
                 {"url": "https://a.com/", "role": "primary", "archive_status": "none"},
                 {"url": "https://b.com/", "role": "corroborating", "archive_status": "none"},
@@ -45,6 +70,7 @@ def _mock_discover_loop_to_emit_one_candidate(layout: RepoLayout):
             },
         )
         write_brief(target, brief, body="## Thesis\nTest thesis.\n")
+        return ""  # no yaml-brief blocks → _extract_candidates returns []
     return fake
 
 
@@ -59,11 +85,10 @@ def test_full_lifecycle_e2e(tmp_path: Path, monkeypatch):
     layout = RepoLayout(tmp_path)
     _seed_wishlist(layout)
 
-    # discover (mocked)
-    with patch("mr.cli.discover.run_discover_loop",
+    # discover (mocked session.run — seam is mr.cli.discover.session.run)
+    with patch("mr.cli.discover.session.run",
                side_effect=_mock_discover_loop_to_emit_one_candidate(layout)):
-        result = runner.invoke(app, ["discover", "--lane", "ephemeral_public",
-                                     "--n", "1", "--budget", "5.0"])
+        result = runner.invoke(app, ["discover", "--lane", "ephemeral_public", "--n", "1"])
         assert result.exit_code == 0
 
     candidate_files = list(layout.candidates.glob("*.md"))
