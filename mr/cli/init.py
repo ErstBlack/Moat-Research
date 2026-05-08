@@ -14,11 +14,6 @@ _DEFAULT_CONFIG_V2: dict = {
         "default": "claude-opus-4-7",
         "bulk": "claude-sonnet-4-6",
         "per_command": {"wishlist_expand": "claude-sonnet-4-6"},
-        "pricing": {
-            "claude-opus-4-7": {"input": 15.00, "output": 75.00, "cache_read": 1.50, "cache_write": 18.75},
-            "claude-sonnet-4-6": {"input": 3.00, "output": 15.00, "cache_read": 0.30, "cache_write": 3.75},
-            "claude-haiku-4-5": {"input": 1.00, "output": 5.00, "cache_read": 0.10, "cache_write": 1.25},
-        },
     },
     "weights": {
         "defensibility": 0.35,

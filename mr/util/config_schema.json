@@ -11,21 +11,7 @@
       "properties": {
         "default": {"type": "string"},
         "bulk": {"type": "string"},
-        "per_command": {"type": "object", "additionalProperties": {"type": "string"}},
-        "pricing": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["input", "output", "cache_read", "cache_write"],
-            "properties": {
-              "input": {"type": "number"},
-              "output": {"type": "number"},
-              "cache_read": {"type": "number"},
-              "cache_write": {"type": "number"}
-            }
-          }
-        }
+        "per_command": {"type": "object", "additionalProperties": {"type": "string"}}
       }
     },
     "weights": {
