@@ -56,7 +56,6 @@ async def _fake_session_run(*_args, **_kwargs) -> str:
 
 def test_full_lifecycle_e2e(tmp_path: Path, monkeypatch):
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setenv("ANTHROPIC_API_KEY", "test")
 
     # init
     result = runner.invoke(app, ["init", str(tmp_path)])

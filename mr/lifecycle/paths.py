@@ -1,7 +1,7 @@
 """Repo layout — lifecycle directory names and path resolution.
 
 Spec §6 lifecycle: candidates → scored → {rejected, approved} → graduated.
-Spec §10 state dir: .moat-research/{lock, costs.jsonl, seen.jsonl, cache/}.
+Spec §10 state dir: .moat-research/{lock, seen.jsonl, cache/}.
 Spec §12.1 disposition: closed set {candidate, scored, rejected, approved, graduated}.
 """
 from __future__ import annotations
@@ -69,10 +69,6 @@ class RepoLayout:
     @property
     def lock_path(self) -> Path:
         return self.state_dir / "lock"
-
-    @property
-    def costs_path(self) -> Path:
-        return self.state_dir / "costs.jsonl"
 
     @property
     def seen_path(self) -> Path:

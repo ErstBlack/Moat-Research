@@ -34,7 +34,6 @@ def test_repo_layout(tmp_path: Path):
     assert layout.graduated == tmp_path / "graduated"
     assert layout.state_dir == tmp_path / ".moat-research"
     assert layout.lock_path == tmp_path / ".moat-research" / "lock"
-    assert layout.costs_path == tmp_path / ".moat-research" / "costs.jsonl"
     assert layout.seen_path == tmp_path / ".moat-research" / "seen.jsonl"
     assert layout.config_path == tmp_path / "mr.yaml"
     assert layout.wishlist_path == tmp_path / "WISHLIST.md"

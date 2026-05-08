@@ -34,7 +34,6 @@ def test_wishlist_refresh_via_cli(mock_refresh, tmp_path: Path, monkeypatch):
 @patch("mr.cli.wishlist.expand_wishlist")
 def test_wishlist_expand_via_cli(mock_expand, tmp_path: Path, monkeypatch):
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setenv("ANTHROPIC_API_KEY", "test")
     runner.invoke(app, ["init", str(tmp_path)])
     mock_expand.return_value = "(no proposals)"
     result = runner.invoke(app, ["wishlist", "expand", "--seed"])

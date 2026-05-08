@@ -36,7 +36,6 @@ def _candidate_with_verdicts(layout: RepoLayout, slug: str, hw_result: dict) -> 
 
 def test_score_routes_to_rejected_when_hw_keys_missing(tmp_path: Path, monkeypatch):
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setenv("ANTHROPIC_API_KEY", "test")
     runner.invoke(app, ["init", str(tmp_path)])
     layout = RepoLayout(tmp_path)
     # hw_result missing required keys → verify step rejects before LLM is called
@@ -50,7 +49,6 @@ def test_score_routes_to_rejected_when_hw_keys_missing(tmp_path: Path, monkeypat
 @patch("mr.cli.score.session.run", new_callable=AsyncMock)
 def test_score_routes_to_scored_when_predicates_pass(mock_run, tmp_path: Path, monkeypatch):
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setenv("ANTHROPIC_API_KEY", "test")
     runner.invoke(app, ["init", str(tmp_path)])
     layout = RepoLayout(tmp_path)
     src = _candidate_with_verdicts(layout, "foo",
@@ -66,7 +64,6 @@ def test_score_routes_to_scored_when_predicates_pass(mock_run, tmp_path: Path, m
 @patch("mr.cli.score.session.run", new_callable=AsyncMock)
 def test_score_floor_rejection_low_defensibility(mock_run, tmp_path: Path, monkeypatch):
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setenv("ANTHROPIC_API_KEY", "test")
     runner.invoke(app, ["init", str(tmp_path)])
     layout = RepoLayout(tmp_path)
     src = _candidate_with_verdicts(layout, "foo",

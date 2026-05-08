@@ -30,7 +30,6 @@ def test_discover_aborts_on_empty_wishlist(tmp_path: Path, monkeypatch):
 @patch("mr.cli.discover.session.run", new_callable=AsyncMock)
 def test_discover_dispatches_to_session_run(mock_run, mock_build, tmp_path: Path, monkeypatch):
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setenv("ANTHROPIC_API_KEY", "test")
     runner.invoke(app, ["init", str(tmp_path)])
     layout = RepoLayout(tmp_path)
     _seed_wishlist(layout)
