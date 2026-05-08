@@ -99,6 +99,19 @@
         "stale_approved_days": {"type": "integer"},
         "dead_link_window_days": {"type": "integer"}
       }
+    },
+    "limits": {
+      "type": "object",
+      "required": ["max_tool_turns", "max_wallclock_seconds"],
+      "properties": {
+        "max_tool_turns": {
+          "type": "object",
+          "required": ["default"],
+          "additionalProperties": {"type": "integer", "minimum": 1},
+          "properties": {"default": {"type": "integer", "minimum": 1}}
+        },
+        "max_wallclock_seconds": {"type": "integer", "minimum": 1}
+      }
     }
   }
 }

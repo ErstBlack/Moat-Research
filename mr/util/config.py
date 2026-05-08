@@ -86,6 +86,12 @@ class ConfigError(Exception):
     """Raised on invalid mr.yaml content."""
 
 
+_LIMITS_DEFAULT: dict[str, Any] = {
+    "max_tool_turns": {"default": 12, "discover": 20, "score": 8, "wishlist_expand": 10},
+    "max_wallclock_seconds": 600,
+}
+
+
 @dataclass
 class Config:
     schema_version: int = 1
@@ -98,6 +104,7 @@ class Config:
     hardware: dict[str, Any] = field(default_factory=dict)
     budgets: dict[str, Any] = field(default_factory=dict)
     status: dict[str, Any] = field(default_factory=dict)
+    limits: dict[str, Any] = field(default_factory=lambda: dict(_LIMITS_DEFAULT))
 
 
 def _deep_merge(base: dict, override: dict) -> dict:

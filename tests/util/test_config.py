@@ -78,3 +78,43 @@ def test_empty_yaml_file_returns_defaults(tmp_path: Path):
     p.write_text("")
     cfg = load_config(p)
     assert cfg.weights["defensibility"] == 0.35
+
+
+def test_config_exposes_limits(tmp_path: Path):
+    cfg_path = tmp_path / "mr.yaml"
+    cfg_path.write_text("""\
+schema_version: 1
+models:
+  default: claude-opus-4-7
+budgets:
+  max_tokens_per_turn: 4096
+  base_input_tokens: 12000
+  avg_tool_result_tokens: 800
+  max_tool_turns: {default: 8}
+  max_wallclock_seconds: 600
+limits:
+  max_tool_turns: {default: 12, discover: 20}
+  max_wallclock_seconds: 600
+""")
+    cfg = load_config(cfg_path)
+    assert cfg.limits["max_tool_turns"]["discover"] == 20
+    assert cfg.limits["max_wallclock_seconds"] == 600
+
+
+def test_config_limits_default_when_absent(tmp_path: Path):
+    cfg_path = tmp_path / "mr.yaml"
+    cfg_path.write_text("""\
+schema_version: 1
+models:
+  default: claude-opus-4-7
+budgets:
+  max_tokens_per_turn: 4096
+  base_input_tokens: 12000
+  avg_tool_result_tokens: 800
+  max_tool_turns: {default: 8}
+  max_wallclock_seconds: 600
+""")
+    cfg = load_config(cfg_path)
+    # No `limits` section — should fall back to defaults
+    assert cfg.limits["max_wallclock_seconds"] == 600
+    assert cfg.limits["max_tool_turns"]["default"] == 12
