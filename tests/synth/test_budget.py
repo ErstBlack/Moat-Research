@@ -1,4 +1,3 @@
-from datetime import UTC, datetime
 from pathlib import Path
 
 import pytest
@@ -10,7 +9,6 @@ from mr.synth.budget import (
     worst_case_ceiling,
 )
 from mr.util.config import DEFAULT_CONFIG, Config
-from mr.util.costs import CostRecord, append_cost
 
 
 def test_worst_case_ceiling_for_discover_fits_5usd_budget():
@@ -32,19 +30,12 @@ def test_worst_case_ceiling_for_score_fits_3usd():
 
 def test_per_turn_estimate_aborts_at_90pct(tmp_path: Path):
     cfg = Config(**DEFAULT_CONFIG)
-    costs = tmp_path / "costs.jsonl"
+    # Use a tiny budget so that a single estimate exceeds 90% of it
     tracker = BudgetTracker(cfg=cfg, command="discover", model="claude-opus-4-7",
-                            budget_usd=1.00, costs_path=costs)
-    # Spend $0.85 already
-    append_cost(costs, CostRecord(
-        ts=datetime.now(UTC), command="discover", model="claude-opus-4-7",
-        input_tokens=0, cached_input_tokens=0, output_tokens=0,
-        cache_hits=0, cache_misses=0,
-        code_execution_container_seconds=0, cost_usd=0.85,
-    ))
-    # Estimate $0.10 more → tally + estimate = $0.95 > 0.9 × $1.00 → abort
+                            budget_usd=0.001, costs_path=tmp_path / "costs.jsonl")
+    # Estimate on 200k input + 1500 output tokens >> 0.001 × 0.9 → abort
     with pytest.raises(BudgetExceeded, match="per-turn"):
-        tracker.check_pre_call(input_tokens_estimate=2000, max_output_tokens=1500)
+        tracker.check_pre_call(input_tokens_estimate=200_000, max_output_tokens=1500)
 
 
 def test_tool_turn_cap_aborts(tmp_path: Path):

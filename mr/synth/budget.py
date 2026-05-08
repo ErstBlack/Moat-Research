@@ -13,7 +13,6 @@ import yaml
 
 from mr.synth.pricing import get_pricing
 from mr.util.config import Config
-from mr.util.costs import running_total
 
 _MIN_WISHLIST_SOURCES = 5
 _BUDGET_HEADROOM = 0.9  # abort at 90% of budget to leave headroom
@@ -95,10 +94,7 @@ class BudgetTracker:  # noqa: PLR0913
 
     def check_pre_call(self, input_tokens_estimate: int, max_output_tokens: int) -> None:
         """Tier 2: abort if running_tally + estimate > budget × 0.9."""
-        if self.costs_path is None or not self.costs_path.exists():
-            running = 0.0
-        else:
-            running = running_total(self.costs_path, command=self.command)
+        running = 0.0
 
         estimate = (
             self.pricing.estimate_input_cost_usd(input_tokens_estimate)

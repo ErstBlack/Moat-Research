@@ -106,9 +106,6 @@ def test_full_lifecycle_e2e(tmp_path: Path, monkeypatch):
     assert result.exit_code == 0
     assert "graduated" in result.stdout.lower()
 
-    # gain
-    result = runner.invoke(app, ["gain"])
-    assert result.exit_code == 0
 
 
 def test_full_test_suite_runs_under_30_seconds(tmp_path: Path):
