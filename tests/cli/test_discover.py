@@ -1,5 +1,5 @@
 from pathlib import Path
-from unittest.mock import AsyncMock, patch
+from unittest.mock import AsyncMock, MagicMock, patch
 
 from typer.testing import CliRunner
 
@@ -26,8 +26,9 @@ def test_discover_aborts_on_empty_wishlist(tmp_path: Path, monkeypatch):
     assert "WISHLIST" in result.stdout or "WISHLIST" in result.stderr
 
 
+@patch("mr.cli.discover.mcp_server.build_server", new_callable=MagicMock)
 @patch("mr.cli.discover.session.run", new_callable=AsyncMock)
-def test_discover_dispatches_to_session_run(mock_run, tmp_path: Path, monkeypatch):
+def test_discover_dispatches_to_session_run(mock_run, mock_build, tmp_path: Path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("ANTHROPIC_API_KEY", "test")
     runner.invoke(app, ["init", str(tmp_path)])
@@ -44,6 +45,16 @@ def test_discover_dispatches_to_session_run(mock_run, tmp_path: Path, monkeypatc
     assert "user_prompt" in call_kwargs
     assert "max_turns" in call_kwargs
     assert "wallclock_seconds" in call_kwargs
+    # Tighter value checks — ensure nothing is zero/None/empty
+    assert call_kwargs["max_turns"] > 0
+    assert call_kwargs["wallclock_seconds"] > 0
+    assert call_kwargs["model"]  # non-empty string
+    # Prompts carry meaningful content
+    assert "WISHLIST" in call_kwargs["system_prompt"] or "wishlist" in call_kwargs["system_prompt"]
+    assert "lane" in call_kwargs["user_prompt"].lower() or "candidates" in call_kwargs["user_prompt"]
+    # build_server was called with command="discover"
+    mock_build.assert_called_once()
+    assert mock_build.call_args.kwargs.get("command") == "discover"
 
 
 def test_extract_candidates_parses_yaml_brief_blocks():
@@ -69,3 +80,27 @@ trailing
 def test_extract_candidates_skips_malformed_yaml():
     text = "```yaml-brief\nnot: [valid: yaml\n```"
     assert _extract_candidates(text) == []
+
+
+def test_extract_candidates_handles_inline_fence_in_body():
+    """Body text containing an inline code fence should not truncate the YAML."""
+    text = """
+```yaml-brief
+frontmatter:
+  title: Foo
+  slug: foo
+  lane: a
+  niche: b
+  sources: [{host: example.com}]
+body: |
+  Foo body with example code:
+  ```python
+  print(1)
+  ```
+  More body after the fence.
+```
+trailing
+"""
+    out = _extract_candidates(text)
+    assert len(out) == 1
+    assert "More body after the fence" in out[0]["body"]

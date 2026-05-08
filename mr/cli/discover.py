@@ -89,18 +89,18 @@ def _extract_candidates(full: str) -> list[dict[str, Any]]:
         if start < 0:
             break
         body_start = full.find("\n", start) + 1
-        body_end = full.find(end_fence, body_start)
+        body_end = full.find("\n" + end_fence, body_start)
         if body_end < 0:
             break
         block_text = full[body_start:body_end].strip()
         try:
             parsed = yaml.safe_load(block_text)
         except yaml.YAMLError:
-            pos = body_end + len(end_fence)
+            pos = body_end + 1 + len(end_fence)
             continue
         if isinstance(parsed, dict) and "frontmatter" in parsed and "body" in parsed:
             candidates.append(parsed)
-        pos = body_end + len(end_fence)
+        pos = body_end + 1 + len(end_fence)
     return candidates
 
 
