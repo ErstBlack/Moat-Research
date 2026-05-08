@@ -118,8 +118,9 @@ async def _head(args: dict[str, Any]) -> dict[str, Any]:
     "code_eval",
     "Run a short Python snippet in a sandboxed subprocess. "
     "Use for arithmetic, dedup math, and per-brief resource estimation. "
-    "Memory cap 256MB, CPU cap 30s, no PATH inheritance. "
-    "Returns {stdout, stderr, exit_code} or {error, stdout, stderr} on timeout.",
+    "Limits: 256MB memory (RLIMIT_AS), 30s wall-clock (subprocess timeout), "
+    "30s CPU time (RLIMIT_CPU), no PATH inheritance, ephemeral working dir. "
+    "Returns {stdout, stderr, exit_code} or {error: 'timeout', stdout, stderr} on wall-clock timeout.",
     {"code": str, "timeout_seconds": int},
 )
 async def _run_code(args: dict[str, Any]) -> dict[str, Any]:
@@ -127,26 +128,27 @@ async def _run_code(args: dict[str, Any]) -> dict[str, Any]:
     timeout = int(args.get("timeout_seconds") or _CODE_DEFAULT_TIMEOUT)
     timeout = min(timeout, _CODE_DEFAULT_TIMEOUT)
 
-    tmpdir = tempfile.mkdtemp(prefix="moat-code-")
-    try:
-        proc = subprocess.run(
-            [sys.executable, "-c", code],
-            capture_output=True,
-            text=True,
-            cwd=tmpdir,
-            env={"PATH": "", "HOME": tmpdir, "TMPDIR": tmpdir},
-            timeout=timeout,
-            preexec_fn=_apply_rlimits if os.name == "posix" else None,
-            check=False,
-        )
-        return _wrap_text({
-            "stdout": proc.stdout,
-            "stderr": proc.stderr,
-            "exit_code": proc.returncode,
-        })
-    except subprocess.TimeoutExpired as ex:
-        return _wrap_text({
-            "error": "timeout",
-            "stdout": ex.stdout or "",
-            "stderr": ex.stderr or "",
-        })
+    with tempfile.TemporaryDirectory(prefix="moat-code-") as tmpdir:
+        try:
+            proc = subprocess.run(
+                [sys.executable, "-c", code],
+                capture_output=True,
+                text=True,
+                cwd=tmpdir,
+                env={"PATH": "", "HOME": tmpdir, "TMPDIR": tmpdir},
+                timeout=timeout,
+                preexec_fn=_apply_rlimits if os.name == "posix" else None,
+                check=False,
+                close_fds=True,
+            )
+            return _wrap_text({
+                "stdout": proc.stdout,
+                "stderr": proc.stderr,
+                "exit_code": proc.returncode,
+            })
+        except subprocess.TimeoutExpired as ex:
+            return _wrap_text({
+                "error": "timeout",
+                "stdout": ex.stdout or "",
+                "stderr": ex.stderr or "",
+            })
