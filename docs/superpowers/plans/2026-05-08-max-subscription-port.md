@@ -629,19 +629,16 @@ def test_run_limits_from_config():
     cfg = {
         "max_tool_turns": {"default": 12, "discover": 20},
         "max_wallclock_seconds": 600,
-        "max_output_tokens": 8192,
     }
     limits = run_limits_from_config(cfg, command="discover")
     assert limits.max_tool_turns == 20
     assert limits.max_wallclock_seconds == 600
-    assert limits.max_output_tokens == 8192
 
 
 def test_run_limits_falls_back_to_default():
     cfg = {
         "max_tool_turns": {"default": 12},
         "max_wallclock_seconds": 600,
-        "max_output_tokens": 8192,
     }
     limits = run_limits_from_config(cfg, command="score")
     assert limits.max_tool_turns == 12
@@ -680,7 +677,6 @@ class LimitExceeded(Exception):  # noqa: N818
 class RunLimits:
     max_tool_turns: int
     max_wallclock_seconds: int
-    max_output_tokens: int
 
 
 def run_limits_from_config(cfg: dict[str, Any], *, command: str) -> RunLimits:
@@ -689,7 +685,6 @@ def run_limits_from_config(cfg: dict[str, Any], *, command: str) -> RunLimits:
     return RunLimits(
         max_tool_turns=turns.get(command, turns["default"]),
         max_wallclock_seconds=cfg["max_wallclock_seconds"],
-        max_output_tokens=cfg["max_output_tokens"],
     )
 
 
@@ -797,7 +792,6 @@ async def test_session_run_returns_concatenated_text(mock_query):
             mcp_server=None,
             allowed_tools=[],
             max_turns=5,
-            max_output_tokens=1024,
             wallclock_seconds=60,
         )
     assert "Part 1." in out
@@ -820,7 +814,6 @@ async def test_session_run_wallclock_timeout(monkeypatch):
             mcp_server=None,
             allowed_tools=[],
             max_turns=5,
-            max_output_tokens=1024,
             wallclock_seconds=1,
         )
 
@@ -840,7 +833,6 @@ async def test_session_run_propagates_sdk_errors(monkeypatch):
             mcp_server=None,
             allowed_tools=[],
             max_turns=5,
-            max_output_tokens=1024,
             wallclock_seconds=60,
         )
 ```
@@ -883,7 +875,6 @@ async def run(
     mcp_server: Any,
     allowed_tools: list[str],
     max_turns: int,
-    max_output_tokens: int,
     wallclock_seconds: int,
 ) -> str:
     """Run a single, one-shot Claude Agent SDK query and return the final text."""
@@ -955,7 +946,7 @@ In `mr/util/config_schema.json`, add this property block alongside the existing 
 ```json
 "limits": {
   "type": "object",
-  "required": ["max_tool_turns", "max_wallclock_seconds", "max_output_tokens"],
+  "required": ["max_tool_turns", "max_wallclock_seconds"],
   "properties": {
     "max_tool_turns": {
       "type": "object",
@@ -963,8 +954,7 @@ In `mr/util/config_schema.json`, add this property block alongside the existing 
       "additionalProperties": {"type": "integer", "minimum": 1},
       "properties": {"default": {"type": "integer", "minimum": 1}}
     },
-    "max_wallclock_seconds": {"type": "integer", "minimum": 1},
-    "max_output_tokens": {"type": "integer", "minimum": 1}
+    "max_wallclock_seconds": {"type": "integer", "minimum": 1}
   }
 }
 ```
@@ -979,7 +969,6 @@ def limits(self) -> dict[str, Any]:
     return self._raw.get("limits", {
         "max_tool_turns": {"default": 12, "discover": 20, "score": 8, "wishlist_expand": 10},
         "max_wallclock_seconds": 600,
-        "max_output_tokens": 8192,
     })
 ```
 
@@ -1004,7 +993,6 @@ budgets:
 limits:
   max_tool_turns: {default: 12, discover: 20}
   max_wallclock_seconds: 600
-  max_output_tokens: 8192
 """)
     cfg = load_config(cfg_path)
     assert cfg.limits["max_tool_turns"]["discover"] == 20
@@ -1115,7 +1103,6 @@ async def _async_discover(
         mcp_server=server,
         allowed_tools=allowed,
         max_turns=limits.max_tool_turns,
-        max_output_tokens=limits.max_output_tokens,
         wallclock_seconds=limits.max_wallclock_seconds,
     )
     return _extract_candidates(final_text)
@@ -1359,7 +1346,6 @@ async def _async_score(
         mcp_server=server,
         allowed_tools=allowed,
         max_turns=limits.max_tool_turns,
-        max_output_tokens=limits.max_output_tokens,
         wallclock_seconds=limits.max_wallclock_seconds,
     )
     return _extract_scores(final_text)
@@ -1475,7 +1461,6 @@ final_text = await session.run(
     mcp_server=server,
     allowed_tools=allowed,
     max_turns=limits.max_tool_turns,
-    max_output_tokens=limits.max_output_tokens,
     wallclock_seconds=limits.max_wallclock_seconds,
 )
 ```

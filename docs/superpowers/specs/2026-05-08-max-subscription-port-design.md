@@ -96,7 +96,6 @@ class LimitExceeded(Exception): ...
 class RunLimits:
     max_tool_turns: int
     max_wallclock_seconds: int
-    max_output_tokens: int
 
 def cold_corpus_preflight(wishlist_path: Path) -> None: ...
     # Verbatim from budget.py; raises LimitExceeded if WISHLIST < 5 sources or missing.
@@ -105,7 +104,6 @@ def cold_corpus_preflight(wishlist_path: Path) -> None: ...
 No `BudgetTracker` equivalent class. Enforcement is delegated:
 - `max_tool_turns` → SDK `max_turns` option (raises SDK exception when hit)
 - `max_wallclock_seconds` → `asyncio.wait_for` timeout (`session.py` translates `asyncio.TimeoutError` → `LimitExceeded`)
-- `max_output_tokens` → SDK option
 
 ### Replaced files (mechanical trim)
 
@@ -133,7 +131,6 @@ limits:
     score: 8
     wishlist_expand: 10
   max_wallclock_seconds: 600
-  max_output_tokens: 8192
 ```
 
 `models.per_command` preserved (passed to SDK as `model` option per command).
