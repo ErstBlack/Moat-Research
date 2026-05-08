@@ -38,9 +38,10 @@ def version() -> None:
 @app.command(name="init")
 def init_cmd(
     root: Path = typer.Argument(None, help="Repo root (default: cwd)"),  # noqa: B008
+    migrate: bool = typer.Option(False, "--migrate", help="Overwrite existing mr.yaml (backs up to mr.yaml.bak)."),  # noqa: B008
 ) -> None:
-    """Bootstrap dirs, mr.yaml, prompts/, WISHLIST.md (idempotent)."""
-    init_module.init(root or Path.cwd())
+    """Bootstrap dirs, mr.yaml, prompts/, WISHLIST.md."""
+    init_module.init(root or Path.cwd(), migrate=migrate)
 
 
 @app.command(name="status")
