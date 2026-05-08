@@ -4,6 +4,14 @@ A solo-operator CLI tool plus structured corpus for discovering, scoring, and gr
 
 See `docs/superpowers/specs/2026-05-07-moat-research-design.md` for the full design.
 
+## Prerequisites
+
+- Python 3.12+
+- An active Claude Max subscription
+- [Claude Code](https://docs.claude.com/en/docs/claude-code) installed and authenticated locally (`claude --version`)
+
+The `mr` CLI uses the [Claude Agent SDK](https://github.com/anthropics/claude-agent-sdk-python) to ride your Max subscription via the local `claude` binary. There is no `ANTHROPIC_API_KEY` configuration. Each invocation of `mr discover`, `mr score`, or `mr wishlist expand` opens a one-shot session through Claude Code.
+
 ## Install
 
 ```bash
@@ -14,9 +22,9 @@ mr init
 ## First-session walkthrough
 
 ```bash
-mr wishlist expand --seed --budget 0.50    # populate WISHLIST from empty
-mr discover --lane ephemeral_public --n 5 --budget 5.0
-mr score candidates/*.md --budget 3.0
+mr wishlist expand --seed                   # populate WISHLIST from empty
+mr discover --lane ephemeral_public --n 5
+mr score candidates/*.md
 mr status                                   # see counts
 mr promote scored/<top-composite>.md        # accept best brief
 mr graduate approved/<top>.md > /tmp/init.txt
@@ -38,11 +46,12 @@ claude < /tmp/init.txt                      # spawn the new project
 | `mr wishlist expand` | yes | LLM proposes new sources for review |
 | `mr wishlist refresh` | no | Re-verify sources (HEAD + robots + Wayback) |
 | `mr status` | no | Counts + stale-approved + exploration flags |
-| `mr gain` | no | Spend summary from costs.jsonl |
 
 ## Configuration
 
-`mr.yaml` controls model selection, weights, budgets, lanes, niche aliases, interest filters, and hardware envelope. Defaults are baked-in; only override what you need to change. Schema is JSON-Schema-validated at load.
+`mr.yaml` controls model selection, weights, lanes, niche aliases, interest filters, hardware envelope, and runtime limits (tool-turn cap and wallclock cap per command). Defaults are baked-in; only override what you need to change. Schema is JSON-Schema-validated at load.
+
+If you have an `mr.yaml` from a pre-Max-subscription version of this project (`schema_version: 1`), run `mr init --migrate` to back it up to `mr.yaml.bak` and write a fresh v2 config.
 
 ## Spec coverage
 
