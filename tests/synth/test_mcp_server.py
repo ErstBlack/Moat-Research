@@ -86,3 +86,71 @@ async def test_run_code_handles_nonzero_exit():
     payload = _text_payload(result)
     assert payload["exit_code"] != 0
     assert "ValueError" in payload["stderr"]
+
+
+@pytest.mark.anyio
+@patch("mr.tools.firecrawl.firecrawl_scrape")
+@patch("mr.tools.firecrawl.is_firecrawl_available", return_value=True)
+async def test_firecrawl_when_available(_mock_avail, mock_scrape, tmp_path: Path):
+    from mr.tools.firecrawl import FirecrawlResult
+    mock_scrape.return_value = FirecrawlResult(markdown="# Hello", url="https://example.com/")
+    fn = mcp_server._make_firecrawl()
+    result = await fn.handler({"url": "https://example.com/"})
+    payload = _text_payload(result)
+    assert payload["markdown"] == "# Hello"
+
+
+def test_build_server_discover_includes_seen_and_code_tool(tmp_path: Path):
+    server = mcp_server.build_server(
+        seen_path=tmp_path / "seen.jsonl",
+        firecrawl_available=False,
+        command="discover",
+    )
+    names = mcp_server.tool_names_for(server)
+    assert "seen_lookup" in names
+    assert "code_eval" in names
+    assert "wayback" in names
+    assert "firecrawl" not in names
+
+
+def test_build_server_score_excludes_seen(tmp_path: Path):
+    server = mcp_server.build_server(
+        seen_path=tmp_path / "seen.jsonl",
+        firecrawl_available=False,
+        command="score",
+    )
+    names = mcp_server.tool_names_for(server)
+    assert "seen_lookup" not in names
+    assert "wayback" in names
+    assert "robots" in names
+    assert "head" in names
+    assert "code_eval" in names
+
+
+def test_build_server_includes_firecrawl_when_available(tmp_path: Path):
+    server = mcp_server.build_server(
+        seen_path=tmp_path / "seen.jsonl",
+        firecrawl_available=True,
+        command="discover",
+    )
+    names = mcp_server.tool_names_for(server)
+    assert "firecrawl" in names
+
+
+def test_allowed_tools_score_excludes_websearch():
+    out = mcp_server.allowed_tools_for("score", firecrawl_available=False)
+    assert "WebSearch" not in out
+    assert "WebFetch" in out
+    assert "mcp__moat__wayback" in out
+
+
+def test_allowed_tools_discover_includes_websearch():
+    out = mcp_server.allowed_tools_for("discover", firecrawl_available=False)
+    assert "WebSearch" in out
+    assert "mcp__moat__seen_lookup" in out
+    assert "mcp__moat__firecrawl" not in out
+
+
+def test_allowed_tools_includes_firecrawl_when_available():
+    out = mcp_server.allowed_tools_for("discover", firecrawl_available=True)
+    assert "mcp__moat__firecrawl" in out

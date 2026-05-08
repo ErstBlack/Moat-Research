@@ -11,6 +11,7 @@ inner function is decorated inside the factory so ``seen_path`` is captured.
 """
 from __future__ import annotations
 
+import asyncio
 import json
 import os
 import resource
@@ -20,7 +21,8 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
-from claude_agent_sdk import tool
+import mcp.types as _mcp_types
+from claude_agent_sdk import create_sdk_mcp_server, tool
 
 
 def _wrap_text(payload: dict[str, Any]) -> dict[str, Any]:
@@ -152,3 +154,106 @@ async def _run_code(args: dict[str, Any]) -> dict[str, Any]:
                 "stdout": ex.stdout or "",
                 "stderr": ex.stderr or "",
             })
+
+
+def _make_firecrawl():
+    """Return an SdkMcpTool for firecrawl. Only call when firecrawl is available."""
+
+    @tool(
+        "firecrawl",
+        "Fallback for JS-rendered pages. Returns {markdown, url}. "
+        "Only registered when MR_FIRECRAWL_API_KEY is set.",
+        {"url": str},
+    )
+    async def firecrawl_tool(args: dict[str, Any]) -> dict[str, Any]:
+        from mr.tools.firecrawl import firecrawl_scrape
+        result = firecrawl_scrape(args["url"])
+        return _wrap_text({"markdown": result.markdown, "url": result.url})
+
+    return firecrawl_tool
+
+
+_COMMAND_TOOLS: dict[str, list[str]] = {
+    "discover": ["seen_lookup", "wayback", "code_eval", "firecrawl"],
+    "score": ["wayback", "robots", "head", "code_eval"],
+    "wishlist_expand": ["seen_lookup", "code_eval", "firecrawl"],
+}
+
+
+def build_server(
+    *,
+    seen_path: Path,
+    firecrawl_available: bool,
+    command: str,
+):
+    """Build an in-process MCP server with the tools needed for `command`.
+
+    `seen_path` is captured via closure for `seen_lookup`. `firecrawl` is
+    only registered when `firecrawl_available` is True.
+    """
+    wanted = _COMMAND_TOOLS.get(command, [])
+    tools_list = []
+    for name in wanted:
+        if name == "seen_lookup":
+            tools_list.append(_make_seen_lookup(seen_path))
+        elif name == "wayback":
+            tools_list.append(_wayback)
+        elif name == "robots":
+            tools_list.append(_robots)
+        elif name == "head":
+            tools_list.append(_head)
+        elif name == "code_eval":
+            tools_list.append(_run_code)
+        elif name == "firecrawl" and firecrawl_available:
+            tools_list.append(_make_firecrawl())
+    return create_sdk_mcp_server(name="moat", version="1.0.0", tools=tools_list)
+
+
+async def _collect_tool_names(server) -> set[str]:
+    """Async helper: call the MCP server's list_tools handler and return names.
+
+    SDK server is a McpSdkServerConfig dict with 'instance' key pointing to an
+    mcp.server.lowlevel.server.Server. The ListToolsRequest handler returns a
+    ServerResult whose .root is a ListToolsResult with a .tools list.
+    """
+    instance = server["instance"]
+    handler = instance.request_handlers.get(_mcp_types.ListToolsRequest)
+    if not handler:
+        return set()
+    result = await handler(None)
+    # result is ServerResult; .root is ListToolsResult with .tools
+    tools_list = getattr(result.root, "tools", [])
+    return {t.name for t in tools_list}
+
+
+def tool_names_for(server) -> set[str]:
+    """Extract registered tool names from an SDK MCP server.
+
+    The SDK MCP server (McpSdkServerConfig) is a dict with an 'instance' key
+    holding an mcp.server.lowlevel.server.Server. Tool names are retrieved by
+    calling the ListToolsRequest handler; result.root.tools holds Tool objects
+    with .name attributes.
+    """
+    return asyncio.run(_collect_tool_names(server))
+
+
+MCP_TOOL_PREFIX = "mcp__moat__"
+
+
+def allowed_tools_for(command: str, firecrawl_available: bool) -> list[str]:
+    """Whitelist passed as `allowed_tools` to ClaudeAgentOptions.
+
+    Includes our MCP tools (prefixed `mcp__moat__`) plus Claude Code's
+    `WebFetch` (always) and `WebSearch` (excluded for `score` to prevent
+    drift into adjacent opportunities, per prompts/score.md).
+    """
+    wanted = _COMMAND_TOOLS.get(command, [])
+    out: list[str] = []
+    for name in wanted:
+        if name == "firecrawl" and not firecrawl_available:
+            continue
+        out.append(f"{MCP_TOOL_PREFIX}{name}")
+    out.append("WebFetch")
+    if command in ("discover", "wishlist_expand"):
+        out.append("WebSearch")
+    return out
