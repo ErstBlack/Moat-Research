@@ -7,6 +7,7 @@ from pathlib import Path
 import typer
 
 from mr.lifecycle.paths import RepoLayout
+from mr.synth.limits import LimitExceeded
 from mr.util.config import load_config
 from mr.util.lock import exclusive_lock
 from mr.wishlist.add import add_source
@@ -47,6 +48,13 @@ def expand_cmd(
     """LLM proposes new WISHLIST sources for operator review."""
     layout = RepoLayout(root or Path.cwd())
     cfg = load_config(layout.config_path)
-    with exclusive_lock(layout.lock_path):
-        output = expand_wishlist(layout, cfg, seed=seed)
+    try:
+        with exclusive_lock(layout.lock_path):
+            output = expand_wishlist(layout, cfg, seed=seed)
+    except LimitExceeded as e:
+        typer.echo(f"error: {e}", err=True)
+        raise typer.Exit(code=2) from e
+    except RuntimeError as e:
+        typer.echo(f"error: {e}", err=True)
+        raise typer.Exit(code=1) from e
     typer.echo(output)

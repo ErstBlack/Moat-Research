@@ -4,6 +4,7 @@ from unittest.mock import patch
 from typer.testing import CliRunner
 
 from mr.cli.main import app
+from mr.synth.limits import LimitExceeded
 
 runner = CliRunner()
 
@@ -39,3 +40,13 @@ def test_wishlist_expand_via_cli(mock_expand, tmp_path: Path, monkeypatch):
     result = runner.invoke(app, ["wishlist", "expand", "--seed"])
     assert result.exit_code == 0
     mock_expand.assert_called_once()
+
+
+@patch("mr.cli.wishlist.expand_wishlist")
+def test_wishlist_expand_limit_exceeded_exits_code_2(mock_expand, tmp_path: Path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    runner.invoke(app, ["init", str(tmp_path)])
+    mock_expand.side_effect = LimitExceeded("test wallclock")
+    result = runner.invoke(app, ["wishlist", "expand", "--seed"])
+    assert result.exit_code == 2
+    assert "test wallclock" in result.stderr
